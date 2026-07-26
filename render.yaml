@@ -1,0 +1,46 @@
+services:
+  - name: coachos-booking
+    type: web
+    runtime: docker
+    plan: free
+    region: frankfurt
+    dockerfilePath: ./Dockerfile
+    dockerContext: ./
+    healthCheckPath: /
+    envVars:
+      - key: DATABASE_URL
+        sync: false
+      - key: DATABASE_DIRECT_URL
+        sync: false
+      - key: NEXTAUTH_SECRET
+        sync: false
+      - key: CALENDSO_ENCRYPTION_KEY
+        sync: false
+      - key: CRON_API_KEY
+        sync: false
+      - key: NEXTAUTH_URL
+        value: https://coachos-booking.onrender.com/api/auth
+      - key: NEXT_PUBLIC_WEBAPP_URL
+        value: https://coachos-booking.onrender.com
+      - key: NEXT_PUBLIC_WEBSITE_URL
+        value: https://coachos-booking.onrender.com
+      - key: NEXT_PUBLIC_EMBED_LIB_URL
+        value: https://coachos-booking.onrender.com/embed/embed.js
+      - key: ALLOWED_HOSTNAMES
+        value: coachos-booking.onrender.com
+      - key: CALCOM_TELEMETRY_DISABLED
+        value: "1"
+      - key: CRON_ENABLE_APP_SYNC
+        value: "false"
+      - key: NEXT_PUBLIC_APP_NAME
+        value: CoachOS Booking
+      - key: NEXT_PUBLIC_COMPANY_NAME
+        value: CoachOS
+      - key: NEXT_PUBLIC_SUPPORT_MAIL_ADDRESS
+        value: support@coachos.example
+      - key: NEXT_PUBLIC_SENDER_ID
+        value: CoachOS
+      - key: GOOGLE_LOGIN_ENABLED
+        value: "false"
+      - key: OUTLOOK_LOGIN_ENABLED
+        value: "false"
