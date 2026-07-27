@@ -30,14 +30,14 @@ async function handler(req: NextRequest) {
   } = passwordResetRequestSchema.parse(body);
   const cookieStore = await cookies();
 
-  const cookieToken = cookieStore.get("calcom.csrf_token")?.value;
+  const cookieToken = cookieStore.get("coachos.csrf_token")?.value;
 
   if (submittedToken !== cookieToken) {
     return NextResponse.json({ error: "Invalid CSRF token" }, { status: 403 });
   }
 
   // token verified, delete the cookie / a resubmit on failure requires a new csrf token.
-  cookieStore.delete("calcom.csrf_token");
+  cookieStore.delete("coachos.csrf_token");
 
   const remoteIp = getIP(req);
   await checkRateLimitAndThrowError({

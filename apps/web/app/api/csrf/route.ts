@@ -18,7 +18,7 @@ export async function GET(req: Request) {
   const token = randomBytes(32).toString("hex");
   const res = NextResponse.json({ csrfToken: token });
 
-  res.cookies.set("calcom.csrf_token", token, {
+  res.cookies.set("coachos.csrf_token", token, {
     httpOnly: true,
     secure: useSecureCookies,
     sameSite,
