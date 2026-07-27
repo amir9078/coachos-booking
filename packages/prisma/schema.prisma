@@ -2537,7 +2537,7 @@ enum PhoneNumberSubscriptionStatus {
   UNPAID
 }
 
-// Cal AI Voice Agent
+// CoachOS AI Voice Agent
 model Agent {
   id   String @id @default(uuid())
   name String
