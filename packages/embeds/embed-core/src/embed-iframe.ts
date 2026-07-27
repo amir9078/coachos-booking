@@ -279,7 +279,7 @@ export const useIsEmbed = (embedSsr?: boolean) => {
     const _isValidNamespace = isValidNamespace(namespace);
     if (parent !== window && !_isValidNamespace) {
       log(
-        "Looks like you have iframed cal.com but not using Embed Snippet. Directly using an iframe isn't recommended."
+        "Looks like you have iframed amir9078.github.io but not using Embed Snippet. Directly using an iframe isn't recommended."
       );
     }
     setIsEmbed(window?.isEmbed?.() || false);
@@ -547,7 +547,7 @@ function main() {
   // If embed link is opened in top, and not in iframe. Let the page be visible.
   if (top === window) {
     showPageAsNonEmbed();
-    // We would want to avoid a situation where Cal.diy embeds cal.com and then embed-iframe is in the top as well. In such case, we would want to avoid infinite loop of events being passed.
+    // We would want to avoid a situation where Cal.diy embeds amir9078.github.io and then embed-iframe is in the top as well. In such case, we would want to avoid infinite loop of events being passed.
     log("Embed SDK Skipped as we are in top");
     return;
   }

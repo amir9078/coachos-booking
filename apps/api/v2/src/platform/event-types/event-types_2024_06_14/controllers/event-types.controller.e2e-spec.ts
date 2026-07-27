@@ -1,12 +1,12 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_06_14 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_06_14 } from "@coachos/platform-constants";
 import {
   BookerLayoutsInputEnum_2024_06_14,
   BookingWindowPeriodInputTypeEnum_2024_06_14,
   ConfirmationPolicyEnum,
   FrequencyInput,
   NoticeThresholdUnitEnum,
-} from "@calcom/platform-enums";
-import { SchedulingType } from "@calcom/platform-libraries";
+} from "@coachos/platform-enums";
+import { SchedulingType } from "@coachos/platform-libraries";
 import {
   type ApiSuccessResponse,
   BaseConfirmationPolicy_2024_06_14,
@@ -19,10 +19,10 @@ import {
   supportedIntegrations,
   TeamEventTypeOutput_2024_06_14,
   type UpdateEventTypeInput_2024_06_14,
-} from "@calcom/platform-types";
-import { FAILED_RECURRING_EVENT_TYPE_WITH_BOOKER_LIMITS_ERROR_MESSAGE } from "@calcom/platform-types/event-types/event-types_2024_06_14/inputs/validators/CantHaveRecurrenceAndBookerActiveBookingsLimit";
-import { REQUIRES_AT_LEAST_ONE_PROPERTY_ERROR } from "@calcom/platform-types/utils/RequiresOneOfPropertiesWhenNotDisabled";
-import type { EventType, PlatformOAuthClient, Schedule, Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import { FAILED_RECURRING_EVENT_TYPE_WITH_BOOKER_LIMITS_ERROR_MESSAGE } from "@coachos/platform-types/event-types/event-types_2024_06_14/inputs/validators/CantHaveRecurrenceAndBookerActiveBookingsLimit";
+import { REQUIRES_AT_LEAST_ONE_PROPERTY_ERROR } from "@coachos/platform-types/utils/RequiresOneOfPropertiesWhenNotDisabled";
+import type { EventType, PlatformOAuthClient, Schedule, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -210,7 +210,7 @@ describe("Event types Endpoints", () => {
       });
       apiKeysRepositoryFixture = new ApiKeysRepositoryFixture(moduleRef);
       const { keyString } = await apiKeysRepositoryFixture.createApiKey(user.id, null);
-      apiKeyString = `cal_test_${keyString}`;
+      apiKeyString = `coachos_test_${keyString}`;
 
       systemAdminUser = await userRepositoryFixture.create({
         email: `event-types-2024-06-14-system-admin-${randomString()}@api.com`,
@@ -221,7 +221,7 @@ describe("Event types Endpoints", () => {
         systemAdminUser.id,
         null
       );
-      systemAdminApiKeyString = `cal_test_${adminKeyString}`;
+      systemAdminApiKeyString = `coachos_test_${adminKeyString}`;
 
       orgUser = await userRepositoryFixture.create({
         email: `event-types-2024-06-14-org-user-${randomString()}@example.com`,
@@ -232,7 +232,7 @@ describe("Event types Endpoints", () => {
         orgUser.id,
         null
       );
-      apiKeyOrgUser = `cal_test_${orgUserApiKeyString}`;
+      apiKeyOrgUser = `coachos_test_${orgUserApiKeyString}`;
 
       profileRepositoryFixture.create({
         uid: `usr-${orgUser.id}`,
@@ -362,7 +362,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(404);
@@ -399,7 +399,7 @@ describe("Event types Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(400);
@@ -425,7 +425,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(400);
@@ -448,7 +448,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(400);
@@ -565,7 +565,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(201)
@@ -666,7 +666,7 @@ describe("Event types Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(201);
@@ -683,7 +683,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username with sortCreatedAt=desc`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}&sortCreatedAt=desc`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -754,7 +754,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username should not return hidden event type if auth of non event type owner provided`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyOrgUser}`)
         .expect(200);
 
@@ -774,7 +774,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username with sortCreatedAt=asc`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}&sortCreatedAt=asc`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -794,7 +794,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username without sortCreatedAt parameter`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -814,7 +814,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username should not return hidden event type if no auth provided`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200);
 
       const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14[]> = response.body;
@@ -833,7 +833,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and eventSlug`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}&eventSlug=${eventType.slug}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -893,7 +893,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and eventSlug should not return hidden event type if auth of non event type owner provided`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}&eventSlug=${hiddenEventType.slug}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyOrgUser}`)
         .expect(200);
 
@@ -907,7 +907,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and eventSlug should not return hidden event type if no auth provided`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${user.username}&eventSlug=${hiddenEventType.slug}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200);
 
       const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14[]> = response.body;
@@ -920,7 +920,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and orgSlug`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${orgUser.username}&orgSlug=${organization.slug}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -939,7 +939,7 @@ describe("Event types Endpoints", () => {
         .get(
           `/api/v2/event-types?username=${orgUser.username}&orgSlug=${organization.slug}&eventSlug=${orgUserEventType1.slug}`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -954,7 +954,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and orgId`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${orgUser.username}&orgId=${organization.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -995,7 +995,7 @@ describe("Event types Endpoints", () => {
 
       await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(400);
@@ -1023,7 +1023,7 @@ describe("Event types Endpoints", () => {
 
       const createResponse = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(201);
@@ -1042,7 +1042,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${createdEventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send({
           seats: {
             seatsPerTimeSlot: 4,
@@ -1074,7 +1074,7 @@ describe("Event types Endpoints", () => {
       await request(app.getHttpServer())
         .post("/api/v2/event-types")
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(400);
     });
@@ -1095,7 +1095,7 @@ describe("Event types Endpoints", () => {
       const createResponse = await request(app.getHttpServer())
         .post("/api/v2/event-types")
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(201);
 
@@ -1112,7 +1112,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${createdEventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send({
           seats: {
@@ -1140,7 +1140,7 @@ describe("Event types Endpoints", () => {
 
       const createResponse = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(201);
@@ -1159,7 +1159,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${createdEventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send({
           locations: [
             {
@@ -1197,7 +1197,7 @@ describe("Event types Endpoints", () => {
       await request(app.getHttpServer())
         .post("/api/v2/event-types")
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(400);
     });
@@ -1219,7 +1219,7 @@ describe("Event types Endpoints", () => {
       const createResponse = await request(app.getHttpServer())
         .post("/api/v2/event-types")
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(201);
 
@@ -1237,7 +1237,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${createdEventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send({
           confirmationPolicy: {
             type: ConfirmationPolicyEnum.ALWAYS,
@@ -1345,7 +1345,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${eventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .send(body)
         .expect(200)
@@ -1475,7 +1475,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${eventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(404);
     });
@@ -1493,7 +1493,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${eventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(400);
     });
@@ -1506,7 +1506,7 @@ describe("Event types Endpoints", () => {
       return request(app.getHttpServer())
         .patch(`/api/v2/event-types/${eventType.id}`)
         .set("Authorization", `Bearer ${apiKeyString}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(400);
     });
@@ -1514,7 +1514,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/:id`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types/${eventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -1559,7 +1559,7 @@ describe("Event types Endpoints", () => {
     it("system admin can access another user's event type by id", async () => {
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${orgUserEventType1.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${systemAdminApiKeyString}`)
         .expect(200)
         .then((response) => {
@@ -1595,7 +1595,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${teamEventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200)
         .then(async (response) => {
@@ -1639,7 +1639,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${teamEventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200)
         .then(async (response) => {
@@ -1654,7 +1654,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/event-types by username and eventSlug`, async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/event-types?username=${username}&eventSlug=${eventType.slug}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
 
@@ -1695,7 +1695,7 @@ describe("Event types Endpoints", () => {
     it(`/GET/:id not existing`, async () => {
       await request(app.getHttpServer())
         .get(`/api/v2/event-types/1000`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(404);
     });
@@ -1703,7 +1703,7 @@ describe("Event types Endpoints", () => {
     it("should delete event type", async () => {
       return request(app.getHttpServer())
         .delete(`/api/v2/event-types/${eventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200);
     });
@@ -1729,7 +1729,7 @@ describe("Event types Endpoints", () => {
 
           const response = await request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(400);
@@ -1753,7 +1753,7 @@ describe("Event types Endpoints", () => {
 
           const response = await request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(400);
@@ -1779,7 +1779,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(201)
@@ -1802,7 +1802,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .patch(`/api/v2/event-types/${eventTypeWithBookerActiveBookingsLimitId}`)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(200)
@@ -1831,7 +1831,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(201)
@@ -1863,7 +1863,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(201)
@@ -1922,7 +1922,7 @@ describe("Event types Endpoints", () => {
 
           const response = await request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(400);
@@ -1946,7 +1946,7 @@ describe("Event types Endpoints", () => {
 
           const createResponse = await request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(createBody)
             .expect(201);
@@ -1963,7 +1963,7 @@ describe("Event types Endpoints", () => {
 
           const updateResponse = await request(app.getHttpServer())
             .patch(`/api/v2/event-types/${createdEventType.id}`)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(updateBody)
             .expect(400);
@@ -1993,7 +1993,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(201)
@@ -2025,7 +2025,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .post("/api/v2/event-types")
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(201)
@@ -2049,7 +2049,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .patch(`/api/v2/event-types/${eventTypeWithConfirmationTimeId}`)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(200)
@@ -2077,7 +2077,7 @@ describe("Event types Endpoints", () => {
 
           return request(app.getHttpServer())
             .patch(`/api/v2/event-types/${eventTypeWithConfirmationTimeId}`)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .send(body)
             .expect(200)
@@ -2233,7 +2233,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(body)
         .expect(400);
     });
@@ -2340,7 +2340,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${legacyEventTypeId1}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -2469,7 +2469,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${legacyEventTypeId2}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -2525,7 +2525,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${eventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -2555,7 +2555,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${eventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -2648,7 +2648,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(201)
           .then(async (response) => {
@@ -2670,7 +2670,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(201)
           .then(async (response) => {
@@ -2716,7 +2716,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(201)
           .then(async (response) => {
@@ -2747,7 +2747,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(201)
           .then(async (response) => {
@@ -2775,7 +2775,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .patch(`/api/v2/event-types/${eventTypeWithGuestsDisabledId}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(200)
           .then(async (response) => {
@@ -2799,7 +2799,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .patch(`/api/v2/event-types/${eventTypeWithGuestsDisabledId}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(200)
           .then(async (response) => {
@@ -2847,7 +2847,7 @@ describe("Event types Endpoints", () => {
 
         return request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(body)
           .expect(201)
           .then(async (response) => {
@@ -2968,7 +2968,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${legacyEventTypeId1}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -3004,7 +3004,7 @@ describe("Event types Endpoints", () => {
 
       return request(app.getHttpServer())
         .get(`/api/v2/event-types/${legacyEventTypeId1}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .expect(200)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -3048,7 +3048,7 @@ describe("Event types Endpoints", () => {
 
         const response = await request(app.getHttpServer())
           .get(`/api/v2/event-types/${legacyEventType.id}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .expect(200);
 
         const responseBody: ApiSuccessResponse<EventTypeOutput_2024_06_14> = response.body;
@@ -3081,7 +3081,7 @@ describe("Event types Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(createPayload);
 
       expect(response.status).toBe(400);
@@ -3101,7 +3101,7 @@ describe("Event types Endpoints", () => {
 
       const createResponse = await request(app.getHttpServer())
         .post("/api/v2/event-types")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(createPayload)
         .expect(201);
 
@@ -3118,7 +3118,7 @@ describe("Event types Endpoints", () => {
 
       const patchResponse = await request(app.getHttpServer())
         .patch(`/api/v2/event-types/${createdEventType.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
         .send(patchPayload);
 
       expect(patchResponse.status).toBe(400);
@@ -3141,7 +3141,7 @@ describe("Event types Endpoints", () => {
 
         const response = await request(app.getHttpServer())
           .post("/api/v2/event-types")
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(createPayload)
           .expect(201);
 
@@ -3163,7 +3163,7 @@ describe("Event types Endpoints", () => {
 
         const response = await request(app.getHttpServer())
           .patch(`/api/v2/event-types/${createdEventTypeId}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_06_14)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_06_14)
           .send(updatePayload)
           .expect(200);
 

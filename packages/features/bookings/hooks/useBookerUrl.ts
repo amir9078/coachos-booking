@@ -1,4 +1,4 @@
-import { WEBAPP_URL, WEBSITE_URL } from "@calcom/lib/constants";
+import { WEBAPP_URL, WEBSITE_URL } from "@coachos/lib/constants";
 
 export const useBookerUrl = () => {
   return WEBSITE_URL ?? WEBAPP_URL;

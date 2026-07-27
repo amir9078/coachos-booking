@@ -1,5 +1,5 @@
 import process from "node:process";
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Stripe",
@@ -17,11 +17,11 @@ export const metadata = {
   publisher: "Cal.diy",
   title: "Stripe",
   type: "stripe_payment",
-  url: "https://cal.com/",
+  url: "https://amir9078.github.io/",
   docsUrl: "https://stripe.com/docs",
   variant: "payment",
   extendsFeature: "EventType",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "stripepayment",
   isOAuth: true,
 } as AppMeta;

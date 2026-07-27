@@ -7,7 +7,7 @@ import { ExecutionContext } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { Reflector } from "@nestjs/core";
 
-import { APPS_WRITE, SCHEDULE_READ, SCHEDULE_WRITE } from "@calcom/platform-constants";
+import { APPS_WRITE, SCHEDULE_READ, SCHEDULE_WRITE } from "@coachos/platform-constants";
 
 import { PermissionsGuard } from "./permissions.guard";
 
@@ -25,7 +25,7 @@ describe("PermissionsGuard", () => {
         get: jest.fn().mockImplementation((key: string) => {
           switch (key) {
             case "api.apiKeyPrefix":
-              return "cal_";
+              return "coachos_";
             default:
               return null;
           }
@@ -67,7 +67,7 @@ describe("PermissionsGuard", () => {
       jest.spyOn(guard, "getOAuthClientByAccessToken").mockResolvedValue(getMockOAuthClient(0));
 
       await expect(guard.canActivate(mockContext)).rejects.toThrow(
-        "PermissionsGuard - no authentication provided. Provide either authorization bearer token containing managed user access token or oAuth client id in 'x-cal-client-id' header."
+        "PermissionsGuard - no authentication provided. Provide either authorization bearer token containing managed user access token or oAuth client id in 'x-coachos-client-id' header."
       );
     });
   });
@@ -156,7 +156,7 @@ describe("PermissionsGuard", () => {
 
   describe("when OAuth id is provided", () => {
     it("should return true for valid permissions", async () => {
-      const mockContext = createMockExecutionContext({ "x-cal-client-id": "100" });
+      const mockContext = createMockExecutionContext({ "x-coachos-client-id": "100" });
       jest.spyOn(reflector, "get").mockReturnValue([SCHEDULE_WRITE]);
 
       let oAuthClientPermissions = 0;
@@ -166,7 +166,7 @@ describe("PermissionsGuard", () => {
     });
 
     it("should return true for multiple valid permissions", async () => {
-      const mockContext = createMockExecutionContext({ "x-cal-client-id": "100" });
+      const mockContext = createMockExecutionContext({ "x-coachos-client-id": "100" });
       jest.spyOn(reflector, "get").mockReturnValue([SCHEDULE_WRITE, SCHEDULE_READ]);
 
       let oAuthClientPermissions = 0;
@@ -178,7 +178,7 @@ describe("PermissionsGuard", () => {
     });
 
     it("should return true for empty Permissions decorator", async () => {
-      const mockContext = createMockExecutionContext({ "x-cal-client-id": "100" });
+      const mockContext = createMockExecutionContext({ "x-coachos-client-id": "100" });
       jest.spyOn(reflector, "get").mockReturnValue([]);
 
       let oAuthClientPermissions = 0;
@@ -188,7 +188,7 @@ describe("PermissionsGuard", () => {
     });
 
     it("should return false for invalid permissions", async () => {
-      const mockContext = createMockExecutionContext({ "x-cal-client-id": "100" });
+      const mockContext = createMockExecutionContext({ "x-coachos-client-id": "100" });
       jest.spyOn(reflector, "get").mockReturnValue([SCHEDULE_WRITE]);
 
       let oAuthClientPermissions = 0;
@@ -201,7 +201,7 @@ describe("PermissionsGuard", () => {
     });
 
     it("should return false for a missing permission", async () => {
-      const mockContext = createMockExecutionContext({ "x-cal-client-id": "100" });
+      const mockContext = createMockExecutionContext({ "x-coachos-client-id": "100" });
       jest.spyOn(reflector, "get").mockReturnValue([SCHEDULE_WRITE, SCHEDULE_READ]);
 
       let oAuthClientPermissions = 0;

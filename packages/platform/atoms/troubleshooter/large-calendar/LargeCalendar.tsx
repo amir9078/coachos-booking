@@ -1,4 +1,4 @@
-import { useTroubleshooterStore } from "@calcom/features/troubleshooter/store";
+import { useTroubleshooterStore } from "@coachos/features/troubleshooter/store";
 
 import { CalendarViewPlatformWrapper } from "../../calendar-view/wrappers/CalendarViewPlatformWrapper";
 

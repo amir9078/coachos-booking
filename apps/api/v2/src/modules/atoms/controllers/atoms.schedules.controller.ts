@@ -24,16 +24,16 @@ import {
 } from "@nestjs/swagger";
 import { z } from "zod";
 
-import { SCHEDULE_READ, SCHEDULE_WRITE, SUCCESS_STATUS } from "@calcom/platform-constants";
+import { SCHEDULE_READ, SCHEDULE_WRITE, SUCCESS_STATUS } from "@coachos/platform-constants";
 import type {
   GetAvailabilityListHandlerReturn,
   DuplicateScheduleHandlerReturn,
-} from "@calcom/platform-libraries/schedules";
-import { getAvailabilityListHandler, duplicateScheduleHandler } from "@calcom/platform-libraries/schedules";
-import type { CreateScheduleHandlerReturn, CreateScheduleSchema } from "@calcom/platform-libraries/schedules";
-import { createScheduleHandler } from "@calcom/platform-libraries/schedules";
-import { FindDetailedScheduleByIdReturnType } from "@calcom/platform-libraries/schedules";
-import { ApiResponse, UpdateAtomScheduleDto } from "@calcom/platform-types";
+} from "@coachos/platform-libraries/schedules";
+import { getAvailabilityListHandler, duplicateScheduleHandler } from "@coachos/platform-libraries/schedules";
+import type { CreateScheduleHandlerReturn, CreateScheduleSchema } from "@coachos/platform-libraries/schedules";
+import { createScheduleHandler } from "@coachos/platform-libraries/schedules";
+import { FindDetailedScheduleByIdReturnType } from "@coachos/platform-libraries/schedules";
+import { ApiResponse, UpdateAtomScheduleDto } from "@coachos/platform-types";
 
 import { SchedulesAtomsService } from "../services/schedules-atom.service";
 

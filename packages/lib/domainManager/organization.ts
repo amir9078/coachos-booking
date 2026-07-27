@@ -1,5 +1,5 @@
 import process from "node:process";
-import logger from "@calcom/lib/logger";
+import logger from "@coachos/lib/logger";
 import { addDnsRecord, deleteDnsRecord } from "./deploymentServices/cloudflare";
 import {
   createDomain as createVercelDomain,

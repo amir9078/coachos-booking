@@ -1,84 +1,84 @@
 import process from "node:process";
-import processExternalId from "@calcom/app-store/_utils/calendars/processExternalId";
-import { getPaymentAppData } from "@calcom/app-store/_utils/payments/getPaymentAppData";
-import { metadata as GoogleMeetMetadata } from "@calcom/app-store/googlevideo/_metadata";
+import processExternalId from "@coachos/app-store/_utils/calendars/processExternalId";
+import { getPaymentAppData } from "@coachos/app-store/_utils/payments/getPaymentAppData";
+import { metadata as GoogleMeetMetadata } from "@coachos/app-store/googlevideo/_metadata";
 import {
   getLocationValueForDB,
   MeetLocationType,
   OrganizerDefaultConferencingAppType,
-} from "@calcom/app-store/locations";
-import { getAppFromSlug } from "@calcom/app-store/utils";
+} from "@coachos/app-store/locations";
+import { getAppFromSlug } from "@coachos/app-store/utils";
 import {
   eventTypeAppMetadataOptionalSchema,
   eventTypeMetaDataSchemaWithTypedApps,
-} from "@calcom/app-store/zod-utils";
-import dayjs from "@calcom/dayjs";
-import getICalUID from "@calcom/emails/lib/getICalUID";
-import { verifyCodeUnAuthenticated } from "@calcom/features/auth/lib/verifyCodeUnAuthenticated";
+} from "@coachos/app-store/zod-utils";
+import dayjs from "@coachos/dayjs";
+import getICalUID from "@coachos/emails/lib/getICalUID";
+import { verifyCodeUnAuthenticated } from "@coachos/features/auth/lib/verifyCodeUnAuthenticated";
 import type {
   BookingDataSchemaGetter,
   BookingHandlerInput,
   CreateBookingMeta,
   CreateRegularBookingData,
-} from "@calcom/features/bookings/lib/dto/types";
-import EventManager, { placeholderCreatedEvent } from "@calcom/features/bookings/lib/EventManager";
-import { getAssignmentReasonCategory } from "@calcom/features/bookings/lib/getAssignmentReasonCategory";
-import type { CheckBookingAndDurationLimitsService } from "@calcom/features/bookings/lib/handleNewBooking/checkBookingAndDurationLimits";
-import { handlePayment } from "@calcom/features/bookings/lib/handlePayment";
-import { handleWebhookTrigger } from "@calcom/features/bookings/lib/handleWebhookTrigger";
-import { isEventTypeLoggingEnabled } from "@calcom/features/bookings/lib/isEventTypeLoggingEnabled";
-import type { BookingEmailAndSmsTasker } from "@calcom/features/bookings/lib/tasker/BookingEmailAndSmsTasker";
-import type { BuiltCalendarEvent } from "@calcom/features/CalendarEventBuilder";
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
-import { getSpamCheckService } from "@calcom/features/di/watchlist/containers/SpamCheckService.container";
+} from "@coachos/features/bookings/lib/dto/types";
+import EventManager, { placeholderCreatedEvent } from "@coachos/features/bookings/lib/EventManager";
+import { getAssignmentReasonCategory } from "@coachos/features/bookings/lib/getAssignmentReasonCategory";
+import type { CheckBookingAndDurationLimitsService } from "@coachos/features/bookings/lib/handleNewBooking/checkBookingAndDurationLimits";
+import { handlePayment } from "@coachos/features/bookings/lib/handlePayment";
+import { handleWebhookTrigger } from "@coachos/features/bookings/lib/handleWebhookTrigger";
+import { isEventTypeLoggingEnabled } from "@coachos/features/bookings/lib/isEventTypeLoggingEnabled";
+import type { BookingEmailAndSmsTasker } from "@coachos/features/bookings/lib/tasker/BookingEmailAndSmsTasker";
+import type { BuiltCalendarEvent } from "@coachos/features/CalendarEventBuilder";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
+import { getSpamCheckService } from "@coachos/features/di/watchlist/containers/SpamCheckService.container";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { getUsernameList } from "@calcom/features/eventtypes/lib/defaultEvents";
-import { getEventName, updateHostInEventName } from "@calcom/features/eventtypes/lib/eventNaming";
-import { getFullName } from "@calcom/features/form-builder/utils";
-import type { HashedLinkService } from "@calcom/features/hashedLink/lib/service/HashedLinkService";
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { handleAnalyticsEvents } from "@calcom/features/tasker/tasks/analytics/handleAnalyticsEvents";
-import type { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { UsersRepository } from "@calcom/features/users/users.repository";
-import type { GetSubscriberOptions } from "@calcom/features/webhooks/lib/getWebhooks";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import type { IWebhookProducerService } from "@calcom/features/webhooks/lib/interface/WebhookProducerService";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { getUsernameList } from "@coachos/features/eventtypes/lib/defaultEvents";
+import { getEventName, updateHostInEventName } from "@coachos/features/eventtypes/lib/eventNaming";
+import { getFullName } from "@coachos/features/form-builder/utils";
+import type { HashedLinkService } from "@coachos/features/hashedLink/lib/service/HashedLinkService";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { handleAnalyticsEvents } from "@coachos/features/tasker/tasks/analytics/handleAnalyticsEvents";
+import type { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { UsersRepository } from "@coachos/features/users/users.repository";
+import type { GetSubscriberOptions } from "@coachos/features/webhooks/lib/getWebhooks";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import type { IWebhookProducerService } from "@coachos/features/webhooks/lib/interface/WebhookProducerService";
 import {
   cancelNoShowTasksForBooking,
   deleteWebhookScheduledTriggers,
   scheduleTrigger,
-} from "@calcom/features/webhooks/lib/scheduleTrigger";
-import type { EventPayloadType, EventTypeInfo } from "@calcom/features/webhooks/lib/sendPayload";
-import { getTranslation } from "@calcom/i18n/server";
-import { groupHostsByGroupId } from "@calcom/lib/bookings/hostGroupUtils";
-import { shouldIgnoreContactOwner } from "@calcom/lib/bookings/routing/utils";
-import { getVideoCallUrlFromCalEvent } from "@calcom/lib/CalEventParser";
-import { DEFAULT_GROUP_ID, ENABLE_ASYNC_TASKER } from "@calcom/lib/constants";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { extractBaseEmail } from "@calcom/lib/extract-base-email";
-import { HttpError } from "@calcom/lib/http-error";
-import { criticalLogger } from "@calcom/lib/logger.server";
-import { getPiiFreeCalendarEvent, getPiiFreeEventType } from "@calcom/lib/piiFreeData";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
-import { distributedTracing } from "@calcom/lib/tracing/factory";
-import type { PrismaClient } from "@calcom/prisma";
-import type { AssignmentReasonEnum, DestinationCalendar, Prisma, User } from "@calcom/prisma/client";
-import { BookingStatus, CreationSource, SchedulingType, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import { userMetadata as userMetadataSchema } from "@calcom/prisma/zod-utils";
+} from "@coachos/features/webhooks/lib/scheduleTrigger";
+import type { EventPayloadType, EventTypeInfo } from "@coachos/features/webhooks/lib/sendPayload";
+import { getTranslation } from "@coachos/i18n/server";
+import { groupHostsByGroupId } from "@coachos/lib/bookings/hostGroupUtils";
+import { shouldIgnoreContactOwner } from "@coachos/lib/bookings/routing/utils";
+import { getVideoCallUrlFromCalEvent } from "@coachos/lib/CalEventParser";
+import { DEFAULT_GROUP_ID, ENABLE_ASYNC_TASKER } from "@coachos/lib/constants";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { extractBaseEmail } from "@coachos/lib/extract-base-email";
+import { HttpError } from "@coachos/lib/http-error";
+import { criticalLogger } from "@coachos/lib/logger.server";
+import { getPiiFreeCalendarEvent, getPiiFreeEventType } from "@coachos/lib/piiFreeData";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
+import { distributedTracing } from "@coachos/lib/tracing/factory";
+import type { PrismaClient } from "@coachos/prisma";
+import type { AssignmentReasonEnum, DestinationCalendar, Prisma, User } from "@coachos/prisma/client";
+import { BookingStatus, CreationSource, SchedulingType, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import { userMetadata as userMetadataSchema } from "@coachos/prisma/zod-utils";
 import type {
   AdditionalInformation,
   AppsStatus,
   CalEventResponses,
   CalendarEvent,
-} from "@calcom/types/Calendar";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
-import type { EventResult, PartialReference } from "@calcom/types/EventManager";
+} from "@coachos/types/Calendar";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
+import type { EventResult, PartialReference } from "@coachos/types/EventManager";
 import short, { uuid } from "short-uuid";
 import { v5 as uuidv5 } from "uuid";
 import type { BookingRepository } from "../../repositories/BookingRepository";
@@ -186,7 +186,7 @@ export const buildDryRunBooking = ({
   const booking = {
     id: -101,
     uid: "DRY_RUN_UID",
-    iCalUID: "DRY_RUN_ICAL_UID",
+    iCalUID: "DRY_RUN_Icoachos_UID",
     status: BookingStatus.ACCEPTED,
     eventTypeId: eventTypeId,
     user: sanitizedOrganizerUser,
@@ -1321,7 +1321,7 @@ async function handler(
   });
 
   const organizerOrganizationId = organizerOrganizationProfile?.organizationId;
-  const bookerUrl = process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  const bookerUrl = process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
   const destinationCalendar = eventType.destinationCalendar
     ? [eventType.destinationCalendar]
@@ -2525,8 +2525,8 @@ async function handler(
     });
 
     // Unused until we deploy to trigger.dev production
-    // for now we only enable for cal.com org and we keep our current email system
-    // cal.com org members will see emails in double while we test
+    // for now we only enable for amir9078.github.io org and we keep our current email system
+    // amir9078.github.io org members will see emails in double while we test
     if (ENABLE_ASYNC_TASKER && !noEmail && isBookingEmailSmsTaskerEnabled) {
       try {
         await deps.bookingEmailAndSmsTasker.send({

@@ -1,14 +1,14 @@
 import Script from "next/script";
 
-import { getEventTypeAppData } from "@calcom/app-store/_utils/getEventTypeAppData";
-import { appStoreMetadata } from "@calcom/app-store/bookerAppsMetaData";
-import type { Tag } from "@calcom/app-store/types";
-import { sdkActionManager } from "@calcom/lib/sdk-event";
-import type { AppMeta } from "@calcom/types/App";
+import { getEventTypeAppData } from "@coachos/app-store/_utils/getEventTypeAppData";
+import { appStoreMetadata } from "@coachos/app-store/bookerAppsMetaData";
+import type { Tag } from "@coachos/app-store/types";
+import { sdkActionManager } from "@coachos/lib/sdk-event";
+import type { AppMeta } from "@coachos/types/App";
 
 import type { appDataSchemas } from "./apps.schemas.generated";
 
-const PushEventPrefix = "cal_analytics_app_";
+const PushEventPrefix = "coachos_analytics_app_";
 
 // AnalyticApp has appData.tag always set
 type AnalyticApp = Omit<AppMeta, "appData"> & {

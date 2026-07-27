@@ -1,16 +1,16 @@
 import { v4 as uuidv4 } from "uuid";
 
-import { selectOOOEntries } from "@calcom/app-store/zapier/api/subscriptions/listOOOEntries";
-import dayjs from "@calcom/dayjs";
-import { sendBookingRedirectNotification } from "@calcom/emails/workflow-email-service";
-import type { GetSubscriberOptions } from "@calcom/features/webhooks/lib/getWebhooks";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import type { OOOEntryPayloadType } from "@calcom/features/webhooks/lib/sendPayload";
-import sendPayload from "@calcom/features/webhooks/lib/sendPayload";
-import { getTranslation } from "@calcom/i18n/server";
-import prisma from "@calcom/prisma";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { selectOOOEntries } from "@coachos/app-store/zapier/api/subscriptions/listOOOEntries";
+import dayjs from "@coachos/dayjs";
+import { sendBookingRedirectNotification } from "@coachos/emails/workflow-email-service";
+import type { GetSubscriberOptions } from "@coachos/features/webhooks/lib/getWebhooks";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import type { OOOEntryPayloadType } from "@coachos/features/webhooks/lib/sendPayload";
+import sendPayload from "@coachos/features/webhooks/lib/sendPayload";
+import { getTranslation } from "@coachos/i18n/server";
+import prisma from "@coachos/prisma";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

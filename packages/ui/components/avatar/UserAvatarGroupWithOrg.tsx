@@ -1,7 +1,7 @@
-import { useIsEmbed } from "@calcom/embed-core/embed-iframe";
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import type { Team, User } from "@calcom/prisma/client";
+import { useIsEmbed } from "@coachos/embed-core/embed-iframe";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import type { Team, User } from "@coachos/prisma/client";
 import { AvatarGroup } from "./AvatarGroup";
 
 type UserAvatarProps = Omit<React.ComponentProps<typeof AvatarGroup>, "items"> & {

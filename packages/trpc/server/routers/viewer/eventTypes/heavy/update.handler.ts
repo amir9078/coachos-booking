@@ -1,20 +1,20 @@
-import type { appDataSchemas } from "@calcom/app-store/apps.schemas.generated";
-import { DailyLocationType } from "@calcom/app-store/constants";
-import { eventTypeAppMetadataOptionalSchema } from "@calcom/app-store/zod-utils";
-import { CalVideoSettingsRepository } from "@calcom/features/calVideoSettings/repositories/CalVideoSettingsRepository";
-import { HashedLinkRepository } from "@calcom/features/hashedLink/lib/repository/HashedLinkRepository";
-import { HashedLinkService } from "@calcom/features/hashedLink/lib/service/HashedLinkService";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import { ScheduleRepository } from "@calcom/features/schedules/repositories/ScheduleRepository";
-import tasker from "@calcom/features/tasker";
-import { getTranslation } from "@calcom/i18n/server";
-import { validateIntervalLimitOrder } from "@calcom/lib/intervalLimits/validateIntervalLimitOrder";
-import logger from "@calcom/lib/logger";
-import { validateBookerLayouts } from "@calcom/lib/validateBookerLayouts";
-import type { PrismaClient } from "@calcom/prisma";
-import { Prisma } from "@calcom/prisma/client";
-import { EventTypeAutoTranslatedField, RRTimestampBasis, SchedulingType } from "@calcom/prisma/enums";
-import { eventTypeLocations } from "@calcom/prisma/zod-utils";
+import type { appDataSchemas } from "@coachos/app-store/apps.schemas.generated";
+import { DailyLocationType } from "@coachos/app-store/constants";
+import { eventTypeAppMetadataOptionalSchema } from "@coachos/app-store/zod-utils";
+import { CalVideoSettingsRepository } from "@coachos/features/calVideoSettings/repositories/CalVideoSettingsRepository";
+import { HashedLinkRepository } from "@coachos/features/hashedLink/lib/repository/HashedLinkRepository";
+import { HashedLinkService } from "@coachos/features/hashedLink/lib/service/HashedLinkService";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import { ScheduleRepository } from "@coachos/features/schedules/repositories/ScheduleRepository";
+import tasker from "@coachos/features/tasker";
+import { getTranslation } from "@coachos/i18n/server";
+import { validateIntervalLimitOrder } from "@coachos/lib/intervalLimits/validateIntervalLimitOrder";
+import logger from "@coachos/lib/logger";
+import { validateBookerLayouts } from "@coachos/lib/validateBookerLayouts";
+import type { PrismaClient } from "@coachos/prisma";
+import { Prisma } from "@coachos/prisma/client";
+import { EventTypeAutoTranslatedField, RRTimestampBasis, SchedulingType } from "@coachos/prisma/enums";
+import { eventTypeLocations } from "@coachos/prisma/zod-utils";
 import { TRPCError } from "@trpc/server";
 import type { GetServerSidePropsContext, NextApiResponse } from "next";
 import type { TrpcSessionUser } from "../../../../types";
@@ -694,7 +694,7 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
   // Explicit type to avoid Prisma.EventTypeGetPayload conditional types leaking into .d.ts files
   type UpdatedEventTypeResult = {
     slug: string;
-    schedulingType: import("@calcom/prisma/enums").SchedulingType | null;
+    schedulingType: import("@coachos/prisma/enums").SchedulingType | null;
   };
 
   let updatedEventType: UpdatedEventTypeResult;

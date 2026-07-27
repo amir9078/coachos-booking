@@ -1,8 +1,8 @@
-import getCrm from "@calcom/app-store/_utils/getCrm";
-import logger from "@calcom/lib/logger";
-import type { CalendarEvent, CalEventResponses } from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
-import type { CRM, ContactCreateInput } from "@calcom/types/CrmService";
+import getCrm from "@coachos/app-store/_utils/getCrm";
+import logger from "@coachos/lib/logger";
+import type { CalendarEvent, CalEventResponses } from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
+import type { CRM, ContactCreateInput } from "@coachos/types/CrmService";
 
 const log = logger.getSubLogger({ prefix: ["CrmManager"] });
 export default class CrmManager {

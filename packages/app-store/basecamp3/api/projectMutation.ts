@@ -1,14 +1,14 @@
 import type { NextApiRequest } from "next";
 import { z } from "zod";
 
-import getAppKeysFromSlug from "@calcom/app-store/_utils/getAppKeysFromSlug";
-import { refreshAccessToken } from "@calcom/app-store/basecamp3/lib/helpers";
-import type { BasecampToken } from "@calcom/app-store/basecamp3/lib/types";
-import { HttpError } from "@calcom/lib/http-error";
-import { defaultHandler } from "@calcom/lib/server/defaultHandler";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import prisma from "@calcom/prisma";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
+import getAppKeysFromSlug from "@coachos/app-store/_utils/getAppKeysFromSlug";
+import { refreshAccessToken } from "@coachos/app-store/basecamp3/lib/helpers";
+import type { BasecampToken } from "@coachos/app-store/basecamp3/lib/types";
+import { HttpError } from "@coachos/lib/http-error";
+import { defaultHandler } from "@coachos/lib/server/defaultHandler";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import prisma from "@coachos/prisma";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
 
 interface IDock {
   id: number;

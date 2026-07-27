@@ -72,7 +72,7 @@ request body overwrites metadata of the original body so that whatever metadata 
 
 ## 0.0.22
 
-Export `updateNewTeamMemberEventTypes` from `"@calcom/lib/server/queries"` so that we can assign newly created organizations
+Export `updateNewTeamMemberEventTypes` from `"@coachos/lib/server/queries"` so that we can assign newly created organizations
 teams members to event-types that have been marked as "assign all team members"
 
 ## 0.0.20

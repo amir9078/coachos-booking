@@ -5,20 +5,20 @@ import dts from "vite-plugin-dts";
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), ""); // .env inside of packages/platform/atoms
-  const webAppUrl = env.NEXT_PUBLIC_WEBAPP_URL ?? "https://app.cal.com";
-  const calcomVersion = env.NEXT_PUBLIC_CALCOM_VERSION ?? "";
+  const webAppUrl = env.NEXT_PUBLIC_WEBAPP_URL ?? "https://app.amir9078.github.io";
+  const calcomVersion = env.NEXT_PUBLIC_COACHOS_VERSION ?? "";
   const vercelCommitSha = env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA ?? "";
 
   return {
     optimizeDeps: {
       include: [
-        "@calcom/lib",
-        "@calcom/features",
-        "@calcom/prisma",
-        "@calcom/dayjs",
-        "@calcom/platform-constants",
-        "@calcom/platform-types",
-        "@calcom/platform-utils",
+        "@coachos/lib",
+        "@coachos/features",
+        "@coachos/prisma",
+        "@coachos/dayjs",
+        "@coachos/platform-constants",
+        "@coachos/platform-types",
+        "@coachos/platform-utils",
       ],
     },
     plugins: [
@@ -40,7 +40,7 @@ export default defineConfig(({ mode }) => {
     ],
     define: {
       "process.env.NEXT_PUBLIC_WEBAPP_URL": `"${webAppUrl}"`,
-      "process.env.NEXT_PUBLIC_CALCOM_VERSION": `"${calcomVersion}"`,
+      "process.env.NEXT_PUBLIC_COACHOS_VERSION": `"${calcomVersion}"`,
       "process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA": `"${vercelCommitSha}"`,
       "process.env.NODE_ENV": `"${mode}"`,
       "process.env.__NEXT_ROUTER_BASEPATH": `""`,
@@ -85,17 +85,17 @@ export default defineConfig(({ mode }) => {
     resolve: {
       alias: {
         "@": path.resolve(__dirname, "./src"),
-        "@calcom/lib/markdownToSafeHTML": path.resolve(__dirname, "./lib/markdownToSafeHTML"),
-        "@calcom/lib/hooks/useLocale": path.resolve(__dirname, "./lib/useLocale"),
+        "@coachos/lib/markdownToSafeHTML": path.resolve(__dirname, "./lib/markdownToSafeHTML"),
+        "@coachos/lib/hooks/useLocale": path.resolve(__dirname, "./lib/useLocale"),
         "@radix-ui/react-tooltip": path.resolve(__dirname, "./src/components/ui/tooltip.tsx"),
         "@radix-ui/react-dialog": path.resolve(__dirname, "./src/components/ui/dialog.tsx"),
-        "@calcom/prisma/client/runtime/library": resolve("./prisma-types/index.ts"),
-        "@calcom/prisma/client": path.resolve(__dirname, "../../kysely/types.ts"),
+        "@coachos/prisma/client/runtime/library": resolve("./prisma-types/index.ts"),
+        "@coachos/prisma/client": path.resolve(__dirname, "../../kysely/types.ts"),
         kysely: path.resolve(__dirname, "./kysely-types/index.ts"),
-        "@calcom/dayjs": path.resolve(__dirname, "../../dayjs"),
-        "@calcom/platform-constants": path.resolve(__dirname, "../constants/index.ts"),
-        "@calcom/platform-types": path.resolve(__dirname, "../types/index.ts"),
-        "@calcom/platform-utils": path.resolve(__dirname, "../constants/index.ts"),
+        "@coachos/dayjs": path.resolve(__dirname, "../../dayjs"),
+        "@coachos/platform-constants": path.resolve(__dirname, "../constants/index.ts"),
+        "@coachos/platform-types": path.resolve(__dirname, "../types/index.ts"),
+        "@coachos/platform-utils": path.resolve(__dirname, "../constants/index.ts"),
       },
     },
   };

@@ -30,7 +30,7 @@ services:
         value: https://coachos-booking.onrender.com/embed/embed.js
       - key: ALLOWED_HOSTNAMES
         value: '"coachos-booking.onrender.com"'
-      - key: CALCOM_TELEMETRY_DISABLED
+      - key: COACHOS_TELEMETRY_DISABLED
         value: "1"
       - key: CRON_ENABLE_APP_SYNC
         value: "false"

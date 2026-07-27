@@ -1,24 +1,24 @@
-import type { CreateRegularBookingData } from "@calcom/features/bookings/lib/dto/types";
-import handleCancelBooking from "@calcom/features/bookings/lib/handleCancelBooking";
-import type { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import type { CalendarSubscriptionEventItem } from "@calcom/features/calendar-subscription/lib/CalendarSubscriptionPort.interface";
-import { APP_NAME } from "@calcom/lib/constants";
-import { IdempotencyKeyService } from "@calcom/lib/idempotencyKey/idempotencyKeyService";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { SelectedCalendar } from "@calcom/prisma/client";
+import type { CreateRegularBookingData } from "@coachos/features/bookings/lib/dto/types";
+import handleCancelBooking from "@coachos/features/bookings/lib/handleCancelBooking";
+import type { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import type { CalendarSubscriptionEventItem } from "@coachos/features/calendar-subscription/lib/CalendarSubscriptionPort.interface";
+import { APP_NAME } from "@coachos/lib/constants";
+import { IdempotencyKeyService } from "@coachos/lib/idempotencyKey/idempotencyKeyService";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { SelectedCalendar } from "@coachos/prisma/client";
 import { metrics } from "@sentry/nextjs";
 
 const log = logger.getSubLogger({ prefix: ["CalendarSyncService"] });
-const CAL_MANAGED_ICAL_UID_SUFFIXES: ReadonlySet<string> = new Set(
-  ["cal.com", "cal.diy", APP_NAME].map((suffix) => suffix.toLowerCase())
+const coachos_MANAGED_Icoachos_UID_SUFFIXES: ReadonlySet<string> = new Set(
+  ["amir9078.github.io", "cal.diy", APP_NAME].map((suffix) => suffix.toLowerCase())
 );
 
 const isCalManagedICalUID = (iCalUID?: string | null): boolean => {
   const suffix = iCalUID?.split("@").at(-1)?.toLowerCase();
   if (!suffix) return false;
 
-  return CAL_MANAGED_ICAL_UID_SUFFIXES.has(suffix);
+  return coachos_MANAGED_Icoachos_UID_SUFFIXES.has(suffix);
 };
 
 /**
@@ -206,7 +206,7 @@ export class CalendarSyncService {
       // Dynamic import to avoid loading the entire booking service chain at module evaluation time
       // This prevents react-awesome-query-builder from being loaded in server-side contexts
       const { getRegularBookingService } = await import(
-        "@calcom/features/bookings/di/RegularBookingService.container"
+        "@coachos/features/bookings/di/RegularBookingService.container"
       );
       const regularBookingService = getRegularBookingService();
       await regularBookingService.createBooking({

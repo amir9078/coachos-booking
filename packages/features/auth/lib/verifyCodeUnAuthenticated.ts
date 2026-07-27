@@ -1,8 +1,8 @@
 import { createHash } from "node:crypto";
 
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import { hashEmail } from "@calcom/lib/server/PiiHasher";
-import { totpRawCheck } from "@calcom/lib/totp";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import { hashEmail } from "@coachos/lib/server/PiiHasher";
+import { totpRawCheck } from "@coachos/lib/totp";
 
 export const verifyCodeUnAuthenticated = async (email: string, code: string) => {
   if (!email || !code) {

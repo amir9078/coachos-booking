@@ -1,8 +1,8 @@
 "use client";
 
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
 
 function SkeletonLoader() {
   return (

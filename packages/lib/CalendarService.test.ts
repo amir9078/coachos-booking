@@ -16,7 +16,7 @@ vi.mock("tsdav", () => ({
   getBasicAuthHeaders: vi.fn().mockReturnValue({}),
 }));
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: () => ({
       debug: vi.fn(),
@@ -26,7 +26,7 @@ vi.mock("@calcom/lib/logger", () => ({
   },
 }));
 
-vi.mock("@calcom/lib/crypto", () => ({
+vi.mock("@coachos/lib/crypto", () => ({
   symmetricDecrypt: vi.fn().mockImplementation((text) => {
     if (typeof text === "object") {
       return JSON.stringify(text);
@@ -40,7 +40,7 @@ vi.mock("./CalEventParser", () => ({
   getRichDescription: vi.fn().mockReturnValue("Test Description"),
 }));
 
-import type { CalendarServiceEvent } from "@calcom/types/Calendar";
+import type { CalendarServiceEvent } from "@coachos/types/Calendar";
 import BaseCalendarService from "./CalendarService";
 
 const createMockEvent = (overrides: Partial<CalendarServiceEvent> = {}): CalendarServiceEvent => ({

@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Zapier",
@@ -14,7 +14,7 @@ export const metadata = {
   type: "zapier_automation",
   url: "https://zapier.com/apps/calcom/integrations",
   variant: "automation",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "zapier",
   isOAuth: false,
 } as AppMeta;

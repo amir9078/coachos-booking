@@ -1,5 +1,5 @@
-import type { ITaskerDependencies } from "@calcom/lib/tasker/types";
-import type { PrismaClient } from "@calcom/prisma";
+import type { ITaskerDependencies } from "@coachos/lib/tasker/types";
+import type { PrismaClient } from "@coachos/prisma";
 
 import { UserRepository } from "../../../users/repositories/UserRepository";
 import type { CalendarsTasks } from "./types";
@@ -31,7 +31,7 @@ export class CalendarsTaskService implements CalendarsTasks {
       }
 
       const { getConnectedDestinationCalendarsAndEnsureDefaultsInDb } = await import(
-        "@calcom/features/calendars/lib/getConnectedDestinationCalendars"
+        "@coachos/features/calendars/lib/getConnectedDestinationCalendars"
       );
 
       await getConnectedDestinationCalendarsAndEnsureDefaultsInDb({

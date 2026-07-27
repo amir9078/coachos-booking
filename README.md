@@ -70,10 +70,10 @@ This is a private, internally-operated instance. There is no hosted/managed publ
 
    ```sh
    # Development
-   yarn workspace @calcom/prisma db-migrate
+   yarn workspace @coachos/prisma db-migrate
 
    # Production
-   yarn workspace @calcom/prisma db-deploy
+   yarn workspace @coachos/prisma db-deploy
    ```
 
    **Windows/PowerShell note:** if this fails with `Environment variable not found: DATABASE_DIRECT_URL`, Turbo may not be injecting the root `.env`. Run it directly instead:
@@ -123,7 +123,7 @@ If browsers aren't installed: `npx playwright install`.
 ```sh
 git pull
 yarn
-yarn workspace @calcom/prisma db-deploy   # or db-migrate in dev
+yarn workspace @coachos/prisma db-deploy   # or db-migrate in dev
 yarn predev                                # check for .env changes
 yarn build && yarn start                   # or `yarn dev`
 ```

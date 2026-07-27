@@ -1,12 +1,12 @@
 "use client";
 
-import type { GlobalCal, GlobalCalWithoutNs } from "@calcom/embed-core";
-import EmbedSnippet from "@calcom/embed-snippet";
+import type { GlobalCal, GlobalCalWithoutNs } from "@coachos/embed-core";
+import EmbedSnippet from "@coachos/embed-snippet";
 
 import Cal from "./Cal";
 
-// Exporting for consumption by @calcom/embed-react user
-export type { EmbedEvent } from "@calcom/embed-core";
+// Exporting for consumption by @coachos/embed-react user
+export type { EmbedEvent } from "@coachos/embed-core";
 
 export function getCalApi(options?: {
   embedJsUrl?: string;

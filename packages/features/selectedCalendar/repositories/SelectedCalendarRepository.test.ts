@@ -1,13 +1,13 @@
-import prismock from "@calcom/testing/lib/__mocks__/prisma";
-import type { FeatureId } from "@calcom/features/flags/config";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import { SelectedCalendarRepository } from "@calcom/features/selectedCalendar/repositories/SelectedCalendarRepository";
-import type { PrismaClient } from "@calcom/prisma";
-import prisma from "@calcom/prisma";
-import type { Prisma, SelectedCalendar } from "@calcom/prisma/client";
-import { MembershipRole } from "@calcom/prisma/enums";
+import prismock from "@coachos/testing/lib/__mocks__/prisma";
+import type { FeatureId } from "@coachos/features/flags/config";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import { SelectedCalendarRepository } from "@coachos/features/selectedCalendar/repositories/SelectedCalendarRepository";
+import type { PrismaClient } from "@coachos/prisma";
+import prisma from "@coachos/prisma";
+import type { Prisma, SelectedCalendar } from "@coachos/prisma/client";
+import { MembershipRole } from "@coachos/prisma/enums";
 import { beforeEach, describe, expect, it, test, vi } from "vitest";
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   enrichHostsWithDelegationCredentials: vi.fn(),
   getUsersCredentialsIncludeServiceAccountKey: vi.fn(),
   getCredentialForSelectedCalendar: vi.fn(),

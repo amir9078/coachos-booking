@@ -5,12 +5,12 @@ import { useState, useEffect, useMemo } from "react";
 import {
   OptionComponent,
   SingleValueComponent,
-} from "@calcom/features/calendars/components/DestinationCalendarSelector";
-import type { ConnectedDestinationCalendars } from "@calcom/features/calendars/lib/getConnectedDestinationCalendars";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Badge } from "@calcom/ui/components/badge";
-import { Select } from "@calcom/ui/components/form";
+} from "@coachos/features/calendars/components/DestinationCalendarSelector";
+import type { ConnectedDestinationCalendars } from "@coachos/features/calendars/lib/getConnectedDestinationCalendars";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Badge } from "@coachos/ui/components/badge";
+import { Select } from "@coachos/ui/components/form";
 
 import { getPlaceholderContent } from "../lib/getPlaceholderContent";
 

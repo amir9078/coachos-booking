@@ -1,7 +1,7 @@
-import type dayjs from "@calcom/dayjs";
-import classNames from "@calcom/ui/classNames";
+import type dayjs from "@coachos/dayjs";
+import classNames from "@coachos/ui/classNames";
 
-import type { BorderColor } from "@calcom/features/calendars/weeklyview/types/common";
+import type { BorderColor } from "@coachos/features/calendars/weeklyview/types/common";
 
 export const VerticalLines = ({ days, borderColor }: { days: dayjs.Dayjs[]; borderColor: BorderColor }) => {
   const isRTL = () => {
@@ -28,7 +28,7 @@ export const VerticalLines = ({ days, borderColor }: { days: dayjs.Dayjs[]; bord
       }}>
       {days.map((_, i) => (
         <div
-          key={`Key_vertical_${i}`}
+          key={`Key_verticoachos_${i}`}
           className="row-span-full"
           style={{
             gridColumnStart: isRTL() ? days.length - i : i + 1,

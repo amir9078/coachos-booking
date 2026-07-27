@@ -1,10 +1,10 @@
 "use client";
 
-import { APP_NAME } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogContent } from "@calcom/ui/components/dialog";
-import { Logo } from "@calcom/ui/components/logo";
+import { APP_NAME } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogContent } from "@coachos/ui/components/dialog";
+import { Logo } from "@coachos/ui/components/logo";
 import { CheckIcon, UserIcon } from "@coss/ui/icons";
 
 import { useWelcomeToCalcomModal } from "../hooks/useWelcomeToCalcomModal";
@@ -15,8 +15,8 @@ const features = [
   "integrate_with_favorite_apps",
   "accept_payments_via_stripe",
   "html_react_embed",
-  "cal_ai_phone_agent",
-  "cal_video",
+  "coachos_ai_phone_agent",
+  "coachos_video",
 ];
 
 export function WelcomeToCalcomModal() {

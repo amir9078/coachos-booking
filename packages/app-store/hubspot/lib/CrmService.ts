@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { checkIfFreeEmailDomain } from "@calcom/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain";
-import getLabelValueMapFromResponses from "@calcom/lib/bookings/getLabelValueMapFromResponses";
-import { getLocation } from "@calcom/lib/CalEventParser";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { PrismaTrackingRepository } from "@calcom/features/bookings/repositories/PrismaTrackingRepository";
-import prisma from "@calcom/prisma";
-import type { CalEventResponses, CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
-import type { Contact, ContactCreateInput, CRM, CrmEvent } from "@calcom/types/CrmService";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { checkIfFreeEmailDomain } from "@coachos/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain";
+import getLabelValueMapFromResponses from "@coachos/lib/bookings/getLabelValueMapFromResponses";
+import { getLocation } from "@coachos/lib/CalEventParser";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { PrismaTrackingRepository } from "@coachos/features/bookings/repositories/PrismaTrackingRepository";
+import prisma from "@coachos/prisma";
+import type { CalEventResponses, CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
+import type { Contact, ContactCreateInput, CRM, CrmEvent } from "@coachos/types/CrmService";
 import * as hubspot from "@hubspot/api-client";
 import type { BatchInputPublicAssociation } from "@hubspot/api-client/lib/codegen/crm/associations";
 import type { PublicObjectSearchRequest } from "@hubspot/api-client/lib/codegen/crm/contacts";

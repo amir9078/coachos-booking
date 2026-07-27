@@ -1,8 +1,8 @@
 import { useMutation } from "@tanstack/react-query";
 import { useState } from "react";
 
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { ApiResponse, ApiErrorResponse, ApiSuccessResponse } from "@calcom/platform-types";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { ApiResponse, ApiErrorResponse, ApiSuccessResponse } from "@coachos/platform-types";
 
 import http from "../lib/http";
 

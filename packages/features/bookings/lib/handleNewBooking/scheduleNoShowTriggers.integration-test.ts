@@ -1,20 +1,20 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
-import { DailyLocationType } from "@calcom/app-store/constants";
-import { getMeetingSessionsFromRoomName } from "@calcom/features/tasker/tasks/triggerNoShow/getMeetingSessionsFromRoomName";
-import { triggerHostNoShow } from "@calcom/features/tasker/tasks/triggerNoShow/triggerHostNoShow";
-import { sendGenericWebhookPayload } from "@calcom/features/webhooks/lib/sendPayload";
-import { prisma } from "@calcom/prisma";
-import type { Booking, User, Webhook } from "@calcom/prisma/client";
-import { TimeUnit, WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { DailyLocationType } from "@coachos/app-store/constants";
+import { getMeetingSessionsFromRoomName } from "@coachos/features/tasker/tasks/triggerNoShow/getMeetingSessionsFromRoomName";
+import { triggerHostNoShow } from "@coachos/features/tasker/tasks/triggerNoShow/triggerHostNoShow";
+import { sendGenericWebhookPayload } from "@coachos/features/webhooks/lib/sendPayload";
+import { prisma } from "@coachos/prisma";
+import type { Booking, User, Webhook } from "@coachos/prisma/client";
+import { TimeUnit, WebhookTriggerEvents } from "@coachos/prisma/enums";
 
 import { scheduleNoShowTriggers } from "./scheduleNoShowTriggers";
 
-vi.mock("@calcom/features/tasker/tasks/triggerNoShow/getMeetingSessionsFromRoomName", () => ({
+vi.mock("@coachos/features/tasker/tasks/triggerNoShow/getMeetingSessionsFromRoomName", () => ({
   getMeetingSessionsFromRoomName: vi.fn(),
 }));
 
-vi.mock("@calcom/features/webhooks/lib/sendPayload", () => ({
+vi.mock("@coachos/features/webhooks/lib/sendPayload", () => ({
   sendGenericWebhookPayload: vi.fn().mockResolvedValue({}),
 }));
 
@@ -41,7 +41,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           id: "test-host-webhook-id",
           userId: testUser.id,
           subscriberUrl: "https://example.com/host-webhook",
-          eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW],
+          eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
           active: true,
           time: 5,
           timeUnit: TimeUnit.MINUTE,
@@ -52,7 +52,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           id: "test-guest-webhook-id",
           userId: testUser.id,
           subscriberUrl: "https://example.com/guest-webhook",
-          eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW],
+          eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
           active: true,
           time: 10,
           timeUnit: TimeUnit.MINUTE,
@@ -161,12 +161,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     }
 
     expect(hostPayload).toEqual({
-      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
       bookingId: bookingData.id,
       webhook: expect.objectContaining({
         id: hostWebhook.id,
         subscriberUrl: "https://example.com/host-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
         time: 5,
         timeUnit: TimeUnit.MINUTE,
       }),
@@ -184,12 +184,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     }
 
     expect(guestPayload).toEqual({
-      triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
       bookingId: bookingData.id,
       webhook: expect.objectContaining({
         id: guestWebhook.id,
         subscriberUrl: "https://example.com/guest-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
         time: 10,
         timeUnit: TimeUnit.MINUTE,
       }),
@@ -253,12 +253,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     });
 
     const taskPayload = JSON.stringify({
-      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
       bookingId: testBookingId,
       webhook: {
         id: hostWebhook.id,
         subscriberUrl: "https://example.com/host-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
         active: true,
         time: 5,
         timeUnit: TimeUnit.MINUTE,
@@ -277,7 +277,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           subscriberUrl: "https://example.com/host-webhook",
           version: "2021-10-20",
         }),
-        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
         data: expect.objectContaining({
           bookingId: testBookingId,
           bookingUid: "test-uid-no-show",

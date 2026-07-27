@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Giphy",
@@ -11,10 +11,10 @@ export const metadata = {
   slug: "giphy",
   title: "Giphy",
   type: "giphy_other",
-  url: "https://cal.com/apps/giphy",
+  url: "https://amir9078.github.io/apps/giphy",
   variant: "other",
   extendsFeature: "EventType",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "giphy",
   isOAuth: false,
 } as AppMeta;

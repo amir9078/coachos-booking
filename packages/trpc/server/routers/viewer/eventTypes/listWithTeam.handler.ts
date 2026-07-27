@@ -1,5 +1,5 @@
-import db from "@calcom/prisma";
-import { Prisma } from "@calcom/prisma/client";
+import db from "@coachos/prisma";
+import { Prisma } from "@coachos/prisma/client";
 import type { TrpcSessionUser } from "../../../types";
 
 type ListWithTeamOptions = {

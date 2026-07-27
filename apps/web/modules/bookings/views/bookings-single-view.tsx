@@ -9,51 +9,51 @@ import { Fragment, useEffect, useState } from "react";
 import { Toaster } from "sonner";
 import { z } from "zod";
 
-import BookingPageTagManager from "@calcom/app-store/BookingPageTagManager";
-import type { getEventLocationValue } from "@calcom/app-store/locations";
-import { getSuccessPageLocationMessage, guessEventLocationType } from "@calcom/app-store/locations";
-import { getEventTypeAppData } from "@calcom/app-store/utils";
-import { eventTypeMetaDataSchemaWithTypedApps } from "@calcom/app-store/zod-utils";
-import type { ConfigType } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
+import BookingPageTagManager from "@coachos/app-store/BookingPageTagManager";
+import type { getEventLocationValue } from "@coachos/app-store/locations";
+import { getSuccessPageLocationMessage, guessEventLocationType } from "@coachos/app-store/locations";
+import { getEventTypeAppData } from "@coachos/app-store/utils";
+import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
+import type { ConfigType } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
 import {
   useEmbedNonStylesConfig,
   useIsBackgroundTransparent,
   useIsEmbed,
-} from "@calcom/embed-core/embed-iframe";
-import { Price } from "@calcom/features/bookings/components/event-meta/Price";
-import { getCalendarLinks, CalendarLinkType } from "@calcom/features/bookings/lib/getCalendarLinks";
-import { RATING_OPTIONS, validateRating } from "@calcom/features/bookings/lib/rating";
-import { isWithinMinimumRescheduleNotice as isWithinMinimumRescheduleNoticeUtil } from "@calcom/features/bookings/lib/reschedule/isWithinMinimumRescheduleNotice";
-import type { nameObjectSchema } from "@calcom/features/eventtypes/lib/eventNaming";
-import { getEventName } from "@calcom/features/eventtypes/lib/eventNaming";
-import { shouldShowFieldInCustomResponses } from "@calcom/lib/bookings/SystemField";
-import { APP_NAME } from "@calcom/lib/constants";
-import { formatToLocalizedDate, formatToLocalizedTime, formatToLocalizedTimezone } from "@calcom/lib/dayjs";
-import useGetBrandingColours from "@calcom/lib/getBrandColours";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useRouterQuery } from "@calcom/lib/hooks/useRouterQuery";
-import useTheme from "@calcom/lib/hooks/useTheme";
-import isSmsCalEmail from "@calcom/lib/isSmsCalEmail";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import { getEveryFreqFor } from "@calcom/lib/recurringStrings";
-import { getIs24hClockFromLocalStorage, isBrowserLocale24h } from "@calcom/lib/timeFormat";
-import { getTimeShiftFlags, getFirstShiftFlags } from "@calcom/lib/timeShift";
-import { CURRENT_TIMEZONE } from "@calcom/lib/timezoneConstants";
-import { localStorage } from "@calcom/lib/webstorage";
-import { AssignmentReasonEnum, BookingStatus, SchedulingType } from "@calcom/prisma/enums";
+} from "@coachos/embed-core/embed-iframe";
+import { Price } from "@coachos/features/bookings/components/event-meta/Price";
+import { getCalendarLinks, CalendarLinkType } from "@coachos/features/bookings/lib/getCalendarLinks";
+import { RATING_OPTIONS, validateRating } from "@coachos/features/bookings/lib/rating";
+import { isWithinMinimumRescheduleNotice as isWithinMinimumRescheduleNoticeUtil } from "@coachos/features/bookings/lib/reschedule/isWithinMinimumRescheduleNotice";
+import type { nameObjectSchema } from "@coachos/features/eventtypes/lib/eventNaming";
+import { getEventName } from "@coachos/features/eventtypes/lib/eventNaming";
+import { shouldShowFieldInCustomResponses } from "@coachos/lib/bookings/SystemField";
+import { APP_NAME } from "@coachos/lib/constants";
+import { formatToLocalizedDate, formatToLocalizedTime, formatToLocalizedTimezone } from "@coachos/lib/dayjs";
+import useGetBrandingColours from "@coachos/lib/getBrandColours";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useRouterQuery } from "@coachos/lib/hooks/useRouterQuery";
+import useTheme from "@coachos/lib/hooks/useTheme";
+import isSmsCalEmail from "@coachos/lib/isSmsCalEmail";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import { getEveryFreqFor } from "@coachos/lib/recurringStrings";
+import { getIs24hClockFromLocalStorage, isBrowserLocale24h } from "@coachos/lib/timeFormat";
+import { getTimeShiftFlags, getFirstShiftFlags } from "@coachos/lib/timeShift";
+import { CURRENT_TIMEZONE } from "@coachos/lib/timezoneConstants";
+import { localStorage } from "@coachos/lib/webstorage";
+import { AssignmentReasonEnum, BookingStatus, SchedulingType } from "@coachos/prisma/enums";
 
-import assignmentReasonBadgeTitleMap from "@calcom/web/lib/booking/assignmentReasonBadgeTitleMap";
-import { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
-import { trpc } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { EmailInput, TextArea } from "@calcom/ui/components/form";
-import { Icon } from "@calcom/ui/components/icon";
+import assignmentReasonBadgeTitleMap from "@coachos/web/lib/booking/assignmentReasonBadgeTitleMap";
+import { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
+import { trpc } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { EmailInput, TextArea } from "@coachos/ui/components/form";
+import { Icon } from "@coachos/ui/components/icon";
 import {
   CalendarIcon,
   CheckIcon,
@@ -61,11 +61,11 @@ import {
   ExternalLinkIcon,
   XIcon,
 } from "@coss/ui/icons";
-import { showToast } from "@calcom/ui/components/toast";
-import { useCalcomTheme } from "@calcom/ui/styles";
-import CancelBooking from "@calcom/web/components/booking/CancelBooking";
-import EventReservationSchema from "@calcom/web/components/schemas/EventReservationSchema";
-import { timeZone } from "@calcom/web/lib/clock";
+import { showToast } from "@coachos/ui/components/toast";
+import { useCalcomTheme } from "@coachos/ui/styles";
+import CancelBooking from "@coachos/web/components/booking/CancelBooking";
+import EventReservationSchema from "@coachos/web/components/schemas/EventReservationSchema";
+import { timeZone } from "@coachos/web/lib/clock";
 
 import { usePaymentStatus } from "../hooks/usePaymentStatus";
 import type { PageProps } from "./bookings-single-view.getServerSideProps";
@@ -1038,7 +1038,7 @@ export default function Success(props: PageProps) {
                       <>
                         <hr className="border-subtle mt-8" />
                         <div className="text-default pt-8 text-center text-xs">
-                          <a href="https://cal.com/signup">
+                          <a href="https://amir9078.github.io/signup">
                             {t("create_booking_link_with_calcom", { appName: APP_NAME })}
                           </a>
 
@@ -1048,7 +1048,7 @@ export default function Success(props: PageProps) {
                               const target = e.target as typeof e.target & {
                                 email: { value: string };
                               };
-                              router.push(`https://cal.com/signup?email=${target.email.value}`);
+                              router.push(`https://amir9078.github.io/signup?email=${target.email.value}`);
                             }}
                             className="mt-4 flex">
                             <EmailInput
@@ -1056,7 +1056,7 @@ export default function Success(props: PageProps) {
                               id="email"
                               defaultValue={email}
                               className="mr- focus:border-brand-default border-default text-default mt-0 block w-full rounded-none rounded-l-md shadow-sm focus:ring-black sm:text-sm"
-                              placeholder="rick.astley@cal.com"
+                              placeholder="rick.astley@amir9078.github.io"
                             />
                             <Button
                               type="submit"
@@ -1143,7 +1143,7 @@ export default function Success(props: PageProps) {
                       <span className="underline">
                         <a
                           target="_blank"
-                          href="https://cal.com/blog/google-s-new-spam-policy-may-be-affecting-your-invitations"
+                          href="https://amir9078.github.io/blog/google-s-new-spam-policy-may-be-affecting-your-invitations"
                           rel="noreferrer">
                           {t("resolve")}
                         </a>

@@ -3,15 +3,15 @@ import type { SubmitHandler } from "react-hook-form";
 import { FormProvider } from "react-hook-form";
 import { useForm, useFormContext } from "react-hook-form";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import type { EventNameObjectType } from "@calcom/features/eventtypes/lib/eventNaming";
-import { getEventName, validateCustomEventName } from "@calcom/features/eventtypes/lib/eventNaming";
-import type { InputClassNames } from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogFooter, DialogClose } from "@calcom/ui/components/dialog";
-import { TextField } from "@calcom/ui/components/form";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import type { EventNameObjectType } from "@coachos/features/eventtypes/lib/eventNaming";
+import { getEventName, validateCustomEventName } from "@coachos/features/eventtypes/lib/eventNaming";
+import type { InputClassNames } from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogFooter, DialogClose } from "@coachos/ui/components/dialog";
+import { TextField } from "@coachos/ui/components/form";
 
 interface FormValues {
   customEventName: string;

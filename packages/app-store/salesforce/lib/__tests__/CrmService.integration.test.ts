@@ -28,9 +28,9 @@ vi.mock("@urql/core", () => ({
   fetchExchange: vi.fn(),
 }));
 
-vi.mock("@calcom/lib/constants", () => {
+vi.mock("@coachos/lib/constants", () => {
   return {
-    WEBAPP_URL: "https://app.cal.com",
+    WEBAPP_URL: "https://app.amir9078.github.io",
     APP_CREDENTIAL_SHARING_ENABLED: false,
     IS_PRODUCTION: false,
   };
@@ -44,7 +44,7 @@ vi.mock("@jsforce/jsforce-node", () => {
   };
 });
 
-vi.mock("@calcom/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
+vi.mock("@coachos/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
   checkIfFreeEmailDomain: vi.fn().mockResolvedValue(false),
 }));
 
@@ -59,7 +59,7 @@ vi.mock("../getSalesforceTokenLifetime", () => ({
   getSalesforceTokenLifetime: vi.fn().mockResolvedValue(7200),
 }));
 
-vi.mock("@calcom/features/credentials/repositories/CredentialRepository", () => ({
+vi.mock("@coachos/features/credentials/repositories/CredentialRepository", () => ({
   CredentialRepository: {
     updateWhereId: vi.fn().mockResolvedValue({}),
   },

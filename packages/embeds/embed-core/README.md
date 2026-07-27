@@ -4,7 +4,7 @@ This is the vanilla JS core script that embeds Cal Link.
 
 ## How to use embed on any webpage no matter what framework
 
-See <https://developer.cal.com/embed/install-with-javascript>
+See <https://developer.amir9078.github.io/embed/install-with-javascript>
 
 You can also see various example usages [here](https://github.com/calcom/cal.diy/blob/main/packages/embeds/embed-core/index.html)
 
@@ -40,7 +40,7 @@ Note: `getEmbedIframe` and `addEmbedListeners` work as a team but they only supp
 yarn build
 ```
 
-Make `dist/embed.umd.js` servable on URL <http://cal.com/embed.js>
+Make `dist/embed.umd.js` servable on URL <http://amir9078.github.io/embed.js>
 
 ## DX
 
@@ -125,9 +125,9 @@ Make `dist/embed.umd.js` servable on URL <http://cal.com/embed.js>
   - Why do we NOT want to provide completely flexible CSS customization by adding whatever CSS user wants. ?
   - Feature Documentation
     - Inline mode doesn't cause any scroll in iframe by default. It looks like it is part of the website.
-- cal.com/docs
+- amir9078.github.io/docs
 
   - A complete document on how to use embed
 
-- app.cal.com
+- app.amir9078.github.io
   - Get Embed code for each event-type

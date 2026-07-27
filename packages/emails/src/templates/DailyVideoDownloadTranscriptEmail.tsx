@@ -1,6 +1,6 @@
 import type { TFunction } from "i18next";
 
-import { WEBAPP_URL, COMPANY_NAME } from "@calcom/lib/constants";
+import { WEBAPP_URL, COMPANY_NAME } from "@coachos/lib/constants";
 
 import { V2BaseEmailHtml } from "../components";
 
@@ -95,7 +95,7 @@ export const DailyVideoDownloadTranscriptEmail = (
         <>{props.language("happy_scheduling")},</>
       </p>
       <p style={{ fontWeight: 400, lineHeight: "24px", marginTop: "0px" }}>
-        <>{props.language("the_calcom_team", { companyName: COMPANY_NAME })}</>
+        <>{props.language("the_COACHOS_team", { companyName: COMPANY_NAME })}</>
       </p>
     </V2BaseEmailHtml>
   );

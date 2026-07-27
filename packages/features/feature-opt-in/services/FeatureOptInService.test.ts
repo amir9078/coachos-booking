@@ -1,9 +1,9 @@
-import type { IFeatureRepository } from "@calcom/features/flags/repositories/FeatureRepository";
-import type { ITeamFeatureRepository } from "@calcom/features/flags/repositories/TeamFeatureRepository";
-import type { IUserFeatureRepository } from "@calcom/features/flags/repositories/UserFeatureRepository";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import type { TeamFeatures, UserFeatures } from "@calcom/prisma/client";
+import type { IFeatureRepository } from "@coachos/features/flags/repositories/FeatureRepository";
+import type { ITeamFeatureRepository } from "@coachos/features/flags/repositories/TeamFeatureRepository";
+import type { IUserFeatureRepository } from "@coachos/features/flags/repositories/UserFeatureRepository";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import type { TeamFeatures, UserFeatures } from "@coachos/prisma/client";
 import type { Mock } from "vitest";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { IFeatureOptInServiceDeps } from "./FeatureOptInService";
@@ -63,7 +63,7 @@ vi.mock("../config", () => {
 });
 
 // Mock MembershipRepository
-vi.mock("@calcom/features/membership/repositories/MembershipRepository", () => ({
+vi.mock("@coachos/features/membership/repositories/MembershipRepository", () => ({
   MembershipRepository: class {
     findAllByUserId(...args: unknown[]): unknown {
       return mockFindAllByUserId(...args);
@@ -73,7 +73,7 @@ vi.mock("@calcom/features/membership/repositories/MembershipRepository", () => (
 
 // Mock PermissionCheckService - needs to be a class that can be instantiated
 let mockCheckPermission: Mock = vi.fn();
-vi.mock("@calcom/features/pbac/services/permission-check.service", () => ({
+vi.mock("@coachos/features/pbac/services/permission-check.service", () => ({
   PermissionCheckService: class {
     checkPermission(...args: unknown[]): unknown {
       return mockCheckPermission(...args);
@@ -84,7 +84,7 @@ vi.mock("@calcom/features/pbac/services/permission-check.service", () => ({
 let mockFindOwnedTeamsByUserId: Mock = vi.fn();
 
 // Mock prisma
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   prisma: {
     membership: {
       findUnique: (...args: unknown[]) => mockMembershipFindUnique(...args),
@@ -705,14 +705,14 @@ describe("FeatureOptInService", () => {
         checkPermission: vi.fn(),
       };
 
-      vi.doMock("@calcom/features/membership/repositories/MembershipRepository", () => ({
+      vi.doMock("@coachos/features/membership/repositories/MembershipRepository", () => ({
         MembershipRepository: class {
           findAllByUserId(...args: unknown[]): unknown {
             return mockMembershipRepository.findAllByUserId(...args);
           }
         },
       }));
-      vi.doMock("@calcom/features/pbac/services/permission-check.service", () => ({
+      vi.doMock("@coachos/features/pbac/services/permission-check.service", () => ({
         PermissionCheckService: vi.fn(() => mockPermissionCheckService),
       }));
     });

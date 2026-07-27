@@ -1,9 +1,9 @@
-import { DailyLocationType } from "@calcom/app-store/constants";
-import dayjs from "@calcom/dayjs";
-import tasker from "@calcom/features/tasker";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { DailyLocationType } from "@coachos/app-store/constants";
+import dayjs from "@coachos/dayjs";
+import tasker from "@coachos/features/tasker";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 
 type ScheduleNoShowTriggersArgs = {
   booking: {
@@ -43,7 +43,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
   const subscribersHostsNoShowStarted = await getWebhooks({
     userId: triggerForUser ? organizerUser.id : null,
     eventTypeId,
-    triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+    triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
     teamId,
     orgId,
     oAuthClientId,
@@ -58,7 +58,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
         return tasker.create(
           "triggerHostNoShowWebhook",
           {
-            triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+            triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
             bookingId: booking.id,
             // Prevents null values from being serialized
             webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit },
@@ -73,7 +73,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
   const subscribersGuestsNoShowStarted = await getWebhooks({
     userId: triggerForUser ? organizerUser.id : null,
     eventTypeId,
-    triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+    triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
     teamId,
     orgId,
     oAuthClientId,
@@ -89,7 +89,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
         return tasker.create(
           "triggerGuestNoShowWebhook",
           {
-            triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+            triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
             bookingId: booking.id,
             // Prevents null values from being serialized
             webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit },

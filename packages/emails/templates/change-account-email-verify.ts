@@ -1,6 +1,6 @@
 import type { TFunction } from "i18next";
 
-import { APP_NAME, COMPANY_NAME, EMAIL_FROM_NAME } from "@calcom/lib/constants";
+import { APP_NAME, COMPANY_NAME, EMAIL_FROM_NAME } from "@coachos/lib/constants";
 
 import renderEmail from "../src/renderEmail";
 import BaseEmail from "./_base-email";
@@ -47,7 +47,7 @@ ${this.changeEvent.user.emailFrom},
 ${this.changeEvent.language("new_email_address")}
 ${this.changeEvent.user.emailTo},
 ${this.changeEvent.verificationEmailLink}
-${this.changeEvent.language("happy_scheduling")} ${this.changeEvent.language("the_calcom_team", {
+${this.changeEvent.language("happy_scheduling")} ${this.changeEvent.language("the_COACHOS_team", {
       companyName: COMPANY_NAME,
     })}
 `.replace(/(<([^>]+)>)/gi, "");

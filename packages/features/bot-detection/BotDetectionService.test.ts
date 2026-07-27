@@ -1,11 +1,11 @@
 import type { IncomingHttpHeaders } from "node:http";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
-import type { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import type { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { HttpError } from "@calcom/lib/http-error";
+import type { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import type { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { HttpError } from "@coachos/lib/http-error";
 
 import { BotDetectionService } from "./BotDetectionService";
 
@@ -15,7 +15,7 @@ vi.mock("botid/server", () => ({
 }));
 
 // Mock the logger
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: vi.fn(() => ({
       warn: vi.fn(),

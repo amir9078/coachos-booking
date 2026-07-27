@@ -44,7 +44,7 @@ Support over 100 languages, including regional accents and cultural adaptations,
 
 ## Preset Functions
 
-Easy-to-use functions like booking meetings at [Cal.diy](https://cal.com), call transfer, voicemail detection, and more. Comprehensive call management with audio recordings, searchable transcripts, and detailed reports to monitor performance and campaign results.
+Easy-to-use functions like booking meetings at [Cal.diy](https://amir9078.github.io), call transfer, voicemail detection, and more. Comprehensive call management with audio recordings, searchable transcripts, and detailed reports to monitor performance and campaign results.
 
 ## GDPR Compliant
 

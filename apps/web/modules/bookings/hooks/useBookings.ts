@@ -1,22 +1,22 @@
 "use client";
 
-import { createPaymentLink } from "@calcom/app-store/stripepayment/lib/client";
-import { useHandleBookEvent } from "@calcom/atoms/hooks/bookings/useHandleBookEvent";
-import dayjs from "@calcom/dayjs";
-import { sdkActionManager } from "@calcom/embed-core/embed-iframe";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import type { UseBookingFormReturnType } from "@calcom/features/bookings/Booker/hooks/useBookingForm";
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import { useBookingSuccessRedirect } from "@calcom/features/bookings/lib/bookingSuccessRedirect";
-import { storeDecoyBooking } from "@calcom/features/bookings/lib/client/decoyBookingStore";
-import { createBooking } from "@calcom/features/bookings/lib/create-booking";
-import { createRecurringBooking } from "@calcom/features/bookings/lib/create-recurring-booking";
-import type { GetBookingType } from "@calcom/features/bookings/lib/get-booking";
-import type { BookerEvent, BookingResponse } from "@calcom/features/bookings/types";
-import { getFullName } from "@calcom/features/form-builder/utils";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { createPaymentLink } from "@coachos/app-store/stripepayment/lib/client";
+import { useHandleBookEvent } from "@coachos/atoms/hooks/bookings/useHandleBookEvent";
+import dayjs from "@coachos/dayjs";
+import { sdkActionManager } from "@coachos/embed-core/embed-iframe";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import type { UseBookingFormReturnType } from "@coachos/features/bookings/Booker/hooks/useBookingForm";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import { useBookingSuccessRedirect } from "@coachos/features/bookings/lib/bookingSuccessRedirect";
+import { storeDecoyBooking } from "@coachos/features/bookings/lib/client/decoyBookingStore";
+import { createBooking } from "@coachos/features/bookings/lib/create-booking";
+import { createRecurringBooking } from "@coachos/features/bookings/lib/create-recurring-booking";
+import type { GetBookingType } from "@coachos/features/bookings/lib/get-booking";
+import type { BookerEvent, BookingResponse } from "@coachos/features/bookings/types";
+import { getFullName } from "@coachos/features/form-builder/utils";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { BookingStatus } from "@coachos/prisma/enums";
 import { useMutation } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useRef } from "react";
@@ -404,7 +404,7 @@ export const useBookings = ({ event, hashedLink, bookingForm, metadata, isBookin
     },
     onError: (err, _, ctx) => {
       console.error("Error creating recurring booking", err);
-      // eslint-disable-next-line @calcom/eslint/no-scroll-into-view-embed -- It is only called when user takes an action in embed
+      // eslint-disable-next-line @coachos/eslint/no-scroll-into-view-embed -- It is only called when user takes an action in embed
       bookerFormErrorRef && bookerFormErrorRef.current?.scrollIntoView({ behavior: "smooth" });
     },
   });

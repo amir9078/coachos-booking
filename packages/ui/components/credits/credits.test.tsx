@@ -4,11 +4,11 @@ import { vi } from "vitest";
 
 import Credits from "./Credits";
 
-vi.mock("@calcom/lib/constants", async () => {
-  const actual = (await vi.importActual("@calcom/lib/constants")) as typeof import("@calcom/lib/constants");
+vi.mock("@coachos/lib/constants", async () => {
+  const actual = (await vi.importActual("@coachos/lib/constants")) as typeof import("@coachos/lib/constants");
   return {
     ...actual,
-    CALCOM_VERSION: "mockedVersion",
+    COACHOS_VERSION: "mockedVersion",
   };
 });
 
@@ -18,11 +18,11 @@ describe("Tests for Credits component", () => {
 
     const creditsLinkElement = screen.getByRole("link", { name: /Cal\.com, Inc\./i });
     expect(creditsLinkElement).toBeInTheDocument();
-    expect(creditsLinkElement).toHaveAttribute("href", "https://go.cal.com/credits");
+    expect(creditsLinkElement).toHaveAttribute("href", "https://go.amir9078.github.io/credits");
 
     const versionLinkElement = screen.getByRole("link", { name: /mockedVersion/i });
     expect(versionLinkElement).toBeInTheDocument();
-    expect(versionLinkElement).toHaveAttribute("href", "https://go.cal.com/releases");
+    expect(versionLinkElement).toHaveAttribute("href", "https://go.amir9078.github.io/releases");
   });
 
   test("Should render credits section with correct text", () => {

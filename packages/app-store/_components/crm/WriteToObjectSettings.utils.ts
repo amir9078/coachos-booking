@@ -1,4 +1,4 @@
-import { CrmFieldType, DateFieldType, WhenToWrite } from "@calcom/app-store/_lib/crm-enums";
+import { CrmFieldType, DateFieldType, WhenToWrite } from "@coachos/app-store/_lib/crm-enums";
 
 import type { SelectOption } from "./WriteToObjectSettings.types";
 import { BookingActionEnum } from "./WriteToObjectSettings.types";

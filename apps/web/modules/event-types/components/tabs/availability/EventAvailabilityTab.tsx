@@ -1,28 +1,28 @@
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import dayjs from "@calcom/dayjs";
-import { SelectSkeletonLoader } from "@calcom/features/availability/components/SkeletonLoader";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import dayjs from "@coachos/dayjs";
+import { SelectSkeletonLoader } from "@coachos/features/availability/components/SkeletonLoader";
 import type {
   AvailabilityOption,
   EventTypeSetup,
   FormValues,
   Host,
   SelectClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import CheckboxField from "@calcom/features/form/components/CheckboxField";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { weekdayNames } from "@calcom/lib/weekday";
-import { weekStartNum } from "@calcom/lib/weekstart";
-import { SchedulingType } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { Label, Select, SettingsToggle } from "@calcom/ui/components/form";
-import { Spinner } from "@calcom/ui/components/icon";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
-import type { TeamMembers } from "@calcom/web/modules/event-types/components/EventType";
+} from "@coachos/features/eventtypes/lib/types";
+import CheckboxField from "@coachos/features/form/components/CheckboxField";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { weekdayNames } from "@coachos/lib/weekday";
+import { weekStartNum } from "@coachos/lib/weekstart";
+import { SchedulingType } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { Label, Select, SettingsToggle } from "@coachos/ui/components/form";
+import { Spinner } from "@coachos/ui/components/icon";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
+import type { TeamMembers } from "@coachos/web/modules/event-types/components/EventType";
 import { GlobeIcon, UserIcon } from "@coss/ui/icons";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import type { UseQueryResult } from "@tanstack/react-query";

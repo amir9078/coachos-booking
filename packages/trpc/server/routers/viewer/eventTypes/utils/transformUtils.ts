@@ -1,13 +1,13 @@
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import type { MembershipRole } from "@calcom/prisma/enums";
-import { teamMetadataSchema } from "@calcom/prisma/zod-utils";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import type { MembershipRole } from "@coachos/prisma/enums";
+import { teamMetadataSchema } from "@coachos/prisma/zod-utils";
 import type { TeamPermissions } from "./permissionUtils";
 
 const getBookerBaseUrlSync = (_orgSlug?: string | number | null): string =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 const getBookerBaseUrl = async (_orgSlug?: string | number | null): Promise<string> =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
 export interface EventTypeGroup {
   teamId?: number | null;

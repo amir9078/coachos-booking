@@ -3,21 +3,21 @@
 import Link from "next/link";
 import { Fragment, useState } from "react";
 
-import { availabilityAsString } from "@calcom/lib/availability";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { sortAvailabilityStrings } from "@calcom/lib/weekstart";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
+import { availabilityAsString } from "@coachos/lib/availability";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { sortAvailabilityStrings } from "@coachos/lib/weekstart";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
 import {
   Dropdown,
   DropdownItem,
   DropdownMenuContent,
   DropdownMenuItem,
   DropdownMenuTrigger,
-} from "@calcom/ui/components/dropdown";
-import { ConfirmationDialogContent } from "@calcom/ui/components/dialog";
-import { showToast } from "@calcom/ui/components/toast";
+} from "@coachos/ui/components/dropdown";
+import { ConfirmationDialogContent } from "@coachos/ui/components/dialog";
+import { showToast } from "@coachos/ui/components/toast";
 import { GlobeIcon } from "@coss/ui/icons";
 
 interface Schedule {

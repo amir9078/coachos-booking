@@ -25,7 +25,7 @@ id, logo, theme, licenseKey, agreedLicenseAt:-
 ```
 Then in the `apps/api/v2/.env` set the license key environment variable:
 ```
-CALCOM_LICENSE_KEY="00000000-0000-0000-0000-000000000000"
+COACHOS_LICENSE_KEY="00000000-0000-0000-0000-000000000000"
 ```
 6. (optional) Prisma setup and database seeding - if you need to setup and seed database you can do it:
 ```bash

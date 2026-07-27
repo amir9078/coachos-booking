@@ -1,11 +1,11 @@
 "use client";
 
-import type { SeparatorRow } from "@calcom/features/data-table/lib/separator";
-import { isSeparatorRow } from "@calcom/features/data-table/lib/separator";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Command, CommandItem, CommandList } from "@calcom/ui/components/command";
-import { Popover, PopoverContent, PopoverTrigger } from "@calcom/ui/components/popover";
+import type { SeparatorRow } from "@coachos/features/data-table/lib/separator";
+import { isSeparatorRow } from "@coachos/features/data-table/lib/separator";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Command, CommandItem, CommandList } from "@coachos/ui/components/command";
+import { Popover, PopoverContent, PopoverTrigger } from "@coachos/ui/components/popover";
 import {
   TableBody,
   TableCell,
@@ -13,7 +13,7 @@ import {
   TableHeader,
   TableNew,
   TableRow,
-} from "@calcom/ui/components/table";
+} from "@coachos/ui/components/table";
 import { ArrowDownIcon, ArrowUpIcon, CheckIcon, ChevronsUpDownIcon, EyeOffIcon } from "@coss/ui/icons";
 import type { Header, HeaderGroup, Table as ReactTableType, Row } from "@tanstack/react-table";
 import { flexRender } from "@tanstack/react-table";

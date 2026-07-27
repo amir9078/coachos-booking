@@ -1,19 +1,19 @@
 import type { Logger } from "tslog";
 
-import dayjs from "@calcom/dayjs";
-import type { Dayjs } from "@calcom/dayjs";
-import { checkForConflicts } from "@calcom/features/bookings/lib/conflictChecker/checkForConflicts";
-import { getBusyTimesService } from "@calcom/features/di/containers/BusyTimes";
-import { getUserAvailabilityService } from "@calcom/features/di/containers/GetUserAvailability";
-import { buildDateRanges } from "@calcom/features/schedules/lib/date-ranges";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { parseBookingLimit } from "@calcom/lib/intervalLimits/isBookingLimits";
-import { parseDurationLimit } from "@calcom/lib/intervalLimits/isDurationLimits";
-import { getPiiFreeUser } from "@calcom/lib/piiFreeData";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import prisma from "@calcom/prisma";
-import type { CalendarFetchMode } from "@calcom/types/Calendar";
+import dayjs from "@coachos/dayjs";
+import type { Dayjs } from "@coachos/dayjs";
+import { checkForConflicts } from "@coachos/features/bookings/lib/conflictChecker/checkForConflicts";
+import { getBusyTimesService } from "@coachos/features/di/containers/BusyTimes";
+import { getUserAvailabilityService } from "@coachos/features/di/containers/GetUserAvailability";
+import { buildDateRanges } from "@coachos/features/schedules/lib/date-ranges";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { parseBookingLimit } from "@coachos/lib/intervalLimits/isBookingLimits";
+import { parseDurationLimit } from "@coachos/lib/intervalLimits/isDurationLimits";
+import { getPiiFreeUser } from "@coachos/lib/piiFreeData";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import prisma from "@coachos/prisma";
+import type { CalendarFetchMode } from "@coachos/types/Calendar";
 
 import type { getEventTypeResponse } from "./getEventTypesFromDB";
 import type { BookingType } from "./originalRescheduledBookingUtils";

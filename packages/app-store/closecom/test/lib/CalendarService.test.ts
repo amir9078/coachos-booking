@@ -1,17 +1,17 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import CloseCom from "@calcom/lib/CloseCom";
+import CloseCom from "@coachos/lib/CloseCom";
 import {
   getCloseComContactIds,
   getCloseComCustomActivityTypeFieldsIds,
   getCloseComLeadId,
   getCustomActivityTypeInstanceData,
-} from "@calcom/lib/CloseComeUtils";
-import { APP_NAME } from "@calcom/lib/constants";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+} from "@coachos/lib/CloseComeUtils";
+import { APP_NAME } from "@coachos/lib/constants";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 import { afterEach, expect, test, vi } from "vitest";
 
-vi.mock("@calcom/lib/CloseCom", () => ({
+vi.mock("@coachos/lib/CloseCom", () => ({
   default: class {
     constructor() {
       /* Mock */
@@ -19,7 +19,7 @@ vi.mock("@calcom/lib/CloseCom", () => ({
   },
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {},
   prisma: {},
 }));

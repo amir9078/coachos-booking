@@ -1,43 +1,43 @@
 import process from "node:process";
-import { updateProfilePhotoGoogle } from "@calcom/app-store/_utils/oauth/updateProfilePhotoGoogle";
-import { updateProfilePhotoMicrosoft } from "@calcom/app-store/_utils/oauth/updateProfilePhotoMicrosoft";
-import { createGoogleCalendarServiceWithGoogleType } from "@calcom/app-store/googlecalendar/lib/CalendarService";
-import { getIdentityProvider } from "@calcom/features/auth/lib/identityProviders";
+import { updateProfilePhotoGoogle } from "@coachos/app-store/_utils/oauth/updateProfilePhotoGoogle";
+import { updateProfilePhotoMicrosoft } from "@coachos/app-store/_utils/oauth/updateProfilePhotoMicrosoft";
+import { createGoogleCalendarServiceWithGoogleType } from "@coachos/app-store/googlecalendar/lib/CalendarService";
+import { getIdentityProvider } from "@coachos/features/auth/lib/identityProviders";
 import {
   OUTLOOK_CLIENT_ID,
   OUTLOOK_CLIENT_SECRET,
   OUTLOOK_LOGIN_ENABLED,
-} from "@calcom/features/auth/lib/outlook";
-import { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
-import { buildCredentialCreateData } from "@calcom/features/credentials/services/CredentialDataService";
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { isPasswordValid } from "@calcom/lib/auth/isPasswordValid";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
+} from "@coachos/features/auth/lib/outlook";
+import { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
+import { buildCredentialCreateData } from "@coachos/features/credentials/services/CredentialDataService";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { isPasswordValid } from "@coachos/lib/auth/isPasswordValid";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
 import {
   ENABLE_PROFILE_SWITCHER,
   GOOGLE_CALENDAR_SCOPES,
   GOOGLE_OAUTH_SCOPES,
-  HOSTED_CAL_FEATURES,
+  HOSTED_coachos_FEATURES,
   IS_CALCOM,
   IS_TEAM_BILLING_ENABLED,
   MICROSOFT_CALENDAR_SCOPES,
   WEBAPP_URL,
-} from "@calcom/lib/constants";
-import { symmetricDecrypt, symmetricEncrypt } from "@calcom/lib/crypto";
-import { defaultCookies } from "@calcom/lib/default-cookies";
-import { isENVDev } from "@calcom/lib/env";
-import logger from "@calcom/lib/logger";
-import { randomString } from "@calcom/lib/random";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { hashEmail } from "@calcom/lib/server/PiiHasher";
-import slugify from "@calcom/lib/slugify";
-import type { TrackingData } from "@calcom/lib/tracking";
-import prisma from "@calcom/prisma";
-import type { Membership, Team } from "@calcom/prisma/client";
-import { CreationSource, IdentityProvider, MembershipRole, UserPermissionRole } from "@calcom/prisma/enums";
-import { teamMetadataSchema, userMetadata } from "@calcom/prisma/zod-utils";
-import type { UserProfile } from "@calcom/types/UserProfile";
+} from "@coachos/lib/constants";
+import { symmetricDecrypt, symmetricEncrypt } from "@coachos/lib/crypto";
+import { defaultCookies } from "@coachos/lib/default-cookies";
+import { isENVDev } from "@coachos/lib/env";
+import logger from "@coachos/lib/logger";
+import { randomString } from "@coachos/lib/random";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { hashEmail } from "@coachos/lib/server/PiiHasher";
+import slugify from "@coachos/lib/slugify";
+import type { TrackingData } from "@coachos/lib/tracking";
+import prisma from "@coachos/prisma";
+import type { Membership, Team } from "@coachos/prisma/client";
+import { CreationSource, IdentityProvider, MembershipRole, UserPermissionRole } from "@coachos/prisma/enums";
+import { teamMetadataSchema, userMetadata } from "@coachos/prisma/zod-utils";
+import type { UserProfile } from "@coachos/types/UserProfile";
 import { calendar_v3 } from "@googleapis/calendar";
 import { waitUntil } from "@vercel/functions";
 import { OAuth2Client } from "googleapis-common";
@@ -233,7 +233,7 @@ export async function authorizeCredentials(
       throw new Error(ErrorCode.InternalServerError);
     }
 
-    const isValidToken = (await import("@calcom/lib/totp")).totpAuthenticatorCheck(
+    const isValidToken = (await import("@coachos/lib/totp")).totpAuthenticatorCheck(
       credentials.totpCode,
       secret
     );

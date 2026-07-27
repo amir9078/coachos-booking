@@ -1,6 +1,6 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
-import { BookingOutput_2024_08_13, GetBookingOutput_2024_08_13 } from "@calcom/platform-types";
-import type { Booking, PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
+import { BookingOutput_2024_08_13, GetBookingOutput_2024_08_13 } from "@coachos/platform-types";
+import type { Booking, PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -154,7 +154,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
       return request(app.getHttpServer())
         .post(`/v2/bookings/${createdBooking1.uid}/confirm`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -215,7 +215,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
       return request(app.getHttpServer())
         .post(`/v2/bookings/${createdBooking2.uid}/decline`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;

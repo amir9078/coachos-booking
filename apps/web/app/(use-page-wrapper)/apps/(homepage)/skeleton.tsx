@@ -1,7 +1,7 @@
 "use client";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SkeletonText, SkeletonContainer, SkeletonButton } from "@calcom/ui/components/skeleton";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SkeletonText, SkeletonContainer, SkeletonButton } from "@coachos/ui/components/skeleton";
 
 import AppsLayout from "@components/apps/layouts/AppsLayout";
 

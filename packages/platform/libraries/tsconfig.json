@@ -1,5 +1,5 @@
 {
-  "extends": "@calcom/tsconfig/base.json",
+  "extends": "@coachos/tsconfig/base.json",
   "compilerOptions": {
     "module": "CommonJS",
     "target": "ES2021",
@@ -11,7 +11,7 @@
     "experimentalDecorators": true,
     "baseUrl": ".",
     "paths": {
-      "@calcom/i18n/server": ["../../i18n/server.ts"]
+      "@coachos/i18n/server": ["../../i18n/server.ts"]
     }
   },
   "include": [".", "../../types/*.d.ts"],

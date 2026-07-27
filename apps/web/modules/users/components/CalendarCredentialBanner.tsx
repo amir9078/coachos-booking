@@ -1,6 +1,6 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { TopBanner } from "@calcom/ui/components/top-banner";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { TopBanner } from "@coachos/ui/components/top-banner";
 import Link from "next/link";
 
 export type CalendarCredentialBannerProps = {

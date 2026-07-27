@@ -1,10 +1,10 @@
-import dayjs from "@calcom/dayjs";
-import { handleWebhookTrigger } from "@calcom/features/bookings/lib/handleWebhookTrigger";
-import type { EventPayloadType } from "@calcom/features/webhooks/lib/sendPayload";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { HttpError } from "@calcom/lib/http-error";
-import prisma from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import { handleWebhookTrigger } from "@coachos/features/bookings/lib/handleWebhookTrigger";
+import type { EventPayloadType } from "@coachos/features/webhooks/lib/sendPayload";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { HttpError } from "@coachos/lib/http-error";
+import prisma from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
 import { createLoggerWithEventDetails } from "../handleNewBooking/logger";
 import createNewSeat from "./create/createNewSeat";
 import rescheduleSeatedBooking from "./reschedule/rescheduleSeatedBooking";

@@ -1,6 +1,6 @@
-import { EventTypeAppSettings } from "@calcom/app-store/_components/EventTypeAppSettingsInterface";
-import type { EventTypeAppsList } from "@calcom/app-store/utils";
-import useAppsData from "@calcom/features/apps/hooks/useAppsData";
+import { EventTypeAppSettings } from "@coachos/app-store/_components/EventTypeAppSettingsInterface";
+import type { EventTypeAppsList } from "@coachos/app-store/utils";
+import useAppsData from "@coachos/features/apps/hooks/useAppsData";
 import type { ConfigureStepCardProps } from "@components/apps/installation/ConfigureStepCard";
 import { type FC, useEffect } from "react";
 import type { TEventType } from "~/apps/installation/[[...step]]/step-view";

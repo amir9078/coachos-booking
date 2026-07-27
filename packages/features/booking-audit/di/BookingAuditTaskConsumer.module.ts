@@ -1,10 +1,10 @@
-import { BookingAuditTaskConsumer } from "@calcom/features/booking-audit/lib/service/BookingAuditTaskConsumer";
-import { BOOKING_AUDIT_DI_TOKENS } from "@calcom/features/booking-audit/di/tokens";
-import { moduleLoader as bookingAuditRepositoryModuleLoader } from "@calcom/features/booking-audit/di/BookingAuditRepository.module";
-import { moduleLoader as auditActorRepositoryModuleLoader } from "@calcom/features/booking-audit/di/AuditActorRepository.module";
-import { moduleLoader as attendeeRepositoryModuleLoader } from "@calcom/features/bookings/di/Attendee.module";
-import { moduleLoader as featuresRepositoryModuleLoader } from "@calcom/features/di/modules/FeaturesRepository";
-import { moduleLoader as userRepositoryModuleLoader } from "@calcom/features/di/modules/User";
+import { BookingAuditTaskConsumer } from "@coachos/features/booking-audit/lib/service/BookingAuditTaskConsumer";
+import { BOOKING_AUDIT_DI_TOKENS } from "@coachos/features/booking-audit/di/tokens";
+import { moduleLoader as bookingAuditRepositoryModuleLoader } from "@coachos/features/booking-audit/di/BookingAuditRepository.module";
+import { moduleLoader as auditActorRepositoryModuleLoader } from "@coachos/features/booking-audit/di/AuditActorRepository.module";
+import { moduleLoader as attendeeRepositoryModuleLoader } from "@coachos/features/bookings/di/Attendee.module";
+import { moduleLoader as featuresRepositoryModuleLoader } from "@coachos/features/di/modules/FeaturesRepository";
+import { moduleLoader as userRepositoryModuleLoader } from "@coachos/features/di/modules/User";
 
 import { createModule, bindModuleToClassOnToken } from "../../di/di";
 

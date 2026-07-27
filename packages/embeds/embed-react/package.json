@@ -1,5 +1,5 @@
 {
-  "name": "@calcom/embed-react",
+  "name": "@coachos/embed-react",
   "sideEffects": false,
   "version": "1.5.3",
   "description": "Embed Cal Link as a React Component",
@@ -20,10 +20,10 @@
     "embed-tests-quick": "QUICK=true yarn embed-tests",
     "embed-tests-update-snapshots:ci": "yarn embed-tests-quick --update-snapshots",
     "packaged:tests": "cd test/packaged && yarn tsc --noEmit && VITEST_MODE=packaged-embed yarn run -T test",
-    "withEmbedPublishEnv": "NEXT_PUBLIC_EMBED_LIB_URL='https://app.cal.com/embed/embed.js' NEXT_PUBLIC_WEBAPP_URL='https://app.cal.com' yarn",
-    "prepack": "yarn ../../../ lint --filter='@calcom/embed-react' && yarn withEmbedPublishEnv build && yarn packaged:tests",
-    "embed-web-start": "yarn workspace @calcom/web start",
-    "embed-dev": "yarn workspace @calcom/embed-react dev",
+    "withEmbedPublishEnv": "NEXT_PUBLIC_EMBED_LIB_URL='https://app.amir9078.github.io/embed/embed.js' NEXT_PUBLIC_WEBAPP_URL='https://app.amir9078.github.io' yarn",
+    "prepack": "yarn ../../../ lint --filter='@coachos/embed-react' && yarn withEmbedPublishEnv build && yarn packaged:tests",
+    "embed-web-start": "yarn workspace @coachos/web start",
+    "embed-dev": "yarn workspace @coachos/embed-react dev",
     "clean": "npx rimraf .turbo node_modules dist"
   },
   "main": "./dist/Cal.umd.js",
@@ -53,7 +53,7 @@
     "vite": "6.4.2"
   },
   "dependencies": {
-    "@calcom/embed-core": "workspace:*",
-    "@calcom/embed-snippet": "workspace:*"
+    "@coachos/embed-core": "workspace:*",
+    "@coachos/embed-snippet": "workspace:*"
   }
 }

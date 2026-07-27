@@ -1,6 +1,6 @@
-import type { TGetTranscriptAccessLink } from "@calcom/app-store/dailyvideo/zod";
-import type { TimeUnit, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { CalendarEvent, ConferenceData, Person } from "@calcom/types/Calendar";
+import type { TGetTranscriptAccessLink } from "@coachos/app-store/dailyvideo/zod";
+import type { TimeUnit, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { CalendarEvent, ConferenceData, Person } from "@coachos/types/Calendar";
 import type { WebhookVersion } from "../interface/IWebhookRepository";
 
 export interface BaseEventDTO {
@@ -302,7 +302,7 @@ export interface MeetingEndedDTO extends BaseEventDTO {
 }
 
 export interface AfterHostsNoShowDTO extends BaseEventDTO {
-  triggerEvent: typeof WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW;
+  triggerEvent: typeof WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW;
   bookingId: number;
   webhook: {
     id: string;
@@ -313,7 +313,7 @@ export interface AfterHostsNoShowDTO extends BaseEventDTO {
 }
 
 export interface AfterGuestsNoShowDTO extends BaseEventDTO {
-  triggerEvent: typeof WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW;
+  triggerEvent: typeof WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW;
   bookingId: number;
   webhook: {
     id: string;

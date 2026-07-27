@@ -6,10 +6,10 @@ import { PrismaWriteService } from "@/modules/prisma/prisma-write.service";
 import { UserWithProfile, UsersRepository } from "@/modules/users/users.repository";
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 
-import { updateSchedule } from "@calcom/platform-libraries/schedules";
-import type { UpdateScheduleInput_2024_04_15 } from "@calcom/platform-types";
-import type { PrismaClient } from "@calcom/prisma";
-import type { Schedule } from "@calcom/prisma/client";
+import { updateSchedule } from "@coachos/platform-libraries/schedules";
+import type { UpdateScheduleInput_2024_04_15 } from "@coachos/platform-types";
+import type { PrismaClient } from "@coachos/prisma";
+import type { Schedule } from "@coachos/prisma/client";
 
 @Injectable()
 export class SchedulesService_2024_04_15 {

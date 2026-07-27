@@ -1,4 +1,4 @@
-import type { FeatureState } from "@calcom/features/flags/config";
+import type { FeatureState } from "@coachos/features/flags/config";
 
 /**
  * Applies auto-opt-in transformation to feature states.

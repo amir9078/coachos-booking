@@ -1,5 +1,5 @@
-import { WEBAPP_URL_FOR_OAUTH } from "@calcom/lib/constants";
-import { getSafeRedirectUrl } from "@calcom/lib/getSafeRedirectUrl";
+import { WEBAPP_URL_FOR_OAUTH } from "@coachos/lib/constants";
+import { getSafeRedirectUrl } from "@coachos/lib/getSafeRedirectUrl";
 import * as hubspot from "@hubspot/api-client";
 import type { TokenResponseIF } from "@hubspot/api-client/lib/codegen/oauth/models/TokenResponseIF";
 import type { NextApiRequest, NextApiResponse } from "next";

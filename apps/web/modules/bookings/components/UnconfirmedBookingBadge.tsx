@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Badge } from "@calcom/ui/components/badge";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Badge } from "@coachos/ui/components/badge";
 
 export default function UnconfirmedBookingBadge() {
   const { t } = useLocale();

@@ -5,14 +5,14 @@ import { getCoreRowModel, getSortedRowModel, useReactTable } from "@tanstack/rea
 import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 
-import { DataTableSelectionBar, DataTableWrapper } from "@calcom/web/modules/data-table/components";
-import { IS_CALCOM } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
-import { ConfirmationDialogContent, Dialog } from "@calcom/ui/components/dialog";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
+import { DataTableSelectionBar, DataTableWrapper } from "@coachos/web/modules/data-table/components";
+import { IS_CALCOM } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
+import { ConfirmationDialogContent, Dialog } from "@coachos/ui/components/dialog";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
 
-import type { BlocklistEntry, BlocklistPermissions, BlocklistScope } from "@calcom/features/blocklist/types";
+import type { BlocklistEntry, BlocklistPermissions, BlocklistScope } from "@coachos/features/blocklist/types";
 import { useBlockedEntriesColumns } from "./BlockedEntriesColumns";
 import { BlocklistEntryDetailsSheet } from "./BlocklistEntryDetailsSheet";
 
@@ -32,7 +32,7 @@ export interface BlockedEntriesTableProps<T extends BlocklistEntry> {
       entry: {
         id: string;
         value: string;
-        type: import("@calcom/prisma/enums").WatchlistType;
+        type: import("@coachos/prisma/enums").WatchlistType;
         description: string | null;
         source?: string;
         bookingReports?: Array<{ booking: { uid: string; title: string | null } }>;
@@ -168,7 +168,7 @@ export function BlockedEntriesTable<T extends BlocklistEntry>({
                     StartIcon="book"
                     color="secondary"
                     onClick={() =>
-                      window.open("https://cal.com/help/security/blocklist", "_blank", "noopener,noreferrer")
+                      window.open("https://amir9078.github.io/help/security/blocklist", "_blank", "noopener,noreferrer")
                     }>
                     {t("docs")}
                   </Button>

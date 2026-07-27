@@ -1,11 +1,11 @@
 import { useMemo } from "react";
 
-import dayjs from "@calcom/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
-import { ButtonGroup } from "@calcom/ui/components/buttonGroup";
+import dayjs from "@coachos/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
+import { ButtonGroup } from "@coachos/ui/components/buttonGroup";
 
-import { useTroubleshooterStore } from "@calcom/features/troubleshooter/store";
+import { useTroubleshooterStore } from "@coachos/features/troubleshooter/store";
 
 export function TroubleshooterHeader({ extraDays, isMobile }: { extraDays: number; isMobile: boolean }) {
   const { t, i18n } = useLocale();

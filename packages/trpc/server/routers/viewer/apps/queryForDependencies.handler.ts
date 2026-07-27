@@ -1,6 +1,6 @@
-import { getAllDelegationCredentialsForUserByAppSlug } from "@calcom/app-store/delegationCredential";
-import { getAppFromSlug } from "@calcom/app-store/utils";
-import { prisma } from "@calcom/prisma";
+import { getAllDelegationCredentialsForUserByAppSlug } from "@coachos/app-store/delegationCredential";
+import { getAppFromSlug } from "@coachos/app-store/utils";
+import { prisma } from "@coachos/prisma";
 
 import type { TrpcSessionUser } from "../../../types";
 import type { TQueryForDependenciesInputSchema } from "./queryForDependencies.schema";

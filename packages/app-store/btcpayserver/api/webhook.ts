@@ -3,12 +3,12 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getRawBody from "raw-body";
 import { z } from "zod";
 
-import { handlePaymentSuccess } from "@calcom/app-store/_utils/payments/handlePaymentSuccess";
-import { distributedTracing } from "@calcom/lib/tracing/factory";
-import { IS_PRODUCTION } from "@calcom/lib/constants";
-import { HttpError as HttpCode } from "@calcom/lib/http-error";
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import { PrismaBookingPaymentRepository as BookingPaymentRepository } from "@calcom/features/bookings/repositories/PrismaBookingPaymentRepository";
+import { handlePaymentSuccess } from "@coachos/app-store/_utils/payments/handlePaymentSuccess";
+import { distributedTracing } from "@coachos/lib/tracing/factory";
+import { IS_PRODUCTION } from "@coachos/lib/constants";
+import { HttpError as HttpCode } from "@coachos/lib/http-error";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import { PrismaBookingPaymentRepository as BookingPaymentRepository } from "@coachos/features/bookings/repositories/PrismaBookingPaymentRepository";
 
 import appConfig from "../config.json";
 import { btcpayCredentialKeysSchema } from "../lib/btcpayCredentialKeysSchema";

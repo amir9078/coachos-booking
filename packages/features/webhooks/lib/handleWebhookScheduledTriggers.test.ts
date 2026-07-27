@@ -2,9 +2,9 @@ import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 
 import { DEFAULT_WEBHOOK_VERSION } from "./interface/IWebhookRepository";
 import { handleWebhookScheduledTriggers } from "./handleWebhookScheduledTriggers";
-import type { PrismaClient } from "@calcom/prisma";
+import type { PrismaClient } from "@coachos/prisma";
 
-describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => {
+describe("handleWebhookScheduledTriggers - x-coachos-Webhook-Version header", () => {
   const mockFetch = vi.fn();
   const now = new Date();
 
@@ -21,7 +21,7 @@ describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => 
     vi.resetAllMocks();
   });
 
-  it("should include X-Cal-Webhook-Version header with webhook version from database", async () => {
+  it("should include x-coachos-Webhook-Version header with webhook version from database", async () => {
     const webhookVersion = "2021-10-20";
     const mockPrisma = {
       webhookScheduledTriggers: {
@@ -52,8 +52,8 @@ describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => 
     const [url, options] = mockFetch.mock.calls[0];
 
     expect(url).toBe("https://example.com/webhook");
-    expect(options.headers).toHaveProperty("X-Cal-Webhook-Version", webhookVersion);
-    expect(options.headers).toHaveProperty("X-Cal-Signature-256");
+    expect(options.headers).toHaveProperty("x-coachos-Webhook-Version", webhookVersion);
+    expect(options.headers).toHaveProperty("x-coachos-Signature-256");
   });
 
   it("should use DEFAULT_WEBHOOK_VERSION when webhook has no version", async () => {
@@ -85,7 +85,7 @@ describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => 
     expect(mockFetch).toHaveBeenCalledTimes(1);
     const [, options] = mockFetch.mock.calls[0];
 
-    expect(options.headers).toHaveProperty("X-Cal-Webhook-Version", DEFAULT_WEBHOOK_VERSION);
+    expect(options.headers).toHaveProperty("x-coachos-Webhook-Version", DEFAULT_WEBHOOK_VERSION);
   });
 
   it("should use DEFAULT_WEBHOOK_VERSION when webhook relationship is null", async () => {
@@ -114,7 +114,7 @@ describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => 
     expect(mockFetch).toHaveBeenCalledTimes(1);
     const [, options] = mockFetch.mock.calls[0];
 
-    expect(options.headers).toHaveProperty("X-Cal-Webhook-Version", DEFAULT_WEBHOOK_VERSION);
+    expect(options.headers).toHaveProperty("x-coachos-Webhook-Version", DEFAULT_WEBHOOK_VERSION);
   });
 
   it("should fetch webhook version from database for legacy jobs using jobName", async () => {
@@ -152,6 +152,6 @@ describe("handleWebhookScheduledTriggers - X-Cal-Webhook-Version header", () => 
     expect(mockFetch).toHaveBeenCalledTimes(1);
     const [, options] = mockFetch.mock.calls[0];
 
-    expect(options.headers).toHaveProperty("X-Cal-Webhook-Version", webhookVersion);
+    expect(options.headers).toHaveProperty("x-coachos-Webhook-Version", webhookVersion);
   });
 });

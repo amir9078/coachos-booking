@@ -4,13 +4,13 @@
   "slug": "amie",
   "type": "amie_other",
   "logo": "icon.svg",
-  "url": "https://cal.com",
+  "url": "https://amir9078.github.io",
   "variant": "other",
   "categories": [
     "calendar"
   ],
-  "publisher": "Cal.com, Inc.",
-  "email": "support@cal.com",
+  "publisher": "amir9078.github.io, Inc.",
+  "email": "shaikhamirhussain2000@gmail.com",
   "description": "The joyful productivity app\r\r",
   "__createdUsingCli": true,
   "dependencies": [

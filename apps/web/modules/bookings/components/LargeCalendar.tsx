@@ -1,17 +1,17 @@
 import { useMemo, useEffect } from "react";
 
-import dayjs from "@calcom/dayjs";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useAvailableTimeSlots } from "@calcom/features/bookings/Booker/hooks/useAvailableTimeSlots";
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import { Calendar } from "@calcom/web/modules/calendars/weeklyview/components/Calendar";
-import type { CalendarEvent } from "@calcom/features/calendars/weeklyview/types/events";
-import { localStorage } from "@calcom/lib/webstorage";
+import dayjs from "@coachos/dayjs";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useAvailableTimeSlots } from "@coachos/features/bookings/Booker/hooks/useAvailableTimeSlots";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import { Calendar } from "@coachos/web/modules/calendars/weeklyview/components/Calendar";
+import type { CalendarEvent } from "@coachos/features/calendars/weeklyview/types/events";
+import { localStorage } from "@coachos/lib/webstorage";
 
-import type { useScheduleForEventReturnType } from "@calcom/web/modules/schedules/hooks/useEvent";
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import { useOverlayCalendarStore } from "@calcom/features/bookings/Booker/components/OverlayCalendar/store";
+import type { useScheduleForEventReturnType } from "@coachos/web/modules/schedules/hooks/useEvent";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import { useOverlayCalendarStore } from "@coachos/features/bookings/Booker/components/OverlayCalendar/store";
 
 export const LargeCalendar = ({
   extraDays,

@@ -1,10 +1,10 @@
 import type { TFunction } from "i18next";
 
-import { enrichUserWithDelegationConferencingCredentialsWithoutOrgId } from "@calcom/app-store/delegationCredential";
-import { defaultVideoAppCategories } from "@calcom/app-store/utils";
-import { prisma } from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { AppCategories } from "@calcom/prisma/enums";
+import { enrichUserWithDelegationConferencingCredentialsWithoutOrgId } from "@coachos/app-store/delegationCredential";
+import { defaultVideoAppCategories } from "@coachos/app-store/utils";
+import { prisma } from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { AppCategories } from "@coachos/prisma/enums";
 import { PrismaCredentialRepository } from "./repositories/PrismaCredentialRepository";
 
 import getEnabledAppsFromCredentials from "./_utils/getEnabledAppsFromCredentials";

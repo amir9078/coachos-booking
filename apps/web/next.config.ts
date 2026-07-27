@@ -3,7 +3,7 @@ import { config as dotenvConfig } from "dotenv";
 import type { NextConfig } from "next";
 import type { RouteHas } from "next/dist/lib/load-custom-routes";
 import { withAxiom } from "next-axiom";
-import i18nConfig from "@calcom/i18n/next-i18next.config";
+import i18nConfig from "@coachos/i18n/next-i18next.config";
 import packageJson from "./package.json";
 import {
   nextJsOrgRewriteConfig,
@@ -56,9 +56,9 @@ const isOrganizationsEnabled =
 // Type-safe way to assign to process.env (which is typed as readonly in environment.d.ts)
 const env = process.env as Record<string, string | undefined>;
 
-env.NEXT_PUBLIC_CALCOM_VERSION = version;
+env.NEXT_PUBLIC_COACHOS_VERSION = version;
 
-if (process.env.NODE_ENV === "production" || process.env.CALCOM_ENV === "production") {
+if (process.env.NODE_ENV === "production" || process.env.COACHOS_ENV === "production") {
   env.TRIGGER_VERSION = TRIGGER_VERSION;
 }
 
@@ -76,7 +76,7 @@ if (!process.env.NEXT_PUBLIC_WEBSITE_URL) {
 
 if (
   process.env.CSP_POLICY === "strict" &&
-  (process.env.CALCOM_ENV === "production" || process.env.NODE_ENV === "production")
+  (process.env.COACHOS_ENV === "production" || process.env.NODE_ENV === "production")
 ) {
   throw new Error(
     "Strict CSP policy(for style-src) is not yet supported in production. You can experiment with it in Dev Mode"
@@ -234,18 +234,18 @@ const nextConfig = (phase: string): NextConfig => {
       "jose",
     ],
     experimental: {
-      optimizePackageImports: ["@calcom/ui"],
+      optimizePackageImports: ["@coachos/ui"],
     },
     productionBrowserSourceMaps: false,
     transpilePackages: [
-      "@calcom/app-store",
-      "@calcom/dayjs",
-      "@calcom/emails",
-      "@calcom/embed-core",
-      "@calcom/features",
-      "@calcom/lib",
-      "@calcom/prisma",
-      "@calcom/trpc",
+      "@coachos/app-store",
+      "@coachos/dayjs",
+      "@coachos/emails",
+      "@coachos/embed-core",
+      "@coachos/features",
+      "@coachos/lib",
+      "@coachos/prisma",
+      "@coachos/trpc",
       "@coss/ui",
     ],
     modularizeImports: {
@@ -421,7 +421,7 @@ const nextConfig = (phase: string): NextConfig => {
           has: [
             {
               type: "host" as const,
-              value: "cal.com",
+              value: "amir9078.github.io",
             },
           ],
           headers: [
@@ -457,7 +457,7 @@ const nextConfig = (phase: string): NextConfig => {
                     ...orgDomainMatcherConfig.root,
                     headers: [
                       {
-                        key: "X-Cal-Org-path",
+                        key: "x-coachos-Org-path",
                         value: `/team/${orgSlug}`,
                       },
                     ],
@@ -467,7 +467,7 @@ const nextConfig = (phase: string): NextConfig => {
                 ...orgDomainMatcherConfig.user,
                 headers: [
                   {
-                    key: "X-Cal-Org-path",
+                    key: "x-coachos-Org-path",
                     value: `/org/${orgSlug}/:user`,
                   },
                 ],
@@ -476,7 +476,7 @@ const nextConfig = (phase: string): NextConfig => {
                 ...orgDomainMatcherConfig.userType,
                 headers: [
                   {
-                    key: "X-Cal-Org-path",
+                    key: "x-coachos-Org-path",
                     value: `/org/${orgSlug}/:user/:type`,
                   },
                 ],
@@ -485,7 +485,7 @@ const nextConfig = (phase: string): NextConfig => {
                 ...orgDomainMatcherConfig.userTypeEmbed,
                 headers: [
                   {
-                    key: "X-Cal-Org-path",
+                    key: "x-coachos-Org-path",
                     value: `/org/${orgSlug}/:user/:type/embed`,
                   },
                 ],
@@ -635,7 +635,7 @@ const nextConfig = (phase: string): NextConfig => {
           : []),
       ];
 
-      if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.cal.com") {
+      if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.amir9078.github.io") {
         redirects.push(
           {
             source: "/apps/dailyvideo",

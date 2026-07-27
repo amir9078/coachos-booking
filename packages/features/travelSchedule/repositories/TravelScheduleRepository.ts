@@ -1,4 +1,4 @@
-import { prisma } from "@calcom/prisma";
+import { prisma } from "@coachos/prisma";
 
 export class TravelScheduleRepository {
   static async findTravelSchedulesByUserId(userId: number) {

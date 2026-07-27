@@ -8,24 +8,24 @@ import { Controller, useForm } from "react-hook-form";
 import type { z } from "zod";
 
 import { BookerLayoutSelector } from "~/settings/components/BookerLayoutSelector";
-import SectionBottomActions from "@calcom/features/settings/SectionBottomActions";
-import ThemeLabel from "@calcom/features/settings/ThemeLabel";
-import SettingsHeader from "@calcom/features/settings/appDir/SettingsHeader";
-import { APP_NAME } from "@calcom/lib/constants";
-import { DEFAULT_LIGHT_BRAND_COLOR, DEFAULT_DARK_BRAND_COLOR } from "@calcom/lib/constants";
-import { checkWCAGContrastColor } from "@calcom/lib/getBrandColours";
-import useGetBrandingColours from "@calcom/lib/getBrandColours";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import useTheme from "@calcom/lib/hooks/useTheme";
-import { validateBookerLayouts } from "@calcom/lib/validateBookerLayouts";
-import type { userMetadata } from "@calcom/prisma/zod-utils";
-import { trpc } from "@calcom/trpc/react";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { SettingsToggle, ColorPicker, Form } from "@calcom/ui/components/form";
-import { showToast } from "@calcom/ui/components/toast";
-import { useCalcomTheme } from "@calcom/ui/styles";
+import SectionBottomActions from "@coachos/features/settings/SectionBottomActions";
+import ThemeLabel from "@coachos/features/settings/ThemeLabel";
+import SettingsHeader from "@coachos/features/settings/appDir/SettingsHeader";
+import { APP_NAME } from "@coachos/lib/constants";
+import { DEFAULT_LIGHT_BRAND_COLOR, DEFAULT_DARK_BRAND_COLOR } from "@coachos/lib/constants";
+import { checkWCAGContrastColor } from "@coachos/lib/getBrandColours";
+import useGetBrandingColours from "@coachos/lib/getBrandColours";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import useTheme from "@coachos/lib/hooks/useTheme";
+import { validateBookerLayouts } from "@coachos/lib/validateBookerLayouts";
+import type { userMetadata } from "@coachos/prisma/zod-utils";
+import { trpc } from "@coachos/trpc/react";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { SettingsToggle, ColorPicker, Form } from "@coachos/ui/components/form";
+import { showToast } from "@coachos/ui/components/toast";
+import { useCalcomTheme } from "@coachos/ui/styles";
 
 
 const useBrandColors = (
@@ -389,9 +389,9 @@ const AppearanceView = ({
 
           <SettingsToggle
             toggleSwitchAtTheEnd={true}
-            title={t("disable_cal_branding", { appName: APP_NAME })}
+            title={t("disable_coachos_branding", { appName: APP_NAME })}
             disabled={!hasPaidPlan || mutation?.isPending}
-            description={t("removes_cal_branding", { appName: APP_NAME })}
+            description={t("removes_coachos_branding", { appName: APP_NAME })}
             checked={hasPaidPlan ? hideBrandingValue : false}
             Badge={undefined}
             onCheckedChange={(checked) => {

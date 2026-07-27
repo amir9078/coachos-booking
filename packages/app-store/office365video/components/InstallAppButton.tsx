@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-import { AppOnboardingSteps } from "@calcom/lib/apps/appOnboardingSteps";
-import { getAppOnboardingUrl } from "@calcom/lib/apps/getAppOnboardingUrl";
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import { AppOnboardingSteps } from "@coachos/lib/apps/appOnboardingSteps";
+import { getAppOnboardingUrl } from "@coachos/lib/apps/getAppOnboardingUrl";
+import { WEBAPP_URL } from "@coachos/lib/constants";
 
 import useAddAppMutation from "../../_utils/useAddAppMutation";
 import type { InstallAppButtonProps } from "../../types";

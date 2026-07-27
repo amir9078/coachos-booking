@@ -2,15 +2,15 @@ import Link from "next/link";
 import { useState } from "react";
 import posthog from "posthog-js";
 
-import { InstallAppButtonWithoutPlanCheck } from "@calcom/app-store/InstallAppButtonWithoutPlanCheck";
-import type { TDependencyData } from "@calcom/app-store/_appRegistry";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import type { App } from "@calcom/types/App";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
+import { InstallAppButtonWithoutPlanCheck } from "@coachos/app-store/InstallAppButtonWithoutPlanCheck";
+import type { TDependencyData } from "@coachos/app-store/_appRegistry";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import type { App } from "@coachos/types/App";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
 import { ArrowRightIcon, CircleAlertIcon } from "@coss/ui/icons";
 
 interface IAppConnectionItem {

@@ -4,19 +4,19 @@ const mockSendEmailVerification = vi.fn().mockResolvedValue({ ok: true, skipped:
 const mockFindBlockedEmail = vi.fn();
 const mockDeleteEntry = vi.fn();
 
-vi.mock("@calcom/features/auth/lib/verifyEmail", () => ({
+vi.mock("@coachos/features/auth/lib/verifyEmail", () => ({
   sendEmailVerification: (...args: unknown[]) => mockSendEmailVerification(...args),
 }));
-vi.mock("@calcom/features/watchlist/lib/repository/GlobalWatchlistRepository", () => ({
+vi.mock("@coachos/features/watchlist/lib/repository/GlobalWatchlistRepository", () => ({
   GlobalWatchlistRepository: class {
     findBlockedEmail = mockFindBlockedEmail;
     deleteEntry = mockDeleteEntry;
   },
 }));
-vi.mock("@calcom/features/watchlist/lib/utils/normalization", () => ({
+vi.mock("@coachos/features/watchlist/lib/utils/normalization", () => ({
   normalizeEmail: vi.fn((e: string) => e.toLowerCase()),
 }));
-vi.mock("@calcom/prisma", () => {
+vi.mock("@coachos/prisma", () => {
   const mockPrisma = {
     user: {
       update: vi.fn(),
@@ -25,7 +25,7 @@ vi.mock("@calcom/prisma", () => {
   return { default: mockPrisma, prisma: mockPrisma };
 });
 
-import { prisma } from "@calcom/prisma";
+import { prisma } from "@coachos/prisma";
 import lockUserAccountHandler from "./lockUserAccount.handler";
 
 describe("lockUserAccountHandler", () => {

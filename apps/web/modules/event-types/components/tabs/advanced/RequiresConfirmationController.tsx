@@ -1,15 +1,15 @@
-import { LearnMoreLink } from "@calcom/features/eventtypes/components/LearnMoreLink";
+import { LearnMoreLink } from "@coachos/features/eventtypes/components/LearnMoreLink";
 import type {
   EventTypeSetup,
   FormValues,
   SettingsToggleClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
-import classNames from "@calcom/ui/classNames";
-import { CheckboxField, Input, Select, SettingsToggle } from "@calcom/ui/components/form";
-import { RadioField } from "@calcom/ui/components/radio";
+} from "@coachos/features/eventtypes/lib/types";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
+import classNames from "@coachos/ui/classNames";
+import { CheckboxField, Input, Select, SettingsToggle } from "@coachos/ui/components/form";
+import { RadioField } from "@coachos/ui/components/radio";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import type { UnitTypeLongPlural } from "dayjs";
 import type { Dispatch, SetStateAction } from "react";
@@ -102,7 +102,7 @@ export default function RequiresConfirmationController({
                 <LearnMoreLink
                   t={t}
                   i18nKey="requires_confirmation_description"
-                  href="https://cal.com/help/event-types/how-to-requires"
+                  href="https://amir9078.github.io/help/event-types/how-to-requires"
                 />
               }
               checked={requiresConfirmation}

@@ -1,4 +1,4 @@
-import prismaMock from "@calcom/testing/lib/__mocks__/prisma";
+import prismaMock from "@coachos/testing/lib/__mocks__/prisma";
 
 import {
   createBookingScenario,
@@ -10,14 +10,14 @@ import {
   getScenarioData,
   mockCalendarToHaveNoBusySlots,
   mockCalendar,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
-import { expectBookingToBeInDatabase } from "@calcom/testing/lib/bookingScenario/expects";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
+import { expectBookingToBeInDatabase } from "@coachos/testing/lib/bookingScenario/expects";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
 
 import { describe, expect, test } from "vitest";
 
-import { BookingStatus } from "@calcom/prisma/enums";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { getNewBookingHandler } from "./getNewBookingHandler";
 

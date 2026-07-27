@@ -1,28 +1,28 @@
-import { eventTypeAppMetadataOptionalSchema } from "@calcom/app-store/zod-utils";
-import { sendScheduledEmailsAndSMS } from "@calcom/emails/email-manager";
-import { doesBookingRequireConfirmation } from "@calcom/features/bookings/lib/doesBookingRequireConfirmation";
-import EventManager, { placeholderCreatedEvent } from "@calcom/features/bookings/lib/EventManager";
-import { getAllCredentialsIncludeServiceAccountKey } from "@calcom/features/bookings/lib/getAllCredentialsForUsersOnEvent/getAllCredentials";
-import { handleBookingRequested } from "@calcom/features/bookings/lib/handleBookingRequested";
-import { handleConfirmation } from "@calcom/features/bookings/lib/handleConfirmation";
-import { getBooking } from "@calcom/features/bookings/lib/payment/getBooking";
-import { getPlatformParams } from "@calcom/features/platform-oauth-client/get-platform-params";
-import { PlatformOAuthClientRepository } from "@calcom/features/platform-oauth-client/platform-oauth-client.repository";
-import tasker from "@calcom/features/tasker";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import sendPayload from "@calcom/features/webhooks/lib/sendOrSchedulePayload";
-import type { EventPayloadType, EventTypeInfo } from "@calcom/features/webhooks/lib/sendPayload";
-import { getVideoCallUrlFromCalEvent } from "@calcom/lib/CalEventParser";
-import { getTeamIdFromEventType } from "@calcom/lib/getTeamIdFromEventType";
-import { HttpError as HttpCode } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { TraceContext } from "@calcom/lib/tracing";
-import { distributedTracing } from "@calcom/lib/tracing/factory";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { BookingStatus, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { EventTypeMetadata } from "@calcom/prisma/zod-utils";
+import { eventTypeAppMetadataOptionalSchema } from "@coachos/app-store/zod-utils";
+import { sendScheduledEmailsAndSMS } from "@coachos/emails/email-manager";
+import { doesBookingRequireConfirmation } from "@coachos/features/bookings/lib/doesBookingRequireConfirmation";
+import EventManager, { placeholderCreatedEvent } from "@coachos/features/bookings/lib/EventManager";
+import { getAllCredentialsIncludeServiceAccountKey } from "@coachos/features/bookings/lib/getAllCredentialsForUsersOnEvent/getAllCredentials";
+import { handleBookingRequested } from "@coachos/features/bookings/lib/handleBookingRequested";
+import { handleConfirmation } from "@coachos/features/bookings/lib/handleConfirmation";
+import { getBooking } from "@coachos/features/bookings/lib/payment/getBooking";
+import { getPlatformParams } from "@coachos/features/platform-oauth-client/get-platform-params";
+import { PlatformOAuthClientRepository } from "@coachos/features/platform-oauth-client/platform-oauth-client.repository";
+import tasker from "@coachos/features/tasker";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import sendPayload from "@coachos/features/webhooks/lib/sendOrSchedulePayload";
+import type { EventPayloadType, EventTypeInfo } from "@coachos/features/webhooks/lib/sendPayload";
+import { getVideoCallUrlFromCalEvent } from "@coachos/lib/CalEventParser";
+import { getTeamIdFromEventType } from "@coachos/lib/getTeamIdFromEventType";
+import { HttpError as HttpCode } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { TraceContext } from "@coachos/lib/tracing";
+import { distributedTracing } from "@coachos/lib/tracing/factory";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { BookingStatus, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { EventTypeMetadata } from "@coachos/prisma/zod-utils";
 
 const log = logger.getSubLogger({ prefix: ["[handlePaymentSuccess]"] });
 
@@ -128,7 +128,7 @@ export async function handlePaymentSuccess(params: {
     const paymentExternalId = payment.externalId;
 
     const paymentMetadata = {
-      identifier: "cal.com",
+      identifier: "amir9078.github.io",
       bookingId,
       eventTypeId: booking.eventType?.id ?? null,
       bookerEmail: evt.attendees[0].email,

@@ -1,10 +1,10 @@
-import { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import type { PrismaClient } from "@calcom/prisma";
-import { MembershipRole, SchedulingType } from "@calcom/prisma/enums";
-import { EventTypeMetaDataSchema, teamMetadataSchema } from "@calcom/prisma/zod-utils";
+import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import type { PrismaClient } from "@coachos/prisma";
+import { MembershipRole, SchedulingType } from "@coachos/prisma/enums";
+import { EventTypeMetaDataSchema, teamMetadataSchema } from "@coachos/prisma/zod-utils";
 import { TRPCError } from "@trpc/server";
 import type { TrpcSessionUser } from "../../../types";
 import type { TGetActiveOnOptionsSchema } from "./getActiveOnOptions.schema";

@@ -1,7 +1,7 @@
-import { useFlagMap } from "@calcom/features/flags/context/provider";
-import { CreationSource } from "@calcom/prisma/enums";
-import { trpc } from "@calcom/trpc/react";
-import { showToast } from "@calcom/ui/components/toast";
+import { useFlagMap } from "@coachos/features/flags/context/provider";
+import { CreationSource } from "@coachos/prisma/enums";
+import { trpc } from "@coachos/trpc/react";
+import { showToast } from "@coachos/ui/components/toast";
 import { useState } from "react";
 import type { OnboardingState } from "../store/onboarding-store";
 

@@ -1,11 +1,11 @@
-import { checkSMSRateLimit } from "@calcom/lib/smsLockState";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import { checkSMSRateLimit } from "@coachos/lib/smsLockState";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 import type { TFunction } from "i18next";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 
 import SMSManager from "../sms-manager";
 
-vi.mock("@calcom/lib/smsLockState");
+vi.mock("@coachos/lib/smsLockState");
 
 interface TestAttendee extends Person {
   name: string;
@@ -54,7 +54,7 @@ describe("SMSManager", () => {
     attendees: [
       {
         name: "John Doe",
-        email: "john@sms.cal.com",
+        email: "john@sms.amir9078.github.io",
         phoneNumber: "+1234567890",
         timeZone: "America/New_York",
         language: { translate: mockTranslate, locale: "en" },
@@ -96,7 +96,7 @@ describe("SMSManager", () => {
       expect(checkSMSRateLimit).not.toHaveBeenCalled();
     });
 
-    test("should not send SMS if email is not @sms.cal.com", async () => {
+    test("should not send SMS if email is not @sms.amir9078.github.io", async () => {
       const smsManager = new TestSMSManager(mockCalEvent);
       const attendeeWithRegularEmail: TestAttendee = {
         ...mockCalEvent.attendees[0],
@@ -111,7 +111,7 @@ describe("SMSManager", () => {
       expect(checkSMSRateLimit).not.toHaveBeenCalled();
     });
 
-    test("should check SMS rate limit only when phone number and @sms.cal.com email are present", async () => {
+    test("should check SMS rate limit only when phone number and @sms.amir9078.github.io email are present", async () => {
       const smsManager = new TestSMSManager(mockCalEvent);
 
       await smsManager.sendSMSToAttendee(mockCalEvent.attendees[0]);
@@ -132,7 +132,7 @@ describe("SMSManager", () => {
   });
 
   describe("sendSMSToAttendees", () => {
-    test("should check rate limit only for attendees with phone number and @sms.cal.com email", async () => {
+    test("should check rate limit only for attendees with phone number and @sms.amir9078.github.io email", async () => {
       const smsManager = new TestSMSManager(mockCalEvent);
 
       await smsManager.sendSMSToAttendees();

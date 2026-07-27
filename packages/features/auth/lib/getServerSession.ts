@@ -1,8 +1,8 @@
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
 import { LRUCache } from "lru-cache";
 import type { GetServerSidePropsContext, NextApiRequest } from "next";
 import type { AuthOptions, Session } from "next-auth";

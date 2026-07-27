@@ -1,19 +1,19 @@
-import { sendScheduledEmailsAndSMS } from "@calcom/emails/email-manager";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
-import { scheduleNoShowTriggers } from "@calcom/features/bookings/lib/handleNewBooking/scheduleNoShowTriggers";
+import { sendScheduledEmailsAndSMS } from "@coachos/emails/email-manager";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
+import { scheduleNoShowTriggers } from "@coachos/features/bookings/lib/handleNewBooking/scheduleNoShowTriggers";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { getTranslation } from "@calcom/i18n/server";
-import { isPrismaObjOrUndefined } from "@calcom/lib/isPrismaObj";
-import logger from "@calcom/lib/logger";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
-import { prisma } from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
-import { bookingMetadataSchema, EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { getTranslation } from "@coachos/i18n/server";
+import { isPrismaObjOrUndefined } from "@coachos/lib/isPrismaObj";
+import logger from "@coachos/lib/logger";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
+import { prisma } from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
+import { bookingMetadataSchema, EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 import { TRPCError } from "@trpc/server";
 import type { TConnectAndJoinInputSchema } from "./connectAndJoin.schema";
 

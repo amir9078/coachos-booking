@@ -3,17 +3,17 @@ import { ErrorMessage } from "@hookform/error-message";
 import { useState } from "react";
 import { useFormContext, Controller } from "react-hook-form";
 
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import type { FormValues } from "@calcom/features/eventtypes/lib/types";
-import type { CalVideoSettings as CalVideoSettingsType } from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { TextField } from "@calcom/ui/components/form";
-import { SettingsToggle } from "@calcom/ui/components/form";
-import { Icon } from "@calcom/ui/components/icon";
-import { Tooltip } from "@calcom/ui/components/tooltip";
-import LocationSettingsContainer from "@calcom/web/modules/event-types/components/locations/LocationSettingsContainer";
-import { InfoBadge } from "@calcom/ui/components/badge";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import type { FormValues } from "@coachos/features/eventtypes/lib/types";
+import type { CalVideoSettings as CalVideoSettingsType } from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { TextField } from "@coachos/ui/components/form";
+import { SettingsToggle } from "@coachos/ui/components/form";
+import { Icon } from "@coachos/ui/components/icon";
+import { Tooltip } from "@coachos/ui/components/tooltip";
+import LocationSettingsContainer from "@coachos/web/modules/event-types/components/locations/LocationSettingsContainer";
+import { InfoBadge } from "@coachos/ui/components/badge";
 
 const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSettingsType }) => {
   const { t } = useLocale();

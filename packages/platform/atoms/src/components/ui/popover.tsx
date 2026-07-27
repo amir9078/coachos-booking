@@ -15,7 +15,7 @@ const PopoverArrow: typeof PopoverPrimitives.Arrow = PopoverPrimitives.Arrow;
 const PopoverPortal = ({ children, ...props }: PopoverPrimitives.PopoverPortalProps): JSX.Element => {
   return (
     <PopoverPrimitives.Portal {...props}>
-      <div className="calcom-atoms">{children}</div>
+      <div className="coachos-atoms">{children}</div>
     </PopoverPrimitives.Portal>
   );
 };

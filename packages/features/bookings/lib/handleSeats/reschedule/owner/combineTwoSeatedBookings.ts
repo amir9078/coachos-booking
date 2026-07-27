@@ -1,14 +1,14 @@
 import { cloneDeep } from "lodash";
 import { uuid } from "short-uuid";
 
-import { sendRescheduledEmailsAndSMS } from "@calcom/emails/email-manager";
-import type EventManager from "@calcom/features/bookings/lib/EventManager";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { HttpError } from "@calcom/lib/http-error";
-import prisma from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { sendRescheduledEmailsAndSMS } from "@coachos/emails/email-manager";
+import type EventManager from "@coachos/features/bookings/lib/EventManager";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { HttpError } from "@coachos/lib/http-error";
+import prisma from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
 
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
 import { findBookingQuery } from "../../../handleNewBooking/findBookingQuery";
 import type { createLoggerWithEventDetails } from "../../../handleNewBooking/logger";
 import type { SeatedBooking, RescheduleSeatedBookingObject, NewTimeSlotBooking } from "../../types";

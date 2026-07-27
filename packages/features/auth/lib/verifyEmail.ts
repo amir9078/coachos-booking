@@ -4,16 +4,16 @@ import {
   sendChangeOfEmailVerificationLink,
   sendEmailVerificationCode,
   sendEmailVerificationLink,
-} from "@calcom/emails/auth-email-service";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import { sentrySpan } from "@calcom/features/watchlist/lib/telemetry";
-import { checkIfEmailIsBlockedInWatchlistController } from "@calcom/features/watchlist/operations/check-if-email-in-watchlist.controller";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { getTranslation } from "@calcom/i18n/server";
-import { hashEmail } from "@calcom/lib/server/PiiHasher";
-import { prisma } from "@calcom/prisma";
+} from "@coachos/emails/auth-email-service";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import { sentrySpan } from "@coachos/features/watchlist/lib/telemetry";
+import { checkIfEmailIsBlockedInWatchlistController } from "@coachos/features/watchlist/operations/check-if-email-in-watchlist.controller";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { getTranslation } from "@coachos/i18n/server";
+import { hashEmail } from "@coachos/lib/server/PiiHasher";
+import { prisma } from "@coachos/prisma";
 import { totp } from "otplib";
 
 const log = logger.getSubLogger({ prefix: [`[[Auth] `] });

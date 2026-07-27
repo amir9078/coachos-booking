@@ -5,16 +5,16 @@ import { useSession } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { useState, useEffect } from "react";
 
-import { APP_NAME } from "@calcom/lib/constants";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { Select } from "@calcom/ui/components/form";
+import { APP_NAME } from "@coachos/lib/constants";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { Select } from "@coachos/ui/components/form";
 import { InfoIcon, PlusIcon } from "@coss/ui/icons";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 export function Authorize() {
   const { t } = useLocale();
@@ -161,7 +161,7 @@ export function Authorize() {
           </div>
         </div>
         <h1 className="px-5 pt-3 pb-3 text-2xl font-semibold tracking-tight text-center">
-          {t("access_cal_account", {
+          {t("access_coachos_account", {
             clientName: client.name,
             appName: APP_NAME,
           })}
@@ -203,7 +203,7 @@ export function Authorize() {
         <ul className="text-sm stack-y-3">
           <li className="relative pl-5">
             <span className="absolute left-0">&#10003;</span>{" "}
-            {t("associate_with_cal_account", { clientName: client.name })}
+            {t("associate_with_coachos_account", { clientName: client.name })}
           </li>
           <li className="relative pl-5">
             <span className="absolute left-0">&#10003;</span>

@@ -26,20 +26,20 @@ Include the API key in the `Authorization` header with the `Bearer` prefix:
 
 ```http
 GET /v2/bookings
-Authorization: Bearer cal_live_abc123xyz...
+Authorization: Bearer coachos_live_abc123xyz...
 ```
 
 ### API Key Format
 
-All Cal.diy API keys are prefixed with `cal_`:
-- `cal_live_...` - Production API keys
-- `cal_test_...` - Test/sandbox API keys (if available)
+All Cal.diy API keys are prefixed with `coachos_`:
+- `coachos_live_...` - Production API keys
+- `coachos_test_...` - Test/sandbox API keys (if available)
 
 ### Example Request
 
 ```bash
-curl -X GET "https://api.cal.com/v2/bookings" \
-  -H "Authorization: Bearer cal_live_abc123xyz789" \
+curl -X GET "https://api.amir9078.github.io/v2/bookings" \
+  -H "Authorization: Bearer coachos_live_abc123xyz789" \
   -H "Content-Type: application/json"
 ```
 
@@ -49,7 +49,7 @@ Generate a new API key and invalidate the current one:
 
 ```http
 POST /v2/api-keys/refresh
-Authorization: Bearer cal_live_current_key
+Authorization: Bearer coachos_live_current_key
 Content-Type: application/json
 
 {
@@ -69,7 +69,7 @@ Content-Type: application/json
 {
   "status": "success",
   "data": {
-    "apiKey": "cal_live_new_key_xyz..."
+    "apiKey": "coachos_live_new_key_xyz..."
   }
 }
 ```
@@ -84,16 +84,16 @@ Platform customers use additional headers alongside or instead of the Bearer tok
 
 | Header | Description |
 |--------|-------------|
-| `x-cal-client-id` | OAuth client ID |
-| `x-cal-secret-key` | OAuth client secret key |
+| `x-coachos-client-id` | OAuth client ID |
+| `x-coachos-secret-key` | OAuth client secret key |
 | `Authorization` | Bearer token (managed user access token) |
 
 ### Example Platform Request
 
 ```bash
-curl -X GET "https://api.cal.com/v2/bookings" \
-  -H "x-cal-client-id: your_client_id" \
-  -H "x-cal-secret-key: your_secret_key" \
+curl -X GET "https://api.amir9078.github.io/v2/bookings" \
+  -H "x-coachos-client-id: your_client_id" \
+  -H "x-coachos-secret-key: your_secret_key" \
   -H "Authorization: Bearer managed_user_access_token" \
   -H "Content-Type: application/json"
 ```
@@ -103,15 +103,15 @@ curl -X GET "https://api.cal.com/v2/bookings" \
 **For endpoints acting on behalf of a managed user:**
 ```http
 GET /v2/bookings
-x-cal-client-id: your_client_id
-x-cal-secret-key: your_secret_key
+x-coachos-client-id: your_client_id
+x-coachos-secret-key: your_secret_key
 Authorization: Bearer managed_user_access_token
 ```
 
 **For platform-level operations (managing OAuth clients):**
 ```http
 GET /v2/oauth-clients
-Authorization: Bearer cal_live_platform_admin_key
+Authorization: Bearer coachos_live_platform_admin_key
 ```
 
 ## API Versioning
@@ -125,8 +125,8 @@ cal-api-version: 2024-08-13
 ### Example with Version Header
 
 ```bash
-curl -X POST "https://api.cal.com/v2/bookings" \
-  -H "Authorization: Bearer cal_live_abc123" \
+curl -X POST "https://api.amir9078.github.io/v2/bookings" \
+  -H "Authorization: Bearer coachos_live_abc123" \
   -H "cal-api-version: 2024-08-13" \
   -H "Content-Type: application/json" \
   -d '{"start": "2024-01-15T10:00:00Z", "eventTypeId": 123, ...}'
@@ -151,7 +151,7 @@ Returned when authentication fails:
 Common causes:
 - Missing `Authorization` header
 - Invalid or expired API key
-- API key without `cal_` prefix
+- API key without `coachos_` prefix
 - Incorrect Bearer token format
 
 ### 403 Forbidden
@@ -179,7 +179,7 @@ Common causes:
 
 2. **Use environment variables**: Store API keys in environment variables, not in code
    ```bash
-   export CAL_API_KEY="cal_live_abc123..."
+   export coachos_API_KEY="coachos_live_abc123..."
    ```
 
 3. **Rotate keys regularly**: Use the refresh endpoint to rotate keys periodically
@@ -225,8 +225,8 @@ Retry-After: 60
 Verify your API key is working:
 
 ```bash
-curl -X GET "https://api.cal.com/v2/me" \
-  -H "Authorization: Bearer cal_live_your_api_key" \
+curl -X GET "https://api.amir9078.github.io/v2/me" \
+  -H "Authorization: Bearer coachos_live_your_api_key" \
   -H "Content-Type: application/json"
 ```
 
@@ -250,12 +250,12 @@ curl -X GET "https://api.cal.com/v2/me" \
 ### Server-Side Integration
 
 ```javascript
-const CAL_API_KEY = process.env.CAL_API_KEY;
+const coachos_API_KEY = process.env.coachos_API_KEY;
 
 async function getBookings() {
-  const response = await fetch('https://api.cal.com/v2/bookings', {
+  const response = await fetch('https://api.amir9078.github.io/v2/bookings', {
     headers: {
-      'Authorization': `Bearer ${CAL_API_KEY}`,
+      'Authorization': `Bearer ${coachos_API_KEY}`,
       'Content-Type': 'application/json',
       'cal-api-version': '2024-08-13'
     }
@@ -286,7 +286,7 @@ async function makeAuthenticatedRequest(url, options = {}) {
   
   if (response.status === 401) {
     // Refresh the API key
-    const refreshResponse = await fetch('https://api.cal.com/v2/api-keys/refresh', {
+    const refreshResponse = await fetch('https://api.amir9078.github.io/v2/api-keys/refresh', {
       method: 'POST',
       headers: {
         'Authorization': `Bearer ${apiKey}`,
@@ -388,7 +388,7 @@ Some endpoints include pagination metadata:
 
 ### "Invalid API key" Error
 
-1. Verify the key starts with `cal_`
+1. Verify the key starts with `coachos_`
 2. Check for extra whitespace or characters
 3. Ensure the key hasn't been revoked or expired
 4. Confirm you're using the correct environment (production vs test)
@@ -401,6 +401,6 @@ Some endpoints include pagination metadata:
 
 ### Platform Authentication Issues
 
-1. Verify both `x-cal-client-id` and `x-cal-secret-key` are provided
+1. Verify both `x-coachos-client-id` and `x-coachos-secret-key` are provided
 2. Ensure the managed user access token is valid
 3. Check that the OAuth client has the required permissions

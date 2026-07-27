@@ -1,20 +1,20 @@
-import { enrichUserWithDelegationCredentialsIncludeServiceAccountKey } from "@calcom/app-store/delegationCredential";
-import type { CredentialDataWithTeamName } from "@calcom/app-store/utils";
+import { enrichUserWithDelegationCredentialsIncludeServiceAccountKey } from "@coachos/app-store/delegationCredential";
+import type { CredentialDataWithTeamName } from "@coachos/app-store/utils";
 import {
   cleanIntegrationKeys,
   getCalendarCredentials,
   getConnectedCalendars,
-} from "@calcom/features/calendars/lib/CalendarManager";
-import { DestinationCalendarRepository } from "@calcom/features/calendars/repositories/DestinationCalendarRepository";
-import { isDelegationCredential } from "@calcom/lib/delegationCredential";
-import logger from "@calcom/lib/logger";
-import { SelectedCalendarRepository } from "@calcom/features/selectedCalendar/repositories/SelectedCalendarRepository";
-import type { PrismaClient } from "@calcom/prisma";
-import prisma from "@calcom/prisma";
-import type { DestinationCalendar, SelectedCalendar, User } from "@calcom/prisma/client";
-import { AppCategories } from "@calcom/prisma/enums";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
-import type { IntegrationCalendar } from "@calcom/types/Calendar";
+} from "@coachos/features/calendars/lib/CalendarManager";
+import { DestinationCalendarRepository } from "@coachos/features/calendars/repositories/DestinationCalendarRepository";
+import { isDelegationCredential } from "@coachos/lib/delegationCredential";
+import logger from "@coachos/lib/logger";
+import { SelectedCalendarRepository } from "@coachos/features/selectedCalendar/repositories/SelectedCalendarRepository";
+import type { PrismaClient } from "@coachos/prisma";
+import prisma from "@coachos/prisma";
+import type { DestinationCalendar, SelectedCalendar, User } from "@coachos/prisma/client";
+import { AppCategories } from "@coachos/prisma/enums";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
+import type { IntegrationCalendar } from "@coachos/types/Calendar";
 
 const log = logger.getSubLogger({ prefix: ["getConnectedDestinationCalendarsAndEnsureDefaultsInDb"] });
 
@@ -437,5 +437,5 @@ export async function getConnectedDestinationCalendarsAndEnsureDefaultsInDb({
   };
 }
 
-// Legacy export for @calcom/platform-libraries
+// Legacy export for @coachos/platform-libraries
 export const getConnectedDestinationCalendars = getConnectedDestinationCalendarsAndEnsureDefaultsInDb;

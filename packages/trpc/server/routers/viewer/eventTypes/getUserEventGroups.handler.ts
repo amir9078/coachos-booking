@@ -1,8 +1,8 @@
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import type { PrismaClient } from "@calcom/prisma";
-import { MembershipRole } from "@calcom/prisma/enums";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import type { PrismaClient } from "@coachos/prisma";
+import { MembershipRole } from "@coachos/prisma/enums";
 import { TRPCError } from "@trpc/server";
 import type { TrpcSessionUser } from "../../../types";
 import type { TEventTypeInputSchema } from "./getByViewer.schema";
@@ -102,4 +102,4 @@ export const getUserEventGroups = async ({ ctx, input }: GetByViewerOptions) => 
 };
 
 // Re-export the compareMembership function for backward compatibility
-export { compareMembership } from "@calcom/features/eventtypes/lib/getEventTypesByViewer";
+export { compareMembership } from "@coachos/features/eventtypes/lib/getEventTypesByViewer";

@@ -1,16 +1,16 @@
 import process from "node:process";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { DefaultAdapterFactory } from "@calcom/features/calendar-subscription/adapters/AdaptersFactory";
-import { CalendarSubscriptionService } from "@calcom/features/calendar-subscription/lib/CalendarSubscriptionService";
-import { CalendarCacheEventRepository } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
-import { CalendarCacheEventService } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventService";
-import { CalendarSyncService } from "@calcom/features/calendar-subscription/lib/sync/CalendarSyncService";
-import { getFeatureRepository } from "@calcom/features/di/containers/FeatureRepository";
-import { getTeamFeatureRepository } from "@calcom/features/di/containers/TeamFeatureRepository";
-import { getUserFeatureRepository } from "@calcom/features/di/containers/UserFeatureRepository";
-import { SelectedCalendarRepository } from "@calcom/features/selectedCalendar/repositories/SelectedCalendarRepository";
-import { prisma } from "@calcom/prisma";
-import { defaultResponderForAppDir } from "@calcom/web/app/api/defaultResponderForAppDir";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { DefaultAdapterFactory } from "@coachos/features/calendar-subscription/adapters/AdaptersFactory";
+import { CalendarSubscriptionService } from "@coachos/features/calendar-subscription/lib/CalendarSubscriptionService";
+import { CalendarCacheEventRepository } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
+import { CalendarCacheEventService } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventService";
+import { CalendarSyncService } from "@coachos/features/calendar-subscription/lib/sync/CalendarSyncService";
+import { getFeatureRepository } from "@coachos/features/di/containers/FeatureRepository";
+import { getTeamFeatureRepository } from "@coachos/features/di/containers/TeamFeatureRepository";
+import { getUserFeatureRepository } from "@coachos/features/di/containers/UserFeatureRepository";
+import { SelectedCalendarRepository } from "@coachos/features/selectedCalendar/repositories/SelectedCalendarRepository";
+import { prisma } from "@coachos/prisma";
+import { defaultResponderForAppDir } from "@coachos/web/app/api/defaultResponderForAppDir";
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 

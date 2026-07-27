@@ -1,4 +1,4 @@
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 import type { IWebhookDataFetcher, SubscriberContext } from "../../interface/IWebhookDataFetcher";
 import type { ILogger } from "../../interface/infrastructure";
 import type { OOOWebhookTaskPayload } from "../../types/webhookTask";

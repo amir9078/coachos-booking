@@ -19,18 +19,18 @@
     "BLACKLISTED_GUEST_EMAILS",
     "AUTH_BEARER_TOKEN_VERCEL",
     "BUILD_ID",
-    "CAL_AI_CALL_RATE_PER_MINUTE",
-    "CAL_SIGNATURE_TOKEN",
-    "CALCOM_PRIVATE_API_ROUTE",
-    "CALCOM_APP_CREDENTIAL_ENCRYPTION_KEY",
-    "CALCOM_CREDENTIAL_SYNC_ENDPOINT",
-    "CALCOM_CREDENTIAL_SYNC_SECRET",
-    "CALCOM_ENV",
-    "CALCOM_LICENSE_KEY",
-    "CALCOM_QA_EMAIL",
-    "CALCOM_QA_PASSWORD",
-    "CALCOM_TELEMETRY_DISABLED",
-    "CALCOM_CREDENTIAL_SYNC_HEADER_NAME",
+    "coachos_AI_CALL_RATE_PER_MINUTE",
+    "coachos_SIGNATURE_TOKEN",
+    "COACHOS_PRIVATE_API_ROUTE",
+    "COACHOS_APP_CREDENTIAL_ENCRYPTION_KEY",
+    "COACHOS_CREDENTIAL_SYNC_ENDPOINT",
+    "COACHOS_CREDENTIAL_SYNC_SECRET",
+    "COACHOS_ENV",
+    "COACHOS_LICENSE_KEY",
+    "COACHOS_QA_EMAIL",
+    "COACHOS_QA_PASSWORD",
+    "COACHOS_TELEMETRY_DISABLED",
+    "COACHOS_CREDENTIAL_SYNC_HEADER_NAME",
     "CALENDSO_ENCRYPTION_KEY",
     "CI",
     "CLOSECOM_CLIENT_ID",
@@ -53,10 +53,10 @@
     "NEXT_PUBLIC_VERCEL_USE_BOTID_IN_BOOKER",
     "E2E_TEST_APPLE_CALENDAR_EMAIL",
     "E2E_TEST_APPLE_CALENDAR_PASSWORD",
-    "E2E_TEST_CALCOM_QA_EMAIL",
-    "E2E_TEST_CALCOM_QA_PASSWORD",
-    "E2E_TEST_CALCOM_QA_GCAL_CREDENTIALS",
-    "E2E_TEST_CALCOM_GCAL_KEYS",
+    "E2E_TEST_COACHOS_QA_EMAIL",
+    "E2E_TEST_COACHOS_QA_PASSWORD",
+    "E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS",
+    "E2E_TEST_COACHOS_Gcoachos_KEYS",
     "E2E_TEST_MAILHOG_ENABLED",
     "E2E_TEST_OIDC_CLIENT_ID",
     "E2E_TEST_OIDC_CLIENT_SECRET",
@@ -98,14 +98,14 @@
     "MS_GRAPH_CLIENT_ID",
     "MS_GRAPH_CLIENT_SECRET",
     "NEXT_PUBLIC_APP_NAME",
-    "NEXT_PUBLIC_CALCOM_VERSION",
+    "NEXT_PUBLIC_COACHOS_VERSION",
     "NEXT_PUBLIC_COMPANY_NAME",
     "NEXT_PUBLIC_LOGGER_LEVEL",
     "NEXT_PUBLIC_DISABLE_SIGNUP",
     "NEXT_PUBLIC_EMBED_LIB_URL",
     "NEXT_PUBLIC_FORMBRICKS_HOST_URL",
     "NEXT_PUBLIC_FORMBRICKS_ENVIRONMENT_ID",
-    "NEXT_PUBLIC_HOSTED_CAL_FEATURES",
+    "NEXT_PUBLIC_HOSTED_coachos_FEATURES",
     "NEXT_PUBLIC_IS_E2E",
     "IS_E2E",
     "NEXT_PUBLIC_MINUTES_TO_BOOK",
@@ -122,7 +122,7 @@
     "NEXT_PUBLIC_SUPPORT_MAIL_ADDRESS",
     "NEXT_PUBLIC_TEAM_IMPERSONATION",
     "NEXT_PUBLIC_VERCEL_URL",
-    "NEXT_PUBLIC_CAL_AI_PHONE_NUMBER_MONTHLY_PRICE",
+    "NEXT_PUBLIC_coachos_AI_PHONE_NUMBER_MONTHLY_PRICE",
     "NEXT_PUBLIC_CLOUDFLARE_SITEKEY",
     "NEXT_PUBLIC_CLOUDFLARE_USE_TURNSTILE_IN_BOOKER",
     "NEXT_PUBLIC_GTM_ID",
@@ -149,7 +149,7 @@
     "RETELL_AI_KEY",
     "RETELL_AI_TEST_MODE",
     "RETELL_AI_TEST_EVENT_TYPE_MAP",
-    "RETELL_AI_TEST_CAL_API_KEY",
+    "RETELL_AI_TEST_coachos_API_KEY",
     "SALESFORCE_CONSUMER_KEY",
     "SALESFORCE_CONSUMER_SECRET",
     "SALESFORCE_GRAPHQL_DELAY_MS",
@@ -214,7 +214,7 @@
     "ZOOM_CLIENT_ID",
     "ZOOM_CLIENT_SECRET",
     "RESEND_API_KEY",
-    "LOCAL_TESTING_DOMAIN_VERCEL",
+    "LOcoachos_TESTING_DOMAIN_VERCEL",
     "AUTH_BEARER_TOKEN_CLOUDFLARE",
     "CLOUDFLARE_ZONE_ID",
     "CLOUDFLARE_VERCEL_CNAME",
@@ -235,10 +235,10 @@
     "NEXT_PUBLIC_API_V2_ROOT_URL",
     "NEXT_PUBLIC_VAPID_PUBLIC_KEY",
     "VAPID_PRIVATE_KEY",
-    "CAL_VIDEO_BUCKET_NAME",
-    "CAL_VIDEO_BUCKET_REGION",
-    "CAL_VIDEO_ASSUME_ROLE_ARN",
-    "CAL_VIDEO_MEETING_LINK_FOR_TESTING",
+    "coachos_VIDEO_BUCKET_NAME",
+    "coachos_VIDEO_BUCKET_REGION",
+    "coachos_VIDEO_ASSUME_ROLE_ARN",
+    "coachos_VIDEO_MEETING_LINK_FOR_TESTING",
     "NEXT_PUBLIC_POSTHOG_KEY",
     "NEXT_PUBLIC_POSTHOG_HOST",
     "HUDDLE01_API_TOKEN",
@@ -249,11 +249,11 @@
     "GOOGLE_CLIENT_ID",
     "GOOGLE_CLIENT_SECRET",
     "ZOOM_REFRESH_TOKEN",
-    "CALCOM_ADMIN_API_KEY",
+    "COACHOS_ADMIN_API_KEY",
     "NEXT_PUBLIC_SINGLE_ORG_MODE_ENABLED",
-    "CALCOM_SERVICE_ACCOUNT_ENCRYPTION_KEY",
+    "COACHOS_SERVICE_ACCOUNT_ENCRYPTION_KEY",
     "OUTLOOK_LOGIN_ENABLED",
-    "CAL_VIDEO_RECORDING_TOKEN_SECRET",
+    "coachos_VIDEO_RECORDING_TOKEN_SECRET",
     "ORGANIZER_EMAIL_EXEMPT_DOMAINS",
     "SLOTS_CACHE_TTL",
     "CSP_POLICY",
@@ -267,7 +267,7 @@
     "NEXT_PUBLIC_INTERCOM_APP_ID",
     "MICROSOFT_WEBHOOK_TOKEN",
     "MICROSOFT_WEBHOOK_URL",
-    "_CAL_INTERNAL_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS",
+    "_coachos_INTERNAL_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS",
     "ENTERPRISE_SLUGS",
     "PLATFORM_ENTERPRISE_SLUGS",
     "USE_POOL",
@@ -315,45 +315,45 @@
     "B2_BUCKET_NAME"
   ],
   "tasks": {
-    "@calcom/web#copy-app-store-static": {
+    "@coachos/web#copy-app-store-static": {
       "inputs": ["../../packages/app-store/**/static/**/*"],
       "outputLogs": "new-only",
       "outputs": ["public/app-store/**"]
     },
-    "@calcom/prisma#build": {
+    "@coachos/prisma#build": {
       "cache": false,
       "dependsOn": ["post-install"]
     },
-    "@calcom/prisma#db-migrate": {
+    "@coachos/prisma#db-migrate": {
       "cache": false,
-      "dependsOn": ["@calcom/prisma#db-up"],
+      "dependsOn": ["@coachos/prisma#db-up"],
       "inputs": ["./schema.prisma", "./migrations/**/*.sql"]
     },
-    "@calcom/prisma#db-seed": {
+    "@coachos/prisma#db-seed": {
       "cache": false,
-      "dependsOn": ["@calcom/prisma#db-deploy"]
+      "dependsOn": ["@coachos/prisma#db-deploy"]
     },
-    "@calcom/prisma#db-up": {
+    "@coachos/prisma#db-up": {
       "cache": false
     },
-    "@calcom/prisma#dx": {
+    "@coachos/prisma#dx": {
       "cache": false,
-      "dependsOn": ["@calcom/prisma#db-up"]
+      "dependsOn": ["@coachos/prisma#db-up"]
     },
-    "@calcom/app-store#build:types": {
+    "@coachos/app-store#build:types": {
       "outputs": ["types/**"]
     },
-    "@calcom/trpc#build": {
-      "dependsOn": ["@calcom/prisma#post-install"],
+    "@coachos/trpc#build": {
+      "dependsOn": ["@coachos/prisma#post-install"],
       "outputs": ["./types"]
     },
-    "@calcom/web#build": {
+    "@coachos/web#build": {
       "dependsOn": ["^build", "copy-app-store-static"],
       "outputs": [".next/**"],
       "env": [
         "NEXT_PUBLIC_AVAILABILITY_SCHEDULE_INTERVAL",
         "NEXT_PUBLIC_BOOKER_NUMBER_OF_DAYS_TO_LOAD",
-        "NEXT_PUBLIC_CAL_AI_PHONE_NUMBER_MONTHLY_PRICE",
+        "NEXT_PUBLIC_coachos_AI_PHONE_NUMBER_MONTHLY_PRICE",
         "NEXT_PUBLIC_IS_E2E",
         "NEXT_PUBLIC_SENTRY_DSN",
         "NEXT_PUBLIC_SENTRY_DSN_CLIENT",
@@ -392,18 +392,18 @@
       ],
       "inputs": ["$TURBO_DEFAULT$", ".env.production"]
     },
-    "@calcom/web#dx": {
+    "@coachos/web#dx": {
       "cache": false,
-      "dependsOn": ["@calcom/prisma#dx"]
+      "dependsOn": ["@coachos/prisma#dx"]
     },
-    "@calcom/web#start": {
+    "@coachos/web#start": {
       "cache": false,
       "dependsOn": []
     },
-    "@calcom/atoms#build-npm": {
+    "@coachos/atoms#build-npm": {
       "outputs": ["dist/**", "globals.min.css"]
     },
-    "@calcom/api-v2#build": {
+    "@coachos/api-v2#build": {
       "dependsOn": ["^build"],
       "outputs": ["dist/**"],
       "env": [
@@ -420,7 +420,7 @@
       ],
       "inputs": ["$TURBO_DEFAULT$", ".env.production"]
     },
-    "@calcom/ai#build": {
+    "@coachos/ai#build": {
       "env": [
         "FRONTEND_URL",
         "BACKEND_URL",
@@ -434,7 +434,7 @@
         "DATABASE_URL"
       ]
     },
-    "@calcom/website#build": {
+    "@coachos/website#build": {
       "dependsOn": ["^build"],
       "outputs": [".next/**"],
       "env": [
@@ -472,13 +472,13 @@
     "db-seed": {},
     "deploy": {
       "cache": false,
-      "dependsOn": ["@calcom/web#build"]
+      "dependsOn": ["@coachos/web#build"]
     },
     "clean": {
       "cache": false,
       "outputs": ["dist/**", "build/**"]
     },
-    "@calcom/web#dev": {
+    "@coachos/web#dev": {
       "dependsOn": ["//#env-check:common", "//#env-check:app-store"],
       "cache": false
     },
@@ -534,7 +534,7 @@
       "inputs": ["./schema.prisma", "./prisma/schema.prisma"],
       "env": ["PRISMA_GENERATE_DATAPROXY"]
     },
-    "@calcom/prisma#post-install": {
+    "@coachos/prisma#post-install": {
       "cache": false,
       "outputs": ["dist/**", "build/**"]
     },
@@ -551,17 +551,17 @@
     },
     "type-check": {
       "cache": false,
-      "dependsOn": ["@calcom/trpc#build"]
+      "dependsOn": ["@coachos/trpc#build"]
     },
     "type-check:ci": {
       "cache": false,
-      "dependsOn": ["@calcom/trpc#build"]
+      "dependsOn": ["@coachos/trpc#build"]
     },
-    "@calcom/prisma#db-reset": {
+    "@coachos/prisma#db-reset": {
       "cache": false,
       "outputs": ["dist/**", "build/**"]
     },
-    "@calcom/app-store-cli#build": {
+    "@coachos/app-store-cli#build": {
       "inputs": [
         "../../packages/app-store/**/package.json",
         "../../packages/app-store/**/config.json",
@@ -573,11 +573,11 @@
       ],
       "outputs": ["../../packages/app-store/*.generated.ts", "../../packages/app-store/*.generated.tsx"]
     },
-    "@calcom/embed-react#type-check": {
-      "dependsOn": ["@calcom/embed-core#build", "@calcom/embed-snippet#build"],
+    "@coachos/embed-react#type-check": {
+      "dependsOn": ["@coachos/embed-core#build", "@coachos/embed-snippet#build"],
       "outputs": ["dist/**", "build/**"]
     },
-    "@calcom/embed-core#build": {
+    "@coachos/embed-core#build": {
       "cache": false,
       "outputs": ["../../../apps/web/public/embed/**"],
       "env": [
@@ -590,8 +590,8 @@
     "embed-tests-update-snapshots:ci": {
       "cache": false,
       "dependsOn": [
-        "@calcom/prisma#db-seed",
-        "@calcom/web#build",
+        "@coachos/prisma#db-seed",
+        "@coachos/web#build",
         "^build",
         "^embed-tests-update-snapshots:ci"
       ],

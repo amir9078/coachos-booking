@@ -3,12 +3,12 @@ import { useMutation } from "@tanstack/react-query";
 import {
   V2_ENDPOINTS,
   SUCCESS_STATUS,
-  CAL_API_VERSION_HEADER,
+  coachos_API_VERSION_HEADER,
   VERSION_2024_06_14,
-} from "@calcom/platform-constants";
-import type { ApiResponse, ApiSuccessResponse } from "@calcom/platform-types";
-import type { CreateEventTypeInput_2024_06_14 } from "@calcom/platform-types";
-import type { EventType } from "@calcom/prisma/client";
+} from "@coachos/platform-constants";
+import type { ApiResponse, ApiSuccessResponse } from "@coachos/platform-types";
+import type { CreateEventTypeInput_2024_06_14 } from "@coachos/platform-types";
+import type { EventType } from "@coachos/prisma/client";
 
 import http from "../../../lib/http";
 
@@ -27,7 +27,7 @@ export const useCreateEventType = ({ onSuccess, onError, onSettled }: UseCreateE
       const pathname = `/${V2_ENDPOINTS.eventTypes}`;
       return http
         ?.post<ApiResponse<EventType>>(pathname, body, {
-          headers: { [CAL_API_VERSION_HEADER]: VERSION_2024_06_14 },
+          headers: { [coachos_API_VERSION_HEADER]: VERSION_2024_06_14 },
         })
         .then((res) => {
           if (res.data.status === SUCCESS_STATUS) {

@@ -1,5 +1,5 @@
 import process from "node:process";
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Cal Video",
@@ -16,7 +16,7 @@ export const metadata = {
   slug: "daily-video",
   title: "Cal Video",
   isGlobal: true,
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   appData: {
     location: {
       linkType: "dynamic",

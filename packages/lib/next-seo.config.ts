@@ -1,6 +1,6 @@
 import type { DefaultSeoProps, NextSeoProps } from "next-seo";
 
-import { APP_NAME, SEO_IMG_DEFAULT, SEO_IMG_OGIMG } from "@calcom/lib/constants";
+import { APP_NAME, SEO_IMG_DEFAULT, SEO_IMG_OGIMG } from "@coachos/lib/constants";
 
 import type { AppImageProps, MeetingImageProps } from "./OgImages";
 
@@ -42,7 +42,7 @@ export const seoConfig: {
 
 /**
  * This function builds a canonical URL from a given host and path omitting the query params. Note: on homepage it omits the trailing slash
- * @param origin The protocol + host, e.g. `https://cal.com` or `https://cal.dev`
+ * @param origin The protocol + host, e.g. `https://amir9078.github.io` or `https://cal.dev`
  * @param path NextJS' useRouter().asPath
  * @returns
  */

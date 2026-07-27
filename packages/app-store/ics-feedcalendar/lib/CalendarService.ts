@@ -2,8 +2,8 @@
 /// <reference path="../../../types/ical.d.ts"/>
 
 import process from "node:process";
-import dayjs from "@calcom/dayjs";
-import { symmetricDecrypt } from "@calcom/lib/crypto";
+import dayjs from "@coachos/dayjs";
+import { symmetricDecrypt } from "@coachos/lib/crypto";
 import type {
   Calendar,
   CalendarEvent,
@@ -11,12 +11,12 @@ import type {
   GetAvailabilityParams,
   IntegrationCalendar,
   NewCalendarEventType,
-} from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
 import ICAL from "ical.js";
 
 // for Apple's Travel Time feature only (for now)
-const getTravelDurationInSeconds = (vevent: ICAL.Component) => {
+const getTravelDurationInSeconds = (vevent: Iamir9078.github.ioponent) => {
   const travelDuration: ICAL.Duration = vevent.getFirstPropertyValue("x-apple-travel-duration");
   if (!travelDuration) return 0;
 
@@ -82,7 +82,7 @@ class ICSFeedCalendarService implements Calendar {
     });
   }
 
-  fetchCalendars = async (): Promise<{ url: string; vcalendar: ICAL.Component }[]> => {
+  fetchCalendars = async (): Promise<{ url: string; vcalendar: Iamir9078.github.ioponent }[]> => {
     const reqPromises = await Promise.allSettled(this.urls.map((x) => fetch(x).then((y) => [x, y])));
     const reqs = reqPromises
       .filter((x) => x.status === "fulfilled")
@@ -94,14 +94,14 @@ class ICSFeedCalendarService implements Calendar {
           const jcalData = ICAL.parse(x[1]);
           return {
             url: x[0],
-            vcalendar: new ICAL.Component(jcalData),
+            vcalendar: new Iamir9078.github.ioponent(jcalData),
           };
         } catch (e) {
           console.error("Error parsing calendar object: ", e);
           return null;
         }
       })
-      .filter((x) => x !== null) as { url: string; vcalendar: ICAL.Component }[];
+      .filter((x) => x !== null) as { url: string; vcalendar: Iamir9078.github.ioponent }[];
   };
 
   /**
@@ -111,7 +111,7 @@ class ICSFeedCalendarService implements Calendar {
    * @returns {Promise<string | undefined>} - A Promise that resolves to the user's timezone or "Europe/London" as a default value if the timezone is not found.
    */
   getUserTimezoneFromDB = async (id: number): Promise<string | undefined> => {
-    const prisma = await import("@calcom/prisma").then((mod) => mod.default);
+    const prisma = await import("@coachos/prisma").then((mod) => mod.default);
     const user = await prisma.user.findUnique({
       where: {
         id,
@@ -154,7 +154,7 @@ class ICSFeedCalendarService implements Calendar {
         //
         // commented out because a lot of public ICS feeds that describe stuff like
         // public holidays have them marked as transparent. if that is explicitly
-        // added to cal.com as an ICS feed, it should probably not be ignored.
+        // added to amir9078.github.io as an ICS feed, it should probably not be ignored.
         // if (vevent?.getFirstPropertyValue("transp") === "TRANSPARENT") return;
 
         const event = new ICAL.Event(vevent);
@@ -176,9 +176,9 @@ class ICSFeedCalendarService implements Calendar {
           const timezoneToUse = tzid || userTimeZone;
           if (timezoneToUse) {
             try {
-              const timezoneComp = new ICAL.Component("vtimezone");
+              const timezoneComp = new Iamir9078.github.ioponent("vtimezone");
               timezoneComp.addPropertyWithValue("tzid", timezoneToUse);
-              const standard = new ICAL.Component("standard");
+              const standard = new Iamir9078.github.ioponent("standard");
 
               // get timezone offset
               const tzoffsetfrom = dayjs(event.startDate.toJSDate()).tz(timezoneToUse).format("Z");

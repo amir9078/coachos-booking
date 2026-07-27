@@ -1,13 +1,13 @@
 "use client";
 
-import { FULL_NAME_LENGTH_MAX_LIMIT } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { UserAvatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { Label, TextArea, TextField } from "@calcom/ui/components/form";
-import { ImageUploader } from "@calcom/ui/components/image-uploader";
-import { showToast } from "@calcom/ui/components/toast";
+import { FULL_NAME_LENGTH_MAX_LIMIT } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { UserAvatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { Label, TextArea, TextField } from "@coachos/ui/components/form";
+import { ImageUploader } from "@coachos/ui/components/image-uploader";
+import { showToast } from "@coachos/ui/components/toast";
 import { UsernameAvailabilityField } from "@components/ui/UsernameAvailability";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useRouter } from "next/navigation";

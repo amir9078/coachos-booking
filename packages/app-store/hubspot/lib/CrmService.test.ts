@@ -1,7 +1,7 @@
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
-import type { CRM } from "@calcom/types/CrmService";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
+import type { CRM } from "@coachos/types/CrmService";
 import type { TFunction } from "i18next";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { z } from "zod";
@@ -133,7 +133,7 @@ vi.mock("../../_utils/getAppKeysFromSlug", () => ({
   default: mockGetAppKeysFromSlug,
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {
     credential: {
       update: vi.fn(),
@@ -141,19 +141,19 @@ vi.mock("@calcom/prisma", () => ({
   },
 }));
 
-vi.mock("@calcom/features/bookings/repositories/PrismaTrackingRepository", () => ({
+vi.mock("@coachos/features/bookings/repositories/PrismaTrackingRepository", () => ({
   PrismaTrackingRepository: class {
     findByBookingUid = mockTrackingRepository.findByBookingUid;
   },
 }));
 
-vi.mock("@calcom/features/bookings/repositories/BookingRepository", () => ({
+vi.mock("@coachos/features/bookings/repositories/BookingRepository", () => ({
   BookingRepository: class {
     findBookingByUid = mockBookingRepository.findBookingByUid;
   },
 }));
 
-vi.mock("@calcom/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
+vi.mock("@coachos/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
   checkIfFreeEmailDomain: mockCheckIfFreeEmailDomain,
 }));
 

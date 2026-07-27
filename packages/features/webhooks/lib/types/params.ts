@@ -1,4 +1,4 @@
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 /**
  * Parameter type definitions for webhook service methods

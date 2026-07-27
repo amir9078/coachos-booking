@@ -1,5 +1,5 @@
-import type { EventType } from "@calcom/prisma/client";
-import type { NewCalendarEventType, AdditionalInformation } from "@calcom/types/Calendar";
+import type { EventType } from "@coachos/prisma/client";
+import type { NewCalendarEventType, AdditionalInformation } from "@coachos/types/Calendar";
 
 import type { CrmData } from "./CrmService";
 import type { VideoCallData } from "./VideoApiAdapter";

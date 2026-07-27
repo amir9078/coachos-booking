@@ -1,8 +1,8 @@
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { CreationSource, RedirectType } from "@calcom/prisma/enums";
-import { UserSchema } from "@calcom/prisma/zod/modelSchema/UserSchema";
-import { authedAdminProcedure } from "@calcom/trpc/server/procedures/authedProcedure";
-import { router } from "@calcom/trpc/server/trpc";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { CreationSource, RedirectType } from "@coachos/prisma/enums";
+import { UserSchema } from "@coachos/prisma/zod/modelSchema/UserSchema";
+import { authedAdminProcedure } from "@coachos/trpc/server/procedures/authedProcedure";
+import { router } from "@coachos/trpc/server/trpc";
 import type { inferRouterOutputs } from "@trpc/server";
 import { TRPCError } from "@trpc/server";
 import { z } from "zod";

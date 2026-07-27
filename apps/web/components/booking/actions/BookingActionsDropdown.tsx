@@ -1,9 +1,9 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogClose, DialogContent, DialogFooter } from "@calcom/ui/components/dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogClose, DialogContent, DialogFooter } from "@coachos/ui/components/dialog";
 import {
   Dropdown,
   DropdownItem,
@@ -13,10 +13,10 @@ import {
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@calcom/ui/components/dropdown";
-import type { ActionType } from "@calcom/ui/components/table";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/dropdown";
+import type { ActionType } from "@coachos/ui/components/table";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import { AddGuestsDialog } from "@components/dialog/AddGuestsDialog";
 import { CancelBookingDialog } from "@components/dialog/CancelBookingDialog";
 import { ChargeCardDialog } from "@components/dialog/ChargeCardDialog";

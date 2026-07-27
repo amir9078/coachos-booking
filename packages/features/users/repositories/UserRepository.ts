@@ -1,27 +1,27 @@
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { getTranslation } from "@calcom/i18n/server";
-import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@calcom/lib/availability";
-import { buildNonDelegationCredentials } from "@calcom/lib/delegationCredential";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { withSelectedCalendars } from "@calcom/lib/server/withSelectedCalendars";
-import type { PrismaClient } from "@calcom/prisma";
-import { availabilityUserSelect } from "@calcom/prisma";
-import type { DestinationCalendar, SelectedCalendar, User as UserType } from "@calcom/prisma/client";
-import { Prisma } from "@calcom/prisma/client";
-import type { IdentityProvider } from "@calcom/prisma/enums";
-import type { CreationSource } from "@calcom/prisma/enums";
-import { BookingStatus, MembershipRole } from "@calcom/prisma/enums";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
-import { userSelect as prismaUserSelect } from "@calcom/prisma/selects/user";
-import { userMetadata } from "@calcom/prisma/zod-utils";
-import type { UpId, UserProfile } from "@calcom/types/UserProfile";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { getTranslation } from "@coachos/i18n/server";
+import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@coachos/lib/availability";
+import { buildNonDelegationCredentials } from "@coachos/lib/delegationCredential";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { withSelectedCalendars } from "@coachos/lib/server/withSelectedCalendars";
+import type { PrismaClient } from "@coachos/prisma";
+import { availabilityUserSelect } from "@coachos/prisma";
+import type { DestinationCalendar, SelectedCalendar, User as UserType } from "@coachos/prisma/client";
+import { Prisma } from "@coachos/prisma/client";
+import type { IdentityProvider } from "@coachos/prisma/enums";
+import type { CreationSource } from "@coachos/prisma/enums";
+import { BookingStatus, MembershipRole } from "@coachos/prisma/enums";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
+import { userSelect as prismaUserSelect } from "@coachos/prisma/selects/user";
+import { userMetadata } from "@coachos/prisma/zod-utils";
+import type { UpId, UserProfile } from "@coachos/types/UserProfile";
 import type { z } from "zod";
 
 const whereClauseForOrgWithSlugOrRequestedSlug = (..._args: unknown[]) => ({});
 const getParsedTeam = <T>(team: T): T => team;
 
-export type { UserWithLegacySelectedCalendars } from "@calcom/lib/server/withSelectedCalendars";
+export type { UserWithLegacySelectedCalendars } from "@coachos/lib/server/withSelectedCalendars";
 export { withSelectedCalendars };
 export type UserAdminTeams = number[];
 
@@ -1447,7 +1447,7 @@ export class UserRepository {
         },
       },
       select: {
-        ...prismaUserSelect, // Use the proper userSelect from @calcom/prisma/selects/user which includes schedules
+        ...prismaUserSelect, // Use the proper userSelect from @coachos/prisma/selects/user which includes schedules
         credentials: {
           select: credentialForCalendarServiceSelect,
         },

@@ -6,8 +6,8 @@
   "url": "https://example.com/link",
   "variant": "other",
   "categories": ["other"],
-  "publisher": "Cal.com, Inc.",
-  "email": "support@cal.com",
+  "publisher": "amir9078.github.io, Inc.",
+  "email": "shaikhamirhussain2000@gmail.com",
   "description": "It is a template showing how an App can have settings in installed section that configures the app globally e.g. Weather in your Calendar",
   "isTemplate": true,
   "__createdUsingCli": true

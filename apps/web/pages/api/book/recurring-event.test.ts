@@ -9,25 +9,25 @@ import {
   mockSuccessfulVideoMeetingCreation,
   TestData,
   Timezones,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
-import { createMockNextJsRequest } from "@calcom/testing/lib/bookingScenario/createMockNextJsRequest";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
+import { createMockNextJsRequest } from "@coachos/testing/lib/bookingScenario/createMockNextJsRequest";
 import {
   expectBookingCreatedWebhookToHaveBeenFired,
   expectBookingToBeInDatabase,
   expectSuccessfulBookingCreationEmails,
   expectSuccessfulCalendarEventCreationInCalendar,
-} from "@calcom/testing/lib/bookingScenario/expects";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
+} from "@coachos/testing/lib/bookingScenario/expects";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
 
 import { v4 as uuidv4 } from "uuid";
 import { describe, expect } from "vitest";
 
-import { WEBAPP_URL, WEBSITE_URL } from "@calcom/lib/constants";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import logger from "@calcom/lib/logger";
-import { BookingStatus, SchedulingType } from "@calcom/prisma/enums";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+import { WEBAPP_URL, WEBSITE_URL } from "@coachos/lib/constants";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import logger from "@coachos/lib/logger";
+import { BookingStatus, SchedulingType } from "@coachos/prisma/enums";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 
 const DAY_IN_MS = 1000 * 60 * 60 * 24;
 
@@ -50,7 +50,7 @@ describe("handleNewBooking", () => {
           3. Should trigger BOOKING_CREATED webhook for every booking
       `,
         async ({ emails }) => {
-          const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+          const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
             .handleRecurringEventBooking;
           const booker = getBooker({
             email: "booker@example.com",
@@ -256,7 +256,7 @@ describe("handleNewBooking", () => {
       test.skip(
         `should fail recurring booking if second slot is already booked`,
         async ({}) => {
-          const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+          const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
             .handleRecurringEventBooking;
           const booker = getBooker({
             email: "booker@example.com",
@@ -388,7 +388,7 @@ describe("handleNewBooking", () => {
         async ({ emails }) => {
           const recurringCountInRequest = 4;
 
-          const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+          const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
             .handleRecurringEventBooking;
           const booker = getBooker({
             email: "booker@example.com",
@@ -604,7 +604,7 @@ describe("handleNewBooking", () => {
         async ({ emails }) => {
           const recurringCountInRequest = 4;
 
-          const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+          const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
             .handleRecurringEventBooking;
           const booker = getBooker({
             email: "booker@example.com",
@@ -812,7 +812,7 @@ describe("handleNewBooking", () => {
     });
     describe("Round robin event type:", () => {
       test.skip("should when when a fixed host is not available on the second slot", async () => {
-        const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+        const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
           .handleRecurringEventBooking;
         const booker = getBooker({
           email: "booker@example.com",
@@ -985,7 +985,7 @@ describe("handleNewBooking", () => {
       });
 
       test("should create successfully bookings that are all assigned to the next available least recently booked user", async () => {
-        const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+        const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
           .handleRecurringEventBooking;
         const booker = getBooker({
           email: "booker@example.com",
@@ -1177,7 +1177,7 @@ describe("handleNewBooking", () => {
 
       test(`should create bookings that are all assigned to the least recently booked user that is available on the first two slots,
             if the least recently booked user is not available on the second slot`, async () => {
-        const handleRecurringEventBooking = (await import("@calcom/web/pages/api/book/recurring-event"))
+        const handleRecurringEventBooking = (await import("@coachos/web/pages/api/book/recurring-event"))
           .handleRecurringEventBooking;
         const booker = getBooker({
           email: "booker@example.com",

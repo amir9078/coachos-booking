@@ -1,8 +1,8 @@
 import type { Page } from "@playwright/test";
 import { v4 as uuidv4 } from "uuid";
 
-import { prisma } from "@calcom/prisma";
-import type { Payment } from "@calcom/prisma/client";
+import { prisma } from "@coachos/prisma";
+import type { Payment } from "@coachos/prisma/client";
 
 type PaymentFixture = ReturnType<typeof createPaymentFixture>;
 

@@ -1,12 +1,12 @@
 import type {
   EventTypeApp,
   EventTypeForAppCard,
-} from "@calcom/app-store/_components/EventTypeAppCardInterface";
-import { EventTypeAppCard } from "@calcom/app-store/_components/EventTypeAppCardInterface";
-import type { EventTypeAppsList } from "@calcom/app-store/utils";
-import useAppsData from "@calcom/features/apps/hooks/useAppsData";
-import type { EventTypeSetupProps } from "@calcom/features/eventtypes/lib/types";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
+} from "@coachos/app-store/_components/EventTypeAppCardInterface";
+import { EventTypeAppCard } from "@coachos/app-store/_components/EventTypeAppCardInterface";
+import type { EventTypeAppsList } from "@coachos/app-store/utils";
+import useAppsData from "@coachos/features/apps/hooks/useAppsData";
+import type { EventTypeSetupProps } from "@coachos/features/eventtypes/lib/types";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
 import { StripeConnect } from "../../connect/stripe/StripeConnect";
 import { useCheck } from "../../hooks/stripe/useCheck";
 import { useAtomsEventTypeById } from "../hooks/useAtomEventTypeAppIntegration";
@@ -49,7 +49,7 @@ const StripeAppCard = ({ eventType }: { eventType: EventTypeSetupProps["eventTyp
   const { data: stripeData, isLoading } = useAtomsEventTypeById("stripe", eventType.teamId);
   const transformedAppData = {
     ...stripeData?.app,
-    logo: `https://app.cal.com${stripeData?.app.logo}`,
+    logo: `https://app.amir9078.github.io${stripeData?.app.logo}`,
   };
 
   if (isLoading || !stripeData) return null;

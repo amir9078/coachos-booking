@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@calcom/prisma";
+import type { PrismaClient } from "@coachos/prisma";
 
 export class VideoCallGuestRepository {
   constructor(private prismaClient: PrismaClient) {}

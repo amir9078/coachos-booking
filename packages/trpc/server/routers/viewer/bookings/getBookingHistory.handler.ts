@@ -1,15 +1,15 @@
 import type { TFunction } from "i18next";
 
-import type { PrismaClient } from "@calcom/prisma/client";
+import type { PrismaClient } from "@coachos/prisma/client";
 import { TRPCError } from "@trpc/server";
 
-import { getBookingHistoryViewerService } from "@calcom/features/booking-audit/di/BookingHistoryViewerService.container";
-import type { DisplayBookingAuditLog } from "@calcom/features/booking-audit/lib/service/BookingAuditViewerService";
+import { getBookingHistoryViewerService } from "@coachos/features/booking-audit/di/BookingHistoryViewerService.container";
+import type { DisplayBookingAuditLog } from "@coachos/features/booking-audit/lib/service/BookingAuditViewerService";
 import {
   BookingAuditErrorCode,
   BookingAuditPermissionError,
-} from "@calcom/features/booking-audit/lib/service/BookingAuditAccessService";
-import { getTranslation } from "@calcom/i18n/server";
+} from "@coachos/features/booking-audit/lib/service/BookingAuditAccessService";
+import { getTranslation } from "@coachos/i18n/server";
 
 import type { TrpcSessionUser } from "../../../types";
 import type { TGetBookingHistoryInputSchema } from "./getBookingHistory.schema";

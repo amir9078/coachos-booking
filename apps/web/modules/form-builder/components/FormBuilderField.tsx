@@ -3,22 +3,22 @@ import type { TFunction } from "i18next";
 import { Controller, useFormContext } from "react-hook-form";
 import type { z } from "zod";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import classNames from "@calcom/ui/classNames";
-import { InfoBadge } from "@calcom/ui/components/badge";
-import { Label } from "@calcom/ui/components/form";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import classNames from "@coachos/ui/classNames";
+import { InfoBadge } from "@coachos/ui/components/badge";
+import { Label } from "@coachos/ui/components/form";
 import { InfoIcon } from "@coss/ui/icons";
 
 import { Components, isValidValueProp } from "./Components";
-import { fieldTypesConfigMap } from "@calcom/features/form-builder/fieldTypes";
-import { fieldsThatSupportLabelAsSafeHtml } from "@calcom/features/form-builder/fieldsThatSupportLabelAsSafeHtml";
-import type { fieldsSchema } from "@calcom/features/form-builder/schema";
+import { fieldTypesConfigMap } from "@coachos/features/form-builder/fieldTypes";
+import { fieldsThatSupportLabelAsSafeHtml } from "@coachos/features/form-builder/fieldsThatSupportLabelAsSafeHtml";
+import type { fieldsSchema } from "@coachos/features/form-builder/schema";
 import {
   useShouldBeDisabledDueToPrefill,
   getFieldNameFromErrorMessage,
-} from "@calcom/features/form-builder/useShouldBeDisabledDueToPrefill";
-import { getTranslatedConfig as getTranslatedVariantsConfig } from "@calcom/features/form-builder/utils/variantsConfig";
+} from "@coachos/features/form-builder/useShouldBeDisabledDueToPrefill";
+import { getTranslatedConfig as getTranslatedVariantsConfig } from "@coachos/features/form-builder/utils/variantsConfig";
 
 // helper to render markdown label safely
 const renderLabel = (field: Partial<RhfFormField>) => {

@@ -1,4 +1,4 @@
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 import { z } from "zod";
 import { WebhookVersion } from "../../../webhooks/lib/interface/IWebhookRepository";
 
@@ -6,8 +6,8 @@ const TIME_UNIT = ['MINUTE', 'HOUR', 'DAY'] as const;
 
 const commonSchema = z.object({
   triggerEvent: z.enum([
-    WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
-    WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+    WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+    WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
   ]),
   bookingId: z.number(),
 });

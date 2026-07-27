@@ -17,8 +17,8 @@ SEED_PLATFORM_OAUTH_CLIENT_SECRET=
 ```
 Then you need to copy these values to the platform examples app environment.
 - Rename `packages/platform/examples/base/.env.example` to `packages/platform/examples/base/.env`. There will be many environment variables already populated to make it easier for you.
-- copy the value of `SEED_PLATFORM_OAUTH_CLIENT_ID` into `packages/platform/examples/base/.env` `NEXT_PUBLIC_X_CAL_ID`
-- copy the value of `SEED_PLATFORM_OAUTH_CLIENT_SECRET` into `packages/platform/examples/base/.env` `X_CAL_SECRET_KEY`
+- copy the value of `SEED_PLATFORM_OAUTH_CLIENT_ID` into `packages/platform/examples/base/.env` `NEXT_PUBLIC_X_coachos_ID`
+- copy the value of `SEED_PLATFORM_OAUTH_CLIENT_SECRET` into `packages/platform/examples/base/.env` `X_coachos_SECRET_KEY`
 
 Then, we need to setup platform OAuth 2.0 client. We will need an id, and then hashed and plain secrets. To generate them you can:
 ```
@@ -63,8 +63,8 @@ Then in the `packages/platform/examples/base/.env` set the `NEXT_PUBLIC_OAUTH2_C
 ```
 Then you need to copy id and secret to the platform examples app environment.
 - Rename `packages/platform/examples/base/.env.example` to `packages/platform/examples/base/.env`
-- copy the client id into `packages/platform/examples/base/.env` `NEXT_PUBLIC_X_CAL_ID`
-- copy the client secret into `packages/platform/examples/base/.env` `X_CAL_SECRET_KEY`
+- copy the client id into `packages/platform/examples/base/.env` `NEXT_PUBLIC_X_coachos_ID`
+- copy the client secret into `packages/platform/examples/base/.env` `X_coachos_SECRET_KEY`
 
 Then, we need to setup platform OAuth 2.0 client. We will need an id, and then hashed and plain secrets. To generate them you can:
 ```

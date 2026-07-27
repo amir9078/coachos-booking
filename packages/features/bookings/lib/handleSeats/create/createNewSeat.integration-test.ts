@@ -1,8 +1,8 @@
 import { describe, it, expect, beforeAll, afterEach } from "vitest";
 
-import { prisma } from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
-import { ErrorCode } from "@calcom/lib/errorCodes";
+import { prisma } from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
+import { ErrorCode } from "@coachos/lib/errorCodes";
 
 import { addSeatToBooking } from "./createNewSeat";
 

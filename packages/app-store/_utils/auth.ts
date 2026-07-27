@@ -1,6 +1,6 @@
 import type { NextApiRequest } from "next";
 
-import { HttpError } from "@calcom/lib/http-error";
+import { HttpError } from "@coachos/lib/http-error";
 
 export default function checkSession(req: NextApiRequest) {
   if (!req.session?.user?.id) {

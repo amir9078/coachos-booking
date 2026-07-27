@@ -1,6 +1,6 @@
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { prisma } from "@calcom/prisma";
-import type { OrganizationSettings, Team } from "@calcom/prisma/client";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { prisma } from "@coachos/prisma";
+import type { OrganizationSettings, Team } from "@coachos/prisma/client";
 import { getOrgUsernameFromEmail } from "./getOrgUsernameFromEmail";
 
 export async function joinAnyChildTeamOnOrgInvite({

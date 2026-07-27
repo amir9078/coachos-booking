@@ -1,24 +1,24 @@
-import { LearnMoreLink } from "@calcom/features/eventtypes/components/LearnMoreLink";
-import { getDefinedBufferTimes } from "@calcom/features/eventtypes/lib/getDefinedBufferTimes";
+import { LearnMoreLink } from "@coachos/features/eventtypes/components/LearnMoreLink";
+import { getDefinedBufferTimes } from "@coachos/features/eventtypes/lib/getDefinedBufferTimes";
 import type {
   EventTypeSetupProps,
   FormValues,
   InputClassNames,
   SelectClassNames,
   SettingsToggleClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import CheckboxField from "@calcom/features/form/components/CheckboxField";
-import { ROLLING_WINDOW_PERIOD_MAX_DAYS_TO_CHECK } from "@calcom/lib/constants";
-import type { DurationType } from "@calcom/lib/convertToNewDurationType";
-import convertToNewDurationType from "@calcom/lib/convertToNewDurationType";
-import findDurationType from "@calcom/lib/findDurationType";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { ascendingLimitKeys, intervalLimitKeyToUnit } from "@calcom/lib/intervalLimits/intervalLimit";
-import type { IntervalLimit } from "@calcom/lib/intervalLimits/intervalLimitSchema";
-import { PeriodType, SchedulingType } from "@calcom/prisma/enums";
-import classNames from "@calcom/ui/classNames";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
+} from "@coachos/features/eventtypes/lib/types";
+import CheckboxField from "@coachos/features/form/components/CheckboxField";
+import { ROLLING_WINDOW_PERIOD_MAX_DAYS_TO_CHECK } from "@coachos/lib/constants";
+import type { DurationType } from "@coachos/lib/convertToNewDurationType";
+import convertToNewDurationType from "@coachos/lib/convertToNewDurationType";
+import findDurationType from "@coachos/lib/findDurationType";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { ascendingLimitKeys, intervalLimitKeyToUnit } from "@coachos/lib/intervalLimits/intervalLimit";
+import type { IntervalLimit } from "@coachos/lib/intervalLimits/intervalLimitSchema";
+import { PeriodType, SchedulingType } from "@coachos/prisma/enums";
+import classNames from "@coachos/ui/classNames";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
 import {
   DateRangePicker,
   InputField,
@@ -26,9 +26,9 @@ import {
   Select,
   SettingsToggle,
   TextField,
-} from "@calcom/ui/components/form";
-import { Icon } from "@calcom/ui/components/icon";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/form";
+import { Icon } from "@coachos/ui/components/icon";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import Link from "next/link";
@@ -664,7 +664,7 @@ export const EventLimitsTab = ({ eventType, customClassNames }: EventLimitsTabPr
                 <LearnMoreLink
                   t={t}
                   i18nKey="limit_booking_frequency_description"
-                  href="https://cal.com/help/event-types/booking-frequency"
+                  href="https://amir9078.github.io/help/event-types/booking-frequency"
                 />
               }
               checked={isChecked}
@@ -801,7 +801,7 @@ export const EventLimitsTab = ({ eventType, customClassNames }: EventLimitsTabPr
                 <LearnMoreLink
                   t={t}
                   i18nKey="limit_future_bookings_description"
-                  href="https://cal.com/help/event-types/limit-future-bookings"
+                  href="https://amir9078.github.io/help/event-types/limit-future-bookings"
                 />
               }
               {...periodTypeLocked}

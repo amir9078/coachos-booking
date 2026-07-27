@@ -1,11 +1,11 @@
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SMSLockState } from "@calcom/prisma/enums";
-import { trpc } from "@calcom/trpc/react";
-import { Avatar } from "@calcom/ui/components/avatar";
-import type { IconName } from "@calcom/ui/components/icon";
-import { Table, DropdownActions } from "@calcom/ui/components/table";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SMSLockState } from "@coachos/prisma/enums";
+import { trpc } from "@coachos/trpc/react";
+import { Avatar } from "@coachos/ui/components/avatar";
+import type { IconName } from "@coachos/ui/components/icon";
+import { Table, DropdownActions } from "@coachos/ui/components/table";
 
 const { Cell, ColumnTitle, Header, Row } = Table;
 

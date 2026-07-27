@@ -2,13 +2,13 @@ import { LightningAddress } from "@getalby/lightning-tools";
 import { v4 as uuidv4 } from "uuid";
 import type z from "zod";
 
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import type { Booking, Payment, PaymentOption, Prisma } from "@calcom/prisma/client";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { IAbstractPaymentService } from "@calcom/types/PaymentService";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import type { Booking, Payment, PaymentOption, Prisma } from "@coachos/prisma/client";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { IAbstractPaymentService } from "@coachos/types/PaymentService";
 
 import { albyCredentialKeysSchema } from "./albyCredentialKeysSchema";
 
@@ -51,7 +51,7 @@ class AlbyPaymentService implements IAbstractPaymentService {
       const invoice = await lightningAddress.requestInvoice({
         satoshi: payment.amount,
         payerdata: {
-          appId: "cal.com",
+          appId: "amir9078.github.io",
           referenceId: uid,
         },
       });

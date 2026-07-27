@@ -1,14 +1,14 @@
-import { LearnMoreLink } from "@calcom/features/eventtypes/components/LearnMoreLink";
+import { LearnMoreLink } from "@coachos/features/eventtypes/components/LearnMoreLink";
 import type {
   EventTypeSetup,
   FormValues,
   SettingsToggleClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Input, SettingsToggle } from "@calcom/ui/components/form";
-import { RadioField } from "@calcom/ui/components/radio";
+} from "@coachos/features/eventtypes/lib/types";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Input, SettingsToggle } from "@coachos/ui/components/form";
+import { RadioField } from "@coachos/ui/components/radio";
 import * as RadioGroup from "@radix-ui/react-radio-group";
 import { useEffect, useRef, useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
@@ -86,7 +86,7 @@ export default function DisableReschedulingController({
                 <LearnMoreLink
                   t={t}
                   i18nKey="description_disable_rescheduling"
-                  href="https://cal.com/help/event-types/disable-canceling-rescheduling#disable-rescheduling"
+                  href="https://amir9078.github.io/help/event-types/disable-canceling-rescheduling#disable-rescheduling"
                 />
               }
               checked={shouldShowRadioButtons}

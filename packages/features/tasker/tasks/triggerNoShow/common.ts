@@ -1,12 +1,12 @@
-import dayjs from "@calcom/dayjs";
-import type { Host } from "@calcom/features/bookings/lib/getHostsAndGuests";
-import { getHostsAndGuests } from "@calcom/features/bookings/lib/getHostsAndGuests";
-import { sendGenericWebhookPayload } from "@calcom/features/webhooks/lib/sendPayload";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import type { TimeUnit } from "@calcom/prisma/enums";
-import { BookingStatus, WebhookTriggerEvents } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import type { Host } from "@coachos/features/bookings/lib/getHostsAndGuests";
+import { getHostsAndGuests } from "@coachos/features/bookings/lib/getHostsAndGuests";
+import { sendGenericWebhookPayload } from "@coachos/features/webhooks/lib/sendPayload";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import type { TimeUnit } from "@coachos/prisma/enums";
+import { BookingStatus, WebhookTriggerEvents } from "@coachos/prisma/enums";
 import { getBooking } from "./getBooking";
 import { getMeetingSessionsFromRoomName } from "./getMeetingSessionsFromRoomName";
 import type { TTriggerNoShowPayloadSchema, TWebhook } from "./schema";
@@ -54,10 +54,10 @@ export function sendWebhookPayload(
       endTime: booking.endTime,
       participants,
       ...(hostEmail ? { hostEmail } : {}),
-      ...(triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW
+      ...(triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
         ? { noShowHost: booking.noShowHost }
         : {}),
-      ...(triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW && booking.guests
+      ...(triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW && booking.guests
         ? { guests: booking.guests }
         : {}),
       ...(originalRescheduledBooking ? { rescheduledBy: originalRescheduledBooking.rescheduledBy } : {}),
@@ -72,7 +72,7 @@ export function sendWebhookPayload(
         secret: undefined,
       },
       message:
-        triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW
+        triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
           ? `Guest didn't join the call or didn't join before ${maxStartTimeHumanReadable}`
           : `Host with email ${hostEmail} didn't join the call or didn't join before ${maxStartTimeHumanReadable}`,
     },

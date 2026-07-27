@@ -1,7 +1,7 @@
 import { describe, it, expect, beforeEach, vi, type Mock } from "vitest";
 
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
 
 import {
   BookingAuditAccessService,
@@ -9,8 +9,8 @@ import {
   BookingAuditPermissionError,
 } from "../BookingAuditAccessService";
 
-vi.mock("@calcom/features/bookings/repositories/BookingRepository");
-vi.mock("@calcom/features/membership/repositories/MembershipRepository");
+vi.mock("@coachos/features/bookings/repositories/BookingRepository");
+vi.mock("@coachos/features/membership/repositories/MembershipRepository");
 
 const DB = {
   bookings: {} as Record<

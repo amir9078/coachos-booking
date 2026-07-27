@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { localStorage } from "@calcom/lib/webstorage";
-import classNames from "@calcom/ui/classNames";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { localStorage } from "@coachos/lib/webstorage";
+import classNames from "@coachos/ui/classNames";
 
 type LoginType = "saml" | "google" | "microsoft" | "credentials";
 
@@ -10,7 +10,7 @@ export function useLastUsed() {
   const [lastUsed, setLastUsed] = useState<LoginType>();
 
   useEffect(() => {
-    const storedValue = localStorage.getItem("last_cal_login");
+    const storedValue = localStorage.getItem("last_coachos_login");
     if (storedValue) {
       setLastUsed(storedValue as LoginType);
     }
@@ -18,9 +18,9 @@ export function useLastUsed() {
 
   useEffect(() => {
     if (lastUsed) {
-      localStorage.setItem("last_cal_login", lastUsed);
+      localStorage.setItem("last_coachos_login", lastUsed);
     } else {
-      localStorage.removeItem("last_cal_login");
+      localStorage.removeItem("last_coachos_login");
     }
   }, [lastUsed]);
 

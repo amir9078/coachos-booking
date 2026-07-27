@@ -1,17 +1,17 @@
-import { LearnMoreLink } from "@calcom/features/eventtypes/components/LearnMoreLink";
+import { LearnMoreLink } from "@coachos/features/eventtypes/components/LearnMoreLink";
 import type {
   EventTypeSetup,
   FormValues,
   InputClassNames,
   SelectClassNames,
   SettingsToggleClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Frequency } from "@calcom/prisma/zod-utils";
-import type { RecurringEvent } from "@calcom/types/Calendar";
-import classNames from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { Select, SettingsToggle, TextField } from "@calcom/ui/components/form";
+} from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Frequency } from "@coachos/prisma/zod-utils";
+import type { RecurringEvent } from "@coachos/types/Calendar";
+import classNames from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { Select, SettingsToggle, TextField } from "@coachos/ui/components/form";
 import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 
@@ -90,7 +90,7 @@ export default function RecurringEventController({
                 <LearnMoreLink
                   t={t}
                   i18nKey="recurring_event_description"
-                  href="https://cal.com/help/event-types/recurring-events"
+                  href="https://amir9078.github.io/help/event-types/recurring-events"
                 />
               }
               checked={!!recurringEventState}

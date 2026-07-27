@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
-import type { EventTypeAppSettingsComponent } from "@calcom/app-store/types";
-import { Select } from "@calcom/ui/components/form";
+import type { EventTypeAppSettingsComponent } from "@coachos/app-store/types";
+import { Select } from "@coachos/ui/components/form";
 
 type Basecamp3Project = { label: string; value: string };
 
@@ -60,7 +60,7 @@ const EventTypeAppSettingsInterface: EventTypeAppSettingsComponent = () => {
       </div>
       <div className="mt-2">
         Please note that as of now you can only link <span className="italic">one</span> of your projects to
-        cal.com
+        amir9078.github.io
       </div>
     </div>
   );

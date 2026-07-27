@@ -1,11 +1,11 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
 import type {
   BookingOutput_2024_08_13,
   CreateBookingInput_2024_08_13,
   GetBookingOutput_2024_08_13,
   RescheduleBookingInput_2024_08_13,
-} from "@calcom/platform-types";
-import type { EventType, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { EventType, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -105,7 +105,7 @@ describe("Reschedule bookings 2024-08-13", () => {
       const bookingResponse = await request(app.getHttpServer())
         .post("/v2/bookings")
         .send(bookingBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const bookingResponseBody: CreateBookingOutput_2024_08_13 = bookingResponse.body;
@@ -132,7 +132,7 @@ describe("Reschedule bookings 2024-08-13", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${oldNormalBooking.uid}/reschedule`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const afterCreate = new Date();
@@ -172,7 +172,7 @@ describe("Reschedule bookings 2024-08-13", () => {
     it("should fetch old booking and verify rescheduledToUid and rescheduledByEmail and status cancelled", async () => {
       return request(app.getHttpServer())
         .get(`/v2/bookings/${oldNormalBooking.uid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -196,7 +196,7 @@ describe("Reschedule bookings 2024-08-13", () => {
     it("should fetch new booking and verify rescheduledFromUid, rescheduledByEmail and reschedulingReason", async () => {
       return request(app.getHttpServer())
         .get(`/v2/bookings/${newNormalBooking.uid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;

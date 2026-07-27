@@ -6,7 +6,7 @@ WORKDIR /calcom
 ARG NEXT_PUBLIC_LICENSE_CONSENT
 ARG NEXT_PUBLIC_WEBSITE_TERMS_URL
 ARG NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL
-ARG CALCOM_TELEMETRY_DISABLED
+ARG COACHOS_TELEMETRY_DISABLED
 ARG DATABASE_URL
 ARG NEXTAUTH_SECRET=secret
 ARG CALENDSO_ENCRYPTION_KEY=secret
@@ -25,7 +25,7 @@ ENV NEXT_PUBLIC_WEBAPP_URL=http://NEXT_PUBLIC_WEBAPP_URL_PLACEHOLDER \
   NEXT_PUBLIC_LICENSE_CONSENT=$NEXT_PUBLIC_LICENSE_CONSENT \
   NEXT_PUBLIC_WEBSITE_TERMS_URL=$NEXT_PUBLIC_WEBSITE_TERMS_URL \
   NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL=$NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL \
-  CALCOM_TELEMETRY_DISABLED=$CALCOM_TELEMETRY_DISABLED \
+  COACHOS_TELEMETRY_DISABLED=$COACHOS_TELEMETRY_DISABLED \
   DATABASE_URL=$DATABASE_URL \
   DATABASE_DIRECT_URL=$DATABASE_URL \
   NEXTAUTH_SECRET=${NEXTAUTH_SECRET} \
@@ -45,13 +45,13 @@ COPY apps/api/v2 ./apps/api/v2
 COPY packages ./packages
 
 RUN yarn config set httpTimeout 1200000
-RUN npx turbo prune --scope=@calcom/web --scope=@calcom/trpc --docker
+RUN npx turbo prune --scope=@coachos/web --scope=@coachos/trpc --docker
 RUN yarn install
 # Build and make embed servable from web/public/embed folder
-RUN yarn workspace @calcom/trpc run build
-RUN yarn --cwd packages/embeds/embed-core workspace @calcom/embed-core run build
-RUN yarn --cwd apps/web workspace @calcom/web run copy-app-store-static
-RUN yarn --cwd apps/web workspace @calcom/web run build
+RUN yarn workspace @coachos/trpc run build
+RUN yarn --cwd packages/embeds/embed-core workspace @coachos/embed-core run build
+RUN yarn --cwd apps/web workspace @coachos/web run copy-app-store-static
+RUN yarn --cwd apps/web workspace @coachos/web run build
 RUN rm -rf node_modules/.cache .yarn/cache apps/web/.next/cache
 
 FROM node:20 AS builder-two

@@ -1,25 +1,25 @@
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { PrismaBookingAttendeeRepository } from "@calcom/features/bookings/repositories/PrismaBookingAttendeeRepository";
-import { prisma } from "@calcom/prisma";
-import { BookingStatus, CreationSource } from "@calcom/prisma/enums";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { PrismaBookingAttendeeRepository } from "@coachos/features/bookings/repositories/PrismaBookingAttendeeRepository";
+import { prisma } from "@coachos/prisma";
+import { BookingStatus, CreationSource } from "@coachos/prisma/enums";
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 
 const mockUpdateCalendarAttendees = vi.fn().mockResolvedValue({});
-vi.mock("@calcom/features/bookings/lib/EventManager", () => ({
+vi.mock("@coachos/features/bookings/lib/EventManager", () => ({
   default: class MockEventManager {
     updateCalendarAttendees = mockUpdateCalendarAttendees;
   },
 }));
 
 const mockSendEmail = vi.fn().mockResolvedValue(undefined);
-vi.mock("@calcom/emails/templates/attendee-cancelled-email", () => ({
+vi.mock("@coachos/emails/templates/attendee-cancelled-email", () => ({
   default: class MockAttendeeCancelledEmail {
     constructor() {}
     sendEmail = mockSendEmail;
   },
 }));
 
-vi.mock("@calcom/trpc/server/routers/viewer/bookings/addGuests.handler", async (importOriginal) => {
+vi.mock("@coachos/trpc/server/routers/viewer/bookings/addGuests.handler", async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>;
   return {
     ...actual,

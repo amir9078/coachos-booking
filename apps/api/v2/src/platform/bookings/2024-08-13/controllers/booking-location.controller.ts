@@ -1,4 +1,4 @@
-import { BOOKING_WRITE, SUCCESS_STATUS } from "@calcom/platform-constants";
+import { BOOKING_WRITE, SUCCESS_STATUS } from "@coachos/platform-constants";
 import {
   UpdateBookingInputAttendeeAddressLocation_2024_08_13,
   UpdateBookingInputAttendeeDefinedLocation_2024_08_13,
@@ -7,7 +7,7 @@ import {
   UpdateBookingInputPhoneLocation_2024_08_13,
   UpdateBookingLocationInput_2024_08_13,
   UpdateInputAddressLocation_2024_08_13,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 import { Body, Controller, HttpCode, HttpStatus, Param, Patch, UseGuards } from "@nestjs/common";
 import { ApiExtraModels, ApiHeader, ApiOperation, ApiTags as DocsTags } from "@nestjs/swagger";
 import { BookingUidGuard } from "@/platform/bookings/2024-08-13/guards/booking-uid.guard";

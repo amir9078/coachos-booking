@@ -2,9 +2,9 @@ import {
   BOOKING_READ,
   BOOKING_WRITE,
   SUCCESS_STATUS,
-  X_CAL_CLIENT_ID,
-  X_CAL_PLATFORM_EMBED,
-} from "@calcom/platform-constants";
+  X_coachos_CLIENT_ID,
+  X_coachos_PLATFORM_EMBED,
+} from "@coachos/platform-constants";
 import {
   BookingResponse,
   CreationSource,
@@ -13,16 +13,16 @@ import {
   getBookingInfo,
   handleCancelBooking,
   handleMarkNoShow,
-} from "@calcom/platform-libraries";
-import { makeUserActor } from "@calcom/platform-libraries/bookings";
-import { ErrorCode, HttpError } from "@calcom/platform-libraries/errors";
-import type { ApiResponse } from "@calcom/platform-types";
+} from "@coachos/platform-libraries";
+import { makeUserActor } from "@coachos/platform-libraries/bookings";
+import { ErrorCode, HttpError } from "@coachos/platform-libraries/errors";
+import type { ApiResponse } from "@coachos/platform-types";
 import {
   CancelBookingInput_2024_04_15,
   GetBookingsInput_2024_04_15,
   Status_2024_04_15,
-} from "@calcom/platform-types";
-import type { PrismaClient } from "@calcom/prisma";
+} from "@coachos/platform-types";
+import type { PrismaClient } from "@coachos/prisma";
 import {
   BadRequestException,
   Body,
@@ -197,8 +197,8 @@ export class BookingsController_2024_04_15 {
   async createBooking(
     @Req() req: BookingRequest,
     @Body() body: CreateBookingInput_2024_04_15,
-    @Headers(X_CAL_CLIENT_ID) clientId?: string,
-    @Headers(X_CAL_PLATFORM_EMBED) isEmbed?: string
+    @Headers(X_coachos_CLIENT_ID) clientId?: string,
+    @Headers(X_coachos_PLATFORM_EMBED) isEmbed?: string
   ): Promise<ApiResponse<Partial<BookingResponse>>> {
     const oAuthClientId =
       clientId?.toString() || (await this.getOAuthClientIdFromEventType(body.eventTypeId));
@@ -236,8 +236,8 @@ export class BookingsController_2024_04_15 {
     @Req() req: BookingRequest,
     @Param("bookingUid") bookingUid: string,
     @Body() _body: CancelBookingInput_2024_04_15,
-    @Headers(X_CAL_CLIENT_ID) clientId?: string,
-    @Headers(X_CAL_PLATFORM_EMBED) isEmbed?: string
+    @Headers(X_coachos_CLIENT_ID) clientId?: string,
+    @Headers(X_coachos_PLATFORM_EMBED) isEmbed?: string
   ): Promise<ApiResponse<{ bookingId: number; bookingUid: string; onlyRemovedAttendee: boolean }>> {
     const oAuthClientId = clientId?.toString();
     const isUidNumber = !Number.isNaN(Number(bookingUid));
@@ -314,8 +314,8 @@ export class BookingsController_2024_04_15 {
   async createRecurringBooking(
     @Req() req: BookingRequest,
     @Body() body: CreateRecurringBookingInput_2024_04_15[],
-    @Headers(X_CAL_CLIENT_ID) clientId?: string,
-    @Headers(X_CAL_PLATFORM_EMBED) isEmbed?: string
+    @Headers(X_coachos_CLIENT_ID) clientId?: string,
+    @Headers(X_coachos_PLATFORM_EMBED) isEmbed?: string
   ): Promise<ApiResponse<BookingResponse[]>> {
     const oAuthClientId =
       clientId?.toString() || (await this.getOAuthClientIdFromEventType(body[0]?.eventTypeId));
@@ -361,7 +361,7 @@ export class BookingsController_2024_04_15 {
 
       let ownerId: number | null = null;
 
-      if (isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "cal_")) {
+      if (isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "coachos_")) {
         const strippedApiKey = stripApiKey(bearerToken, this.config.get<string>("api.keyPrefix"));
         const apiKeyHash = sha256Hash(strippedApiKey);
         const keyData = await this.apiKeyRepository.getApiKeyFromHash(apiKeyHash);

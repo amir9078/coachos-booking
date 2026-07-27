@@ -3,13 +3,13 @@ import { createEvent } from "ics";
 import { RRule } from "rrule";
 import type { z } from "zod";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import type { Prisma } from "@calcom/prisma/client";
-import type { nameObjectSchema } from "@calcom/features/eventtypes/lib/eventNaming";
-import { getEventName } from "@calcom/features/eventtypes/lib/eventNaming";
-import { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
-import type { RecurringEvent } from "@calcom/types/Calendar";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import type { Prisma } from "@coachos/prisma/client";
+import type { nameObjectSchema } from "@coachos/features/eventtypes/lib/eventNaming";
+import { getEventName } from "@coachos/features/eventtypes/lib/eventNaming";
+import { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
+import type { RecurringEvent } from "@coachos/types/Calendar";
 
 type RecurringEventOrPrismaJsonObject = RecurringEvent | Prisma.JsonObject | null | undefined;
 export const enum CalendarLinkType {

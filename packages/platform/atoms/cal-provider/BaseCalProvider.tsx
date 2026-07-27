@@ -3,15 +3,15 @@ import type { ReactNode } from "react";
 import { useState } from "react";
 import { useCallback } from "react";
 
-import type { API_VERSIONS_ENUM } from "@calcom/platform-constants";
-import { IconSprites } from "@calcom/ui/components/icon";
-import deTranslations from "@calcom/i18n/locales/de/common.json";
-import enTranslations from "@calcom/i18n/locales/en/common.json";
-import esTranslations from "@calcom/i18n/locales/es/common.json";
-import frTranslations from "@calcom/i18n/locales/fr/common.json";
-import itTranslations from "@calcom/i18n/locales/it/common.json";
-import nlTranslations from "@calcom/i18n/locales/nl/common.json";
-import ptBrTranslations from "@calcom/i18n/locales/pt-BR/common.json";
+import type { API_VERSIONS_ENUM } from "@coachos/platform-constants";
+import { IconSprites } from "@coachos/ui/components/icon";
+import deTranslations from "@coachos/i18n/locales/de/common.json";
+import enTranslations from "@coachos/i18n/locales/en/common.json";
+import esTranslations from "@coachos/i18n/locales/es/common.json";
+import frTranslations from "@coachos/i18n/locales/fr/common.json";
+import itTranslations from "@coachos/i18n/locales/it/common.json";
+import nlTranslations from "@coachos/i18n/locales/nl/common.json";
+import ptBrTranslations from "@coachos/i18n/locales/pt-BR/common.json";
 
 import { AtomsContext } from "../hooks/useAtomsContext";
 import { useMe } from "../hooks/useMe";

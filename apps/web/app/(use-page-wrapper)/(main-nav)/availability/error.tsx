@@ -1,7 +1,7 @@
 "use client";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Alert } from "@calcom/ui/components/alert";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Alert } from "@coachos/ui/components/alert";
 
 export default function Error() {
   const { t } = useLocale();

@@ -1,20 +1,20 @@
 "use client";
 
-import { useEventTypeForm } from "@calcom/atoms/event-types/hooks/useEventTypeForm";
-import { useHandleRouteChange } from "@calcom/atoms/event-types/hooks/useHandleRouteChange";
-import { useTabsNavigations } from "@calcom/atoms/event-types/hooks/useTabsNavigations";
-import type { ChildrenEventType } from "@calcom/features/eventtypes/components/ChildrenEventTypeSelect";
-import type { EventTypeSetupProps } from "@calcom/features/eventtypes/lib/types";
-import { WEBSITE_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useTypedQuery } from "@calcom/lib/hooks/useTypedQuery";
-import { HttpError } from "@calcom/lib/http-error";
-import { SchedulingType } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import { showToast } from "@calcom/ui/components/toast";
-import { revalidateEventTypeEditPage } from "@calcom/web/app/(use-page-wrapper)/event-types/[type]/actions";
+import { useEventTypeForm } from "@coachos/atoms/event-types/hooks/useEventTypeForm";
+import { useHandleRouteChange } from "@coachos/atoms/event-types/hooks/useHandleRouteChange";
+import { useTabsNavigations } from "@coachos/atoms/event-types/hooks/useTabsNavigations";
+import type { ChildrenEventType } from "@coachos/features/eventtypes/components/ChildrenEventTypeSelect";
+import type { EventTypeSetupProps } from "@coachos/features/eventtypes/lib/types";
+import { WEBSITE_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useTypedQuery } from "@coachos/lib/hooks/useTypedQuery";
+import { HttpError } from "@coachos/lib/http-error";
+import { SchedulingType } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import { showToast } from "@coachos/ui/components/toast";
+import { revalidateEventTypeEditPage } from "@coachos/web/app/(use-page-wrapper)/event-types/[type]/actions";
 import { TRPCClientError } from "@trpc/react-query";
 import dynamic from "next/dynamic";
 import { useRouter as useAppRouter, usePathname } from "next/navigation";
@@ -32,7 +32,7 @@ type EventPermissions = {
 };
 
 const ManagedEventTypeDialog = dynamic(
-  () => import("@calcom/features/eventtypes/components/dialogs/ManagedEventDialog")
+  () => import("@coachos/features/eventtypes/components/dialogs/ManagedEventDialog")
 );
 
 const AssignmentWarningDialog = dynamic(() => import("./dialogs/AssignmentWarningDialog"));

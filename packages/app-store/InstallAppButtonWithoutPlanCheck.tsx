@@ -1,9 +1,9 @@
 "use client";
 
-import type { UseAddAppMutationOptions } from "@calcom/app-store/_utils/useAddAppMutation";
-import useAddAppMutation from "@calcom/app-store/_utils/useAddAppMutation";
-import { deriveAppDictKeyFromType } from "@calcom/lib/deriveAppDictKeyFromType";
-import type { App } from "@calcom/types/App";
+import type { UseAddAppMutationOptions } from "@coachos/app-store/_utils/useAddAppMutation";
+import useAddAppMutation from "@coachos/app-store/_utils/useAddAppMutation";
+import { deriveAppDictKeyFromType } from "@coachos/lib/deriveAppDictKeyFromType";
+import type { App } from "@coachos/types/App";
 
 import { InstallAppButtonMap } from "./apps.browser.generated";
 import type { InstallAppButtonProps } from "./types";

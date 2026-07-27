@@ -1,12 +1,12 @@
-import { BookerStoreProvider } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import useMediaQuery from "@calcom/lib/hooks/useMediaQuery";
-import classNames from "@calcom/ui/classNames";
+import { BookerStoreProvider } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import useMediaQuery from "@coachos/lib/hooks/useMediaQuery";
+import classNames from "@coachos/ui/classNames";
 
 import { LargeCalendar } from "./LargeCalendar";
 import { TroubleshooterHeader } from "./TroubleshooterHeader";
 import { TroubleshooterSidebar } from "./TroubleshooterSidebar";
-import { useInitalizeTroubleshooterStore } from "@calcom/features/troubleshooter/store";
-import type { TroubleshooterProps } from "@calcom/features/troubleshooter/types";
+import { useInitalizeTroubleshooterStore } from "@coachos/features/troubleshooter/store";
+import type { TroubleshooterProps } from "@coachos/features/troubleshooter/types";
 
 const extraDaysConfig = {
   desktop: 7,

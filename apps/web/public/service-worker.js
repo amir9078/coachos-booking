@@ -14,7 +14,7 @@ self.addEventListener("push", async (event) => {
   }
 
   const title = notificationData.title || "New Cal.diy Notification";
-  const image = notificationData.icon || "https://cal.com/api/logo?type=icon";
+  const image = notificationData.icon || "https://amir9078.github.io/api/logo?type=icon";
 
    event.waitUntil(
     (async () => {

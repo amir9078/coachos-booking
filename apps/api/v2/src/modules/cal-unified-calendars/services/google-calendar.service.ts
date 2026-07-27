@@ -1,6 +1,6 @@
-import { GOOGLE_CALENDAR_TYPE } from "@calcom/platform-constants";
-import { DelegationCredentialRepository, OAuth2UniversalSchema } from "@calcom/platform-libraries/app-store";
-import type { Prisma } from "@calcom/prisma/client";
+import { GOOGLE_CALENDAR_TYPE } from "@coachos/platform-constants";
+import { DelegationCredentialRepository, OAuth2UniversalSchema } from "@coachos/platform-libraries/app-store";
+import type { Prisma } from "@coachos/prisma/client";
 import { calendar_v3 } from "@googleapis/calendar";
 import {
   BadRequestException,

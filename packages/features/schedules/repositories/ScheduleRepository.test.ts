@@ -1,12 +1,12 @@
-import prismaMock from "@calcom/testing/lib/__mocks__/prismaMock";
-import type { Schedule, User } from "@calcom/prisma/client";
+import prismaMock from "@coachos/testing/lib/__mocks__/prismaMock";
+import type { Schedule, User } from "@coachos/prisma/client";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { ScheduleRepository } from "./ScheduleRepository";
 
-vi.mock("@calcom/lib/hasEditPermissionForUser", () => ({
+vi.mock("@coachos/lib/hasEditPermissionForUser", () => ({
   hasReadPermissionsForUserId: vi.fn(),
 }));
-import { hasReadPermissionsForUserId } from "@calcom/lib/hasEditPermissionForUser";
+import { hasReadPermissionsForUserId } from "@coachos/lib/hasEditPermissionForUser";
 
 const mockHasReadPermissions = vi.mocked(hasReadPermissionsForUserId);
 

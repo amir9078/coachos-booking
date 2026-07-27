@@ -1,28 +1,28 @@
 "use client";
 
-import { ErrorCode } from "@calcom/features/auth/lib/ErrorCode";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import SettingsHeader from "@calcom/features/settings/appDir/SettingsHeader";
-import SectionBottomActions from "@calcom/features/settings/SectionBottomActions";
-import { APP_NAME, FULL_NAME_LENGTH_MAX_LIMIT } from "@calcom/lib/constants";
-import { emailSchema } from "@calcom/lib/emailSchema";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { md } from "@calcom/lib/markdownIt";
-import turndown from "@calcom/lib/turndownService";
-import { IdentityProvider } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import type { AppRouter } from "@calcom/trpc/types/server/routers/_app";
-import { Alert } from "@calcom/ui/components/alert";
-import { UserAvatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { DialogClose, DialogContent, DialogFooter, DialogTrigger } from "@calcom/ui/components/dialog";
-import { Editor } from "@calcom/ui/components/editor";
-import { Form, Label, PasswordField, TextField } from "@calcom/ui/components/form";
-import { ImageUploader } from "@calcom/ui/components/image-uploader";
-import { showToast } from "@calcom/ui/components/toast";
-import { DisplayInfo } from "@calcom/web/modules/users/components/UserTable/EditSheet/DisplayInfo";
+import { ErrorCode } from "@coachos/features/auth/lib/ErrorCode";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import SettingsHeader from "@coachos/features/settings/appDir/SettingsHeader";
+import SectionBottomActions from "@coachos/features/settings/SectionBottomActions";
+import { APP_NAME, FULL_NAME_LENGTH_MAX_LIMIT } from "@coachos/lib/constants";
+import { emailSchema } from "@coachos/lib/emailSchema";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { md } from "@coachos/lib/markdownIt";
+import turndown from "@coachos/lib/turndownService";
+import { IdentityProvider } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import type { AppRouter } from "@coachos/trpc/types/server/routers/_app";
+import { Alert } from "@coachos/ui/components/alert";
+import { UserAvatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { DialogClose, DialogContent, DialogFooter, DialogTrigger } from "@coachos/ui/components/dialog";
+import { Editor } from "@coachos/ui/components/editor";
+import { Form, Label, PasswordField, TextField } from "@coachos/ui/components/form";
+import { ImageUploader } from "@coachos/ui/components/image-uploader";
+import { showToast } from "@coachos/ui/components/toast";
+import { DisplayInfo } from "@coachos/web/modules/users/components/UserTable/EditSheet/DisplayInfo";
 import TwoFactor from "@components/auth/TwoFactor";
 import CustomEmailTextField from "@components/settings/CustomEmailTextField";
 import SecondaryEmailConfirmModal from "@components/settings/SecondaryEmailConfirmModal";
@@ -145,7 +145,7 @@ const ProfileView = ({ user }: Props) => {
     showToast(t("Your account was deleted"), "success");
 
     setHasDeleteErrors(false); // dismiss any open errors
-    if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.cal.com") {
+    if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.amir9078.github.io") {
       signOut({ callbackUrl: "/auth/logout?survey=true" });
     } else {
       signOut({ callbackUrl: "/auth/logout" });

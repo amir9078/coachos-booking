@@ -1,11 +1,11 @@
 "use client";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Badge } from "@calcom/ui/components/badge";
-import { SettingsToggle } from "@calcom/ui/components/form";
-import { SkeletonButton, SkeletonContainer, SkeletonText } from "@calcom/ui/components/skeleton";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Badge } from "@coachos/ui/components/badge";
+import { SettingsToggle } from "@coachos/ui/components/form";
+import { SkeletonButton, SkeletonContainer, SkeletonText } from "@coachos/ui/components/skeleton";
 import DisableTwoFactorModal from "@components/settings/DisableTwoFactorModal";
 import EnableTwoFactorModal from "@components/settings/EnableTwoFactorModal";
 import { signOut, useSession } from "next-auth/react";

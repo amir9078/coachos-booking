@@ -2,8 +2,8 @@
 
 import { signIn } from "next-auth/react";
 
-import type { inferSSRProps } from "@calcom/types/inferSSRProps";
-import { Button } from "@calcom/ui/components/button";
+import type { inferSSRProps } from "@coachos/types/inferSSRProps";
+import { Button } from "@coachos/ui/components/button";
 
 import type { getServerSideProps } from "@server/lib/auth/signin/getServerSideProps";
 

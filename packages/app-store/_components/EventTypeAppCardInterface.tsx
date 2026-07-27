@@ -1,10 +1,10 @@
 import type z from "zod";
 
-import type { GetAppData, SetAppData } from "@calcom/app-store/EventTypeAppContext";
-import EventTypeAppContext from "@calcom/app-store/EventTypeAppContext";
-import { EventTypeAddonMap } from "@calcom/app-store/apps.browser.generated";
-import type { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
-import { ErrorBoundary } from "@calcom/ui/components/errorBoundary";
+import type { GetAppData, SetAppData } from "@coachos/app-store/EventTypeAppContext";
+import EventTypeAppContext from "@coachos/app-store/EventTypeAppContext";
+import { EventTypeAddonMap } from "@coachos/app-store/apps.browser.generated";
+import type { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
+import { ErrorBoundary } from "@coachos/ui/components/errorBoundary";
 
 import type { EventTypeAppCardComponentProps, AppCardApp } from "../types";
 import { DynamicComponent } from "./DynamicComponent";

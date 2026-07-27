@@ -2,10 +2,10 @@
 
 import type { ReactNode } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
 import { ChevronRightIcon, KeyIcon } from "@coss/ui/icons";
 
 import type { OAuthClientDetails } from "./view/OAuthClientDetailsDialog";

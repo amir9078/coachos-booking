@@ -1,5 +1,5 @@
-import { X_CAL_CLIENT_ID, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
-import type { PlatformOAuthClient, RateLimit, Team, User } from "@calcom/prisma/client";
+import { X_coachos_CLIENT_ID, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
+import type { PlatformOAuthClient, RateLimit, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { Test, TestingModule } from "@nestjs/testing";
 import request from "supertest";
@@ -66,19 +66,19 @@ describe("AppController", () => {
 
       apiKeysRepositoryFixture = new ApiKeysRepositoryFixture(moduleRef);
       const { keyString } = await apiKeysRepositoryFixture.createApiKey(user.id, null);
-      apiKeyString = `cal_test_${keyString}`;
+      apiKeyString = `coachos_test_${keyString}`;
 
       rateLimitRepositoryFixture = new RateLimitRepositoryFixture(moduleRef);
       const { apiKey, keyString: keyStringWithRateLimit } = await apiKeysRepositoryFixture.createApiKey(
         user.id,
         null
       );
-      apiKeyStringWithRateLimit = `cal_test_${keyStringWithRateLimit}`;
+      apiKeyStringWithRateLimit = `coachos_test_${keyStringWithRateLimit}`;
       rateLimit = await rateLimitRepositoryFixture.createRateLimit("long", apiKey.id, 2000, 3, 4000);
 
       const { apiKey: apiKeyWithMultipleLimits, keyString: keyStringWithMultipleLimits } =
         await apiKeysRepositoryFixture.createApiKey(user.id, null);
-      apiKeyStringWithMultipleLimits = `cal_test_${keyStringWithMultipleLimits}`;
+      apiKeyStringWithMultipleLimits = `coachos_test_${keyStringWithMultipleLimits}`;
       firstRateLimitWithMultipleLimits = await rateLimitRepositoryFixture.createRateLimit(
         "short",
         apiKeyWithMultipleLimits.id,
@@ -351,8 +351,8 @@ describe("AppController", () => {
         for (let i = 1; i <= limit; i++) {
           const response = await request(app.getHttpServer())
             .get("/v2/me")
-            .set(X_CAL_CLIENT_ID, oAuthClient.id)
-            .set(X_CAL_SECRET_KEY, oAuthClient.secret)
+            .set(X_coachos_CLIENT_ID, oAuthClient.id)
+            .set(X_coachos_SECRET_KEY, oAuthClient.secret)
             .expect(200);
 
           expect(response.headers["x-ratelimit-limit-default"]).toBe(limit.toString());
@@ -362,8 +362,8 @@ describe("AppController", () => {
 
         const blockedResponse = await request(app.getHttpServer())
           .get("/v2/me")
-          .set(X_CAL_CLIENT_ID, oAuthClient.id)
-          .set(X_CAL_SECRET_KEY, oAuthClient.secret)
+          .set(X_coachos_CLIENT_ID, oAuthClient.id)
+          .set(X_coachos_SECRET_KEY, oAuthClient.secret)
           .expect(429);
 
         expect(blockedResponse.headers["x-ratelimit-limit-default"]).toBe(limit.toString());
@@ -376,8 +376,8 @@ describe("AppController", () => {
 
         const afterBlockResponse = await request(app.getHttpServer())
           .get("/v2/me")
-          .set(X_CAL_CLIENT_ID, oAuthClient.id)
-          .set(X_CAL_SECRET_KEY, oAuthClient.secret)
+          .set(X_coachos_CLIENT_ID, oAuthClient.id)
+          .set(X_coachos_SECRET_KEY, oAuthClient.secret)
           .expect(200);
 
         expect(afterBlockResponse.headers["x-ratelimit-limit-default"]).toBe(limit.toString());

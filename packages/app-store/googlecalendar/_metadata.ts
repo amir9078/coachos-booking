@@ -1,6 +1,6 @@
 import process from "node:process";
-import { validJson } from "@calcom/lib/jsonUtils";
-import type { AppMeta } from "@calcom/types/App";
+import { validJson } from "@coachos/lib/jsonUtils";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Google Calendar",
@@ -15,8 +15,8 @@ export const metadata = {
   logo: "icon.svg",
   publisher: "Cal.diy",
   slug: "google-calendar",
-  url: "https://cal.com/",
-  email: "help@cal.com",
+  url: "https://amir9078.github.io/",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "googlecalendar",
   isOAuth: true,
   delegationCredential: {

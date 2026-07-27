@@ -1,7 +1,7 @@
 import * as crypto from "node:crypto";
 import { z } from "zod";
 
-import { CALCOM_PRIVATE_API_ROUTE } from "@calcom/lib/constants";
+import { COACHOS_PRIVATE_API_ROUTE } from "@coachos/lib/constants";
 
 import type { TrpcSessionUser } from "../../../types";
 import type { TCreateSelfHostedLicenseSchema } from "./createSelfHostedLicenseKey.schema";
@@ -51,8 +51,8 @@ const fetchWithSignature = async (
 };
 
 const createSelfHostedInstance = async ({ input, ctx }: GetOptions) => {
-  const privateApiUrl = CALCOM_PRIVATE_API_ROUTE;
-  const signatureToken = process.env.CAL_SIGNATURE_TOKEN;
+  const privateApiUrl = COACHOS_PRIVATE_API_ROUTE;
+  const signatureToken = process.env.coachos_SIGNATURE_TOKEN;
 
   if (!privateApiUrl || !signatureToken) {
     throw new Error("Private Api route does not exist in .env");

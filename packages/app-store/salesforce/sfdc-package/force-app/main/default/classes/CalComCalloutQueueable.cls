@@ -18,7 +18,7 @@ public with sharing class CalComCalloutQueueable implements Queueable, Database.
 
     private String getNamedCredential() {
         Boolean isSandbox = [SELECT IsSandbox FROM Organization LIMIT 1].IsSandbox;
-        return isSandbox ? 'callout:CalCom_Development' : 'callout:CalCom_Production';
+        return isSandbox ? 'callout:COACHOS_Development' : 'callout:COACHOS_Production';
     }
 
     private void sendPayload(String namedCredential, UserChangePayload payload) {

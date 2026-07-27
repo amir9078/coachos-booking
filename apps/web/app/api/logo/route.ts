@@ -9,9 +9,9 @@ import {
   LOGO_ICON,
   MSTILE_ICON,
   WEBAPP_URL,
-} from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { isTrustedInternalUrl, logBlockedSSRFAttempt, validateUrlForSSRF } from "@calcom/lib/ssrfProtection";
+} from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { isTrustedInternalUrl, logBlockedSSRFAttempt, validateUrlForSSRF } from "@coachos/lib/ssrfProtection";
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 import { defaultResponderForAppDir } from "app/api/defaultResponderForAppDir";
 import { cookies, headers } from "next/headers";
@@ -111,7 +111,7 @@ function isValidLogoType(type: string): type is LogoType {
 async function getTeamLogos(subdomain: string, isValidOrgDomain: boolean) {
   try {
     if (
-      // if not cal.com
+      // if not amir9078.github.io
       IS_SELF_HOSTED ||
       // missing subdomain (empty string)
       !subdomain ||
@@ -121,7 +121,7 @@ async function getTeamLogos(subdomain: string, isValidOrgDomain: boolean) {
       throw new Error("No custom logo needed");
     }
     // load from DB
-    const { default: prisma } = await import("@calcom/prisma");
+    const { default: prisma } = await import("@coachos/prisma");
     const team = await prisma.team.findFirst({
       where: {
         slug: subdomain,
@@ -215,7 +215,7 @@ async function getHandler(request: NextRequest) {
 
     // Resize the team logos if needed
     if (teamLogos[logoDefinition.source] && logoDefinition.w) {
-      const { resizeImage } = await import("@calcom/lib/server/imageUtils");
+      const { resizeImage } = await import("@coachos/lib/server/imageUtils");
       const { buffer: outBuffer, contentType: outContentType } = await resizeImage({
         buffer,
         width: logoDefinition.w,

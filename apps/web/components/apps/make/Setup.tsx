@@ -2,14 +2,14 @@ import type { InferGetServerSidePropsType } from "next";
 import { useState } from "react";
 import { Toaster } from "sonner";
 
-import AppNotInstalledMessage from "@calcom/app-store/_components/AppNotInstalledMessage";
-import type { getServerSideProps } from "@calcom/app-store/make/pages/setup/_getServerSideProps";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import AppNotInstalledMessage from "@coachos/app-store/_components/AppNotInstalledMessage";
+import type { getServerSideProps } from "@coachos/app-store/make/pages/setup/_getServerSideProps";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import { ClipboardIcon } from "@coss/ui/icons";
 
 const MAKE = "make";
@@ -35,7 +35,7 @@ export default function MakeSetup({ inviteLink }: InferGetServerSidePropsType<ty
 
   async function createApiKey(teamId?: number) {
     const event = { note: "Make", expiresAt: null, appId: MAKE, teamId };
-    const apiKey = `cal_live_${Math.random().toString(36).substring(2)}`;
+    const apiKey = `coachos_live_${Math.random().toString(36).substring(2)}`;
 
     if (oldApiKey?.data) {
       const oldKey = teamId

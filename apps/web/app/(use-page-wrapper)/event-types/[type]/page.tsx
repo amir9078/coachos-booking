@@ -1,6 +1,6 @@
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { eventTypesRouter } from "@calcom/trpc/server/routers/viewer/eventTypes/_router";
-import { EventTypeWebWrapper } from "@calcom/web/modules/event-types/components/EventTypeWebWrapper";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { eventTypesRouter } from "@coachos/trpc/server/routers/viewer/eventTypes/_router";
+import { EventTypeWebWrapper } from "@coachos/web/modules/event-types/components/EventTypeWebWrapper";
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 import { createRouterCaller, getTRPCContext } from "app/_trpc/context";
 import type { PageProps, ReadonlyHeaders, ReadonlyRequestCookies } from "app/_types";

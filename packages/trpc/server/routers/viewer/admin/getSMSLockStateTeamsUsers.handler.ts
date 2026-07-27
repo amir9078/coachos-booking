@@ -1,5 +1,5 @@
-import { prisma } from "@calcom/prisma";
-import { SMSLockState } from "@calcom/prisma/enums";
+import { prisma } from "@coachos/prisma";
+import { SMSLockState } from "@coachos/prisma/enums";
 
 import type { TrpcSessionUser } from "../../../types";
 

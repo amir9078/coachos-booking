@@ -1,6 +1,6 @@
-import { AssignmentReasonRepository } from "@calcom/features/assignment-reason/repositories/AssignmentReasonRepository";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
-import { moduleLoader as prismaModuleLoader } from "@calcom/features/di/modules/Prisma";
+import { AssignmentReasonRepository } from "@coachos/features/assignment-reason/repositories/AssignmentReasonRepository";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
+import { moduleLoader as prismaModuleLoader } from "@coachos/features/di/modules/Prisma";
 
 import { createModule, bindModuleToClassOnToken, type ModuleLoader } from "../di";
 

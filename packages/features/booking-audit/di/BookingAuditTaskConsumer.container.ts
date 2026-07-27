@@ -1,5 +1,5 @@
-import { createContainer } from "@calcom/features/di/di";
-import type { BookingAuditTaskConsumer } from "@calcom/features/booking-audit/lib/service/BookingAuditTaskConsumer";
+import { createContainer } from "@coachos/features/di/di";
+import type { BookingAuditTaskConsumer } from "@coachos/features/booking-audit/lib/service/BookingAuditTaskConsumer";
 
 import { moduleLoader as bookingAuditTaskConsumerModule } from "./BookingAuditTaskConsumer.module";
 

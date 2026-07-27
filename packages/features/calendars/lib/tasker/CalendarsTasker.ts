@@ -1,5 +1,5 @@
-import { Tasker } from "@calcom/lib/tasker/Tasker";
-import type { ILogger } from "@calcom/lib/tasker/types";
+import { Tasker } from "@coachos/lib/tasker/Tasker";
+import type { ILogger } from "@coachos/lib/tasker/types";
 import type { TriggerOptions } from "@trigger.dev/sdk";
 import type { CalendarsSyncTasker } from "./CalendarsSyncTasker";
 import type { CalendarsTriggerTasker } from "./CalendarsTriggerTasker";

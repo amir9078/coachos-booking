@@ -1,4 +1,4 @@
-import { BOOKING_READ, BOOKING_WRITE, SUCCESS_STATUS } from "@calcom/platform-constants";
+import { BOOKING_READ, BOOKING_WRITE, SUCCESS_STATUS } from "@coachos/platform-constants";
 import {
   CancelBookingInput,
   CancelBookingInput_2024_08_13,
@@ -21,7 +21,7 @@ import {
   RescheduleBookingInput_2024_08_13,
   RescheduleBookingInputPipe,
   RescheduleSeatedBookingInput_2024_08_13,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 import {
   Body,
   Controller,
@@ -61,8 +61,8 @@ import { VERSION_2024_08_13, VERSION_2024_08_13_VALUE } from "@/lib/api-versions
 import {
   API_KEY_OR_ACCESS_TOKEN_HEADER,
   OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER,
-  OPTIONAL_X_CAL_CLIENT_ID_HEADER,
-  OPTIONAL_X_CAL_SECRET_KEY_HEADER,
+  OPTIONAL_X_coachos_CLIENT_ID_HEADER,
+  OPTIONAL_X_coachos_SECRET_KEY_HEADER,
 } from "@/lib/docs/headers";
 import {
   AuthOptionalUser,
@@ -104,8 +104,8 @@ export class BookingsController_2024_08_13 {
 
   @Post("/")
   @UseGuards(OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   @ApiOperation({
     summary: "Create a booking",
@@ -162,8 +162,8 @@ export class BookingsController_2024_08_13 {
 
   @Get("/by-seat/:seatUid")
   @UseGuards(OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   @ApiOperation({
     summary: "Get a booking by seat UID",
@@ -189,8 +189,8 @@ export class BookingsController_2024_08_13 {
 
   @Get("/:bookingUid")
   @UseGuards(BookingUidGuard, OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   @ApiOperation({
     summary: "Get a booking",
@@ -295,8 +295,8 @@ export class BookingsController_2024_08_13 {
 
   @Post("/:bookingUid/reschedule")
   @UseGuards(BookingUidGuard, OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   @ApiOperation({
     summary: "Reschedule a booking",
@@ -335,8 +335,8 @@ export class BookingsController_2024_08_13 {
 
   @Post("/:bookingUid/cancel")
   @UseGuards(BookingUidGuard, OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   @HttpCode(HttpStatus.OK)
   @ApiOperation({

@@ -1,14 +1,14 @@
-import { MSTeamsLocationType } from "@calcom/app-store/constants";
-import dayjs from "@calcom/dayjs";
-import { triggerDelegationCredentialErrorWebhook } from "@calcom/features/webhooks/lib/triggerDelegationCredentialErrorWebhook";
-import { getLocation, getRichDescriptionHTML } from "@calcom/lib/CalEventParser";
+import { MSTeamsLocationType } from "@coachos/app-store/constants";
+import dayjs from "@coachos/dayjs";
+import { triggerDelegationCredentialErrorWebhook } from "@coachos/features/webhooks/lib/triggerDelegationCredentialErrorWebhook";
+import { getLocation, getRichDescriptionHTML } from "@coachos/lib/CalEventParser";
 import {
   CalendarAppDelegationCredentialConfigurationError,
   CalendarAppDelegationCredentialInvalidGrantError,
-} from "@calcom/lib/CalendarAppError";
-import { handleErrorsJson, handleErrorsRaw } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import type { BufferedBusyTime } from "@calcom/types/BufferedBusyTime";
+} from "@coachos/lib/CalendarAppError";
+import { handleErrorsJson, handleErrorsRaw } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import type { BufferedBusyTime } from "@coachos/types/BufferedBusyTime";
 import type {
   Calendar,
   CalendarServiceEvent,
@@ -16,8 +16,8 @@ import type {
   GetAvailabilityParams,
   IntegrationCalendar,
   NewCalendarEventType,
-} from "@calcom/types/Calendar";
-import type { CredentialForCalendarServiceWithTenantId } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialForCalendarServiceWithTenantId } from "@coachos/types/Credential";
 import type { Event, Calendar as OfficeCalendar, User } from "@microsoft/microsoft-graph-types-beta";
 import type { DefaultBodyType } from "msw";
 import { findIana } from "windows-iana";

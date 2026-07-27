@@ -1,5 +1,5 @@
-import { loadTranslations } from "@calcom/i18n/server";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { loadTranslations } from "@coachos/i18n/server";
+import { BookingStatus } from "@coachos/prisma/enums";
 import { buildLegacyCtx } from "@lib/buildLegacyCtx";
 import type { PageProps as _PageProps } from "app/_types";
 import { _generateMetadata } from "app/_utils";

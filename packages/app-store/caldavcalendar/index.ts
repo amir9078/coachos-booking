@@ -1,4 +1,4 @@
-import type { App } from "@calcom/types/App";
+import type { App } from "@coachos/types/App";
 
 export const metadata = {
   name: "CalDav (Beta)",
@@ -13,8 +13,8 @@ export const metadata = {
   logo: "icon.svg",
   publisher: "Cal.diy",
   slug: "caldav-calendar",
-  url: "https://cal.com/",
-  email: "help@cal.com",
+  url: "https://amir9078.github.io/",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "caldavcalendar",
 } as App;
 

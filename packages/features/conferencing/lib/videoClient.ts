@@ -1,21 +1,21 @@
 import short from "short-uuid";
 import { v5 as uuidv5 } from "uuid";
 
-import { DailyLocationType } from "@calcom/app-store/constants";
-import { getDailyAppKeys } from "@calcom/app-store/dailyvideo/lib/getDailyAppKeys";
-import { getVideoAdapters } from "@calcom/app-store/getVideoAdapters";
-import { sendBrokenIntegrationEmail } from "@calcom/emails/integration-email-service";
-import { getUid } from "@calcom/lib/CalEventParser";
-import { CAL_VIDEO, CAL_VIDEO_TYPE } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { getPiiFreeCalendarEvent, getPiiFreeCredential } from "@calcom/lib/piiFreeData";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { prisma } from "@calcom/prisma";
-import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent, EventBusyDate } from "@calcom/types/Calendar";
-import type { CredentialPayload, CredentialForCalendarService } from "@calcom/types/Credential";
-import type { EventResult, PartialReference } from "@calcom/types/EventManager";
-import type { VideoCallData } from "@calcom/types/VideoApiAdapter";
+import { DailyLocationType } from "@coachos/app-store/constants";
+import { getDailyAppKeys } from "@coachos/app-store/dailyvideo/lib/getDailyAppKeys";
+import { getVideoAdapters } from "@coachos/app-store/getVideoAdapters";
+import { sendBrokenIntegrationEmail } from "@coachos/emails/integration-email-service";
+import { getUid } from "@coachos/lib/CalEventParser";
+import { coachos_VIDEO, coachos_VIDEO_TYPE } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { getPiiFreeCalendarEvent, getPiiFreeCredential } from "@coachos/lib/piiFreeData";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { prisma } from "@coachos/prisma";
+import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent, EventBusyDate } from "@coachos/types/Calendar";
+import type { CredentialPayload, CredentialForCalendarService } from "@coachos/types/Credential";
+import type { EventResult, PartialReference } from "@coachos/types/EventManager";
+import type { VideoCallData } from "@coachos/types/VideoApiAdapter";
 
 const log = logger.getSubLogger({ prefix: ["[features/conferencing/lib] videoClient"] });
 
@@ -163,7 +163,7 @@ const deleteMeeting = async (
   return Promise.resolve({});
 };
 
-// @TODO: This is a temporary solution to create a meeting with cal.com video as fallback url
+// @TODO: This is a temporary solution to create a meeting with amir9078.github.io video as fallback url
 const createMeetingWithCalVideo = async (calEvent: CalendarEvent) => {
   let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
   try {
@@ -174,8 +174,8 @@ const createMeetingWithCalVideo = async (calEvent: CalendarEvent) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -198,8 +198,8 @@ export const createInstantMeetingWithCalVideo = async (endTime: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -225,8 +225,8 @@ const getRecordingsOfCalVideoByRoomName = async (
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -252,8 +252,8 @@ const getDownloadLinkOfCalVideoByRecordingId = async (
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -277,8 +277,8 @@ const getAllTranscriptsAccessLinkFromRoomName = async (roomName: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -302,8 +302,8 @@ const getAllTranscriptsAccessLinkFromMeetingId = async (meetingId: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -327,8 +327,8 @@ const submitBatchProcessorTranscriptionJob = async (recordingId: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -364,8 +364,8 @@ const getTranscriptsAccessLinkFromRecordingId = async (recordingId: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -390,8 +390,8 @@ const checkIfRoomNameMatchesInRecording = async (roomName: string, recordingId: 
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,
@@ -416,8 +416,8 @@ const getCalVideoMeetingSessionsByRoomName = async (roomName: string) => {
   const [videoAdapter] = await getVideoAdapters([
     {
       id: 0,
-      appId: CAL_VIDEO,
-      type: CAL_VIDEO_TYPE,
+      appId: coachos_VIDEO,
+      type: coachos_VIDEO_TYPE,
       userId: null,
       user: { email: "" },
       teamId: null,

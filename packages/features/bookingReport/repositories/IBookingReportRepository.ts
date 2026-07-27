@@ -1,4 +1,4 @@
-import type { BookingReportReason, BookingReportStatus, SystemReportStatus } from "@calcom/prisma/enums";
+import type { BookingReportReason, BookingReportStatus, SystemReportStatus } from "@coachos/prisma/enums";
 
 export interface CreateBookingReportInput {
   bookingUid: string;

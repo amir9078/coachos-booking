@@ -3,11 +3,11 @@ import { _generateMetadata } from "app/_utils";
 import { cookies, headers } from "next/headers";
 import { notFound, redirect } from "next/navigation";
 
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { WebhookRepository } from "@calcom/features/webhooks/lib/repository/WebhookRepository";
-import prisma from "@calcom/prisma";
-import { APP_NAME } from "@calcom/lib/constants";
-import { MembershipRole } from "@calcom/prisma/enums";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { WebhookRepository } from "@coachos/features/webhooks/lib/repository/WebhookRepository";
+import prisma from "@coachos/prisma";
+import { APP_NAME } from "@coachos/lib/constants";
+import { MembershipRole } from "@coachos/prisma/enums";
 
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 

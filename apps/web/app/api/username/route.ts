@@ -1,4 +1,4 @@
-import { checkUsername } from "@calcom/features/profile/lib/checkUsername";
+import { checkUsername } from "@coachos/features/profile/lib/checkUsername";
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 import { defaultResponderForAppDir } from "app/api/defaultResponderForAppDir";
 import { cookies, headers } from "next/headers";

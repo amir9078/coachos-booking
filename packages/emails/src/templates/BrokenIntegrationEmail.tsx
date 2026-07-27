@@ -1,9 +1,9 @@
 import type { TFunction } from "i18next";
 
-import { AppStoreLocationType } from "@calcom/app-store/locations";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import { AppStoreLocationType } from "@coachos/app-store/locations";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 
 import { BaseScheduledEmail } from "./BaseScheduledEmail";
 

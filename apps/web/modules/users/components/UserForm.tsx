@@ -1,15 +1,15 @@
 "use client";
 
-import { formatToLocalizedDate } from "@calcom/lib/dayjs";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { defaultLocaleOption, localeOptions } from "@calcom/lib/i18n";
-import { nameOfDay } from "@calcom/lib/weekday";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { EmailField, Form, Label, Select, TextField } from "@calcom/ui/components/form";
-import { ImageUploader } from "@calcom/ui/components/image-uploader";
-import { TimezoneSelect } from "@calcom/web/modules/timezone/components/TimezoneSelect";
+import { formatToLocalizedDate } from "@coachos/lib/dayjs";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { defaultLocaleOption, localeOptions } from "@coachos/lib/i18n";
+import { nameOfDay } from "@coachos/lib/weekday";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { EmailField, Form, Label, Select, TextField } from "@coachos/ui/components/form";
+import { ImageUploader } from "@coachos/ui/components/image-uploader";
+import { TimezoneSelect } from "@coachos/web/modules/timezone/components/TimezoneSelect";
 import { noop } from "lodash";
 import { Controller, useForm } from "react-hook-form";
 

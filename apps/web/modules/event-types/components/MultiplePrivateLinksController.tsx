@@ -2,24 +2,24 @@ import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { useState } from "react";
 import { Controller, useFormContext } from "react-hook-form";
 
-import dayjs from "@calcom/dayjs";
-import type { EventTypeSetupProps } from "@calcom/features/eventtypes/lib/types";
-import type { FormValues, PrivateLinkWithOptions } from "@calcom/features/eventtypes/lib/types";
-import { generateHashedLink } from "@calcom/lib/generateHashedLink";
-import { isLinkExpired as utilsIsLinkExpired } from "@calcom/lib/hashedLinksUtils";
-import { useCopy } from "@calcom/lib/hooks/useCopy";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogContent } from "@calcom/ui/components/dialog";
-import { TextField } from "@calcom/ui/components/form";
-import { DatePicker } from "@calcom/ui/components/form";
-import { NumberInput } from "@calcom/ui/components/form";
-import { RadioAreaGroup as RadioArea } from "@calcom/ui/components/radio";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import dayjs from "@coachos/dayjs";
+import type { EventTypeSetupProps } from "@coachos/features/eventtypes/lib/types";
+import type { FormValues, PrivateLinkWithOptions } from "@coachos/features/eventtypes/lib/types";
+import { generateHashedLink } from "@coachos/lib/generateHashedLink";
+import { isLinkExpired as utilsIsLinkExpired } from "@coachos/lib/hashedLinksUtils";
+import { useCopy } from "@coachos/lib/hooks/useCopy";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogContent } from "@coachos/ui/components/dialog";
+import { TextField } from "@coachos/ui/components/form";
+import { DatePicker } from "@coachos/ui/components/form";
+import { NumberInput } from "@coachos/ui/components/form";
+import { RadioAreaGroup as RadioArea } from "@coachos/ui/components/radio";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 export const MultiplePrivateLinksController = ({
   team,

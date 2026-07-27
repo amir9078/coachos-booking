@@ -6,32 +6,32 @@ import { useFormContext } from "react-hook-form";
 import type { CSSObjectWithLabel } from "react-select";
 import { components } from "react-select";
 
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
 import {
   defaultLocations,
   getAppSlugFromLocationType,
   getLocationByType,
   isCalVideoLocation,
   isStaticLocationType,
-} from "@calcom/app-store/locations";
-import { getAppFromSlug } from "@calcom/app-store/utils";
-import PhoneInput from "@calcom/web/components/phone-input";
-import invertLogoOnDark from "@calcom/lib/invertLogoOnDark";
-import type { LocationOption } from "@calcom/features/form/components/LocationSelect";
-import LocationSelect from "@calcom/features/form/components/LocationSelect";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@calcom/ui/components/dialog";
-import { Label, TextField, Select, SettingsToggle } from "@calcom/ui/components/form";
+} from "@coachos/app-store/locations";
+import { getAppFromSlug } from "@coachos/app-store/utils";
+import PhoneInput from "@coachos/web/components/phone-input";
+import invertLogoOnDark from "@coachos/lib/invertLogoOnDark";
+import type { LocationOption } from "@coachos/features/form/components/LocationSelect";
+import LocationSelect from "@coachos/features/form/components/LocationSelect";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@coachos/ui/components/dialog";
+import { Label, TextField, Select, SettingsToggle } from "@coachos/ui/components/form";
 import { LoaderIcon, TriangleAlertIcon } from "@coss/ui/icons";
-import { Skeleton } from "@calcom/ui/components/skeleton";
-import { showToast } from "@calcom/ui/components/toast";
+import { Skeleton } from "@coachos/ui/components/skeleton";
+import { showToast } from "@coachos/ui/components/toast";
 
-import type { FormValues, Host, HostLocation } from "@calcom/features/eventtypes/lib/types";
+import type { FormValues, Host, HostLocation } from "@coachos/features/eventtypes/lib/types";
 import type { TLocationOptions } from "./Locations";
 
 type HostWithLocationOptions = {

@@ -1,23 +1,23 @@
-import { getCalendar } from "@calcom/app-store/_utils/getCalendar";
+import { getCalendar } from "@coachos/app-store/_utils/getCalendar";
 import {
   getAllDelegationCredentialsForUserIncludeServiceAccountKey,
   getDelegationCredentialOrFindRegularCredential,
-} from "@calcom/app-store/delegationCredential";
-import { sendCancelledSeatEmailsAndSMS } from "@calcom/emails/email-manager";
-import { updateMeeting } from "@calcom/features/conferencing/lib/videoClient";
-import type { WebhookVersion } from "@calcom/features/webhooks/lib/interface/IWebhookRepository";
-import sendPayload from "@calcom/features/webhooks/lib/sendOrSchedulePayload";
-import type { EventPayloadType, EventTypeInfo } from "@calcom/features/webhooks/lib/sendPayload";
-import { getRichDescription } from "@calcom/lib/CalEventParser";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { getTranslation } from "@calcom/i18n/server";
-import prisma from "@calcom/prisma";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { EventTypeMetadata } from "@calcom/prisma/zod-utils";
-import { bookingCancelAttendeeSeatSchema } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+} from "@coachos/app-store/delegationCredential";
+import { sendCancelledSeatEmailsAndSMS } from "@coachos/emails/email-manager";
+import { updateMeeting } from "@coachos/features/conferencing/lib/videoClient";
+import type { WebhookVersion } from "@coachos/features/webhooks/lib/interface/IWebhookRepository";
+import sendPayload from "@coachos/features/webhooks/lib/sendOrSchedulePayload";
+import type { EventPayloadType, EventTypeInfo } from "@coachos/features/webhooks/lib/sendPayload";
+import { getRichDescription } from "@coachos/lib/CalEventParser";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { getTranslation } from "@coachos/i18n/server";
+import prisma from "@coachos/prisma";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { EventTypeMetadata } from "@coachos/prisma/zod-utils";
+import { bookingCancelAttendeeSeatSchema } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 import type { BookingToDelete } from "../../handleCancelBooking";
 
 async function cancelAttendeeSeat(

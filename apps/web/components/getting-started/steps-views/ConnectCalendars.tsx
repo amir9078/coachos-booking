@@ -1,8 +1,8 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { List } from "@calcom/ui/components/list";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { List } from "@coachos/ui/components/list";
 
 import { AppConnectionItem } from "../components/AppConnectionItem";
 import { ConnectedCalendarItem } from "../components/ConnectedCalendarItem";

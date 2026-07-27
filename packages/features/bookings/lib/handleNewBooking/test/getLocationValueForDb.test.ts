@@ -1,15 +1,15 @@
 import { describe, it, expect, vi } from "vitest";
 
-import type { Prisma } from "@calcom/prisma/client";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+import type { Prisma } from "@coachos/prisma/client";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 
 import { _getLocationValuesForDb } from "../getLocationValuesForDb";
 
-vi.mock("@calcom/prisma/zod-utils", () => ({
+vi.mock("@coachos/prisma/zod-utils", () => ({
   userMetadata: { parse: (metadata: any) => metadata },
 }));
 
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   getFirstDelegationConferencingCredentialAppLocation: ({
     credentials,
   }: {

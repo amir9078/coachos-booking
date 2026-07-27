@@ -1,7 +1,7 @@
-import { Label } from "@calcom/ui/components/form";
+import { Label } from "@coachos/ui/components/form";
 import type React from "react";
 import { TroubleshooterListItemHeader } from "./TroubleshooterListItemContainer";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 interface ScheduleItem {
   id: number;

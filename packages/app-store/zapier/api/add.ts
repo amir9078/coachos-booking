@@ -1,5 +1,5 @@
-import { createDefaultInstallation } from "@calcom/app-store/_utils/installation";
-import type { AppDeclarativeHandler } from "@calcom/types/AppHandler";
+import { createDefaultInstallation } from "@coachos/app-store/_utils/installation";
+import type { AppDeclarativeHandler } from "@coachos/types/AppHandler";
 import appConfig from "../config.json";
 
 const handler: AppDeclarativeHandler = {

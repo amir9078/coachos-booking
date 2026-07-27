@@ -1,4 +1,4 @@
-import dayjs from "@calcom/dayjs";
+import dayjs from "@coachos/dayjs";
 
 import { ColumnFilterType, type DateRangeFilterValue } from "./types";
 

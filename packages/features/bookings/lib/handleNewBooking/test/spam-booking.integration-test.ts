@@ -8,15 +8,15 @@ import {
   mockCalendarToHaveNoBusySlots,
   mockCalendarToCrashOnGetAvailability,
   BookingLocations,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
 
 import { describe, expect, vi } from "vitest";
 
-import { prisma } from "@calcom/prisma";
-import { WatchlistType, BookingStatus } from "@calcom/prisma/enums";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+import { prisma } from "@coachos/prisma";
+import { WatchlistType, BookingStatus } from "@coachos/prisma/enums";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 
 import { getNewBookingHandler } from "./getNewBookingHandler";
 
@@ -356,7 +356,7 @@ describe("handleNewBooking - Spam Detection", () => {
 
         // Mock the SpamCheckService to throw an error during isBlocked check
         const { getSpamCheckService } = await import(
-          "@calcom/features/di/watchlist/containers/SpamCheckService.container"
+          "@coachos/features/di/watchlist/containers/SpamCheckService.container"
         );
         const spamCheckService = getSpamCheckService();
         const originalIsBlocked = spamCheckService["isBlocked"].bind(spamCheckService);

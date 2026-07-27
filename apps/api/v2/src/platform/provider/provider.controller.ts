@@ -1,4 +1,4 @@
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
 import {
   BadRequestException,
   Controller,

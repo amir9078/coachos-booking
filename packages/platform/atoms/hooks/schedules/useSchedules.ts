@@ -4,9 +4,9 @@ import {
   V2_ENDPOINTS,
   SUCCESS_STATUS,
   VERSION_2024_06_11,
-  CAL_API_VERSION_HEADER,
-} from "@calcom/platform-constants";
-import type { GetSchedulesOutput_2024_06_11 } from "@calcom/platform-types";
+  coachos_API_VERSION_HEADER,
+} from "@coachos/platform-constants";
+import type { GetSchedulesOutput_2024_06_11 } from "@coachos/platform-types";
 
 import http from "../../lib/http";
 import { useAtomsContext } from "../useAtomsContext";
@@ -23,7 +23,7 @@ export const useSchedules = () => {
     queryFn: () => {
       return http
         .get<GetSchedulesOutput_2024_06_11>(pathname, {
-          headers: { [CAL_API_VERSION_HEADER]: VERSION_2024_06_11 },
+          headers: { [coachos_API_VERSION_HEADER]: VERSION_2024_06_11 },
         })
         .then((res) => {
           if (res.data.status === SUCCESS_STATUS) {

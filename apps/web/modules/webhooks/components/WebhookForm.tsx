@@ -3,21 +3,21 @@
 import { useEffect, useState } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-import SectionBottomActions from "@calcom/features/settings/SectionBottomActions";
-import customTemplate, { hasTemplateIntegration } from "@calcom/features/webhooks/lib/integrationTemplate";
-import { WebhookVersion } from "@calcom/features/webhooks/lib/interface/IWebhookRepository";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { TimeUnit, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { Select } from "@calcom/ui/components/form";
-import { TextArea } from "@calcom/ui/components/form";
-import { ToggleGroup } from "@calcom/ui/components/form";
-import { Form } from "@calcom/ui/components/form";
-import { Label } from "@calcom/ui/components/form";
-import { TextField } from "@calcom/ui/components/form";
-import { Switch } from "@calcom/ui/components/form";
+import SectionBottomActions from "@coachos/features/settings/SectionBottomActions";
+import customTemplate, { hasTemplateIntegration } from "@coachos/features/webhooks/lib/integrationTemplate";
+import { WebhookVersion } from "@coachos/features/webhooks/lib/interface/IWebhookRepository";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { TimeUnit, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { Select } from "@coachos/ui/components/form";
+import { TextArea } from "@coachos/ui/components/form";
+import { ToggleGroup } from "@coachos/ui/components/form";
+import { Form } from "@coachos/ui/components/form";
+import { Label } from "@coachos/ui/components/form";
+import { TextField } from "@coachos/ui/components/form";
+import { Switch } from "@coachos/ui/components/form";
 
 
 import WebhookTestDisclosure from "./WebhookTestDisclosure";
@@ -61,10 +61,10 @@ const WEBHOOK_TRIGGER_EVENTS_GROUPED_BY_APP_V2: Record<string, WebhookTriggerEve
       value: WebhookTriggerEvents.RECORDING_TRANSCRIPTION_GENERATED,
       label: "recording_transcription_generated",
     },
-    { value: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW, label: "after_hosts_cal_video_no_show" },
+    { value: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW, label: "after_hosts_coachos_video_no_show" },
     {
-      value: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
-      label: "after_guests_cal_video_no_show",
+      value: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+      label: "after_guests_coachos_video_no_show",
     },
     { value: WebhookTriggerEvents.WRONG_ASSIGNMENT_REPORT, label: "wrong_assignment_report" },
   ],
@@ -297,8 +297,8 @@ const WebhookForm = (props: {
   const isCreating = !props?.webhook?.id;
   const needsTime = triggers.some(
     (t) =>
-      t === WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW ||
-      t === WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW
+      t === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW ||
+      t === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
   );
   const hasTime = !!time && !!timeUnit;
   const hasUrl = !!subscriberUrl;
@@ -422,8 +422,8 @@ const WebhookForm = (props: {
                     onChange(event.map((selection) => selection.value));
                     const noShowWebhookTriggerExists = !!event.find(
                       (trigger) =>
-                        trigger.value === WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW ||
-                        trigger.value === WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW
+                        trigger.value === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW ||
+                        trigger.value === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
                     );
 
                     if (noShowWebhookTriggerExists) {

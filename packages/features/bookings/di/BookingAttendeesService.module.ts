@@ -1,6 +1,6 @@
-import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@calcom/features/di/di";
-import { moduleLoader as bookingRepositoryModuleLoader } from "@calcom/features/di/modules/Booking";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
+import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@coachos/features/di/di";
+import { moduleLoader as bookingRepositoryModuleLoader } from "@coachos/features/di/modules/Booking";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
 import { BookingAttendeesService } from "../services/BookingAttendeesService";
 import { moduleLoader as bookingAttendeesRemoveServiceModuleLoader } from "./BookingAttendeesRemoveService.module";
 

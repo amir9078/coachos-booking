@@ -1,12 +1,12 @@
 import { useForm } from "react-hook-form";
 
-import Schedule from "@calcom/web/modules/schedules/components/Schedule";
-import { DEFAULT_SCHEDULE } from "@calcom/lib/availability";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import type { AppRouter } from "@calcom/trpc/types/server/routers/_app";
-import { Button } from "@calcom/ui/components/button";
-import { Form } from "@calcom/ui/components/form";
+import Schedule from "@coachos/web/modules/schedules/components/Schedule";
+import { DEFAULT_SCHEDULE } from "@coachos/lib/availability";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import type { AppRouter } from "@coachos/trpc/types/server/routers/_app";
+import { Button } from "@coachos/ui/components/button";
+import { Form } from "@coachos/ui/components/form";
 
 import type { TRPCClientErrorLike } from "@trpc/client";
 

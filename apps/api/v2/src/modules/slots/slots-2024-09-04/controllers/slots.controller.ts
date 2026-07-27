@@ -1,4 +1,4 @@
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
 import {
   ApiResponse,
   GetReservedSlotOutput_2024_09_04 as GetReservedSlotOutputType_2024_09_04,
@@ -6,7 +6,7 @@ import {
   GetSlotsInputPipe,
   ReserveSlotInput_2024_09_04,
   ReserveSlotOutput_2024_09_04 as ReserveSlotOutputType_2024_09_04,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 import {
   Body,
   Controller,
@@ -29,7 +29,7 @@ import {
 } from "@nestjs/swagger";
 import { plainToClass } from "class-transformer";
 import { VERSION_2024_09_04 } from "@/lib/api-versions";
-import { OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER, OPTIONAL_X_CAL_CLIENT_ID_HEADER } from "@/lib/docs/headers";
+import { OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER, OPTIONAL_X_coachos_CLIENT_ID_HEADER } from "@/lib/docs/headers";
 import {
   AuthOptionalUser,
   GetOptionalUser,
@@ -278,8 +278,8 @@ export class SlotsController_2024_09_04 {
     <Note>Please make sure to pass in the cal-api-version header value as mentioned in the Headers section. Not passing the correct value will default to an older version of this endpoint.</Note>    
     `,
   })
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   async reserveSlot(
     @Body() body: ReserveSlotInput_2024_09_04,

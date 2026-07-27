@@ -1,8 +1,8 @@
 "use client";
 
-import { WEBSITE_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
+import { WEBSITE_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
 
 export default function MaintenancePage() {
   const { t } = useLocale();

@@ -63,11 +63,11 @@ Related issue: [#21921](https://github.com/calcom/cal.diy/issues/21921)
 
 ### API v2 Service Not Starting
 
-**Symptom:** After running `docker compose up -d`, the `calcom-api` service fails to start or immediately exits. The web app works, but API v2 endpoints (`/api/v2/...`) return connection errors.
+**Symptom:** After running `docker compose up -d`, the `coachos-api` service fails to start or immediately exits. The web app works, but API v2 endpoints (`/api/v2/...`) return connection errors.
 
 **Cause:** The API v2 service requires several environment variables that are not in the root `.env.example`. If any required variable is missing, the service will throw a `Missing environment variable` error and exit on startup.
 
-**Solution:** Add the following variables to your root `.env` file (the `docker-compose.yml` passes these to the `calcom-api` service):
+**Solution:** Add the following variables to your root `.env` file (the `docker-compose.yml` passes these to the `coachos-api` service):
 
 ```env
 # Required for API v2 (service will not start without these)
@@ -101,7 +101,7 @@ docker compose down && docker compose up -d
 Check the API v2 service logs for further details if it still fails:
 
 ```bash
-docker compose logs calcom-api
+docker compose logs coachos-api
 ```
 
 > **Tip:** The API v2 service has its own `.env.example` at `apps/api/v2/.env.example` with a complete list of all supported variables. Refer to it for the full configuration reference.
@@ -195,10 +195,10 @@ NODE_TLS_REJECT_UNAUTHORIZED=0
 
 ```bash
 # For development
-yarn workspace @calcom/prisma db-migrate
+yarn workspace @coachos/prisma db-migrate
 
 # For production / Docker
-yarn workspace @calcom/prisma db-deploy
+yarn workspace @coachos/prisma db-deploy
 ```
 
 2. Verify the database is accessible and the `DATABASE_URL` in your `.env` is correct.
@@ -214,5 +214,5 @@ yarn workspace @calcom/prisma db-deploy
 If your issue is not listed here:
 
 1. Search the [Cal.diy GitHub Issues](https://github.com/calcom/cal.diy/issues) — many common problems have documented solutions in issue threads.
-2. Check the [Cal.com Community](https://community.cal.com) forum.
+2. Check the [amir9078.github.io Community](https://community.amir9078.github.io) forum.
 3. Review the [Docker configuration](./docker) and [Installation guide](./installation) for any steps you may have missed.

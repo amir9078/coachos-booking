@@ -9,7 +9,7 @@ import type {
   GetDisplayTitleParams,
   GetDisplayJsonParams,
 } from "./IAuditActionService";
-import type { BookingStatus } from "@calcom/prisma/enums";
+import type { BookingStatus } from "@coachos/prisma/enums";
 
 /**
  * Rejected Audit Action Service

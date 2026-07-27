@@ -1,4 +1,4 @@
-import { APP_NAME, COMPANY_NAME, EMAIL_FROM_NAME } from "@calcom/lib/constants";
+import { APP_NAME, COMPANY_NAME, EMAIL_FROM_NAME } from "@coachos/lib/constants";
 
 import type { EmailVerifyCode } from "../lib/types/email-types";
 import renderEmail from "../src/renderEmail";
@@ -41,7 +41,7 @@ export default class AttendeeVerifyEmail extends BaseEmail {
     const footer = this.verifyAccountInput.hideLogo
       ? ""
       : `${this.verifyAccountInput.language("happy_scheduling")} ${this.verifyAccountInput.language(
-          "the_calcom_team",
+          "the_COACHOS_team",
           { companyName: COMPANY_NAME }
         )}`;
 

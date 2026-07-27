@@ -1,8 +1,8 @@
 "use client";
 
-import { IS_CALCOM, WEBSITE_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Icon } from "@calcom/ui/components/icon";
+import { IS_CALCOM, WEBSITE_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Icon } from "@coachos/ui/components/icon";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useLayoutEffect } from "react";

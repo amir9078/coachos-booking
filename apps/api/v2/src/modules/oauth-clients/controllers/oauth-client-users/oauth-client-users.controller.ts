@@ -1,6 +1,6 @@
-import { SUCCESS_STATUS, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
-import { MembershipRole } from "@calcom/platform-libraries";
-import type { User } from "@calcom/prisma/client";
+import { SUCCESS_STATUS, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
+import { MembershipRole } from "@coachos/platform-libraries";
+import type { User } from "@coachos/prisma/client";
 import {
   Body,
   Controller,
@@ -44,7 +44,7 @@ import { UsersRepository } from "@/modules/users/users.repository";
 @UseGuards(ApiAuthGuard, OAuthClientGuard)
 @DocsTags("Deprecated: Platform / Managed Users")
 @ApiHeader({
-  name: X_CAL_SECRET_KEY,
+  name: X_coachos_SECRET_KEY,
   description: "OAuth client secret key",
   required: true,
 })

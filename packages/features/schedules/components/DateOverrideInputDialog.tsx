@@ -1,21 +1,21 @@
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { BookerStoreProvider } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { yyyymmdd } from "@calcom/lib/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { WorkingHours } from "@calcom/types/schedule";
-import cs from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogHeader, DialogTrigger, DialogClose } from "@calcom/ui/components/dialog";
-import { Switch } from "@calcom/ui/components/form";
-import { Form } from "@calcom/ui/components/form";
-import { showToast } from "@calcom/ui/components/toast";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { BookerStoreProvider } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { yyyymmdd } from "@coachos/lib/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { WorkingHours } from "@coachos/types/schedule";
+import cs from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogHeader, DialogTrigger, DialogClose } from "@coachos/ui/components/dialog";
+import { Switch } from "@coachos/ui/components/form";
+import { Form } from "@coachos/ui/components/form";
+import { showToast } from "@coachos/ui/components/toast";
 
-import DatePicker from "@calcom/features/calendars/components/DatePicker";
+import DatePicker from "@coachos/features/calendars/components/DatePicker";
 import type { TimeRange } from "./ScheduleComponent";
 import { DayRanges } from "./ScheduleComponent";
 

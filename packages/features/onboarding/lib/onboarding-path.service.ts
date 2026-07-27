@@ -1,4 +1,4 @@
-import { getFeatureRepository } from "@calcom/features/di/containers/FeatureRepository";
+import { getFeatureRepository } from "@coachos/features/di/containers/FeatureRepository";
 
 export class OnboardingPathService {
   static async getGettingStartedPath(): Promise<string> {

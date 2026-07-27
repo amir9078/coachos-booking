@@ -1,8 +1,8 @@
 "use client";
 
-import type { FilterableColumn } from "@calcom/features/data-table/lib/types";
-import { ColumnFilterType, ZMultiSelectFilterValue } from "@calcom/features/data-table/lib/types";
-import type { FilterType } from "@calcom/types/data-table";
+import type { FilterableColumn } from "@coachos/features/data-table/lib/types";
+import { ColumnFilterType, ZMultiSelectFilterValue } from "@coachos/features/data-table/lib/types";
+import type { FilterType } from "@coachos/types/data-table";
 import { useDataTable } from "~/data-table/hooks";
 import { BaseSelectFilterOptions } from "./BaseSelectFilterOptions";
 

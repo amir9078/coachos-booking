@@ -1,18 +1,18 @@
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import type { EventType } from "@calcom/features/availability/lib/getUserAvailability";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { getCheckBookingLimitsService } from "@calcom/features/di/containers/BookingLimits";
-import { getBusyTimesService } from "@calcom/features/di/containers/BusyTimes";
-import { descendingLimitKeys, intervalLimitKeyToUnit } from "@calcom/lib/intervalLimits/intervalLimit";
-import type { IntervalLimit } from "@calcom/lib/intervalLimits/intervalLimitSchema";
-import LimitManager, { LimitSources } from "@calcom/lib/intervalLimits/limitManager";
-import { isBookingWithinPeriod } from "@calcom/lib/intervalLimits/utils";
-import { getPeriodStartDatesBetween } from "@calcom/lib/intervalLimits/utils/getPeriodStartDatesBetween";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import { performance } from "@calcom/lib/server/perfObserver";
-import prisma from "@calcom/prisma";
-import type { EventBusyDetails } from "@calcom/types/Calendar";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import type { EventType } from "@coachos/features/availability/lib/getUserAvailability";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { getCheckBookingLimitsService } from "@coachos/features/di/containers/BookingLimits";
+import { getBusyTimesService } from "@coachos/features/di/containers/BusyTimes";
+import { descendingLimitKeys, intervalLimitKeyToUnit } from "@coachos/lib/intervalLimits/intervalLimit";
+import type { IntervalLimit } from "@coachos/lib/intervalLimits/intervalLimitSchema";
+import LimitManager, { LimitSources } from "@coachos/lib/intervalLimits/limitManager";
+import { isBookingWithinPeriod } from "@coachos/lib/intervalLimits/utils";
+import { getPeriodStartDatesBetween } from "@coachos/lib/intervalLimits/utils/getPeriodStartDatesBetween";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import { performance } from "@coachos/lib/server/perfObserver";
+import prisma from "@coachos/prisma";
+import type { EventBusyDetails } from "@coachos/types/Calendar";
 
 const _getBusyTimesFromLimits = async (
   bookingLimits: IntervalLimit | null,

@@ -1,6 +1,6 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@calcom/platform-constants";
-import type { CreateScheduleInput_2024_06_11 } from "@calcom/platform-types";
-import type { Profile, Team, User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@coachos/platform-constants";
+import type { CreateScheduleInput_2024_06_11 } from "@coachos/platform-types";
+import type { Profile, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -137,7 +137,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?usernames=${orgProfileOne.username},${orgProfileTwo.username}&organizationSlug=${organization.slug}&start=2050-09-05&end=2050-09-09&duration=60`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -156,7 +156,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?usernames=${orgProfileOne.username},${orgProfileTwo.username}&organizationSlug=${organization.slug}&start=2050-09-05&end=2050-09-09&duration=60&timeZone=Europe/Rome`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;

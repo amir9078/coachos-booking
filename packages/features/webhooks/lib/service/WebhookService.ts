@@ -1,6 +1,6 @@
 import { createHmac } from "node:crypto";
 
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 
 import type { WebhookSubscriber, WebhookDeliveryResult } from "../dto/types";
 import type { WebhookPayload } from "../factory/types";
@@ -99,8 +99,8 @@ export class WebhookService implements IWebhookService {
       method: "POST",
       headers: {
         "Content-Type": contentType,
-        "X-Cal-Signature-256": signature,
-        "X-Cal-Webhook-Version": subscriber.version,
+        "x-coachos-Signature-256": signature,
+        "x-coachos-Webhook-Version": subscriber.version,
       },
       redirect: "manual",
       body,

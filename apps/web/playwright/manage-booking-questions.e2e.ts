@@ -3,11 +3,11 @@ import { expect } from "@playwright/test";
 import type { createUsersFixture } from "playwright/fixtures/users";
 import { uuid } from "short-uuid";
 
-import { fieldTypesConfigMap } from "@calcom/features/form-builder/fieldTypes";
-import { md } from "@calcom/lib/markdownIt";
-import prisma from "@calcom/prisma";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import { fieldTypesConfigMap } from "@coachos/features/form-builder/fieldTypes";
+import { md } from "@coachos/lib/markdownIt";
+import prisma from "@coachos/prisma";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 import { test } from "./lib/fixtures";
 import {

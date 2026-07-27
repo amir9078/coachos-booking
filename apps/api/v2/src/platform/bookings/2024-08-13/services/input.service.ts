@@ -1,5 +1,5 @@
-import { CreationSource } from "@calcom/platform-libraries";
-import { EventTypeMetaDataSchema } from "@calcom/platform-libraries/event-types";
+import { CreationSource } from "@coachos/platform-libraries";
+import { EventTypeMetaDataSchema } from "@coachos/platform-libraries/event-types";
 import type {
   CancelBookingInput,
   CancelBookingInput_2024_08_13,
@@ -11,10 +11,10 @@ import type {
   RescheduleBookingInput,
   RescheduleBookingInput_2024_08_13,
   RescheduleSeatedBookingInput_2024_08_13,
-} from "@calcom/platform-types";
-import type { BookingInputLocation_2024_08_13 } from "@calcom/platform-types/bookings/2024-08-13/inputs/location.input";
-import type { UpdateBookingInputLocation_2024_08_13 } from "@calcom/platform-types/bookings/2024-08-13/inputs/update-location.input";
-import type { EventType } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { BookingInputLocation_2024_08_13 } from "@coachos/platform-types/bookings/2024-08-13/inputs/location.input";
+import type { UpdateBookingInputLocation_2024_08_13 } from "@coachos/platform-types/bookings/2024-08-13/inputs/update-location.input";
+import type { EventType } from "@coachos/prisma/client";
 import { BadRequestException, Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import { isPhoneNumber, isURL } from "class-validator";
@@ -274,7 +274,7 @@ export class InputBookingsService_2024_08_13 {
       ...newRequest,
       headers: {
         hostname: request.headers["host"] || "",
-        forcedSlug: request.headers["x-cal-force-slug"] as string | undefined,
+        forcedSlug: request.headers["x-coachos-force-slug"] as string | undefined,
       },
     } as unknown as BookingRequest;
   }
@@ -719,7 +719,7 @@ export class InputBookingsService_2024_08_13 {
     try {
       const bearerToken = req.get("Authorization")?.replace("Bearer ", "");
       if (bearerToken) {
-        if (isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "cal_")) {
+        if (isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "coachos_")) {
           const strippedApiKey = stripApiKey(bearerToken, this.config.get<string>("api.keyPrefix"));
           const apiKeyHash = sha256Hash(strippedApiKey);
           const keyData = await this.apiKeyRepository.getApiKeyFromHash(apiKeyHash);

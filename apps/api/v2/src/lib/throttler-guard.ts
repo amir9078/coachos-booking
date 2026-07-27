@@ -14,7 +14,7 @@ import {
 import { Request, Response } from "express";
 import { z } from "zod";
 
-import { X_CAL_CLIENT_ID } from "@calcom/platform-constants";
+import { X_coachos_CLIENT_ID } from "@coachos/platform-constants";
 
 const rateLimitSchema = z.object({
   name: z.string(),
@@ -215,13 +215,13 @@ export class CustomThrottlerGuard extends ThrottlerGuard {
     const IP = request?.headers?.["cf-connecting-ip"] ?? request?.headers?.["CF-Connecting-IP"] ?? request.ip;
 
     if (authorizationHeader) {
-      const apiKeyPrefix = getEnv("API_KEY_PREFIX", "cal_");
+      const apiKeyPrefix = getEnv("API_KEY_PREFIX", "coachos_");
       return isApiKey(authorizationHeader, apiKeyPrefix)
         ? `api_key_${sha256Hash(stripApiKey(authorizationHeader, apiKeyPrefix))}`
         : `access_token_${sha256Hash(authorizationHeader)}`;
     }
 
-    const oauthClientId = request.get(X_CAL_CLIENT_ID);
+    const oauthClientId = request.get(X_coachos_CLIENT_ID);
 
     if (oauthClientId) {
       return `oauth_client_${sha256Hash(oauthClientId)}`;

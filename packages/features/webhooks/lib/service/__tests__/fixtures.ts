@@ -1,5 +1,5 @@
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 /**
  * Test Fixtures for Webhook Payload Compatibility Testing

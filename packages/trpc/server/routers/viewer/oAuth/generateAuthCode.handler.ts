@@ -1,10 +1,10 @@
-import { getOAuthService } from "@calcom/features/oauth/di/OAuthService.container";
-import { OAuthErrorReason, OAUTH_ERROR_REASONS } from "@calcom/features/oauth/services/OAuthService";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { getHttpStatusCode } from "@calcom/lib/server/getServerErrorFromUnknown";
-import type { AccessScope } from "@calcom/prisma/enums";
-import { httpStatusToTrpcCode } from "@calcom/trpc/server/lib/toTRPCError";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { getOAuthService } from "@coachos/features/oauth/di/OAuthService.container";
+import { OAuthErrorReason, OAUTH_ERROR_REASONS } from "@coachos/features/oauth/services/OAuthService";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { getHttpStatusCode } from "@coachos/lib/server/getServerErrorFromUnknown";
+import type { AccessScope } from "@coachos/prisma/enums";
+import { httpStatusToTrpcCode } from "@coachos/trpc/server/lib/toTRPCError";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

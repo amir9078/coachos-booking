@@ -1,9 +1,9 @@
-import type { PayloadBuilderFactory } from "@calcom/features/webhooks/lib/factory/versioned/PayloadBuilderFactory";
-import type { IWebhookDataFetcher } from "@calcom/features/webhooks/lib/interface/IWebhookDataFetcher";
-import type { IWebhookRepository } from "@calcom/features/webhooks/lib/interface/IWebhookRepository";
-import type { ILogger } from "@calcom/features/webhooks/lib/interface/infrastructure";
-import type { IWebhookService } from "@calcom/features/webhooks/lib/interface/services";
-import { WebhookTaskConsumer } from "@calcom/features/webhooks/lib/service/WebhookTaskConsumer";
+import type { PayloadBuilderFactory } from "@coachos/features/webhooks/lib/factory/versioned/PayloadBuilderFactory";
+import type { IWebhookDataFetcher } from "@coachos/features/webhooks/lib/interface/IWebhookDataFetcher";
+import type { IWebhookRepository } from "@coachos/features/webhooks/lib/interface/IWebhookRepository";
+import type { ILogger } from "@coachos/features/webhooks/lib/interface/infrastructure";
+import type { IWebhookService } from "@coachos/features/webhooks/lib/interface/services";
+import { WebhookTaskConsumer } from "@coachos/features/webhooks/lib/service/WebhookTaskConsumer";
 import type { ResolveFunction } from "@evyweb/ioctopus";
 import { createModule, type Module } from "@evyweb/ioctopus";
 import { SHARED_TOKENS } from "../../shared/shared.tokens";

@@ -1,10 +1,10 @@
 import { Navbar } from "@/components/Navbar";
 import { Inter } from "next/font/google";
-// eslint-disable-next-line @calcom/eslint/deprecated-imports-next-router
+// eslint-disable-next-line @coachos/eslint/deprecated-imports-next-router
 import { useRouter } from "next/router";
 
-import { useBookings } from "@calcom/atoms";
-import dayjs from "@calcom/dayjs";
+import { useBookings } from "@coachos/atoms";
+import dayjs from "@coachos/dayjs";
 
 const inter = Inter({ subsets: ["latin"] });
 

@@ -1,12 +1,12 @@
 import { describe, expect, vi } from "vitest";
 
-import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@calcom/lib/constants";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { buildCalendarEvent, buildPerson } from "@calcom/lib/test/builder";
-import { buildVideoCallData } from "@calcom/lib/test/builder";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@coachos/lib/constants";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { buildCalendarEvent, buildPerson } from "@coachos/lib/test/builder";
+import { buildVideoCallData } from "@coachos/lib/test/builder";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 
 import generateIcsString from "./generateIcsString";
 

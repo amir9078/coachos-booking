@@ -1,9 +1,9 @@
-import { sendEmailVerification } from "@calcom/features/auth/lib/verifyEmail";
-import type { PrismaBookingReportRepository } from "@calcom/features/bookingReport/repositories/PrismaBookingReportRepository";
-import type { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import type { WatchlistRepository } from "@calcom/features/watchlist/lib/repository/WatchlistRepository";
-import logger from "@calcom/lib/logger";
-import { SystemReportStatus, WatchlistSource, WatchlistType } from "@calcom/prisma/enums";
+import { sendEmailVerification } from "@coachos/features/auth/lib/verifyEmail";
+import type { PrismaBookingReportRepository } from "@coachos/features/bookingReport/repositories/PrismaBookingReportRepository";
+import type { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import type { WatchlistRepository } from "@coachos/features/watchlist/lib/repository/WatchlistRepository";
+import logger from "@coachos/lib/logger";
+import { SystemReportStatus, WatchlistSource, WatchlistType } from "@coachos/prisma/enums";
 import { WatchlistErrors } from "../errors/WatchlistErrors";
 import { extractDomainFromEmail, normalizeEmail } from "../utils/normalization";
 import type {

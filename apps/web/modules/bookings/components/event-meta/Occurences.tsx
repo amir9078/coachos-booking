@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { parseRecurringDates } from "@calcom/lib/parse-dates";
-import { getRecurringFreq } from "@calcom/lib/recurringStrings";
-import { getTimeShiftFlags, getFirstShiftFlags } from "@calcom/lib/timeShift";
-import { Alert } from "@calcom/ui/components/alert";
-import { Badge } from "@calcom/ui/components/badge";
-import { Input } from "@calcom/ui/components/form";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { parseRecurringDates } from "@coachos/lib/parse-dates";
+import { getRecurringFreq } from "@coachos/lib/recurringStrings";
+import { getTimeShiftFlags, getFirstShiftFlags } from "@coachos/lib/timeShift";
+import { Alert } from "@coachos/ui/components/alert";
+import { Badge } from "@coachos/ui/components/badge";
+import { Input } from "@coachos/ui/components/form";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
 
 export const EventOccurences = ({ event }: { event: Pick<BookerEvent, "recurringEvent"> }) => {
   const maxOccurences = event.recurringEvent?.count || null;

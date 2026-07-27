@@ -71,8 +71,8 @@ GET /v2/bookings
           "email": "jane@company.com"
         }
       ],
-      "location": "https://cal.com/video/abc123",
-      "meetingUrl": "https://cal.com/video/abc123",
+      "location": "https://amir9078.github.io/video/abc123",
+      "meetingUrl": "https://amir9078.github.io/video/abc123",
       "metadata": {},
       "createdAt": "2024-01-10T08:00:00.000Z"
     }
@@ -99,7 +99,7 @@ POST /v2/bookings
     "language": "en"
   },
   "guests": ["guest1@example.com", "guest2@example.com"],
-  "meetingUrl": "https://cal.com/team/meeting",
+  "meetingUrl": "https://amir9078.github.io/team/meeting",
   "metadata": {
     "customField": "value"
   },
@@ -144,7 +144,7 @@ POST /v2/bookings
     "eventTypeId": 123,
     "attendees": [...],
     "hosts": [...],
-    "location": "https://cal.com/video/abc123"
+    "location": "https://amir9078.github.io/video/abc123"
   }
 }
 ```

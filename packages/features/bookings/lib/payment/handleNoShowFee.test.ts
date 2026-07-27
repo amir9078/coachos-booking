@@ -1,13 +1,13 @@
-import { PaymentServiceMap } from "@calcom/app-store/payment.services.generated";
-import { sendNoShowFeeChargedEmail } from "@calcom/emails/billing-email-service";
-import { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { getTranslation } from "@calcom/i18n/server";
+import { PaymentServiceMap } from "@coachos/app-store/payment.services.generated";
+import { sendNoShowFeeChargedEmail } from "@coachos/emails/billing-email-service";
+import { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { getTranslation } from "@coachos/i18n/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { handleNoShowFee } from "./handleNoShowFee";
 
-vi.mock("@calcom/app-store/payment.services.generated", () => ({
+vi.mock("@coachos/app-store/payment.services.generated", () => ({
   PaymentServiceMap: {
     stripepayment: Promise.resolve({
       BuildPaymentService: vi.fn().mockImplementation(function () {
@@ -19,15 +19,15 @@ vi.mock("@calcom/app-store/payment.services.generated", () => ({
   },
 }));
 
-vi.mock("@calcom/emails/billing-email-service", () => ({
+vi.mock("@coachos/emails/billing-email-service", () => ({
   sendNoShowFeeChargedEmail: vi.fn(),
 }));
 
-vi.mock("@calcom/i18n/server", () => ({
+vi.mock("@coachos/i18n/server", () => ({
   getTranslation: vi.fn().mockResolvedValue((key: string) => key),
 }));
 
-vi.mock("@calcom/features/credentials/repositories/CredentialRepository", () => ({
+vi.mock("@coachos/features/credentials/repositories/CredentialRepository", () => ({
   CredentialRepository: {
     findPaymentCredentialByAppIdAndUserIdOrTeamId: vi.fn(),
     findPaymentCredentialByAppIdAndTeamId: vi.fn(),
@@ -35,7 +35,7 @@ vi.mock("@calcom/features/credentials/repositories/CredentialRepository", () => 
 }));
 
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {},
   prisma: {},
 }));

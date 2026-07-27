@@ -1,10 +1,10 @@
-import dayjs from "@calcom/dayjs";
-import { useIsEmbed } from "@calcom/embed-core/embed-iframe";
-import type { BookingResponse } from "@calcom/features/bookings/types";
-import { getSafe } from "@calcom/lib/getSafe";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { navigateInTopWindow } from "@calcom/lib/navigateInTopWindow";
-import type { EventType } from "@calcom/prisma/client";
+import dayjs from "@coachos/dayjs";
+import { useIsEmbed } from "@coachos/embed-core/embed-iframe";
+import type { BookingResponse } from "@coachos/features/bookings/types";
+import { getSafe } from "@coachos/lib/getSafe";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { navigateInTopWindow } from "@coachos/lib/navigateInTopWindow";
+import type { EventType } from "@coachos/prisma/client";
 import { useRouter } from "next/navigation";
 
 export function getNewSearchParams(args: {

@@ -1,4 +1,4 @@
-import { MembershipRole } from "@calcom/prisma/enums";
+import { MembershipRole } from "@coachos/prisma/enums";
 
 import { ZGetInputSchema } from "../get.schema";
 import { createEventPbacProcedure } from "../util";

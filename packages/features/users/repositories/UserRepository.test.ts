@@ -1,14 +1,14 @@
-import prismock from "@calcom/testing/lib/__mocks__/prisma";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { CreationSource } from "@calcom/prisma/enums";
+import prismock from "@coachos/testing/lib/__mocks__/prisma";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { CreationSource } from "@coachos/prisma/enums";
 import { beforeEach, describe, expect, test, vi } from "vitest";
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   enrichHostsWithDelegationCredentials: vi.fn(),
   getUsersCredentialsIncludeServiceAccountKey: vi.fn(),
   getCredentialForSelectedCalendar: vi.fn(),
 }));
 
-vi.mock("@calcom/i18n/server", () => {
+vi.mock("@coachos/i18n/server", () => {
   return {
     getTranslation: async (locale: string, namespace: string) => {
       const t = (key: string) => key;

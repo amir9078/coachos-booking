@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "HubSpot CRM",
@@ -16,7 +16,7 @@ export const metadata = {
   slug: "hubspot",
   extendsFeature: "EventType",
   title: "HubSpot CRM",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "hubspot",
   isOAuth: true,
 } as AppMeta;

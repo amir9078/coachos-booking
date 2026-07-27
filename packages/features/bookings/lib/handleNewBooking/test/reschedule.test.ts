@@ -1,4 +1,4 @@
-import prismaMock from "@calcom/testing/lib/__mocks__/prisma";
+import prismaMock from "@coachos/testing/lib/__mocks__/prisma";
 
 import {
   createBookingScenario,
@@ -19,7 +19,7 @@ import {
   getMockFailingAppStatus,
   getMockPassingAppStatus,
   getDefaultBookingFields,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
 import {
   expectBookingToBeInDatabase,
   expectBookingRescheduledWebhookToHaveBeenFired,
@@ -32,18 +32,18 @@ import {
   expectSuccessfulCalendarEventDeletionInCalendar,
   expectSuccessfulVideoMeetingDeletionInCalendar,
   expectSuccessfulRoundRobinReschedulingEmails,
-} from "@calcom/testing/lib/bookingScenario/expects";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
+} from "@coachos/testing/lib/bookingScenario/expects";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
 
 import { describe, expect, beforeEach } from "vitest";
 
-import { appStoreMetadata } from "@calcom/app-store/apps.metadata.generated";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { resetTestSMS } from "@calcom/lib/testSMS";
-import { BookingStatus, SchedulingType } from "@calcom/prisma/enums";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+import { appStoreMetadata } from "@coachos/app-store/apps.metadata.generated";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { resetTestSMS } from "@coachos/lib/testSMS";
+import { BookingStatus, SchedulingType } from "@coachos/prisma/enums";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 
 import { getNewBookingHandler } from "./getNewBookingHandler";
 

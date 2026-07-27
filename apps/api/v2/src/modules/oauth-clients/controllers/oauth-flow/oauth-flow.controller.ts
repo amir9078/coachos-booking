@@ -1,4 +1,4 @@
-import { SUCCESS_STATUS, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
+import { SUCCESS_STATUS, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
 import {
   BadRequestException,
   Body,
@@ -110,7 +110,7 @@ export class OAuthFlowController {
   @UseGuards(ApiAuthGuard)
   @DocsTags("Deprecated: Platform / Managed Users")
   @DocsHeader({
-    name: X_CAL_SECRET_KEY,
+    name: X_coachos_SECRET_KEY,
     description: "OAuth client secret key.",
     required: true,
   })
@@ -121,7 +121,7 @@ export class OAuthFlowController {
   })
   async refreshTokens(
     @Param("clientId") clientId: string,
-    @Headers(X_CAL_SECRET_KEY) secretKey: string,
+    @Headers(X_coachos_SECRET_KEY) secretKey: string,
     @Body() body: RefreshTokenInput
   ): Promise<KeysResponseDto> {
     const tokens = await this.oAuthFlowService.refreshToken(clientId, secretKey, body.refreshToken);

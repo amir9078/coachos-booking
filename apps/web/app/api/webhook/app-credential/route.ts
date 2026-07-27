@@ -3,17 +3,17 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import z from "zod";
 
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import { CREDENTIAL_SYNC_SECRET, CREDENTIAL_SYNC_SECRET_HEADER_NAME } from "@calcom/lib/constants";
-import { APP_CREDENTIAL_SHARING_ENABLED } from "@calcom/lib/constants";
-import { symmetricDecrypt } from "@calcom/lib/crypto";
-import prisma from "@calcom/prisma";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import { CREDENTIAL_SYNC_SECRET, CREDENTIAL_SYNC_SECRET_HEADER_NAME } from "@coachos/lib/constants";
+import { APP_CREDENTIAL_SHARING_ENABLED } from "@coachos/lib/constants";
+import { symmetricDecrypt } from "@coachos/lib/crypto";
+import prisma from "@coachos/prisma";
 
 const appCredentialWebhookRequestBodySchema = z.object({
-  // UserId of the cal.com user
+  // UserId of the amir9078.github.io user
   userId: z.number().int(),
   appSlug: z.string(),
-  // Keys should be AES256 encrypted with the CALCOM_APP_CREDENTIAL_ENCRYPTION_KEY
+  // Keys should be AES256 encrypted with the COACHOS_APP_CREDENTIAL_ENCRYPTION_KEY
   keys: z.string(),
 });
 
@@ -62,7 +62,7 @@ async function postHandler(request: NextRequest) {
     }
 
     const keys = JSON.parse(
-      symmetricDecrypt(reqBody.keys, process.env.CALCOM_APP_CREDENTIAL_ENCRYPTION_KEY || "")
+      symmetricDecrypt(reqBody.keys, process.env.COACHOS_APP_CREDENTIAL_ENCRYPTION_KEY || "")
     );
 
     // INFO: Can't use prisma upsert as we don't know the id of the credential

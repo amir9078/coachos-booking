@@ -1,11 +1,11 @@
-import { slugifyLenient } from "@calcom/platform-libraries";
-import type { CredentialDataWithTeamName } from "@calcom/platform-libraries/app-store";
-import { getApps, getUsersCredentialsIncludeServiceAccountKey } from "@calcom/platform-libraries/app-store";
+import { slugifyLenient } from "@coachos/platform-libraries";
+import type { CredentialDataWithTeamName } from "@coachos/platform-libraries/app-store";
+import { getApps, getUsersCredentialsIncludeServiceAccountKey } from "@coachos/platform-libraries/app-store";
 import {
   EventTypeMetaDataSchema,
   EventTypeMetadata,
   validateCustomEventName,
-} from "@calcom/platform-libraries/event-types";
+} from "@coachos/platform-libraries/event-types";
 import {
   CreateEventTypeInput_2024_06_14,
   DestinationCalendar_2024_06_14,
@@ -13,8 +13,8 @@ import {
   OutputUnknownLocation_2024_06_14,
   supportedIntegrations,
   UpdateEventTypeInput_2024_06_14,
-} from "@calcom/platform-types";
-import { BookerLayouts } from "@calcom/prisma/zod-utils";
+} from "@coachos/platform-types";
+import { BookerLayouts } from "@coachos/prisma/zod-utils";
 import { BadRequestException, Injectable } from "@nestjs/common";
 import { ConnectedCalendarsData } from "@/platform/calendars/outputs/connected-calendars.output";
 import { CalendarsService } from "@/platform/calendars/services/calendars.service";

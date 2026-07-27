@@ -1,9 +1,9 @@
-import { OrganizerDefaultConferencingAppType } from "@calcom/app-store/locations";
-import dayjs from "@calcom/dayjs";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import type { EventTypeCustomInput } from "@calcom/prisma/client";
+import { OrganizerDefaultConferencingAppType } from "@coachos/app-store/locations";
+import dayjs from "@coachos/dayjs";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import type { EventTypeCustomInput } from "@coachos/prisma/client";
 import type z from "zod";
 import { bookingCreateSchemaLegacyPropsForApi } from "../bookingCreateBodySchema";
 import type { TgetBookingDataSchema } from "../getBookingDataSchema";

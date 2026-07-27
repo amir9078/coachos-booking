@@ -1,11 +1,11 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
 import {
   BookingOutput_2024_08_13,
   CreateBookingInput_2024_08_13,
   GetBookingOutput_2024_08_13,
   GetSeatedBookingOutput_2024_08_13,
-} from "@calcom/platform-types";
-import type { Booking, EventType, PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { Booking, EventType, PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -745,7 +745,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should get a seated booking with split name responses", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/${bookingWithSplitName.uid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200)
           .then(async (response) => {
             const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -768,7 +768,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should get a seated booking with split name responses", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/${seatedBookingWithSplitName.uid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200)
           .then(async (response) => {
             const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -807,7 +807,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(400);
       });
 
@@ -830,7 +830,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -873,7 +873,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-phone'. Expected type string (compatible with field type 'phone'), but received number."
@@ -891,7 +891,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-address'. Expected type string (compatible with field type 'address'), but received boolean."
@@ -909,7 +909,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-text'. Expected type string (compatible with field type 'text'), but received number."
@@ -927,7 +927,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-number'. Expected type number (compatible with field type 'number'), but received string."
@@ -945,7 +945,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-textarea'. Expected type string (compatible with field type 'textarea'), but received object."
@@ -963,7 +963,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-boolean'. Expected type boolean (compatible with field type 'boolean'), but received string."
@@ -981,7 +981,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-url'. Expected type string (compatible with field type 'url'), but received number."
@@ -999,7 +999,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-multiemail'. Expected type array (compatible with field type 'multiemail'), but received string."
@@ -1017,7 +1017,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-multiselect'. Expected type array (compatible with field type 'multiselect'), but received string."
@@ -1035,7 +1035,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-checkbox'. Expected type array (compatible with field type 'checkbox'), but received boolean."
@@ -1053,7 +1053,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-radio'. Expected type string or number (compatible with field type 'radio'), but received boolean."
@@ -1071,7 +1071,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(400);
         expect(response.body.error.message).toBe(
           "Invalid type for booking field 'test-select'. Expected type string or number (compatible with field type 'select'), but received boolean."
@@ -1091,7 +1091,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(400);
 
         expect(response.body.error.message).toBe(
@@ -1112,7 +1112,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(400);
 
         expect(response.body.error.message).toBe(
@@ -1133,7 +1133,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(400);
 
         expect(response.body.error.message).toBe(
@@ -1154,7 +1154,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(400);
 
         expect(response.body.error.message).toBe(
@@ -1175,7 +1175,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .post(`/v2/bookings`)
           .send(payload)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
         expect(response.status).toBe(201);
         expect(response.body.status).toEqual(SUCCESS_STATUS);
 

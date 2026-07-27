@@ -5,17 +5,17 @@ import { useSession } from "next-auth/react";
 import type { RefCallback } from "react";
 import { useEffect, useState } from "react";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { fetchUsername } from "@calcom/lib/fetchUsername";
-import { useDebounce } from "@calcom/lib/hooks/useDebounce";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import type { AppRouter } from "@calcom/trpc/types/server/routers/_app";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogFooter, DialogClose } from "@calcom/ui/components/dialog";
-import { TextField } from "@calcom/ui/components/form";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { fetchUsername } from "@coachos/lib/fetchUsername";
+import { useDebounce } from "@coachos/lib/hooks/useDebounce";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import type { AppRouter } from "@coachos/trpc/types/server/routers/_app";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogFooter, DialogClose } from "@coachos/ui/components/dialog";
+import { TextField } from "@coachos/ui/components/form";
 import { CheckIcon } from "@coss/ui/icons";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 import type { TRPCClientErrorLike } from "@trpc/client";
 

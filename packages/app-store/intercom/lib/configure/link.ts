@@ -1,7 +1,7 @@
 import type { NextApiRequest } from "next";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import prisma from "@calcom/prisma";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import prisma from "@coachos/prisma";
 
 import type {
   NewCanvas,
@@ -25,7 +25,7 @@ export async function handleLinkStep(req: NextApiRequest): Promise<NewCanvas | s
     type: "input",
     id: "submit_booking_url",
     label: "Enter your Cal.diy link",
-    placeholder: "https://cal.com/valentinchmara/30min",
+    placeholder: "https://amir9078.github.io/valentinchmara/30min",
     save_state: "unsaved",
     action: {
       type: "submit",

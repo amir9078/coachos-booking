@@ -1,5 +1,5 @@
-import { ScheduleRepository } from "@calcom/features/schedules/repositories/ScheduleRepository";
-import { prisma } from "@calcom/prisma";
+import { ScheduleRepository } from "@coachos/features/schedules/repositories/ScheduleRepository";
+import { prisma } from "@coachos/prisma";
 
 import type { TrpcSessionUser } from "../../../types";
 

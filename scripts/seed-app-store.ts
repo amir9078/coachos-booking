@@ -5,11 +5,11 @@
 import dotEnv from "dotenv";
 import path from "node:path"
 
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import { shouldEnableApp } from "@calcom/app-store/_utils/validateAppKeys";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { AppCategories } from "@calcom/prisma/enums";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import { shouldEnableApp } from "@coachos/app-store/_utils/validateAppKeys";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { AppCategories } from "@coachos/prisma/enums";
 
 dotEnv.config({ path: path.resolve(__dirname, "../.env") });
 dotEnv.config({ path: path.resolve(__dirname, "../.env.appStore") });
@@ -185,7 +185,7 @@ export default async function main() {
     });
   }
 
-  await createApp("wipe-my-cal", "wipemycalother", ["automation"], "wipemycal_other");
+  await createApp("wipe-my-cal", "wipemycalother", ["automation"], "wipemycoachos_other");
   if (process.env.GIPHY_API_KEY) {
     await createApp("giphy", "giphy", ["other"], "giphy_other", {
       api_key: process.env.GIPHY_API_KEY,

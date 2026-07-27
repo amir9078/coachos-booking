@@ -4,16 +4,16 @@ import { NextResponse, type NextRequest } from "next/server";
 
 import calcomSignupHandler from "./handlers/calcomSignupHandler";
 import selfHostedSignupHandler from "./handlers/selfHostedHandler";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import { IS_PREMIUM_USERNAME_ENABLED } from "@calcom/lib/constants";
-import getIP from "@calcom/lib/getIP";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { piiHasher } from "@calcom/lib/server/PiiHasher";
-import { checkCfTurnstileToken } from "@calcom/lib/server/checkCfTurnstileToken";
-import { prisma } from "@calcom/prisma";
-import { signupSchema } from "@calcom/prisma/zod-utils";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import { IS_PREMIUM_USERNAME_ENABLED } from "@coachos/lib/constants";
+import getIP from "@coachos/lib/getIP";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { piiHasher } from "@coachos/lib/server/PiiHasher";
+import { checkCfTurnstileToken } from "@coachos/lib/server/checkCfTurnstileToken";
+import { prisma } from "@coachos/prisma";
+import { signupSchema } from "@coachos/prisma/zod-utils";
 
 async function ensureSignupIsEnabled(body: Record<string, string>) {
   const { token } = signupSchema

@@ -1,6 +1,6 @@
-import type { IAttendeeRepository } from "@calcom/features/bookings/repositories/IAttendeeRepository";
-import type { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
-import type { UserRepository } from "@calcom/features/users/repositories/UserRepository";
+import type { IAttendeeRepository } from "@coachos/features/bookings/repositories/IAttendeeRepository";
+import type { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
+import type { UserRepository } from "@coachos/features/users/repositories/UserRepository";
 
 /**
  * Entity types stored in the enrichment data store

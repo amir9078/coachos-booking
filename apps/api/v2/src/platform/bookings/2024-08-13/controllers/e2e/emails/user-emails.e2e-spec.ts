@@ -1,4 +1,4 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
 import {
   AttendeeCancelledEmail,
   AttendeeRescheduledEmail,
@@ -6,15 +6,15 @@ import {
   OrganizerCancelledEmail,
   OrganizerRescheduledEmail,
   OrganizerScheduledEmail,
-} from "@calcom/platform-libraries/emails";
+} from "@coachos/platform-libraries/emails";
 import type {
   BookingOutput_2024_08_13,
   CancelBookingInput_2024_08_13,
   CreateBookingInput_2024_08_13,
   RecurringBookingOutput_2024_08_13,
   RescheduleBookingInput_2024_08_13,
-} from "@calcom/platform-types";
-import type { Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -248,7 +248,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -287,7 +287,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -310,7 +310,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsDisabledSetup.createdBookingUid}/reschedule`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -332,7 +332,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsDisabledSetup.rescheduledBookingUid}/cancel`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: CancelBookingOutput_2024_08_13 = response.body;
@@ -367,7 +367,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -407,7 +407,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -430,7 +430,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsEnabledSetup.createdBookingUid}/reschedule`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -454,7 +454,7 @@ describe("Bookings Endpoints 2024-08-13 user emails", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsEnabledSetup.rescheduledBookingUid}/cancel`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: CancelBookingOutput_2024_08_13 = response.body;

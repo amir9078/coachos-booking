@@ -1,7 +1,7 @@
-import dayjs from "@calcom/dayjs";
-import { formatPrice } from "@calcom/lib/currencyConversions";
-import { TimeFormat } from "@calcom/lib/timeFormat";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import dayjs from "@coachos/dayjs";
+import { formatPrice } from "@coachos/lib/currencyConversions";
+import { TimeFormat } from "@coachos/lib/timeFormat";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 import type { TFunction } from "i18next";
 import {
   AppsStatus,

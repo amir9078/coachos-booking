@@ -1,11 +1,11 @@
 import { useSession } from "next-auth/react";
 
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import dayjs from "@calcom/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { isMac } from "@calcom/lib/isMac";
-import { trpc } from "@calcom/trpc/react";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import dayjs from "@coachos/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { isMac } from "@coachos/lib/isMac";
+import { trpc } from "@coachos/trpc/react";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import {
   ArrowDownIcon,
   ArrowUpIcon,
@@ -425,7 +425,7 @@ function renderResultItem(item: string | Action, active: boolean, t: (key: strin
 
 function NoResultsFound({ searchQuery }: { searchQuery: string }): JSX.Element {
   const { t } = useLocale();
-  const helpUrl = `https://cal.com/help/welcome?search=${encodeURIComponent(searchQuery)}`;
+  const helpUrl = `https://amir9078.github.io/help/welcome?search=${encodeURIComponent(searchQuery)}`;
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {

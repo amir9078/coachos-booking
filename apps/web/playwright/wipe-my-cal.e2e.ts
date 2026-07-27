@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 
-import _dayjs from "@calcom/dayjs";
-import prisma from "@calcom/prisma";
+import _dayjs from "@coachos/dayjs";
+import prisma from "@coachos/prisma";
 
 import { test } from "./lib/fixtures";
 
@@ -23,7 +23,7 @@ test.describe("Wipe my Cal App Test", () => {
     await prisma.credential.create({
       data: {
         key: {},
-        type: "wipemycal_other",
+        type: "wipemycoachos_other",
         userId: pro.id,
         appId: "wipe-my-cal",
       },

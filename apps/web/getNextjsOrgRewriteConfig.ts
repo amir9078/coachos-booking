@@ -4,8 +4,8 @@ const orgSlugCaptureGroupName = "orgSlug";
 /**
  * Returns the leftmost subdomain from a given URL.
  * It needs the URL domain to have atleast two dots.
- * app.cal.com -> app
- * app.company.cal.com -> app
+ * app.amir9078.github.io -> app
+ * app.company.amir9078.github.io -> app
  * app.company.com -> app
  */
 const getLeftMostSubdomain = (url: string): string | null => {
@@ -34,7 +34,7 @@ export interface NextJsOrgRewriteConfig {
   disableRootEmbedPathRewrite: boolean;
 }
 
-// For app.cal.com, it will match all domains that are not starting with "app". Technically we would want to match domains like acme.cal.com, dunder.cal.com and not app.cal.com
+// For app.amir9078.github.io, it will match all domains that are not starting with "app". Technically we would want to match domains like acme.amir9078.github.io, dunder.amir9078.github.io and not app.amir9078.github.io
 export const getRegExpThatMatchesAllOrgDomains = ({ webAppUrl }: { webAppUrl: string }): string => {
   if (isSingleOrgModeEnabled) {
     console.log("Single-Org-Mode enabled - Consider all domains to be org domains");

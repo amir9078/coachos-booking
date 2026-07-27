@@ -1,9 +1,9 @@
 import { RRule } from "rrule";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { detectBrowserTimeFormat, TimeFormat } from "@calcom/lib/timeFormat";
-import type { RecurringEvent } from "@calcom/types/Calendar";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { detectBrowserTimeFormat, TimeFormat } from "@coachos/lib/timeFormat";
+import type { RecurringEvent } from "@coachos/types/Calendar";
 
 import { parseZone } from "./parse-zone";
 

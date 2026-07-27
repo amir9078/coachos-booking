@@ -8,4 +8,4 @@ const featuresRepositoryModuleMock = {
   })),
 };
 
-vi.mock("@calcom/features/flags/features.repository", () => featuresRepositoryModuleMock);
+vi.mock("@coachos/features/flags/features.repository", () => featuresRepositoryModuleMock);

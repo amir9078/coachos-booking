@@ -1,7 +1,7 @@
-import { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import logger from "@calcom/lib/logger";
-import { prisma } from "@calcom/prisma";
+import { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import logger from "@coachos/lib/logger";
+import { prisma } from "@coachos/prisma";
 import type { NextApiRequest, NextApiResponse } from "next";
 
 const log = logger.getSubLogger({ prefix: ["[salesforce/user-sync]"] });

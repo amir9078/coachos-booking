@@ -3,7 +3,7 @@ import { filterReqHeaders } from "@/lib/filterReqHeaders";
 import { ArgumentsHost, Catch, ExceptionFilter, Logger } from "@nestjs/common";
 import { Request } from "express";
 
-import { ERROR_STATUS } from "@calcom/platform-constants";
+import { ERROR_STATUS } from "@coachos/platform-constants";
 import {
   CalendarAppError,
   CalendarAppDelegationCredentialInvalidGrantError,
@@ -11,8 +11,8 @@ import {
   CalendarAppDelegationCredentialConfigurationError,
   CalendarAppDelegationCredentialClientIdNotAuthorizedError,
   CalendarAppDelegationCredentialNotSetupError,
-} from "@calcom/platform-libraries/app-store";
-import { Response } from "@calcom/platform-types";
+} from "@coachos/platform-libraries/app-store";
+import { Response } from "@coachos/platform-types";
 
 type CalendarError =
   | CalendarAppError

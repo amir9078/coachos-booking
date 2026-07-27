@@ -1,12 +1,12 @@
 "use client";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useRouterQuery } from "@calcom/lib/hooks/useRouterQuery";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useRouterQuery } from "@coachos/lib/hooks/useRouterQuery";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
 import { MailOpenIcon, TriangleAlertIcon } from "@coss/ui/icons";
 import { motion } from "framer-motion";
 import { usePathname, useRouter } from "next/navigation";
@@ -19,7 +19,7 @@ async function sendVerificationLogin(email: string, username: string, t: (key: s
     email: email.toLowerCase(),
     username: username.toLowerCase(),
     redirect: false,
-    callbackUrl: WEBAPP_URL || "https://app.cal.com",
+    callbackUrl: WEBAPP_URL || "https://app.amir9078.github.io",
   })
     .then(() => {
       showToast(t("verification_email_sent"), "success");

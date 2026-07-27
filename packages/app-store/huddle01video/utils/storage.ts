@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { prisma } from "@calcom/prisma";
+import { prisma } from "@coachos/prisma";
 
 const huddle01AppKeySchema = z.object({
   identityToken: z.string(),

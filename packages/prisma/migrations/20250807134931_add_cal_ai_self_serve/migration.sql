@@ -8,7 +8,7 @@
 CREATE TYPE "PhoneNumberSubscriptionStatus" AS ENUM ('ACTIVE', 'PAST_DUE', 'CANCELLED', 'INCOMPLETE', 'INCOMPLETE_EXPIRED', 'TRIALING', 'UNPAID');
 
 -- AlterEnum
-ALTER TYPE "WorkflowActions" ADD VALUE 'CAL_AI_PHONE_CALL';
+ALTER TYPE "WorkflowActions" ADD VALUE 'coachos_AI_PHONE_CALL';
 
 -- AlterEnum
 ALTER TYPE "WorkflowMethods" ADD VALUE 'AI_PHONE_CALL';

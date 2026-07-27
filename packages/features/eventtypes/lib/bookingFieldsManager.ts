@@ -1,7 +1,7 @@
-import { getBookingFieldsWithSystemFields } from "@calcom/features/bookings/lib/getBookingFields";
-import { prisma } from "@calcom/prisma";
-import type { EventType } from "@calcom/prisma/client";
-import type { eventTypeBookingFields } from "@calcom/prisma/zod-utils";
+import { getBookingFieldsWithSystemFields } from "@coachos/features/bookings/lib/getBookingFields";
+import { prisma } from "@coachos/prisma";
+import type { EventType } from "@coachos/prisma/client";
+import type { eventTypeBookingFields } from "@coachos/prisma/zod-utils";
 import type { z } from "zod";
 
 type Field = z.infer<typeof eventTypeBookingFields>[number];

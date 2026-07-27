@@ -1,7 +1,7 @@
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import { useTroubleshooterStore } from "@calcom/features/troubleshooter/store";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SelectField } from "@calcom/ui/components/form";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import { useTroubleshooterStore } from "@coachos/features/troubleshooter/store";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SelectField } from "@coachos/ui/components/form";
 import { startTransition, useEffect, useMemo } from "react";
 import { shallow } from "zustand/shallow";
 

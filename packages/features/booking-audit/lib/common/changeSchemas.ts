@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { BookingStatus } from "@calcom/prisma/enums";
+import { BookingStatus } from "@coachos/prisma/enums";
 /**
  * Common change schemas for audit data
  * These represent old -> new value transitions

@@ -1,11 +1,11 @@
 import { oauth2_v2 } from "@googleapis/oauth2";
 import type { OAuth2Client } from "googleapis-common";
 
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import logger from "@calcom/lib/logger";
-import { uploadAvatar } from "@calcom/lib/server/avatar";
-import { resizeBase64Image } from "@calcom/lib/server/resizeBase64Image";
-import prisma from "@calcom/prisma";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import logger from "@coachos/lib/logger";
+import { uploadAvatar } from "@coachos/lib/server/avatar";
+import { resizeBase64Image } from "@coachos/lib/server/resizeBase64Image";
+import prisma from "@coachos/prisma";
 
 export async function updateProfilePhotoGoogle(oAuth2Client: OAuth2Client, userId: number) {
   try {

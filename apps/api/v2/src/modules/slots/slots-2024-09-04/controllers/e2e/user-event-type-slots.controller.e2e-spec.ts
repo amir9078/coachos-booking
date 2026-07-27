@@ -1,9 +1,9 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@coachos/platform-constants";
 import type {
   CreateScheduleInput_2024_06_11,
   ReserveSlotOutput_2024_09_04 as ReserveSlotOutputData_2024_09_04,
-} from "@calcom/platform-types";
-import type { EventType, Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { EventType, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -79,7 +79,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
     let reservedSlot: ReserveSlotOutputData_2024_09_04;
 
-    const oooTestUserEmail = `oooTestUser-${randomString()}@cal.com`;
+    const oooTestUserEmail = `oooTestUser-${randomString()}@amir9078.github.io`;
 
     beforeAll(async () => {
       const moduleRef = await Test.createTestingModule({
@@ -212,7 +212,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get slots in UTC by event type id", async () => {
       return request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -229,7 +229,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get slots in specified time zone by event type id", async () => {
       return request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&timeZone=Europe/Rome`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -248,7 +248,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeSlug=${eventTypeSlug}&username=${user.username}&start=2050-09-05&end=2050-09-09`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -267,7 +267,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeSlug=${eventTypeSlug}&username=${user.username}&start=2050-09-05&end=2050-09-09&timeZone=Europe/Rome`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -285,7 +285,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get slots by event type id and with start hours specified", async () => {
       return request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05T09:00:00.000Z&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -304,7 +304,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get slots by event type id and with end hours specified", async () => {
       return request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09T12:00:00.000Z`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -325,7 +325,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05T09:00:00.000Z&end=2050-09-09&timeZone=Europe/Rome`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -346,7 +346,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09T12:00:00.000Z&timeZone=Europe/Rome`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -365,7 +365,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get slots in UTC by event type id in range format", async () => {
       return request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-10&format=range`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .expect((res) => {
           expect(res.body).toEqual({
@@ -380,7 +380,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-10&timeZone=Europe/Rome&format=range`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .expect((res) => {
           expect(res.body).toEqual({
@@ -395,7 +395,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeSlug=${eventTypeSlug}&username=${user.username}&start=2050-09-05&end=2050-09-09&format=range`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -414,7 +414,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
         .get(
           `/v2/slots?eventTypeSlug=${eventTypeSlug}&username=${user.username}&start=2050-09-05&end=2050-09-09&timeZone=Europe/Rome&format=range`
         )
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -441,7 +441,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           eventTypeId,
           slotStart: slotStartTime,
         })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(201);
 
       const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -464,7 +464,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -494,7 +494,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should get reserved slot", async () => {
       const reserveResponse = await request(app.getHttpServer())
         .get(`/v2/slots/reservations/${reservedSlot.reservationUid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const reserveResponseBody: GetReservedSlotOutput_2024_09_04 = reserveResponse.body;
@@ -515,7 +515,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
             eventTypeId,
             slotStart: newSlotStart,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(422)
           .then((response) => {
             expect(response.body.error.message).toEqual(
@@ -534,7 +534,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
             eventTypeId,
             slotStart: newSlotStart,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(422)
           .then((response) => {
             expect(response.body.error.message).toEqual(
@@ -553,7 +553,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
             eventTypeId,
             slotStart: newSlotStart,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(422)
           .then((response) => {
             expect(response.body.error.message).toEqual(
@@ -576,7 +576,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           eventTypeId,
           slotStart: slotStartTime,
         })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -599,7 +599,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -629,12 +629,12 @@ describe("Slots 2024-09-04 Endpoints", () => {
     it("should delete reserved slot and it should not appear in available slots", async () => {
       await request(app.getHttpServer())
         .delete(`/v2/slots/reservations/${reservedSlot.reservationUid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -655,7 +655,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           slotStart: "2050-09-05T10:00:00.000Z",
           reservationDuration: 10,
         })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(401);
     });
 
@@ -667,8 +667,8 @@ describe("Slots 2024-09-04 Endpoints", () => {
           slotStart: "2050-09-05T10:00:00.000Z",
           reservationDuration: 10,
         })
-        .set({ Authorization: `Bearer cal_test_${unrelatedUserApiKeyString}` })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set({ Authorization: `Bearer coachos_test_${unrelatedUserApiKeyString}` })
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(403);
     });
 
@@ -681,13 +681,13 @@ describe("Slots 2024-09-04 Endpoints", () => {
       const slotStartTime = "2050-09-05T10:00:00.000Z";
       const reserveResponse = await request(app.getHttpServer())
         .post(`/v2/slots/reservations`)
-        .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+        .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
         .send({
           eventTypeId,
           slotStart: slotStartTime,
           reservationDuration: 10,
         })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(201);
 
       const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -701,7 +701,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -737,13 +737,13 @@ describe("Slots 2024-09-04 Endpoints", () => {
       const slotStartTime = "2050-09-05T10:00:00.000Z";
       const reserveResponse = await request(app.getHttpServer())
         .post(`/v2/slots/reservations`)
-        .set({ Authorization: `Bearer cal_test_${teammateUserApiKeyString}` })
+        .set({ Authorization: `Bearer coachos_test_${teammateUserApiKeyString}` })
         .send({
           eventTypeId,
           slotStart: slotStartTime,
           reservationDuration: 10,
         })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(201);
 
       const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -757,7 +757,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -811,7 +811,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -884,7 +884,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/api/v2/slots?eventTypeId=${seatedEventType.id}&start=2050-09-05&end=2050-09-10`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -1015,7 +1015,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
       const response = await request(app.getHttpServer())
         .get(`/api/v2/slots?eventTypeId=${seatedEventType.id}&start=2050-09-05&end=2050-09-10&format=range`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
         .expect(200);
 
       const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -1342,7 +1342,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
             slotStart: slotStartTime,
             slotDuration: 1000,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(400);
 
         expect(reserveResponse.body.error.message).toEqual(
@@ -1366,7 +1366,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
             slotStart: slotStartTime,
             slotDuration,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(201);
 
         const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -1389,7 +1389,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${variableLengthEventType.id}&start=2050-09-05&end=2050-09-10&duration=60`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -1431,8 +1431,8 @@ describe("Slots 2024-09-04 Endpoints", () => {
             slotStart: newSlotStart,
             slotDuration: 180,
           })
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
-          .set("Authorization", `Bearer cal_test_${apiKeyString}`)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set("Authorization", `Bearer coachos_test_${apiKeyString}`)
           .expect(422)
           .then((response) => {
             expect(response.body.error.message).toEqual(
@@ -1491,7 +1491,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
 
         const response = await request(app.getHttpServer())
           .get(`/v2/slots?eventTypeId=${oooTestUserEventType.id}&start=2050-09-05&end=2050-09-09&duration=60`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -1545,7 +1545,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
               eventTypeId,
               slotStart: startTime,
             })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(
@@ -1585,7 +1585,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
               eventTypeId,
               slotStart: startTime,
             })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(
@@ -1625,7 +1625,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
               eventTypeId,
               slotStart: startTime,
             })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(
@@ -1667,7 +1667,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
               eventTypeId,
               slotStart: startTime,
             })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -1716,7 +1716,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
               eventTypeId,
               slotStart: startTime,
             })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           const reserveResponseBody: ReserveSlotOutputResponse_2024_09_04 = reserveResponse.body;
@@ -1767,7 +1767,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1000 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1780,7 +1780,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1000 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1793,7 +1793,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1015 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1806,7 +1806,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1000 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1819,7 +1819,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1000 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1832,7 +1832,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1000 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1845,7 +1845,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: T1029 })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1859,7 +1859,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: slotStartForEarlyOverlap })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(422);
 
           expect(reserveResponse.body.error.message).toEqual(expectedErrorMessage);
@@ -1875,7 +1875,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: slotStartForNoOverlap })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           expect(reserveResponse.body.data.reservationUid).toBeDefined();
@@ -1891,7 +1891,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: slotStartForNoOverlap })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           expect(reserveResponse.body.data.reservationUid).toBeDefined();
@@ -1907,7 +1907,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: slotStartForNoOverlap })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           expect(reserveResponse.body.data.reservationUid).toBeDefined();
@@ -1922,7 +1922,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           const reserveResponse = await request(app.getHttpServer())
             .post(`/v2/slots/reservations`)
             .send({ eventTypeId, slotStart: slotStartForNoOverlap })
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
             .expect(201);
 
           expect(reserveResponse.body.data.reservationUid).toBeDefined();

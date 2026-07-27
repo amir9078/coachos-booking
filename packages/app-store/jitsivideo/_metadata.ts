@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Jitsi Video",
@@ -14,7 +14,7 @@ export const metadata = {
   slug: "jitsi",
   title: "Jitsi Meet",
   isGlobal: false,
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   appData: {
     location: {
       linkType: "dynamic",

@@ -1,5 +1,5 @@
-import { OAuthClientRepository } from "@calcom/features/oauth/repositories/OAuthClientRepository";
-import type { PrismaClient } from "@calcom/prisma";
+import { OAuthClientRepository } from "@coachos/features/oauth/repositories/OAuthClientRepository";
+import type { PrismaClient } from "@coachos/prisma";
 
 type ListUserClientsOptions = {
   ctx: {

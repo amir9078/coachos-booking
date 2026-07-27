@@ -1,7 +1,7 @@
 import { createParser, useQueryState } from "nuqs";
 import { useEffect, useRef, useSyncExternalStore } from "react";
 
-import { localStorage } from "@calcom/lib/webstorage";
+import { localStorage } from "@coachos/lib/webstorage";
 
 const STORAGE_KEY = "bookings-preferred-view";
 

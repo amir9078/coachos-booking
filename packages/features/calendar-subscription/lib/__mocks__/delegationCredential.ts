@@ -2,6 +2,6 @@ import { vi } from "vitest";
 
 export const getCredentialForSelectedCalendar = vi.fn();
 
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   getCredentialForSelectedCalendar,
 }));

@@ -1,23 +1,23 @@
-import dayjs from "@calcom/dayjs";
-import type { EventBusyDetails } from "@calcom/types/Calendar";
+import dayjs from "@coachos/dayjs";
+import type { EventBusyDetails } from "@coachos/types/Calendar";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { EventType, GetUserAvailabilityInitialData } from "./getUserAvailability";
 import { UserAvailabilityService } from "./getUserAvailability";
 
-vi.mock("@calcom/features/di/containers/BusyTimes", () => ({
+vi.mock("@coachos/features/di/containers/BusyTimes", () => ({
   getBusyTimesService: vi.fn(() => mockBusyTimesService),
 }));
 
-vi.mock("@calcom/features/busyTimes/lib/getBusyTimesFromLimits", () => ({
+vi.mock("@coachos/features/busyTimes/lib/getBusyTimesFromLimits", () => ({
   getBusyTimesFromLimits: vi.fn().mockResolvedValue([]),
   getBusyTimesFromTeamLimits: vi.fn().mockResolvedValue([]),
 }));
 
-vi.mock("@calcom/app-store/_utils/getCalendar", () => ({
+vi.mock("@coachos/app-store/_utils/getCalendar", () => ({
   getCalendar: vi.fn(),
 }));
 
-vi.mock("@calcom/lib/holidays", () => ({
+vi.mock("@coachos/lib/holidays", () => ({
   getHolidayService: vi.fn(() => ({
     getHolidayDatesInRange: vi.fn().mockResolvedValue([]),
   })),

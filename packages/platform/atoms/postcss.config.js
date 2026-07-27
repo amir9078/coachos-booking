@@ -1,7 +1,7 @@
 export default {
   plugins: {
     "@tailwindcss/postcss": {},
-    "postcss-prefixwrap": ".calcom-atoms",
+    "postcss-prefixwrap": ".coachos-atoms",
     cssnano: {
       preset: "default",
     },

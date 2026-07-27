@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@calcom/prisma";
+import type { PrismaClient } from "@coachos/prisma";
 import { expect, type Page } from "@playwright/test";
 import { test } from "../lib/fixtures";
 import {

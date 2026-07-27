@@ -1,5 +1,5 @@
-import type { TeamQuery } from "@calcom/platform-libraries";
-import { checkAdminOrOwner, getClientSecretFromPayment } from "@calcom/platform-libraries";
+import type { TeamQuery } from "@coachos/platform-libraries";
+import { checkAdminOrOwner, getClientSecretFromPayment } from "@coachos/platform-libraries";
 import type {
   App,
   CredentialDataWithTeamName,
@@ -7,12 +7,12 @@ import type {
   CredentialPayload,
   LocationOption,
   TDependencyData,
-} from "@calcom/platform-libraries/app-store";
+} from "@coachos/platform-libraries/app-store";
 import {
   enrichUserWithDelegationConferencingCredentialsWithoutOrgId,
   getAppFromSlug,
   getEnabledAppsFromCredentials,
-} from "@calcom/platform-libraries/app-store";
+} from "@coachos/platform-libraries/app-store";
 import {
   bulkUpdateEventsToDefaultLocation,
   EventTypeMetaDataSchema,
@@ -22,8 +22,8 @@ import {
   type PublicEventType,
   TUpdateEventTypeInputSchema,
   updateEventType,
-} from "@calcom/platform-libraries/event-types";
-import type { PrismaClient } from "@calcom/prisma";
+} from "@coachos/platform-libraries/event-types";
+import type { PrismaClient } from "@coachos/prisma";
 import { BadRequestException, ForbiddenException, Injectable, NotFoundException } from "@nestjs/common";
 import { EventTypesService_2024_06_14 } from "@/platform/event-types/event-types_2024_06_14/services/event-types.service";
 import { systemBeforeFieldEmail } from "@/platform/event-types/event-types_2024_06_14/transformers";

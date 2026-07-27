@@ -7,16 +7,16 @@ import { useForm } from "react-hook-form";
 import { Toaster } from "sonner";
 import { z } from "zod";
 
-import AppNotInstalledMessage from "@calcom/app-store/_components/AppNotInstalledMessage";
-import KeyField from "@calcom/app-store/btcpayserver/components/KeyInput";
-import { btcpayCredentialKeysSchema } from "@calcom/app-store/btcpayserver/lib/btcpayCredentialKeysSchema";
-import type { IBTCPaySetupProps } from "@calcom/app-store/btcpayserver/pages/setup/_getServerSideProps";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
+import AppNotInstalledMessage from "@coachos/app-store/_components/AppNotInstalledMessage";
+import KeyField from "@coachos/app-store/btcpayserver/components/KeyInput";
+import { btcpayCredentialKeysSchema } from "@coachos/app-store/btcpayserver/lib/btcpayCredentialKeysSchema";
+import type { IBTCPaySetupProps } from "@coachos/app-store/btcpayserver/pages/setup/_getServerSideProps";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
 import { LoaderIcon } from "@coss/ui/icons";
 
 export default function BTCPaySetup(props: IBTCPaySetupProps) {

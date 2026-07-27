@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-import { handleErrorsJson } from "@calcom/lib/errors";
-import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@calcom/prisma/zod-utils";
-import { getRecordingsResponseSchema, getAccessLinkResponseSchema } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { PartialReference } from "@calcom/types/EventManager";
-import type { VideoApiAdapter, VideoCallData } from "@calcom/types/VideoApiAdapter";
+import { handleErrorsJson } from "@coachos/lib/errors";
+import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@coachos/prisma/zod-utils";
+import { getRecordingsResponseSchema, getAccessLinkResponseSchema } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { PartialReference } from "@coachos/types/EventManager";
+import type { VideoApiAdapter, VideoCallData } from "@coachos/types/VideoApiAdapter";
 
 import { getShimmerAppKeys } from "./getShimmerAppKeys";
 

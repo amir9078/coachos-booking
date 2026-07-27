@@ -15,7 +15,7 @@ const mockLogger = {
   warn: vi.fn(),
 };
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: mockLogger,
 }));
 

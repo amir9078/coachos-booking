@@ -1,9 +1,9 @@
-import type { SelectClassNames } from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { App } from "@calcom/types/App";
-import type { IntegrationCalendar } from "@calcom/types/Calendar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Select } from "@calcom/ui/components/form";
+import type { SelectClassNames } from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { App } from "@coachos/types/App";
+import type { IntegrationCalendar } from "@coachos/types/Calendar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Select } from "@coachos/ui/components/form";
 import { CheckIcon } from "@coss/ui/icons";
 import classNames from "classnames";
 import { useEffect, useState } from "react";

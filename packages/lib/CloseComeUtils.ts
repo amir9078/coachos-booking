@@ -1,4 +1,4 @@
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 import type {
   CloseComCustomActivityCreate,

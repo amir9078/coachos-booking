@@ -26,7 +26,7 @@ import tailwindCss from "./tailwindCss";
 import type { EmbedPageType, ModalPrerenderOptions, PrefillAndIframeAttrsConfig, UiConfig } from "./types";
 import { getMaxHeightForModal } from "./ui-utils";
 
-// Exporting for consumption by @calcom/embed-core user
+// Exporting for consumption by @coachos/embed-core user
 export type { EmbedEvent } from "./sdk-action-manager";
 export type { PrefillAndIframeAttrsConfig } from "./types";
 
@@ -340,10 +340,10 @@ export class Cal {
 
     const searchParams = this.buildFilteredQueryParams(queryParamsFromConfig);
 
-    // cal.com has rewrite issues on Safari that sometimes cause 404 for assets.
+    // amir9078.github.io has rewrite issues on Safari that sometimes cause 404 for assets.
     const originToUse = (calOrigin || calConfig.calOrigin || "").replace(
-      "https://cal.com",
-      "https://app.cal.com"
+      "https://amir9078.github.io",
+      "https://app.amir9078.github.io"
     );
 
     const urlInstance = new URL(`${originToUse}/${calLink}`);
@@ -403,7 +403,7 @@ export class Cal {
       throw new Error("iframe doesn't exist. `createIframe` must be called before `doInIframe`");
     }
     if (this.iframe.contentWindow) {
-      // TODO: Ensure that targetOrigin is as defined by user(and not *). Generally it would be cal.com but in case of self hosting it can be anything.
+      // TODO: Ensure that targetOrigin is as defined by user(and not *). Generally it would be amir9078.github.io but in case of self hosting it can be anything.
       // Maybe we can derive targetOrigin from __config.origin
       this.iframe.contentWindow.postMessage(
         { originator: "CAL", method: doInIframeArg.method, arg: doInIframeArg.arg },

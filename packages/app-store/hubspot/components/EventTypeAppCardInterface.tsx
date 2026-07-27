@@ -1,17 +1,17 @@
-import AppCard from "@calcom/app-store/_components/AppCard";
+import AppCard from "@coachos/app-store/_components/AppCard";
 import WriteToObjectSettings, {
   BookingActionEnum,
-} from "@calcom/app-store/_components/crm/WriteToObjectSettings";
-import { CrmFieldType } from "@calcom/app-store/_lib/crm-enums";
-import useIsAppEnabled from "@calcom/app-store/_utils/useIsAppEnabled";
-import { useAppContextWithSchema } from "@calcom/app-store/EventTypeAppContext";
-import type { EventTypeAppCardComponent } from "@calcom/app-store/types";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SchedulingType } from "@calcom/prisma/enums";
-import { Alert } from "@calcom/ui/components/alert";
-import { Switch } from "@calcom/ui/components/form";
-import { Section } from "@calcom/ui/components/section";
+} from "@coachos/app-store/_components/crm/WriteToObjectSettings";
+import { CrmFieldType } from "@coachos/app-store/_lib/crm-enums";
+import useIsAppEnabled from "@coachos/app-store/_utils/useIsAppEnabled";
+import { useAppContextWithSchema } from "@coachos/app-store/EventTypeAppContext";
+import type { EventTypeAppCardComponent } from "@coachos/app-store/types";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SchedulingType } from "@coachos/prisma/enums";
+import { Alert } from "@coachos/ui/components/alert";
+import { Switch } from "@coachos/ui/components/form";
+import { Section } from "@coachos/ui/components/section";
 import { usePathname } from "next/navigation";
 import type { appDataSchema } from "../zod";
 import { WhenToWrite } from "../zod";

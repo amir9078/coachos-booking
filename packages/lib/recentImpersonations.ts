@@ -1,4 +1,4 @@
-import { localStorage } from "@calcom/lib/webstorage";
+import { localStorage } from "@coachos/lib/webstorage";
 
 export interface RecentImpersonation {
   username: string;

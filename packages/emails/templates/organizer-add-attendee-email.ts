@@ -1,5 +1,5 @@
-import { APP_NAME } from "@calcom/lib/constants";
-import { getReplyToHeader } from "@calcom/lib/getReplyToHeader";
+import { APP_NAME } from "@coachos/lib/constants";
+import { getReplyToHeader } from "@coachos/lib/getReplyToHeader";
 import generateIcsFile, { GenerateIcsRole } from "../lib/generateIcsFile";
 import renderEmail from "../src/renderEmail";
 import OrganizerScheduledEmail from "./organizer-scheduled-email";

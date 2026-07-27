@@ -1,12 +1,12 @@
-import { BookingAuditViewerService } from "@calcom/features/booking-audit/lib/service/BookingAuditViewerService";
-import { BOOKING_AUDIT_DI_TOKENS } from "@calcom/features/booking-audit/di/tokens";
-import { moduleLoader as bookingAuditRepositoryModuleLoader } from "@calcom/features/booking-audit/di/BookingAuditRepository.module";
-import { moduleLoader as userRepositoryModuleLoader } from "@calcom/features/di/modules/User";
-import { moduleLoader as bookingRepositoryModuleLoader } from "@calcom/features/di/modules/Booking";
-import { moduleLoader as attendeeRepositoryModuleLoader } from "@calcom/features/bookings/di/Attendee.module";
-import { moduleLoader as membershipRepositoryModuleLoader } from "@calcom/features/users/di/MembershipRepository.module";
-import { moduleLoader as loggerModuleLoader } from "@calcom/features/di/shared/services/logger.service";
-import { moduleLoader as credentialRepositoryModuleLoader } from "@calcom/features/credentials/di/CredentialRepository.module";
+import { BookingAuditViewerService } from "@coachos/features/booking-audit/lib/service/BookingAuditViewerService";
+import { BOOKING_AUDIT_DI_TOKENS } from "@coachos/features/booking-audit/di/tokens";
+import { moduleLoader as bookingAuditRepositoryModuleLoader } from "@coachos/features/booking-audit/di/BookingAuditRepository.module";
+import { moduleLoader as userRepositoryModuleLoader } from "@coachos/features/di/modules/User";
+import { moduleLoader as bookingRepositoryModuleLoader } from "@coachos/features/di/modules/Booking";
+import { moduleLoader as attendeeRepositoryModuleLoader } from "@coachos/features/bookings/di/Attendee.module";
+import { moduleLoader as membershipRepositoryModuleLoader } from "@coachos/features/users/di/MembershipRepository.module";
+import { moduleLoader as loggerModuleLoader } from "@coachos/features/di/shared/services/logger.service";
+import { moduleLoader as credentialRepositoryModuleLoader } from "@coachos/features/credentials/di/CredentialRepository.module";
 
 import { createModule, bindModuleToClassOnToken } from "../../di/di";
 

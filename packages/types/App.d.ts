@@ -1,5 +1,5 @@
-import type { Tag } from "@calcom/app-store/types";
-import type { AppCategories, Prisma } from "@calcom/prisma/client";
+import type { Tag } from "@coachos/app-store/types";
+import type { AppCategories, Prisma } from "@coachos/prisma/client";
 
 type CommonProperties = {
   default?: false;

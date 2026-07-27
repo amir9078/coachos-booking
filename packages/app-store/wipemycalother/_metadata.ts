@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "WipeMyCal",
@@ -12,10 +12,10 @@ export const metadata = {
   publisher: "Cal.diy",
   slug: "wipe-my-cal",
   title: "Wipe my cal",
-  type: "wipemycal_other",
-  url: "https://cal.com/apps/wipe-my-cal",
+  type: "wipemycoachos_other",
+  url: "https://amir9078.github.io/apps/wipe-my-cal",
   variant: "other",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "wipemycalother",
   isOAuth: false,
 } as AppMeta;

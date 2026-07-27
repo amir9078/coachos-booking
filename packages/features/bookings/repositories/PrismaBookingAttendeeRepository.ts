@@ -1,4 +1,4 @@
-import type { Prisma, PrismaClient } from "@calcom/prisma/client";
+import type { Prisma, PrismaClient } from "@coachos/prisma/client";
 import type { IBookingAttendeeRepository } from "../lib/dto/IBookingAttendeeRepository";
 
 export class PrismaBookingAttendeeRepository implements IBookingAttendeeRepository {

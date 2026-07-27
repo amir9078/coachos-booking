@@ -1,4 +1,4 @@
-import { MAX_SEATS_PER_TIME_SLOT } from "@calcom/platform-constants";
+import { MAX_SEATS_PER_TIME_SLOT } from "@coachos/platform-constants";
 import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { Type } from "class-transformer";
 import {

@@ -1,5 +1,5 @@
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import type { PrismaClient } from "@calcom/prisma";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import type { PrismaClient } from "@coachos/prisma";
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 import { JSDOM } from "jsdom";

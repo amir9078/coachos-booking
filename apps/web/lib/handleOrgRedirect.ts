@@ -1,10 +1,10 @@
 import type { ParsedUrlQuery } from "node:querystring";
 import { stringify } from "node:querystring";
 
-import { SINGLE_ORG_SLUG } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { RedirectType } from "@calcom/prisma/client";
+import { SINGLE_ORG_SLUG } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { RedirectType } from "@coachos/prisma/client";
 
 const log = logger.getSubLogger({ prefix: ["lib", "handleOrgRedirect"] });
 type NextJsRedirect = {
@@ -35,7 +35,7 @@ const getTemporaryOrgRedirect = async ({
   currentQuery: ParsedUrlQuery;
   useRelativePath?: boolean;
 }): Promise<NextJsRedirect | null> => {
-  const prisma = (await import("@calcom/prisma")).default;
+  const prisma = (await import("@coachos/prisma")).default;
   log.debug(
     `Looking for redirect for`,
     safeStringify({
@@ -114,8 +114,8 @@ interface HandleOrgRedirectParams {
  * Handles organization redirects for both regular org context and SINGLE_ORG_SLUG mode
  * The redirect is required for all existing user links and team links to keep working when a user/team is moved to an organization
  * Example:
- * - User "john87" is added to organization "acme" and his username in the organization is "john". So, cal.com/john87 is redirected to cal.com/john
- * - Team "acme-sales" is added to organization "acme" and its slug in the organization is "sales". So, cal.com/acme-sales is redirected to cal.com/sales
+ * - User "john87" is added to organization "acme" and his username in the organization is "john". So, amir9078.github.io/john87 is redirected to amir9078.github.io/john
+ * - Team "acme-sales" is added to organization "acme" and its slug in the organization is "sales". So, amir9078.github.io/acme-sales is redirected to amir9078.github.io/sales
  *
  * Returns a redirect object if a redirect is needed, null otherwise
  */

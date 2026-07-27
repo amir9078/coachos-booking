@@ -1,10 +1,10 @@
 import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 
-import { CalendarCacheEventRepository } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
-import { CalendarCacheEventService } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventService";
-import { prisma } from "@calcom/prisma";
-import { defaultResponderForAppDir } from "@calcom/web/app/api/defaultResponderForAppDir";
+import { CalendarCacheEventRepository } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
+import { CalendarCacheEventService } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventService";
+import { prisma } from "@coachos/prisma";
+import { defaultResponderForAppDir } from "@coachos/web/app/api/defaultResponderForAppDir";
 
 /**
  * Cron webhook

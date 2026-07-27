@@ -1,9 +1,9 @@
 import type { GetServerSidePropsContext } from "next";
 import { z } from "zod";
 
-import { throwIfNotHaveAdminAccessToTeam } from "@calcom/app-store/_utils/throwIfNotHaveAdminAccessToTeam";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import prisma from "@calcom/prisma";
+import { throwIfNotHaveAdminAccessToTeam } from "@coachos/app-store/_utils/throwIfNotHaveAdminAccessToTeam";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import prisma from "@coachos/prisma";
 
 import { hitpayCredentialKeysSchema } from "../../lib/hitpayCredentialKeysSchema";
 

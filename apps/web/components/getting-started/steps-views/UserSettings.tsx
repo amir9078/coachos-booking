@@ -4,15 +4,15 @@ import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import dayjs from "@calcom/dayjs";
-import { useTimePreferences } from "@calcom/features/bookings/lib";
-import { TimezoneSelect } from "@calcom/web/modules/timezone/components/TimezoneSelect";
-import { FULL_NAME_LENGTH_MAX_LIMIT } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { Input } from "@calcom/ui/components/form";
+import dayjs from "@coachos/dayjs";
+import { useTimePreferences } from "@coachos/features/bookings/lib";
+import { TimezoneSelect } from "@coachos/web/modules/timezone/components/TimezoneSelect";
+import { FULL_NAME_LENGTH_MAX_LIMIT } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { Input } from "@coachos/ui/components/form";
 
 import { UsernameAvailabilityField } from "@components/ui/UsernameAvailability";
 

@@ -1,13 +1,13 @@
-import { sendAttendeeRequestEmailAndSMS, sendOrganizerRequestEmail } from "@calcom/emails/email-manager";
-import { getWebhookPayloadForBooking } from "@calcom/features/bookings/lib/getWebhookPayloadForBooking";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import sendPayload from "@calcom/features/webhooks/lib/sendOrSchedulePayload";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { Prisma } from "@calcom/prisma/client";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { EventTypeMetadata } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import { sendAttendeeRequestEmailAndSMS, sendOrganizerRequestEmail } from "@coachos/emails/email-manager";
+import { getWebhookPayloadForBooking } from "@coachos/features/bookings/lib/getWebhookPayloadForBooking";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import sendPayload from "@coachos/features/webhooks/lib/sendOrSchedulePayload";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { Prisma } from "@coachos/prisma/client";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { EventTypeMetadata } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 const log = logger.getSubLogger({ prefix: ["[handleBookingRequested] book:user"] });
 

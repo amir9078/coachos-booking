@@ -1,5 +1,5 @@
-import { HttpError } from "@calcom/lib/http-error";
-import prisma from "@calcom/prisma";
+import { HttpError } from "@coachos/lib/http-error";
+import prisma from "@coachos/prisma";
 
 import type { BookingToDelete } from "./getBookingToDelete";
 

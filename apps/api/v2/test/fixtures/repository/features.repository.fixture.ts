@@ -2,9 +2,9 @@ import { PrismaReadService } from "@/modules/prisma/prisma-read.service";
 import { PrismaWriteService } from "@/modules/prisma/prisma-write.service";
 import { TestingModule } from "@nestjs/testing";
 
-import type { FeatureId } from "@calcom/features/flags/config";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import type { Prisma } from "@calcom/prisma/client";
+import type { FeatureId } from "@coachos/features/flags/config";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import type { Prisma } from "@coachos/prisma/client";
 
 export class FeaturesRepositoryFixture {
   private prismaReadClient: PrismaReadService["prisma"];

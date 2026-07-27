@@ -1,15 +1,15 @@
 "use client";
 
-import type { AuditActorType } from "@calcom/features/booking-audit/lib/repository/IAuditActorRepository";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { FilterSearchField, Select } from "@calcom/ui/components/form";
-import { Icon, type IconName } from "@calcom/ui/components/icon";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import type { AuditActorType } from "@coachos/features/booking-audit/lib/repository/IAuditActorRepository";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { FilterSearchField, Select } from "@coachos/ui/components/form";
+import { Icon, type IconName } from "@coachos/ui/components/icon";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import { format, formatDistanceToNow } from "date-fns";
 import Link from "next/link";
 import { useState } from "react";

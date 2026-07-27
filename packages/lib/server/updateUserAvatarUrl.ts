@@ -1,4 +1,4 @@
-import prisma from "@calcom/prisma";
+import prisma from "@coachos/prisma";
 
 export const updateUserAvatarUrl = async ({ id, avatarUrl }: { id: number; avatarUrl: string }) => {
   await prisma.user.updateMany({

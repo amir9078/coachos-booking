@@ -1,12 +1,12 @@
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import { teamMetadataSchema, userMetadata } from "@calcom/prisma/zod-utils";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import { teamMetadataSchema, userMetadata } from "@coachos/prisma/zod-utils";
 import type { GetServerSidePropsContext, NextApiRequest } from "next";
 import type { Session } from "next-auth";
 
@@ -93,7 +93,7 @@ export type UserFromSession = Awaited<ReturnType<typeof getUserFromSession>>;
 
 export const getSession = async (ctx: SessionContext) => {
   const { req } = ctx;
-  const { getServerSession } = await import("@calcom/features/auth/lib/getServerSession");
+  const { getServerSession } = await import("@coachos/features/auth/lib/getServerSession");
   return req ? await getServerSession({ req }) : null;
 };
 

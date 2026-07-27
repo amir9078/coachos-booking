@@ -1,6 +1,6 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@calcom/platform-constants";
-import type { CreateScheduleInput_2024_06_11 } from "@calcom/platform-types";
-import type { Booking, User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_09_04 } from "@coachos/platform-constants";
+import type { CreateScheduleInput_2024_06_11 } from "@coachos/platform-types";
+import type { Booking, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -123,7 +123,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${existingBooking.uid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -136,7 +136,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=12345`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         // Note: The API accepts numeric bookingUidToReschedule and converts it to string
@@ -148,7 +148,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
       it("should handle empty bookingUidToReschedule parameter gracefully", async () => {
         const response = await request(app.getHttpServer())
           .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -160,7 +160,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
       it("should exclude booked slot when bookingUidToReschedule is not provided", async () => {
         const response = await request(app.getHttpServer())
           .get(`/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -188,7 +188,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${existingBooking.uid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -214,7 +214,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${nonExistentUid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -239,7 +239,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeSlug=${eventTypeSlug}&username=${user.username}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${existingBooking.uid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -255,7 +255,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&format=range&bookingUidToReschedule=${existingBooking.uid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -278,7 +278,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&timeZone=Europe/Rome&bookingUidToReschedule=${existingBooking.uid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -310,7 +310,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${specialUid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;
@@ -323,7 +323,7 @@ describe("Slots 2024-09-04 Endpoints", () => {
           .get(
             `/v2/slots?eventTypeId=${eventTypeId}&start=2050-09-05&end=2050-09-09&bookingUidToReschedule=${longUid}`
           )
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_09_04)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_09_04)
           .expect(200);
 
         const responseBody: GetSlotsOutput_2024_09_04 = response.body;

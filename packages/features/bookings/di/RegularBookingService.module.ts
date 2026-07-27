@@ -1,14 +1,14 @@
-import { moduleLoader as bookingEventHandlerModuleLoader } from "@calcom/features/bookings/di/BookingEventHandlerService.module";
-import { RegularBookingService } from "@calcom/features/bookings/lib/service/RegularBookingService";
-import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@calcom/features/di/di";
-import { moduleLoader as bookingRepositoryModuleLoader } from "@calcom/features/di/modules/Booking";
-import { moduleLoader as checkBookingAndDurationLimitsModuleLoader } from "@calcom/features/di/modules/CheckBookingAndDurationLimits";
-import { moduleLoader as luckyUserServiceModuleLoader } from "@calcom/features/di/modules/LuckyUser";
-import { moduleLoader as prismaModuleLoader } from "@calcom/features/di/modules/Prisma";
-import { moduleLoader as userRepositoryModuleLoader } from "@calcom/features/di/modules/User";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
-import { moduleLoader as webhookProducerModuleLoader } from "@calcom/features/di/webhooks/modules/WebhookProducerService.module";
-import { moduleLoader as hashedLinkServiceModuleLoader } from "@calcom/features/hashedLink/di/HashedLinkService.module";
+import { moduleLoader as bookingEventHandlerModuleLoader } from "@coachos/features/bookings/di/BookingEventHandlerService.module";
+import { RegularBookingService } from "@coachos/features/bookings/lib/service/RegularBookingService";
+import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@coachos/features/di/di";
+import { moduleLoader as bookingRepositoryModuleLoader } from "@coachos/features/di/modules/Booking";
+import { moduleLoader as checkBookingAndDurationLimitsModuleLoader } from "@coachos/features/di/modules/CheckBookingAndDurationLimits";
+import { moduleLoader as luckyUserServiceModuleLoader } from "@coachos/features/di/modules/LuckyUser";
+import { moduleLoader as prismaModuleLoader } from "@coachos/features/di/modules/Prisma";
+import { moduleLoader as userRepositoryModuleLoader } from "@coachos/features/di/modules/User";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
+import { moduleLoader as webhookProducerModuleLoader } from "@coachos/features/di/webhooks/modules/WebhookProducerService.module";
+import { moduleLoader as hashedLinkServiceModuleLoader } from "@coachos/features/hashedLink/di/HashedLinkService.module";
 import { moduleLoader as bookingEmailAndSmsTaskerModuleLoader } from "./tasker/BookingEmailAndSmsTasker.module";
 
 const thisModule = createModule();

@@ -1,4 +1,4 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
 import type {
   CancelBookingInput_2024_08_13,
   CancelSeatedBookingInput_2024_08_13,
@@ -8,8 +8,8 @@ import type {
   GetBookingsOutput_2024_08_13,
   GetSeatedBookingOutput_2024_08_13,
   RescheduleSeatedBookingInput_2024_08_13,
-} from "@calcom/platform-types";
-import type { Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -91,7 +91,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       });
 
       const { keyString } = await apiKeysRepositoryFixture.createApiKey(user.id, null);
-      apiKeyString = `cal_test_${keyString}`;
+      apiKeyString = `coachos_test_${keyString}`;
 
       const userSchedule: CreateScheduleInput_2024_04_15 = {
         name: `seated-bookings-2024-08-13-schedule-${randomString()}`,
@@ -170,7 +170,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -244,7 +244,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -318,7 +318,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should get a booking for an event type with seats", async () => {
       return request(app.getHttpServer())
         .get(`/v2/bookings/${createdSeatedBooking.uid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -345,7 +345,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should get all seated bookings", async () => {
       return request(app.getHttpServer())
         .get("/v2/bookings?sortCreated=asc")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${apiKeyString}`)
         .expect(200)
         .then(async (response) => {
@@ -367,7 +367,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should get a booking by seatUid", async () => {
       return request(app.getHttpServer())
         .get(`/v2/bookings/by-seat/${createdSeatedBooking.seatUid}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -398,7 +398,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should return 404 when getting booking by non-existent seatUid", async () => {
       return request(app.getHttpServer())
         .get("/v2/bookings/by-seat/non-existent-seat-uid")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(404)
         .then(async (response) => {
           expect(response.body.error.message).toEqual(
@@ -434,7 +434,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -473,7 +473,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -494,7 +494,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should return only the attendee for the specific seatUid when seatsShowAttendees is false and no auth", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/by-seat/${secondAttendeeSeatUid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200)
           .then(async (response) => {
             const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -520,7 +520,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should return all attendees when admin auth is provided", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/by-seat/${secondAttendeeSeatUid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${apiKeyString}`)
           .expect(200)
           .then(async (response) => {
@@ -551,7 +551,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       const response = await request(app.getHttpServer())
         .post(`/v2/bookings/${createdSeatedBooking.uid}/reschedule`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(400);
 
       expect(response.body.error.message).toEqual(
@@ -568,7 +568,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${createdSeatedBooking.uid}/reschedule`)
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -640,7 +640,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       const createResponse = await request(app.getHttpServer())
         .post("/v2/bookings")
         .send(createBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const createData: CreateBookingOutput_2024_08_13 = createResponse.body;
@@ -663,7 +663,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       const firstRescheduleResponse = await request(app.getHttpServer())
         .post(`/v2/bookings/${testBooking.uid}/reschedule`)
         .send(firstRescheduleBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const firstRescheduleData: RescheduleBookingOutput_2024_08_13 = firstRescheduleResponse.body;
@@ -686,7 +686,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       const secondRescheduleResponse = await request(app.getHttpServer())
         .post(`/v2/bookings/${testBooking.uid}/reschedule`)
         .send(secondRescheduleBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const secondRescheduleData: RescheduleBookingOutput_2024_08_13 = secondRescheduleResponse.body;
@@ -709,7 +709,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       const thirdRescheduleResponse = await request(app.getHttpServer())
         .post(`/v2/bookings/${testBooking.uid}/reschedule`)
         .send(thirdRescheduleBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const thirdRescheduleData: RescheduleBookingOutput_2024_08_13 = thirdRescheduleResponse.body;
@@ -747,7 +747,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -787,7 +787,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should fetch booking and not have attendees because no auth provided", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/${booking.uid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200)
           .then(async (response) => {
             const responseBody: GetBookingOutput_2024_08_13 = response.body;
@@ -845,7 +845,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", apiKeyString)
           .expect(201)
           .then(async (response) => {
@@ -890,7 +890,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
       it("should fetch booking and have attendees", async () => {
         return request(app.getHttpServer())
           .get(`/v2/bookings/${booking.uid}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", apiKeyString)
           .expect(200)
           .then(async (response) => {
@@ -939,7 +939,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           return request(app.getHttpServer())
             .post(`/v2/bookings/${createdSeatedBooking.uid}/cancel`)
             .send(body)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .expect(200)
             .then(async (response) => {
               const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -993,7 +993,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           return request(app.getHttpServer())
             .post("/v2/bookings")
             .send(body)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .expect(201)
             .then(async (response) => {
               const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -1049,7 +1049,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         it("should not be able to cancel without cancellation reason", async () => {
           const response = await request(app.getHttpServer())
             .post(`/v2/bookings/${createdSeatedBooking2.uid}/cancel`)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .expect(400);
 
@@ -1064,7 +1064,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           return request(app.getHttpServer())
             .post(`/v2/bookings/${createdSeatedBooking2.uid}/cancel`)
             .send(body)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .set("Authorization", `Bearer ${apiKeyString}`)
             .expect(200)
             .then(async (response) => {

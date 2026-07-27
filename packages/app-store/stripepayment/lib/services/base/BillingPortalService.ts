@@ -1,9 +1,9 @@
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { getSafeRedirectUrl } from "@calcom/lib/getSafeRedirectUrl";
-import logger from "@calcom/lib/logger";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { teamMetadataSchema } from "@calcom/prisma/zod-utils";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { getSafeRedirectUrl } from "@coachos/lib/getSafeRedirectUrl";
+import logger from "@coachos/lib/logger";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { teamMetadataSchema } from "@coachos/prisma/zod-utils";
 import type { NextApiResponse } from "next";
 import stripe from "../../server";
 

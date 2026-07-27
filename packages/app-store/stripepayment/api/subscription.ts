@@ -1,9 +1,9 @@
-import { getPremiumMonthlyPlanPriceId } from "@calcom/app-store/stripepayment/lib/utils";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { usernameCheck } from "@calcom/lib/server/username";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
+import { getPremiumMonthlyPlanPriceId } from "@coachos/app-store/stripepayment/lib/utils";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { usernameCheck } from "@coachos/lib/server/username";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
 import type { NextApiRequest, NextApiResponse } from "next";
 import type Stripe from "stripe";
 import { getStripeCustomerIdFromUserId } from "../lib/customer";

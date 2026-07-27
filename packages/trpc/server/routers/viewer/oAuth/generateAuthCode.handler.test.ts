@@ -1,10 +1,10 @@
-import prismaMock from "@calcom/testing/lib/__mocks__/prismaMock";
+import prismaMock from "@coachos/testing/lib/__mocks__/prismaMock";
 
 import { describe, expect, it, vi, beforeEach } from "vitest";
 
-import { OAUTH_ERROR_REASONS } from "@calcom/features/oauth/services/OAuthService";
+import { OAUTH_ERROR_REASONS } from "@coachos/features/oauth/services/OAuthService";
 
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

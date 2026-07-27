@@ -1,18 +1,18 @@
 import { useState } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { CALENDARS } from "@calcom/platform-constants";
-import { QueryCell } from "@calcom/trpc/components/QueryCell";
-import cn from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { AppListCard } from "@calcom/ui/components/app-list-card";
-import type { ButtonProps } from "@calcom/ui/components/button";
-import { Button } from "@calcom/ui/components/button";
-import { CalendarSwitchComponent, type ICalendarSwitchProps } from "@calcom/ui/components/calendar-switch";
-import { DisconnectIntegrationComponent } from "@calcom/ui/components/disconnect-calendar-integration";
-import { Dropdown, DropdownMenuContent, DropdownMenuTrigger } from "@calcom/ui/components/dropdown";
-import { Switch } from "@calcom/ui/components/form";
-import { List } from "@calcom/ui/components/list";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { CALENDARS } from "@coachos/platform-constants";
+import { QueryCell } from "@coachos/trpc/components/QueryCell";
+import cn from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { AppListCard } from "@coachos/ui/components/app-list-card";
+import type { ButtonProps } from "@coachos/ui/components/button";
+import { Button } from "@coachos/ui/components/button";
+import { CalendarSwitchComponent, type ICalendarSwitchProps } from "@coachos/ui/components/calendar-switch";
+import { DisconnectIntegrationComponent } from "@coachos/ui/components/disconnect-calendar-integration";
+import { Dropdown, DropdownMenuContent, DropdownMenuTrigger } from "@coachos/ui/components/dropdown";
+import { Switch } from "@coachos/ui/components/form";
+import { List } from "@coachos/ui/components/list";
 
 import * as Connect from "../../connect";
 import { AppleConnect } from "../../connect/apple/AppleConnect";
@@ -117,7 +117,7 @@ export const SelectedCalendarsSettingsPlatformWrapper = ({
                           shouldHighlight
                           slug={connectedCalendar.integration.slug}
                           title={connectedCalendar.integration.name}
-                          logo={`https://app.cal.com${connectedCalendar.integration.logo}`}
+                          logo={`https://app.amir9078.github.io${connectedCalendar.integration.logo}`}
                           description={
                             connectedCalendar.primary?.email ?? connectedCalendar.integration.description
                           }

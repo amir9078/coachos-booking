@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 // Default mock for Cal.diy SaaS (IS_SELF_HOSTED = false)
-vi.mock("@calcom/lib/constants", () => ({
+vi.mock("@coachos/lib/constants", () => ({
   IS_SELF_HOSTED: false,
   IS_PRODUCTION: false,
 }));
@@ -134,15 +134,15 @@ describe("validateUrlForSSRFSync", () => {
 });
 
 describe("isTrustedInternalUrl", () => {
-  const webappUrl = "https://app.cal.com";
+  const webappUrl = "https://app.amir9078.github.io";
 
   it("returns true for same origin", () => {
-    expect(isTrustedInternalUrl("https://app.cal.com/logo.png", webappUrl)).toBe(true);
+    expect(isTrustedInternalUrl("https://app.amir9078.github.io/logo.png", webappUrl)).toBe(true);
   });
 
   it("returns false for different origins and invalid URLs", () => {
     expect(isTrustedInternalUrl("https://evil.com/logo.png", webappUrl)).toBe(false);
-    expect(isTrustedInternalUrl("https://app.cal.com.evil.com/x", webappUrl)).toBe(false);
+    expect(isTrustedInternalUrl("https://app.amir9078.github.io.evil.com/x", webappUrl)).toBe(false);
     expect(isTrustedInternalUrl("not-a-url", webappUrl)).toBe(false);
   });
 });
@@ -169,14 +169,14 @@ describe("HTTP webhook exceptions", () => {
 describe("Self-hosted environment behavior", () => {
   beforeEach(async () => {
     vi.resetModules();
-    vi.doMock("@calcom/lib/constants", () => ({
+    vi.doMock("@coachos/lib/constants", () => ({
       IS_SELF_HOSTED: true,
       IS_PRODUCTION: false,
     }));
   });
 
   afterEach(() => {
-    vi.doUnmock("@calcom/lib/constants");
+    vi.doUnmock("@coachos/lib/constants");
   });
 
   it("allows private IPs for self-hosted (internal webhooks)", async () => {

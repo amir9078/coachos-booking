@@ -17,7 +17,7 @@ import { PassportStrategy } from "@nestjs/passport";
 import type { Request } from "express";
 import { getToken } from "next-auth/jwt";
 
-import { INVALID_ACCESS_TOKEN, X_CAL_CLIENT_ID, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
+import { INVALID_ACCESS_TOKEN, X_coachos_CLIENT_ID, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
 
 import type { AllowedAuthMethod } from "../../decorators/api-auth-guard-only-allow.decorator";
 
@@ -28,11 +28,11 @@ export type ApiAuthGuardRequest = Request & {
   user: ApiAuthGuardUser;
   allowedAuthMethods?: AllowedAuthMethod[];
 };
-export const NO_AUTH_PROVIDED_MESSAGE = `No authentication method provided. Either pass an API key as 'Bearer' header or OAuth client credentials as '${X_CAL_SECRET_KEY}' and '${X_CAL_CLIENT_ID}' headers`;
+export const NO_AUTH_PROVIDED_MESSAGE = `No authentication method provided. Either pass an API key as 'Bearer' header or OAuth client credentials as '${X_coachos_SECRET_KEY}' and '${X_coachos_CLIENT_ID}' headers`;
 
-export const ONLY_CLIENT_ID_PROVIDED_MESSAGE = `Only '${X_CAL_CLIENT_ID}' header provided. Please also provide '${X_CAL_SECRET_KEY}' header or Auth bearer token as 'Authentication' header`;
+export const ONLY_CLIENT_ID_PROVIDED_MESSAGE = `Only '${X_coachos_CLIENT_ID}' header provided. Please also provide '${X_coachos_SECRET_KEY}' header or Auth bearer token as 'Authentication' header`;
 
-export const ONLY_CLIENT_SECRET_PROVIDED_MESSAGE = `Only '${X_CAL_SECRET_KEY}' header provided. Please also provide '${X_CAL_CLIENT_ID}' header or Auth bearer token as 'Authentication' header`;
+export const ONLY_CLIENT_SECRET_PROVIDED_MESSAGE = `Only '${X_coachos_SECRET_KEY}' header provided. Please also provide '${X_coachos_CLIENT_ID}' header or Auth bearer token as 'Authentication' header`;
 
 @Injectable()
 export class ApiAuthStrategy extends PassportStrategy(BaseStrategy, "api-auth") {
@@ -55,8 +55,8 @@ export class ApiAuthStrategy extends PassportStrategy(BaseStrategy, "api-auth") 
   async authenticate(request: ApiAuthGuardRequest) {
     try {
       const { params } = request;
-      const oAuthClientSecret = request.get(X_CAL_SECRET_KEY);
-      const oAuthClientId = params.clientId || request.get(X_CAL_CLIENT_ID);
+      const oAuthClientSecret = request.get(X_coachos_SECRET_KEY);
+      const oAuthClientId = params.clientId || request.get(X_coachos_CLIENT_ID);
       const bearerToken = request.get("Authorization")?.replace("Bearer ", "");
 
       const allowedMethods = request.allowedAuthMethods;
@@ -86,7 +86,7 @@ export class ApiAuthStrategy extends PassportStrategy(BaseStrategy, "api-auth") 
         if (apiKeyAllowed || accessTokenAllowed) {
           try {
             const requestOrigin = request.get("Origin");
-            request.authMethod = isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "cal_")
+            request.authMethod = isApiKey(bearerToken, this.config.get<string>("api.apiKeyPrefix") ?? "coachos_")
               ? AuthMethods["API_KEY"]
               : AuthMethods["ACCESS_TOKEN"];
             return await this.authenticateBearerToken(bearerToken, request, requestOrigin);
@@ -214,7 +214,7 @@ export class ApiAuthStrategy extends PassportStrategy(BaseStrategy, "api-auth") 
     requestOrigin: string | undefined
   ) {
     try {
-      const user = isApiKey(authString, this.config.get<string>("api.apiKeyPrefix") ?? "cal_")
+      const user = isApiKey(authString, this.config.get<string>("api.apiKeyPrefix") ?? "coachos_")
         ? await this.apiKeyStrategy(authString, request)
         : await this.accessTokenStrategy(authString, request, requestOrigin);
 
@@ -273,7 +273,7 @@ export class ApiAuthStrategy extends PassportStrategy(BaseStrategy, "api-auth") 
 
     if (origin && !isOriginAllowed(origin, client.redirectUris)) {
       throw new UnauthorizedException(
-        `ApiAuthStrategy - access token - Invalid request origin - please open https://app.cal.com/settings/platform and add the origin '${origin}' to the 'Redirect uris' of your OAuth client with ID '${client.id}'`
+        `ApiAuthStrategy - access token - Invalid request origin - please open https://app.amir9078.github.io/settings/platform and add the origin '${origin}' to the 'Redirect uris' of your OAuth client with ID '${client.id}'`
       );
     }
 

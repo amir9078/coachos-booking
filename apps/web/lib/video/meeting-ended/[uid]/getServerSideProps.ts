@@ -1,7 +1,7 @@
 import type { GetServerSidePropsContext } from "next";
 
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { prisma } from "@calcom/prisma";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { prisma } from "@coachos/prisma";
 
 import { type inferSSRProps } from "@lib/types/inferSSRProps";
 

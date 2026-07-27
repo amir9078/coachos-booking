@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 
-import { symmetricEncrypt } from "@calcom/lib/crypto";
-import logger from "@calcom/lib/logger";
-import { defaultHandler } from "@calcom/lib/server/defaultHandler";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import prisma from "@calcom/prisma";
+import { symmetricEncrypt } from "@coachos/lib/crypto";
+import logger from "@coachos/lib/logger";
+import { defaultHandler } from "@coachos/lib/server/defaultHandler";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import prisma from "@coachos/prisma";
 
 import getInstalledAppPath from "../../_utils/getInstalledAppPath";
 import { BuildCalendarService } from "../lib";

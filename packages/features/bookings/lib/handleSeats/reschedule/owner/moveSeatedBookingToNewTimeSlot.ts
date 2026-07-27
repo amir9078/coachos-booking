@@ -1,11 +1,11 @@
 import { cloneDeep } from "lodash";
 
-import { sendRescheduledEmailsAndSMS } from "@calcom/emails/email-manager";
-import type EventManager from "@calcom/features/bookings/lib/EventManager";
-import prisma from "@calcom/prisma";
-import type { AdditionalInformation, AppsStatus } from "@calcom/types/Calendar";
+import { sendRescheduledEmailsAndSMS } from "@coachos/emails/email-manager";
+import type EventManager from "@coachos/features/bookings/lib/EventManager";
+import prisma from "@coachos/prisma";
+import type { AdditionalInformation, AppsStatus } from "@coachos/types/Calendar";
 
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
 import type { Booking } from "../../../handleNewBooking/createBooking";
 import { findBookingQuery } from "../../../handleNewBooking/findBookingQuery";
 import { handleAppsStatus } from "../../../handleNewBooking/handleAppsStatus";

@@ -1,13 +1,13 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 
-import { MeetLocationType } from "@calcom/app-store/constants";
-import { getDestinationCalendarRepository } from "@calcom/features/di/containers/DestinationCalendar";
-import { SelectedCalendarRepository } from "@calcom/features/selectedCalendar/repositories/SelectedCalendarRepository";
-import { getLocation, getRichDescription } from "@calcom/lib/CalEventParser";
-import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { Prisma } from "@calcom/prisma/client";
+import { MeetLocationType } from "@coachos/app-store/constants";
+import { getDestinationCalendarRepository } from "@coachos/features/di/containers/DestinationCalendar";
+import { SelectedCalendarRepository } from "@coachos/features/selectedCalendar/repositories/SelectedCalendarRepository";
+import { getLocation, getRichDescription } from "@coachos/lib/CalEventParser";
+import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { Prisma } from "@coachos/prisma/client";
 import type {
   Calendar,
   CalendarEvent,
@@ -17,8 +17,8 @@ import type {
   IntegrationCalendar,
   NewCalendarEventType,
   SelectedCalendarEventTypeIds,
-} from "@calcom/types/Calendar";
-import type { CredentialForCalendarServiceWithEmail } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialForCalendarServiceWithEmail } from "@coachos/types/Credential";
 import type { calendar_v3 } from "@googleapis/calendar";
 import type { GaxiosResponse } from "googleapis-common";
 import { RRule } from "rrule";
@@ -480,7 +480,7 @@ class GoogleCalendarService implements Calendar {
       );
       const err = error as GoogleCalError;
       /**
-       *  410 is when an event is already deleted on the Google cal before on cal.com
+       *  410 is when an event is already deleted on the Google cal before on amir9078.github.io
        *  404 is when the event is on a different calendar
        */
       if (err.code === 410) return;

@@ -1,9 +1,9 @@
-import type { ALL_VIEWS } from "@calcom/features/form-builder/schema";
-import { type FieldZodCtx, fieldTypesSchemaMap } from "@calcom/features/form-builder/schema";
-import { dbReadResponseSchema } from "@calcom/lib/dbReadResponseSchema";
-import logger from "@calcom/lib/logger";
-import type { eventTypeBookingFields } from "@calcom/prisma/zod-utils";
-import { bookingResponses, emailSchemaRefinement } from "@calcom/prisma/zod-utils";
+import type { ALL_VIEWS } from "@coachos/features/form-builder/schema";
+import { type FieldZodCtx, fieldTypesSchemaMap } from "@coachos/features/form-builder/schema";
+import { dbReadResponseSchema } from "@coachos/lib/dbReadResponseSchema";
+import logger from "@coachos/lib/logger";
+import type { eventTypeBookingFields } from "@coachos/prisma/zod-utils";
+import { bookingResponses, emailSchemaRefinement } from "@coachos/prisma/zod-utils";
 import { isValidPhoneNumber } from "libphonenumber-js/max";
 import z from "zod";
 

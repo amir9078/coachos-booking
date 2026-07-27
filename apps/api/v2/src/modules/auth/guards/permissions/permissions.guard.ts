@@ -9,9 +9,9 @@ import { ConfigService } from "@nestjs/config";
 import { Reflector } from "@nestjs/core";
 import { getToken } from "next-auth/jwt";
 
-import { X_CAL_CLIENT_ID } from "@calcom/platform-constants";
-import { hasPermissions } from "@calcom/platform-utils";
-import type { PlatformOAuthClient } from "@calcom/prisma/client";
+import { X_coachos_CLIENT_ID } from "@coachos/platform-constants";
+import { hasPermissions } from "@coachos/platform-utils";
+import type { PlatformOAuthClient } from "@coachos/prisma/client";
 
 @Injectable()
 export class PermissionsGuard implements CanActivate {
@@ -35,8 +35,8 @@ export class PermissionsGuard implements CanActivate {
     const bearerToken = request.get("Authorization")?.replace("Bearer ", "");
     const nextAuthSecret = this.config.get("next.authSecret", { infer: true });
     const nextAuthToken = await getToken({ req: request, secret: nextAuthSecret });
-    const oAuthClientId = request.params?.clientId || request.get(X_CAL_CLIENT_ID);
-    const apiKey = bearerToken && isApiKey(bearerToken, this.config.get("api.apiKeyPrefix") ?? "cal_");
+    const oAuthClientId = request.params?.clientId || request.get(X_coachos_CLIENT_ID);
+    const apiKey = bearerToken && isApiKey(bearerToken, this.config.get("api.apiKeyPrefix") ?? "coachos_");
     const isThirdPartyBearerToken = bearerToken && this.getDecodedThirdPartyAccessToken(bearerToken);
 
     // only check permissions for accessTokens attached to platform oAuth Client or platform oAuth credentials, not for next token or api key or third party oauth client
@@ -46,7 +46,7 @@ export class PermissionsGuard implements CanActivate {
 
     if (!bearerToken && !oAuthClientId) {
       throw new ForbiddenException(
-        "PermissionsGuard - no authentication provided. Provide either authorization bearer token containing managed user access token or oAuth client id in 'x-cal-client-id' header."
+        "PermissionsGuard - no authentication provided. Provide either authorization bearer token containing managed user access token or oAuth client id in 'x-coachos-client-id' header."
       );
     }
 

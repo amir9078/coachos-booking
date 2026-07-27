@@ -1,4 +1,4 @@
-1. Navigate to Headless Router - acme.cal.com/router?formId={FORM_ID}&field1=value1&field2=value2
+1. Navigate to Headless Router - acme.amir9078.github.io/router?formId={FORM_ID}&field1=value1&field2=value2
    1. Validate the fields types and ensure required fields are present
    2. Based on the fields values, choose a route.
    3. Records a response for the form.

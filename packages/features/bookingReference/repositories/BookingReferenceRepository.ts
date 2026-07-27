@@ -1,6 +1,6 @@
-import { prisma } from "@calcom/prisma";
-import type { Prisma, PrismaClient } from "@calcom/prisma/client";
-import type { PartialReference } from "@calcom/types/EventManager";
+import { prisma } from "@coachos/prisma";
+import type { Prisma, PrismaClient } from "@coachos/prisma/client";
+import type { PartialReference } from "@coachos/types/EventManager";
 
 import type { IBookingReferenceRepository } from "./IBookingReferenceRepository";
 

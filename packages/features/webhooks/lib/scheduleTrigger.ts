@@ -1,18 +1,18 @@
 import { v4 } from "uuid";
 
-import { DailyLocationType, getHumanReadableLocationValue } from "@calcom/app-store/locations";
-import { selectOOOEntries } from "@calcom/app-store/zapier/api/subscriptions/listOOOEntries";
-import dayjs from "@calcom/dayjs";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
-import tasker from "@calcom/features/tasker";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import { getTranslation } from "@calcom/i18n/server";
-import { prisma } from "@calcom/prisma";
-import type { Prisma, Webhook, Booking, ApiKey } from "@calcom/prisma/client";
-import { BookingStatus, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
+import { DailyLocationType, getHumanReadableLocationValue } from "@coachos/app-store/locations";
+import { selectOOOEntries } from "@coachos/app-store/zapier/api/subscriptions/listOOOEntries";
+import dayjs from "@coachos/dayjs";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
+import tasker from "@coachos/features/tasker";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import { getTranslation } from "@coachos/i18n/server";
+import { prisma } from "@coachos/prisma";
+import type { Prisma, Webhook, Booking, ApiKey } from "@coachos/prisma/client";
+import { BookingStatus, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
 import { DEFAULT_WEBHOOK_VERSION, type WebhookVersion } from "./interface/IWebhookRepository";
 
 const SCHEDULING_TRIGGER: WebhookTriggerEvents[] = [
@@ -21,8 +21,8 @@ const SCHEDULING_TRIGGER: WebhookTriggerEvents[] = [
 ];
 
 const NO_SHOW_TRIGGERS: WebhookTriggerEvents[] = [
-  WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
-  WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+  WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+  WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
 ];
 
 const log = logger.getSubLogger({ prefix: ["[node-scheduler]"] });
@@ -606,9 +606,9 @@ export async function cancelNoShowTasksForBooking({
   if (bookingUid) {
     if (triggerEvent && !NO_SHOW_TRIGGERS.includes(triggerEvent)) return;
 
-    if (triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW) {
+    if (triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW) {
       await tasker.cancelWithReference(bookingUid, "triggerHostNoShowWebhook");
-    } else if (triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW) {
+    } else if (triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW) {
       await tasker.cancelWithReference(bookingUid, "triggerGuestNoShowWebhook");
     } else {
       await prisma.task.deleteMany({
@@ -645,8 +645,8 @@ export async function scheduleNoShowTaskForBooking(
   if (!isCalVideoLocation) return;
 
   if (
-    triggerEvent !== WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW &&
-    triggerEvent !== WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW
+    triggerEvent !== WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW &&
+    triggerEvent !== WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
   )
     return;
 
@@ -655,7 +655,7 @@ export async function scheduleNoShowTaskForBooking(
     .toDate();
 
   const taskType =
-    triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW
+    triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
       ? "triggerHostNoShowWebhook"
       : "triggerGuestNoShowWebhook";
   const version = (webhook.version as WebhookVersion) ?? DEFAULT_WEBHOOK_VERSION;

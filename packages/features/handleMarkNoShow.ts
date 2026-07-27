@@ -1,14 +1,14 @@
-import { AttendeeRepository } from "@calcom/features/bookings/repositories/AttendeeRepository";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { BookingAccessService } from "@calcom/features/bookings/services/BookingAccessService";
-import { WebhookService } from "@calcom/features/webhooks/lib/WebhookService";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { getTranslation } from "@calcom/i18n/server";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
-import { prisma } from "@calcom/prisma";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import { bookingMetadataSchema, type PlatformClientParams } from "@calcom/prisma/zod-utils";
+import { AttendeeRepository } from "@coachos/features/bookings/repositories/AttendeeRepository";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { BookingAccessService } from "@coachos/features/bookings/services/BookingAccessService";
+import { WebhookService } from "@coachos/features/webhooks/lib/WebhookService";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { getTranslation } from "@coachos/i18n/server";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
+import { prisma } from "@coachos/prisma";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import { bookingMetadataSchema, type PlatformClientParams } from "@coachos/prisma/zod-utils";
 import type { TFunction } from "i18next";
 import { z } from "zod";
 

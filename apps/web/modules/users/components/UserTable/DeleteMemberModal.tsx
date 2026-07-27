@@ -1,8 +1,8 @@
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { ConfirmationDialogContent } from "@calcom/ui/components/dialog";
-import { showToast } from "@calcom/ui/components/toast";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { ConfirmationDialogContent } from "@coachos/ui/components/dialog";
+import { showToast } from "@coachos/ui/components/toast";
 import { useSession } from "next-auth/react";
 import type { Dispatch } from "react";
 import type { UserTableAction, UserTableState } from "./types";

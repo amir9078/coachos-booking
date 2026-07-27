@@ -1,7 +1,7 @@
 "use client";
 
-import { APP_NAME } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { APP_NAME } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 import { Button } from "@coss/ui/components/button";
 import {
   AppHeader,

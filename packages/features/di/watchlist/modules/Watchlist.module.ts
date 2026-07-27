@@ -1,11 +1,11 @@
 import { createModule } from "@evyweb/ioctopus";
 
-import { DI_TOKENS } from "@calcom/features/di/tokens";
-import { GlobalWatchlistRepository } from "@calcom/features/watchlist/lib/repository/GlobalWatchlistRepository";
-import { OrganizationWatchlistRepository } from "@calcom/features/watchlist/lib/repository/OrganizationWatchlistRepository";
-import { PrismaWatchlistAuditRepository } from "@calcom/features/watchlist/lib/repository/PrismaWatchlistAuditRepository";
-import { GlobalBlockingService } from "@calcom/features/watchlist/lib/service/GlobalBlockingService";
-import { OrganizationBlockingService } from "@calcom/features/watchlist/lib/service/OrganizationBlockingService";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
+import { GlobalWatchlistRepository } from "@coachos/features/watchlist/lib/repository/GlobalWatchlistRepository";
+import { OrganizationWatchlistRepository } from "@coachos/features/watchlist/lib/repository/OrganizationWatchlistRepository";
+import { PrismaWatchlistAuditRepository } from "@coachos/features/watchlist/lib/repository/PrismaWatchlistAuditRepository";
+import { GlobalBlockingService } from "@coachos/features/watchlist/lib/service/GlobalBlockingService";
+import { OrganizationBlockingService } from "@coachos/features/watchlist/lib/service/OrganizationBlockingService";
 
 import { WATCHLIST_DI_TOKENS } from "../Watchlist.tokens";
 

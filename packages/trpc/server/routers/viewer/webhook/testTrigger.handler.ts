@@ -1,8 +1,8 @@
-import { DEFAULT_WEBHOOK_VERSION } from "@calcom/features/webhooks/lib/interface/IWebhookRepository";
-import type { EventPayloadType } from "@calcom/features/webhooks/lib/sendPayload";
-import sendPayload from "@calcom/features/webhooks/lib/sendPayload";
-import { validateUrlForSSRFSync } from "@calcom/lib/ssrfProtection";
-import { getTranslation } from "@calcom/i18n/server";
+import { DEFAULT_WEBHOOK_VERSION } from "@coachos/features/webhooks/lib/interface/IWebhookRepository";
+import type { EventPayloadType } from "@coachos/features/webhooks/lib/sendPayload";
+import sendPayload from "@coachos/features/webhooks/lib/sendPayload";
+import { validateUrlForSSRFSync } from "@coachos/lib/ssrfProtection";
+import { getTranslation } from "@coachos/i18n/server";
 
 import type { TTestTriggerInputSchema } from "./testTrigger.schema";
 
@@ -46,7 +46,7 @@ export const testTriggerHandler = async ({ ctx: _ctx, input }: TestTriggerOption
     ],
     organizer: {
       name: "Cal",
-      email: "no-reply@cal.com",
+      email: "no-reply@amir9078.github.io",
       timeZone: "Europe/London",
       language,
     },

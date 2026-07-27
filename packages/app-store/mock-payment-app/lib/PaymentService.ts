@@ -1,8 +1,8 @@
 import { v4 as uuidv4 } from "uuid";
 
-import prisma from "@calcom/prisma";
-import type { Booking, Payment, Prisma, PaymentOption } from "@calcom/prisma/client";
-import type { IAbstractPaymentService } from "@calcom/types/PaymentService";
+import prisma from "@coachos/prisma";
+import type { Booking, Payment, Prisma, PaymentOption } from "@coachos/prisma/client";
+import type { IAbstractPaymentService } from "@coachos/types/PaymentService";
 
 class MockPaymentService implements IAbstractPaymentService {
   async create(

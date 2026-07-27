@@ -1,7 +1,7 @@
-import { IS_DUB_REFERRALS_ENABLED } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { showToast } from "@calcom/ui/components/toast";
+import { IS_DUB_REFERRALS_ENABLED } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { showToast } from "@coachos/ui/components/toast";
 import posthog from "posthog-js";
 import type { NavigationItemType } from "./navigation/NavigationItem";
 

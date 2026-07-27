@@ -1,23 +1,23 @@
-import prismock from "@calcom/testing/lib/__mocks__/prisma";
+import prismock from "@coachos/testing/lib/__mocks__/prisma";
 
 import {
   createBookingScenario,
   Timezones,
   TestData,
   type ScenarioData,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
 
 import { describe, test, vi } from "vitest";
 import type { z } from "zod";
 
-import { getAvailableSlotsService } from "@calcom/features/di/containers/AvailableSlots";
-import type { getScheduleSchema } from "@calcom/trpc/server/routers/viewer/slots/types";
+import { getAvailableSlotsService } from "@coachos/features/di/containers/AvailableSlots";
+import type { getScheduleSchema } from "@coachos/trpc/server/routers/viewer/slots/types";
 
 import { expect } from "./expects";
 import { setupAndTeardown } from "./setupAndTeardown";
 
 // Mock the FeaturesRepository to enable restriction-schedule feature
-vi.mock("@calcom/features/flags/features.repository", () => ({
+vi.mock("@coachos/features/flags/features.repository", () => ({
   FeaturesRepository: vi.fn().mockImplementation(function () {
     return {
       checkIfTeamHasFeature: vi.fn().mockResolvedValue(true),

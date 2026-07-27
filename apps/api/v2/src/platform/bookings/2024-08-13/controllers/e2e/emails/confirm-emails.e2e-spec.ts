@@ -1,4 +1,4 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
 import {
   AttendeeCancelledEmail,
   AttendeeDeclinedEmail,
@@ -9,14 +9,14 @@ import {
   OrganizerRequestEmail,
   OrganizerRescheduledEmail,
   OrganizerScheduledEmail,
-} from "@calcom/platform-libraries/emails";
+} from "@coachos/platform-libraries/emails";
 import type {
   BookingOutput_2024_08_13,
   CreateBookingInput_2024_08_13,
   GetBookingOutput_2024_08_13,
   RescheduleBookingInput_2024_08_13,
-} from "@calcom/platform-types";
-import type { Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -258,7 +258,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -281,7 +281,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
     it("should not send an email when confirming a booking", async () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsDisabledSetup.createdBookingUid}/confirm`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${emailsDisabledSetup.accessToken}`)
         .expect(200)
         .then(async (response) => {
@@ -315,7 +315,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201)
         .then(async (response) => {
           const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -336,7 +336,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
     it("should not send an email when declining a booking", async () => {
       return request(app.getHttpServer())
         .post(`/v2/bookings/${emailsDisabledSetup.createdBookingUid}/decline`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${emailsDisabledSetup.accessToken}`)
         .expect(200)
         .then(async (response) => {
@@ -376,7 +376,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -397,7 +397,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
       it("should send an email when confirming a booking", async () => {
         return request(app.getHttpServer())
           .post(`/v2/bookings/${emailsEnabledSetup.createdBookingUid}/confirm`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${emailsEnabledSetup.accessToken}`)
           .expect(200)
           .then(async (response) => {
@@ -419,7 +419,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
           return request(app.getHttpServer())
             .post(`/v2/bookings/${emailsEnabledSetup.createdBookingUid}/reschedule`)
             .send(body)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .expect(201)
             .then(async (response) => {
               const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -448,7 +448,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
           return request(app.getHttpServer())
             .post(`/v2/bookings/${emailsEnabledSetup.rescheduledBookingUid}/reschedule`)
             .send(body)
-            .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+            .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
             .expect(201)
             .then(async (response) => {
               const responseBody: RescheduleBookingOutput_2024_08_13 = response.body;
@@ -494,7 +494,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
         return request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(201)
           .then(async (response) => {
             const responseBody: CreateBookingOutput_2024_08_13 = response.body;
@@ -515,7 +515,7 @@ describe("Bookings Endpoints 2024-08-13 confirm emails", () => {
       it("should send an email when declining a booking", async () => {
         return request(app.getHttpServer())
           .post(`/v2/bookings/${emailsEnabledSetup.createdBookingUid}/decline`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${emailsEnabledSetup.accessToken}`)
           .expect(200)
           .then(async (response) => {

@@ -1,7 +1,7 @@
 import type React from "react";
 import { vi } from "vitest";
 
-vi.mock("@calcom/features/bookings/components/Section", () => {
+vi.mock("@coachos/features/bookings/components/Section", () => {
   const BookerSection = ({
     children,
     className = "",

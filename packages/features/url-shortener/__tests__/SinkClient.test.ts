@@ -5,7 +5,7 @@ import { SinkClient } from "../providers/SinkClient";
 const mockFetch = vi.fn() as Mock;
 global.fetch = mockFetch;
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: () => ({
       debug: vi.fn(),

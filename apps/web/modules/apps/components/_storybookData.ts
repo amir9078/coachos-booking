@@ -1,4 +1,4 @@
-import type { AppFrontendPayload as App } from "@calcom/types/App";
+import type { AppFrontendPayload as App } from "@coachos/types/App";
 
 export const _SBApps: App[] = [
   {
@@ -13,8 +13,8 @@ export const _SBApps: App[] = [
     logo: "/api/app-store/googlecalendar/icon.svg",
     publisher: "Cal.diy",
     slug: "google-calendar",
-    url: "https://cal.com/",
-    email: "help@cal.com",
+    url: "https://amir9078.github.io/",
+    email: "shaikhamirhussain2000@gmail.com",
     dirName: "googlecalendar",
   },
   {
@@ -29,7 +29,7 @@ export const _SBApps: App[] = [
     category: "video",
     slug: "zoom",
     title: "Zoom Video",
-    email: "help@cal.com",
+    email: "shaikhamirhussain2000@gmail.com",
     appData: {
       location: {
         default: false,

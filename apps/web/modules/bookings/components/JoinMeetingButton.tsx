@@ -1,9 +1,9 @@
 "use client";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { BookingStatus } from "@calcom/prisma/enums";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { BookingStatus } from "@coachos/prisma/enums";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
 import { useJoinableLocation } from "./useJoinableLocation";
 
 interface JoinMeetingButtonProps {

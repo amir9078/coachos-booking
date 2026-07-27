@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { SchedulingType } from "@calcom/prisma/enums";
+import { SchedulingType } from "@coachos/prisma/enums";
 
 // Define types first to use with z.ZodType annotation
 export type TFilterQuerySchemaStrict = {

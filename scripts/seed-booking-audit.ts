@@ -1,6 +1,6 @@
 import process from "node:process";
-import { prisma } from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { prisma } from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
 import { v4 as uuidv4 } from "uuid";
 
 async function createUserActor(userUuid: string) {

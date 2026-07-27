@@ -16,7 +16,7 @@
     - [x] Restrict setting values for enum attributes(i.e. dropdown attributes)
 - AttributeAssignment within App
     - [x] For locked field, shouldn't be able to delete an assignment or add a new assignment.
-    - [x] For unlocked field, should be able to delete the assignments owned by cal.com users only. Should be able to add new assignments for any user.
+    - [x] For unlocked field, should be able to delete the assignments owned by amir9078.github.io users only. Should be able to add new assignments for any user.
 - [x] Support array update
 - [x] Ensure the already existing assignment(with same value) isn't recreated. To ensure weights aren't reset.
     - [x] Locked attributes

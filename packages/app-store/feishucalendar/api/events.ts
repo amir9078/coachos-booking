@@ -1,10 +1,10 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import { z } from "zod";
 
-import logger from "@calcom/lib/logger";
-import { defaultHandler } from "@calcom/lib/server/defaultHandler";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import prisma from "@calcom/prisma";
+import logger from "@coachos/lib/logger";
+import { defaultHandler } from "@coachos/lib/server/defaultHandler";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import prisma from "@coachos/prisma";
 
 import { getAppKeys } from "../common";
 import { sendPostMsg } from "../lib/BotService";
@@ -82,7 +82,7 @@ async function postHandler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json({ code: 0, msg: "success" });
   }
 
-  // used for handle user at bot in feishu chat with cal.com connector bot, see
+  // used for handle user at bot in feishu chat with amir9078.github.io connector bot, see
   // https://open.larksuite.com/document/uAjLw4CM/ukTMukTMukTM/reference/im-v1/message/events/receive
   if (req.body.header?.event_type === "im.message.receive_v1") {
     const {
@@ -101,7 +101,7 @@ async function postHandler(req: NextApiRequest, res: NextApiResponse) {
     return res.status(200).json({ code: 0, msg: "success" });
   }
 
-  // used for handle user first talk with cal.com connector bot, see
+  // used for handle user first talk with amir9078.github.io connector bot, see
   // https://open.larksuite.com/document/ukTMukTMukTM/uYDNxYjL2QTM24iN0EjN/bot-events
   if (req.body.event?.type === "p2p_chat_create") {
     const {

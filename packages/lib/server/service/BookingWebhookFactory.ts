@@ -1,5 +1,5 @@
-import type { Person } from "@calcom/types/Calendar";
-import type { JsonValue } from "@calcom/types/JsonObject";
+import type { Person } from "@coachos/types/Calendar";
+import type { JsonValue } from "@coachos/types/JsonObject";
 
 function isObjectButNotArray(obj: unknown): obj is Record<string, unknown> {
   return typeof obj === "object" && !Array.isArray(obj);

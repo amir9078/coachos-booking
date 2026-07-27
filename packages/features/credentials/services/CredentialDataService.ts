@@ -1,4 +1,4 @@
-import { encryptSecret } from "@calcom/lib/crypto/keyring";
+import { encryptSecret } from "@coachos/lib/crypto/keyring";
 
 export type CredentialCreateData = {
   type: string;

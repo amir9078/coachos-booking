@@ -1,10 +1,10 @@
-// eslint-disable-next-line @calcom/eslint/deprecated-imports-next-router
+// eslint-disable-next-line @coachos/eslint/deprecated-imports-next-router
 import { useEffect } from "react";
 
 import type {
   EventTypeAssignedUsers,
   EventTypeHosts,
-} from "@calcom/features/eventtypes/lib/types";
+} from "@coachos/features/eventtypes/lib/types";
 
 function checkForEmptyAssignment({
   assignedUsers,

@@ -1,16 +1,16 @@
 import process from "node:process";
-import { fieldsThatSupportLabelAsSafeHtml } from "@calcom/features/form-builder/fieldsThatSupportLabelAsSafeHtml";
-import { getFieldIdentifier } from "@calcom/features/form-builder/utils/getFieldIdentifier";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import slugify from "@calcom/lib/slugify";
-import type { EventType, EventTypeCustomInput } from "@calcom/prisma/client";
-import { EventTypeCustomInputType } from "@calcom/prisma/enums";
+import { fieldsThatSupportLabelAsSafeHtml } from "@coachos/features/form-builder/fieldsThatSupportLabelAsSafeHtml";
+import { getFieldIdentifier } from "@coachos/features/form-builder/utils/getFieldIdentifier";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import slugify from "@coachos/lib/slugify";
+import type { EventType, EventTypeCustomInput } from "@coachos/prisma/client";
+import { EventTypeCustomInputType } from "@coachos/prisma/enums";
 import {
   BookingFieldTypeEnum,
   customInputSchema,
   EventTypeMetaDataSchema,
   eventTypeBookingFields,
-} from "@calcom/prisma/zod-utils";
+} from "@coachos/prisma/zod-utils";
 import type { z } from "zod";
 
 export type Fields= z.infer<typeof eventTypeBookingFields>;

@@ -7,7 +7,7 @@
  *
  * They don't intend to test what the apps logic should do, but rather test if the apps are called with the correct data. For testing that, once should write tests within each app.
  */
-import prismaMock from "@calcom/testing/lib/__mocks__/prisma";
+import prismaMock from "@coachos/testing/lib/__mocks__/prisma";
 import {
   BookingLocations,
   createBookingScenario,
@@ -29,17 +29,17 @@ import {
   mockSuccessfulVideoMeetingCreation,
   mockVideoAppToCrashOnCreateMeeting,
   TestData,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
 import process from "node:process";
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import { createWatchlistEntry } from "@calcom/features/watchlist/lib/testUtils";
-import { WEBAPP_URL, WEBSITE_URL } from "@calcom/lib/constants";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import type { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { resetTestEmails } from "@calcom/lib/testEmails";
-import { distributedTracing } from "@calcom/lib/tracing/factory";
-import { BookingStatus, CreationSource, SchedulingType, WatchlistType } from "@calcom/prisma/enums";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import { createWatchlistEntry } from "@coachos/features/watchlist/lib/testUtils";
+import { WEBAPP_URL, WEBSITE_URL } from "@coachos/lib/constants";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import type { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { resetTestEmails } from "@coachos/lib/testEmails";
+import { distributedTracing } from "@coachos/lib/tracing/factory";
+import { BookingStatus, CreationSource, SchedulingType, WatchlistType } from "@coachos/prisma/enums";
 import {
   expectAwaitingPaymentEmails,
   expectBookingCreatedWebhookToHaveBeenFired,
@@ -52,11 +52,11 @@ import {
   expectICalUIDAsString,
   expectSuccessfulBookingCreationEmails,
   expectSuccessfulCalendarEventCreationInCalendar,
-} from "@calcom/testing/lib/bookingScenario/expects";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
-import { testWithAndWithoutOrg } from "@calcom/testing/lib/bookingScenario/test";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+} from "@coachos/testing/lib/bookingScenario/expects";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
+import { testWithAndWithoutOrg } from "@coachos/testing/lib/bookingScenario/test";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 import type { Request, Response } from "express";
 import type { NextApiRequest, NextApiResponse } from "next";
 import { describe, expect } from "vitest";
@@ -66,7 +66,7 @@ import { getNewBookingHandler } from "./getNewBookingHandler";
 const log = logger.getSubLogger({ prefix: ["[fresh-booking.test]"] });
 
 async function mockPaymentSuccessWebhookFromStripe({ externalId }: { externalId: string }) {
-  const { handlePaymentSuccess } = await import("@calcom/app-store/_utils/payments/handlePaymentSuccess");
+  const { handlePaymentSuccess } = await import("@coachos/app-store/_utils/payments/handlePaymentSuccess");
   let webhookResponse = null;
   try {
     // Look up the payment by externalId (simulating what the old Stripe webhook handler did)

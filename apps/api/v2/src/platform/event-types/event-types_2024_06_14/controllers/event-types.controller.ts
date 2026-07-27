@@ -3,12 +3,12 @@ import {
   EVENT_TYPE_WRITE,
   SUCCESS_STATUS,
   VERSION_2024_06_14,
-} from "@calcom/platform-constants";
+} from "@coachos/platform-constants";
 import {
   CreateEventTypeInput_2024_06_14,
   GetEventTypesQuery_2024_06_14,
   UpdateEventTypeInput_2024_06_14,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 import {
   Body,
   Controller,
@@ -39,8 +39,8 @@ import { VERSION_2024_06_14_VALUE } from "@/lib/api-versions";
 import {
   API_KEY_OR_ACCESS_TOKEN_HEADER,
   OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER,
-  OPTIONAL_X_CAL_CLIENT_ID_HEADER,
-  OPTIONAL_X_CAL_SECRET_KEY_HEADER,
+  OPTIONAL_X_coachos_CLIENT_ID_HEADER,
+  OPTIONAL_X_coachos_SECRET_KEY_HEADER,
 } from "@/lib/docs/headers";
 import {
   AuthOptionalUser,
@@ -160,8 +160,8 @@ export class EventTypesController_2024_06_14 {
       `,
   })
   @UseGuards(OptionalApiAuthGuard)
-  @ApiHeader(OPTIONAL_X_CAL_CLIENT_ID_HEADER)
-  @ApiHeader(OPTIONAL_X_CAL_SECRET_KEY_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_CLIENT_ID_HEADER)
+  @ApiHeader(OPTIONAL_X_coachos_SECRET_KEY_HEADER)
   @ApiHeader(OPTIONAL_API_KEY_OR_ACCESS_TOKEN_HEADER)
   async getEventTypes(
     @Query() queryParams: GetEventTypesQuery_2024_06_14,

@@ -22,15 +22,15 @@ import {
 import { DateTime } from "luxon";
 import { z } from "zod";
 
-import { SlotFormat } from "@calcom/platform-enums";
-import { SchedulingType } from "@calcom/platform-libraries";
-import { validateRoundRobinSlotAvailability } from "@calcom/platform-libraries/slots";
+import { SlotFormat } from "@coachos/platform-enums";
+import { SchedulingType } from "@coachos/platform-libraries";
+import { validateRoundRobinSlotAvailability } from "@coachos/platform-libraries/slots";
 import type {
   GetSlotsInput_2024_09_04,
   GetSlotsInputWithRouting_2024_09_04,
   ReserveSlotInput_2024_09_04,
-} from "@calcom/platform-types";
-import type { EventType } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { EventType } from "@coachos/prisma/client";
 
 const eventTypeMetadataSchema = z
   .object({

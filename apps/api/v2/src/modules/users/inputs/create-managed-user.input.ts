@@ -4,7 +4,7 @@ import { ApiProperty, ApiPropertyOptional } from "@nestjs/swagger";
 import { Transform, Type } from "class-transformer";
 import { IsOptional, IsTimeZone, IsString, IsEnum, IsIn, IsUrl, IsObject, IsNumber } from "class-validator";
 
-import { ValidateMetadata } from "@calcom/platform-types";
+import { ValidateMetadata } from "@coachos/platform-types";
 
 export type WeekDay = "Monday" | "Tuesday" | "Wednesday" | "Thursday" | "Friday" | "Saturday" | "Sunday";
 export type TimeFormat = 12 | 24;
@@ -53,7 +53,7 @@ export class CreateManagedUserInput {
   @IsOptional()
   @ApiPropertyOptional({
     type: String,
-    example: "https://cal.com/api/avatar/2b735186-b01b-46d3-87da-019b8f61776b.png",
+    example: "https://amir9078.github.io/api/avatar/2b735186-b01b-46d3-87da-019b8f61776b.png",
     description: `URL of the user's avatar image`,
   })
   avatarUrl?: string;

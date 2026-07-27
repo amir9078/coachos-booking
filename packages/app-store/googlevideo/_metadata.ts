@@ -1,6 +1,6 @@
 import process from "node:process";
-import { validJson } from "@calcom/lib/jsonUtils";
-import type { AppMeta } from "@calcom/types/App";
+import { validJson } from "@coachos/lib/jsonUtils";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Google Meet",
@@ -15,9 +15,9 @@ export const metadata = {
   variant: "conferencing",
   logo: "logo.webp",
   publisher: "Cal.diy",
-  url: "https://cal.com/",
+  url: "https://amir9078.github.io/",
   isGlobal: false,
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   appData: {
     location: {
       linkType: "dynamic",

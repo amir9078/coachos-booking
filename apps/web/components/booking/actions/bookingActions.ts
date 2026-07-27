@@ -1,6 +1,6 @@
-import { isWithinMinimumRescheduleNotice } from "@calcom/features/bookings/lib/reschedule/isWithinMinimumRescheduleNotice";
-import { BookingStatus, SchedulingType } from "@calcom/prisma/enums";
-import type { ActionType } from "@calcom/ui/components/table";
+import { isWithinMinimumRescheduleNotice } from "@coachos/features/bookings/lib/reschedule/isWithinMinimumRescheduleNotice";
+import { BookingStatus, SchedulingType } from "@coachos/prisma/enums";
+import type { ActionType } from "@coachos/ui/components/table";
 
 import type { BookingItemProps } from "../types";
 

@@ -4,10 +4,10 @@ import { CredentialsRepository } from "@/modules/credentials/credentials.reposit
 import { BadRequestException, UnauthorizedException } from "@nestjs/common";
 import { Injectable } from "@nestjs/common";
 
-import { SUCCESS_STATUS, APPLE_CALENDAR_TYPE, APPLE_CALENDAR_ID } from "@calcom/platform-constants";
-import { symmetricEncrypt, symmetricDecrypt } from "@calcom/platform-libraries";
-import { BuildCalendarService } from "@calcom/platform-libraries/app-store";
-import type { Credential } from "@calcom/prisma/client";
+import { SUCCESS_STATUS, APPLE_CALENDAR_TYPE, APPLE_CALENDAR_ID } from "@coachos/platform-constants";
+import { symmetricEncrypt, symmetricDecrypt } from "@coachos/platform-libraries";
+import { BuildCalendarService } from "@coachos/platform-libraries/app-store";
+import type { Credential } from "@coachos/prisma/client";
 
 @Injectable()
 export class AppleCalendarService implements CredentialSyncCalendarApp {

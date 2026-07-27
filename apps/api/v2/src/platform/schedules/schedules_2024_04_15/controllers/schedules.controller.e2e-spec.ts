@@ -1,6 +1,6 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_04_15 } from "@calcom/platform-constants";
-import type { UpdateScheduleInput_2024_04_15 } from "@calcom/platform-types";
-import type { User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_04_15 } from "@coachos/platform-constants";
+import type { UpdateScheduleInput_2024_04_15 } from "@coachos/platform-types";
+import type { User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -86,7 +86,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/schedules")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_04_15)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_04_15)
         .send(body)
         .expect(400)
         .then(async (response) => {
@@ -108,7 +108,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .post("/api/v2/schedules")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_04_15)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_04_15)
         .send(body)
         .expect(201)
         .then(async (response) => {
@@ -183,7 +183,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/schedules/${createdSchedule.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_04_15)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_04_15)
         .send(body)
         .expect(200)
         .then((response: any) => {

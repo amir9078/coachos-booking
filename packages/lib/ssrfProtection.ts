@@ -1,7 +1,7 @@
 import dns from "node:dns/promises";
 import ipaddr from "ipaddr.js";
-import { IS_SELF_HOSTED } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
+import { IS_SELF_HOSTED } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
 
 const log: ReturnType<typeof logger.getSubLogger> = logger.getSubLogger({ prefix: ["ssrf-protection"] });
 
@@ -36,7 +36,7 @@ const LOOPBACK_HOSTNAMES: string[] = ["localhost", "127.0.0.1", "::1", "[::1]", 
 // Hostnames blocked on Cal.diy SaaS (includes metadata + loopback)
 const BLOCKED_HOSTNAMES: string[] = [...CLOUD_METADATA_ENDPOINTS, ...LOOPBACK_HOSTNAMES];
 
-const CAL_AVATAR_PATH_REGEX = /^\/api\/avatar\/.+\.png$/;
+const coachos_AVATAR_PATH_REGEX = /^\/api\/avatar\/.+\.png$/;
 
 const ERRORS = {
   HTTPS_ONLY: "Only HTTPS URLs are allowed",
@@ -115,7 +115,7 @@ function validateUrlCore(urlString: string): SSRFValidationResult | { url: URL }
     return { isValid: false, error: ERRORS.NON_IMAGE_DATA_URL };
   }
 
-  if (CAL_AVATAR_PATH_REGEX.test(urlString)) {
+  if (coachos_AVATAR_PATH_REGEX.test(urlString)) {
     return { isValid: true };
   }
 

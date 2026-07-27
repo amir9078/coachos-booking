@@ -3,9 +3,9 @@ import { _generateMetadata } from "app/_utils";
 import { cookies, headers } from "next/headers";
 import { redirect } from "next/navigation";
 
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { APP_NAME } from "@calcom/lib/constants";
-import { webhookRouter } from "@calcom/trpc/server/routers/viewer/webhook/_router";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { APP_NAME } from "@coachos/lib/constants";
+import { webhookRouter } from "@coachos/trpc/server/routers/viewer/webhook/_router";
 
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 

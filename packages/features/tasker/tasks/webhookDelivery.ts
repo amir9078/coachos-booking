@@ -1,7 +1,7 @@
-import { getWebhookTaskConsumer } from "@calcom/features/di/webhooks/containers/webhook";
-import { webhookTaskPayloadSchema } from "@calcom/features/webhooks/lib/types/webhookTask";
-import logger from "@calcom/lib/logger";
-import type { ILogger } from "@calcom/lib/tasker/types";
+import { getWebhookTaskConsumer } from "@coachos/features/di/webhooks/containers/webhook";
+import { webhookTaskPayloadSchema } from "@coachos/features/webhooks/lib/types/webhookTask";
+import logger from "@coachos/lib/logger";
+import type { ILogger } from "@coachos/lib/tasker/types";
 
 /**
  * Webhook Delivery Task Handler

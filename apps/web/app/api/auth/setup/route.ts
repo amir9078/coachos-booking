@@ -4,14 +4,14 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import z from "zod";
 
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
-import { isPasswordValid } from "@calcom/lib/auth/isPasswordValid";
-import { emailRegex } from "@calcom/lib/emailSchema";
-import { HttpError } from "@calcom/lib/http-error";
-import slugify from "@calcom/lib/slugify";
-import prisma from "@calcom/prisma";
-import { IdentityProvider } from "@calcom/prisma/enums";
-import { CreationSource } from "@calcom/prisma/enums";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
+import { isPasswordValid } from "@coachos/lib/auth/isPasswordValid";
+import { emailRegex } from "@coachos/lib/emailSchema";
+import { HttpError } from "@coachos/lib/http-error";
+import slugify from "@coachos/lib/slugify";
+import prisma from "@coachos/prisma";
+import { IdentityProvider } from "@coachos/prisma/enums";
+import { CreationSource } from "@coachos/prisma/enums";
 
 const querySchema = z.object({
   username: z

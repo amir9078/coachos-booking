@@ -45,7 +45,7 @@ For simplicity sake will explain how the `InternalTasker` works:
 
   ```ts
   // /app/api/tasks/cron/route.ts
-  import { TaskProcessor } from "@calcom/features/tasker/task-processor";
+  import { TaskProcessor } from "@coachos/features/tasker/task-processor";
 
   export async function GET() {
     // authenticate the call...
@@ -63,7 +63,7 @@ For simplicity sake will explain how the `InternalTasker` works:
 
   ```ts
   // /app/api/tasks/cleanup/route.ts
-  import { TaskProcessor } from "@calcom/features/tasker/task-processor";
+  import { TaskProcessor } from "@coachos/features/tasker/task-processor";
 
   export async function GET() {
     // authenticate the call...

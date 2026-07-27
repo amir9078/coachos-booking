@@ -1,8 +1,8 @@
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import { BookingResponse } from "@calcom/platform-libraries";
-import { type RegularBookingCreateResult } from "@calcom/platform-libraries/bookings";
-import type { ApiErrorResponse, ApiSuccessResponse } from "@calcom/platform-types";
-import type { User } from "@calcom/prisma/client";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import { BookingResponse } from "@coachos/platform-libraries";
+import { type RegularBookingCreateResult } from "@coachos/platform-libraries/bookings";
+import type { ApiErrorResponse, ApiSuccessResponse } from "@coachos/platform-types";
+import type { User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -241,7 +241,7 @@ describe("Bookings Endpoints 2024-04-15", () => {
       return request(app.getHttpServer())
         .post("/v2/bookings")
         .send(body)
-        .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+        .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
         .expect(201)
         .then(async (response) => {
           const responseBody: ApiSuccessResponse<RegularBookingCreateResult> = response.body;
@@ -582,7 +582,7 @@ describe("Bookings Endpoints 2024-04-15", () => {
         await request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set({ Authorization: `Bearer cal_test_${unauthorizedUserApiKeyString}` })
+          .set({ Authorization: `Bearer coachos_test_${unauthorizedUserApiKeyString}` })
           .expect(403);
       });
 
@@ -608,7 +608,7 @@ describe("Bookings Endpoints 2024-04-15", () => {
         const response = await request(app.getHttpServer())
           .post("/v2/bookings")
           .send(body)
-          .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+          .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
           .expect(201);
 
         const responseBody: ApiSuccessResponse<RegularBookingCreateResult> = response.body;

@@ -29,7 +29,7 @@ This updates the TypeScript types. This is especially important:
 npx prisma migrate dev --name migration_name
 
 # Production deployment
-yarn workspace @calcom/prisma db-deploy
+yarn workspace @coachos/prisma db-deploy
 ```
 
 ## Timestamp Fields

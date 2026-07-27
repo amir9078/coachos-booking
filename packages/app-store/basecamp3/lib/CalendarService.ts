@@ -1,5 +1,5 @@
-import logger from "@calcom/lib/logger";
-import prisma from "@calcom/prisma";
+import logger from "@coachos/lib/logger";
+import prisma from "@coachos/prisma";
 import type {
   Calendar,
   CalendarEvent,
@@ -7,8 +7,8 @@ import type {
   GetAvailabilityParams,
   IntegrationCalendar,
   NewCalendarEventType,
-} from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
 
 import getAppKeysFromSlug from "../../_utils/getAppKeysFromSlug";
 import { refreshAccessToken as getNewTokens } from "./helpers";
@@ -90,7 +90,7 @@ class BasecampCalendarService implements Calendar {
       hour12: true,
       minute: "numeric",
     });
-    const baseString = `<div>Event title: ${event.title}<br/>Date and time: ${date}, ${startTime} - ${endTime} ${timeZone}<br/>View on Cal.diy: <a target="_blank" rel="noreferrer" class="autolinked" data-behavior="truncate" href="https://app.cal.com/booking/${event.uid}">https://app.cal.com/booking/${event.uid}</a> `;
+    const baseString = `<div>Event title: ${event.title}<br/>Date and time: ${date}, ${startTime} - ${endTime} ${timeZone}<br/>View on Cal.diy: <a target="_blank" rel="noreferrer" class="autolinked" data-behavior="truncate" href="https://app.amir9078.github.io/booking/${event.uid}">https://app.amir9078.github.io/booking/${event.uid}</a> `;
     const guestString = `<br/>Guests: ${event.attendees.reduce((acc, attendee) => {
       return `${acc}<br/><a target="_blank" rel="noreferrer" class="autolinked" data-behavior="truncate" href="mailto:${attendee.email}">${attendee.email}</a>`;
     }, "")}`;

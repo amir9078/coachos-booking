@@ -5,7 +5,7 @@ import { describe, expect, it, vi } from "vitest";
 
 import AdminPasswordBanner from "./AdminPasswordBanner";
 
-vi.mock("@calcom/lib/hooks/useLocale", () => ({
+vi.mock("@coachos/lib/hooks/useLocale", () => ({
   useLocale: () => ({
     t: (key: string) => key,
   }),
@@ -19,7 +19,7 @@ vi.mock("next/link", () => ({
   ),
 }));
 
-vi.mock("@calcom/ui/components/top-banner", () => ({
+vi.mock("@coachos/ui/components/top-banner", () => ({
   TopBanner: ({ text, actions }: { text: string; actions?: ReactNode }) => (
     <div>
       <span>{text}</span>

@@ -1,7 +1,7 @@
 import { useMemo } from "react";
 
-import dayjs from "@calcom/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import dayjs from "@coachos/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 import type {
   RowData,

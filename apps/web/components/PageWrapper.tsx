@@ -15,11 +15,11 @@ import localFont from "next/font/local";
 import Head from "next/head";
 import Script from "next/script";
 
-import "@calcom/embed-core/src/embed-iframe";
-import { IS_CALCOM, WEBAPP_URL } from "@calcom/lib/constants";
-import { getCalcomUrl } from "@calcom/lib/getCalcomUrl";
-import { buildCanonical } from "@calcom/lib/next-seo.config";
-import { IconSprites } from "@calcom/ui/components/icon";
+import "@coachos/embed-core/src/embed-iframe";
+import { IS_CALCOM, WEBAPP_URL } from "@coachos/lib/constants";
+import { getCalcomUrl } from "@coachos/lib/getCalcomUrl";
+import { buildCanonical } from "@coachos/lib/next-seo.config";
+import { IconSprites } from "@coachos/ui/components/icon";
 
 import type { AppProps } from "@lib/app-providers";
 import AppProviders from "@lib/app-providers";
@@ -70,10 +70,10 @@ function PageWrapper(props: AppProps) {
         />
       </Head>
       <DefaultSeo
-        // Set canonical to https://cal.com or self-hosted URL
+        // Set canonical to https://amir9078.github.io or self-hosted URL
         canonical={
           IS_CALCOM
-            ? buildCanonical({ path, origin: getCalcomUrl() }) // cal.com & .dev
+            ? buildCanonical({ path, origin: getCalcomUrl() }) // amir9078.github.io & .dev
             : buildCanonical({ path, origin: WEBAPP_URL }) // self-hosted
         }
         {...seoConfig.defaultNextSeo}

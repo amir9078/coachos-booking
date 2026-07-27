@@ -1,13 +1,13 @@
 "use client";
 
-import dayjs from "@calcom/dayjs";
-import { downloadAsCsv } from "@calcom/lib/csvUtils";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import { Button } from "@calcom/ui/components/button";
-import { hideProgressToast, showProgressToast, showToast } from "@calcom/ui/components/toast";
+import dayjs from "@coachos/dayjs";
+import { downloadAsCsv } from "@coachos/lib/csvUtils";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import { Button } from "@coachos/ui/components/button";
+import { hideProgressToast, showProgressToast, showToast } from "@coachos/ui/components/toast";
 import { useState } from "react";
 import { useBookingFilters } from "~/bookings/hooks/useBookingFilters";
 import type { BookingListingStatus } from "../types";

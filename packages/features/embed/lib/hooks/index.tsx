@@ -1,5 +1,5 @@
-import { useEmbedBookerUrl } from "@calcom/features/bookings/hooks/useBookerUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useEmbedBookerUrl } from "@coachos/features/bookings/hooks/useBookerUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 export const useEmbedTypes = () => {
   const { t } = useLocale();

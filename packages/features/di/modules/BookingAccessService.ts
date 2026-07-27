@@ -1,6 +1,6 @@
-import { BookingAccessService } from "@calcom/features/bookings/services/BookingAccessService";
-import { moduleLoader as prismaModuleLoader } from "@calcom/features/di/modules/Prisma";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
+import { BookingAccessService } from "@coachos/features/bookings/services/BookingAccessService";
+import { moduleLoader as prismaModuleLoader } from "@coachos/features/di/modules/Prisma";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
 
 import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "../di";
 

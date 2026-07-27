@@ -1,9 +1,9 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { Switch } from "@calcom/ui/components/form";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { Switch } from "@coachos/ui/components/form";
 
-import { TroubleshooterListItemContainer } from "@calcom/features/troubleshooter/components/TroubleshooterListItemContainer";
+import { TroubleshooterListItemContainer } from "@coachos/features/troubleshooter/components/TroubleshooterListItemContainer";
 
 function AvailabiltyItem() {
   const { t } = useLocale();

@@ -1,8 +1,8 @@
 import { expect, it, beforeAll, vi } from "vitest";
 
-import dayjs from "@calcom/dayjs";
-import { getAvailabilityFromSchedule } from "@calcom/lib/availability";
-import type { Availability } from "@calcom/prisma/client";
+import dayjs from "@coachos/dayjs";
+import { getAvailabilityFromSchedule } from "@coachos/lib/availability";
+import type { Availability } from "@coachos/prisma/client";
 
 beforeAll(() => {
   vi.setSystemTime(new Date("2021-06-20T11:59:59Z"));

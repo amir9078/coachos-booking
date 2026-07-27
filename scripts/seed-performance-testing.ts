@@ -5,11 +5,11 @@
  */
 import { uuid } from "short-uuid";
 
-import dailyMeta from "@calcom/app-store/dailyvideo/_metadata";
-import googleMeetMeta from "@calcom/app-store/googlevideo/_metadata";
-import zoomMeta from "@calcom/app-store/zoomvideo/_metadata";
-import dayjs from "@calcom/dayjs";
-import { BookingStatus } from "@calcom/prisma/enums";
+import dailyMeta from "@coachos/app-store/dailyvideo/_metadata";
+import googleMeetMeta from "@coachos/app-store/googlevideo/_metadata";
+import zoomMeta from "@coachos/app-store/zoomvideo/_metadata";
+import dayjs from "@coachos/dayjs";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { createUserAndEventType } from "./seed-utils";
 

@@ -1,14 +1,14 @@
-import type { FeatureId, FeatureState } from "@calcom/features/flags/config";
-import type { IFeatureRepository } from "@calcom/features/flags/repositories/PrismaFeatureRepository";
-import type { ITeamFeatureRepository } from "@calcom/features/flags/repositories/PrismaTeamFeatureRepository";
-import type { IUserFeatureRepository } from "@calcom/features/flags/repositories/PrismaUserFeatureRepository";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import type { TeamFeaturesDto } from "@calcom/lib/dto/TeamFeaturesDto";
-import type { UserFeaturesDto } from "@calcom/lib/dto/UserFeaturesDto";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { prisma } from "@calcom/prisma";
-import { MembershipRole } from "@calcom/prisma/enums";
+import type { FeatureId, FeatureState } from "@coachos/features/flags/config";
+import type { IFeatureRepository } from "@coachos/features/flags/repositories/PrismaFeatureRepository";
+import type { ITeamFeatureRepository } from "@coachos/features/flags/repositories/PrismaTeamFeatureRepository";
+import type { IUserFeatureRepository } from "@coachos/features/flags/repositories/PrismaUserFeatureRepository";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import type { TeamFeaturesDto } from "@coachos/lib/dto/TeamFeaturesDto";
+import type { UserFeaturesDto } from "@coachos/lib/dto/UserFeaturesDto";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { prisma } from "@coachos/prisma";
+import { MembershipRole } from "@coachos/prisma/enums";
 import {
   getOptInFeatureConfig,
   getOptInFeaturesForScope,

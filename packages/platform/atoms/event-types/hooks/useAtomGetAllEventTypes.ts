@@ -1,7 +1,7 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { V2_ENDPOINTS, SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { ApiResponse } from "@calcom/platform-types";
+import { V2_ENDPOINTS, SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { ApiResponse } from "@coachos/platform-types";
 
 import { useAtomsContext } from "../../hooks/useAtomsContext";
 import http from "../../lib/http";

@@ -1,4 +1,4 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 type Props = {
   /**

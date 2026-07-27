@@ -17,7 +17,7 @@ When working with graphql files ensure that `yarn codegen:watch` is running in t
 # Developing the SFDC package
 The SFDC package is written using Apex. To develop this package, you need to have the Salesforce CLI installed. Then you can run `yarn sfdc:deploy:preview` to see what changes will be deployed to the scratch org. Running `yarn sfdc:deploy` will deploy the changes to the scratch org.
 
-Note that if you want to call your local development instances you need to change the "Named Credential" on the scratch org settings to point the `CalCom_Development` credential to the local instance.
+Note that if you want to call your local development instances you need to change the "Named Credential" on the scratch org settings to point the `COACHOS_Development` credential to the local instance.
 
 # Publishing the SFDC Package
 
@@ -33,10 +33,10 @@ If the package doesn't exist yet in the Dev Hub, create it:
 
 ```bash
 sf package create \
-  --name "calcom-sfdc-package" \
+  --name "coachos-sfdc-package" \
   --package-type Unlocked \
   --path force-app \
-  --target-dev-hub team@cal.com
+  --target-dev-hub team@amir9078.github.io
 ```
 
 This registers the package and updates `sfdx-project.json` with the package ID.
@@ -47,10 +47,10 @@ Each time you want to release changes, create a new version:
 
 ```bash
 sf package version create \
-  --package "calcom-sfdc-package" \
+  --package "coachos-sfdc-package" \
   --installation-key-bypass \
   --wait 20 \
-  --target-dev-hub team@cal.com
+  --target-dev-hub team@amir9078.github.io
 ```
 
 Options:
@@ -63,7 +63,7 @@ Options:
 List all package versions:
 
 ```bash
-sf package version list --target-dev-hub team@cal.com
+sf package version list --target-dev-hub team@amir9078.github.io
 ```
 
 The installation URL format is:
@@ -78,8 +78,8 @@ Beta versions can only be installed in sandboxes/scratch orgs. To allow installa
 
 ```bash
 sf package version promote \
-  --package "calcom-sfdc-package@X.X.X-X" \
-  --target-dev-hub team@cal.com
+  --package "coachos-sfdc-package@X.X.X-X" \
+  --target-dev-hub team@amir9078.github.io
 ```
 
 Replace `X.X.X-X` with the version number (e.g., `0.1.0-1`).

@@ -1,5 +1,5 @@
-import { X_CAL_SECRET_KEY } from "@calcom/platform-constants";
-import type { PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+import { X_coachos_SECRET_KEY } from "@coachos/platform-constants";
+import type { PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test, TestingModule } from "@nestjs/testing";
@@ -46,7 +46,7 @@ describe("OAuthFlow Endpoints", () => {
       return request(appWithoutAuth.getHttpServer()).post("/api/v2/oauth/100/exchange").expect(400);
     });
 
-    it(`POST /oauth/:clientId/refresh missing ${X_CAL_SECRET_KEY} header with secret`, () => {
+    it(`POST /oauth/:clientId/refresh missing ${X_coachos_SECRET_KEY} header with secret`, () => {
       return request(appWithoutAuth.getHttpServer()).post("/api/v2/oauth/100/refresh").expect(401);
     });
 
@@ -197,7 +197,7 @@ describe("OAuthFlow Endpoints", () => {
 
         const response = await request(app.getHttpServer())
           .post(`/v2/oauth/${oAuthClient.id}/refresh`)
-          .set("x-cal-secret-key", secretKey)
+          .set("x-coachos-secret-key", secretKey)
           .send(body)
           .expect(200);
 

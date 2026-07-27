@@ -1,6 +1,6 @@
-import type { CalendarSubscriptionEventItem } from "@calcom/features/calendar-subscription/lib/CalendarSubscriptionPort.interface";
-import type { BookingRepository } from "@calcom/lib/server/repository/booking";
-import type { SelectedCalendar } from "@calcom/prisma/client";
+import type { CalendarSubscriptionEventItem } from "@coachos/features/calendar-subscription/lib/CalendarSubscriptionPort.interface";
+import type { BookingRepository } from "@coachos/lib/server/repository/booking";
+import type { SelectedCalendar } from "@coachos/prisma/client";
 import { beforeEach, describe, expect, test, vi } from "vitest";
 import { CalendarSyncService } from "../CalendarSyncService";
 
@@ -9,17 +9,17 @@ const { mockHandleCancelBooking, mockCreateBooking } = vi.hoisted(() => ({
   mockCreateBooking: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock("@calcom/features/bookings/lib/handleCancelBooking", () => ({
+vi.mock("@coachos/features/bookings/lib/handleCancelBooking", () => ({
   default: mockHandleCancelBooking,
 }));
 
-vi.mock("@calcom/features/bookings/di/RegularBookingService.container", () => ({
+vi.mock("@coachos/features/bookings/di/RegularBookingService.container", () => ({
   getRegularBookingService: () => ({
     createBooking: mockCreateBooking,
   }),
 }));
 
-vi.mock("@calcom/lib/idempotencyKey/idempotencyKeyService", () => ({
+vi.mock("@coachos/lib/idempotencyKey/idempotencyKeyService", () => ({
   IdempotencyKeyService: {
     generate: vi.fn(() => "test-idempotency-key"),
   },
@@ -94,7 +94,7 @@ const mockBooking = {
 
 const mockCalComEvent: CalendarSubscriptionEventItem = {
   id: "event-1",
-  iCalUID: "test-booking-uid@cal.com",
+  iCalUID: "test-booking-uid@amir9078.github.io",
   start: new Date("2023-12-01T10:00:00Z"),
   end: new Date("2023-12-01T11:00:00Z"),
   busy: true,
@@ -135,7 +135,7 @@ const mockNonCalComEvent: CalendarSubscriptionEventItem = {
 const mockCancelledEvent: CalendarSubscriptionEventItem = {
   ...mockCalComEvent,
   id: "event-3",
-  iCalUID: "cancelled-booking-uid@cal.com",
+  iCalUID: "cancelled-booking-uid@amir9078.github.io",
   status: "cancelled",
 };
 
@@ -192,7 +192,7 @@ describe("CalendarSyncService", () => {
     test("should handle mixed case iCalUID", async () => {
       const eventWithMixedCase: CalendarSubscriptionEventItem = {
         ...mockCalComEvent,
-        iCalUID: "test-booking-uid@CAL.COM",
+        iCalUID: "test-booking-uid@amir9078.github.io",
       };
 
       mockBookingRepository.findBookingByUidWithEventType = vi.fn().mockResolvedValue(mockBooking);
@@ -267,7 +267,7 @@ describe("CalendarSyncService", () => {
     test("should return early when booking UID is malformed", async () => {
       const eventWithMalformedUID: CalendarSubscriptionEventItem = {
         ...mockCancelledEvent,
-        iCalUID: "@cal.com",
+        iCalUID: "@amir9078.github.io",
       };
 
       await service.cancelBooking(eventWithMalformedUID, mockSelectedCalendar.userId);
@@ -476,7 +476,7 @@ describe("CalendarSyncService", () => {
     test("should return early when booking UID is malformed", async () => {
       const eventWithMalformedUID: CalendarSubscriptionEventItem = {
         ...mockCalComEvent,
-        iCalUID: "@cal.com",
+        iCalUID: "@amir9078.github.io",
       };
 
       await service.rescheduleBooking(eventWithMalformedUID, mockSelectedCalendar.userId);

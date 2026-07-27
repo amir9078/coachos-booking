@@ -1,12 +1,12 @@
-import { getPaymentAppData } from "@calcom/app-store/_utils/payments/getPaymentAppData";
-import { useAtomsContext } from "@calcom/atoms/hooks/useAtomsContext";
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import { Timezone as PlatformTimzoneSelect } from "@calcom/atoms/timezone";
-import getLocationsOptionsForSelect from "@calcom/features/bookings/lib/getLocationOptionsForSelect";
-import DestinationCalendarSelector from "@calcom/features/calendars/components/DestinationCalendarSelector";
-import { LearnMoreLink } from "@calcom/features/eventtypes/components/LearnMoreLink";
-import type { EventNameObjectType } from "@calcom/features/eventtypes/lib/eventNaming";
-import { getEventName } from "@calcom/features/eventtypes/lib/eventNaming";
+import { getPaymentAppData } from "@coachos/app-store/_utils/payments/getPaymentAppData";
+import { useAtomsContext } from "@coachos/atoms/hooks/useAtomsContext";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import { Timezone as PlatformTimzoneSelect } from "@coachos/atoms/timezone";
+import getLocationsOptionsForSelect from "@coachos/features/bookings/lib/getLocationOptionsForSelect";
+import DestinationCalendarSelector from "@coachos/features/calendars/components/DestinationCalendarSelector";
+import { LearnMoreLink } from "@coachos/features/eventtypes/components/LearnMoreLink";
+import type { EventNameObjectType } from "@coachos/features/eventtypes/lib/eventNaming";
+import { getEventName } from "@coachos/features/eventtypes/lib/eventNaming";
 import type {
   CheckboxClassNames,
   EventTypeSetupProps,
@@ -14,24 +14,24 @@ import type {
   InputClassNames,
   SelectClassNames,
   SettingsToggleClassNames,
-} from "@calcom/features/eventtypes/lib/types";
+} from "@coachos/features/eventtypes/lib/types";
 import {
   DEFAULT_DARK_BRAND_COLOR,
   DEFAULT_LIGHT_BRAND_COLOR,
   MAX_SEATS_PER_TIME_SLOT,
-} from "@calcom/lib/constants";
-import { generateHashedLink } from "@calcom/lib/generateHashedLink";
-import { checkWCAGContrastColor } from "@calcom/lib/getBrandColours";
-import { extractHostTimezone } from "@calcom/lib/hashedLinksUtils";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { Prisma } from "@calcom/prisma/client";
-import { CancellationReasonRequirement, SchedulingType } from "@calcom/prisma/enums";
-import type { EditableSchema, fieldSchema } from "@calcom/prisma/zod-utils";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
+} from "@coachos/lib/constants";
+import { generateHashedLink } from "@coachos/lib/generateHashedLink";
+import { checkWCAGContrastColor } from "@coachos/lib/getBrandColours";
+import { extractHostTimezone } from "@coachos/lib/hashedLinksUtils";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { Prisma } from "@coachos/prisma/client";
+import { CancellationReasonRequirement, SchedulingType } from "@coachos/prisma/enums";
+import type { EditableSchema, fieldSchema } from "@coachos/prisma/zod-utils";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
 import {
   CheckboxField,
   ColorPicker,
@@ -41,16 +41,16 @@ import {
   SettingsToggle,
   Switch,
   TextField,
-} from "@calcom/ui/components/form";
+} from "@coachos/ui/components/form";
 import {
   SelectedCalendarSettingsScope,
   SelectedCalendarsSettingsWebWrapper,
   SelectedCalendarsSettingsWebWrapperSkeleton,
-} from "@calcom/web/modules/calendars/components/SelectedCalendarsSettingsWebWrapper";
-import { MultiplePrivateLinksController } from "@calcom/web/modules/event-types/components";
-import AddVerifiedEmail from "@calcom/web/modules/event-types/components/AddVerifiedEmail";
-import { BookerLayoutSelector } from "@calcom/web/modules/settings/components/BookerLayoutSelector";
-import { TimezoneSelect as WebTimezoneSelect } from "@calcom/web/modules/timezone/components/TimezoneSelect";
+} from "@coachos/web/modules/calendars/components/SelectedCalendarsSettingsWebWrapper";
+import { MultiplePrivateLinksController } from "@coachos/web/modules/event-types/components";
+import AddVerifiedEmail from "@coachos/web/modules/event-types/components/AddVerifiedEmail";
+import { BookerLayoutSelector } from "@coachos/web/modules/settings/components/BookerLayoutSelector";
+import { TimezoneSelect as WebTimezoneSelect } from "@coachos/web/modules/timezone/components/TimezoneSelect";
 import { InfoIcon, PencilIcon } from "@coss/ui/icons";
 import type { Dispatch, SetStateAction } from "react";
 import { Suspense, useEffect, useMemo, useState } from "react";
@@ -636,7 +636,7 @@ export const EventAdvancedTab = ({
             <LearnMoreLink
               t={t}
               i18nKey="booking_questions_description"
-              href="https://cal.com/help/event-types/booking-questions"
+              href="https://amir9078.github.io/help/event-types/booking-questions"
             />
           </p>
         </div>
@@ -730,7 +730,7 @@ export const EventAdvancedTab = ({
                   <LearnMoreLink
                     t={t}
                     i18nKey="description_disable_cancelling"
-                    href="https://cal.com/help/event-types/disable-canceling-rescheduling#disable-cancelling"
+                    href="https://amir9078.github.io/help/event-types/disable-canceling-rescheduling#disable-cancelling"
                   />
                 }
                 checked={value}
@@ -763,10 +763,10 @@ export const EventAdvancedTab = ({
               "border-subtle rounded-lg border py-6 px-4 sm:px-6",
               customClassNames?.canSendCalVideoTranscriptionEmails?.container
             )}
-            title={t("send_cal_video_transcription_emails")}
+            title={t("send_coachos_video_transcription_emails")}
             data-testid="send-cal-video-transcription-emails"
             {...sendCalVideoTranscriptionEmailsProps}
-            description={t("description_send_cal_video_transcription_emails")}
+            description={t("description_send_coachos_video_transcription_emails")}
             descriptionClassName={customClassNames?.canSendCalVideoTranscriptionEmails?.description}
             checked={value}
             onCheckedChange={(e) => onChange(e)}
@@ -874,7 +874,7 @@ export const EventAdvancedTab = ({
               <LearnMoreLink
                 t={t}
                 i18nKey="disable_notes_description"
-                href="https://cal.com/help/event-types/hide-notes"
+                href="https://amir9078.github.io/help/event-types/hide-notes"
               />
             }
             checked={value}
@@ -997,7 +997,7 @@ export const EventAdvancedTab = ({
                   <LearnMoreLink
                     t={t}
                     i18nKey="multiple_private_links_description"
-                    href="https://cal.com/help/event-types/private-links"
+                    href="https://amir9078.github.io/help/event-types/private-links"
                   />
                 }
                 tooltip={isManagedEventType ? t("managed_event_field_parent_control_disabled") : ""}
@@ -1050,7 +1050,7 @@ export const EventAdvancedTab = ({
                 <LearnMoreLink
                   t={t}
                   i18nKey="offer_seats_description"
-                  href="https://cal.com/help/event-types/offer-seats"
+                  href="https://amir9078.github.io/help/event-types/offer-seats"
                 />
               }
               checked={value}
@@ -1182,7 +1182,7 @@ export const EventAdvancedTab = ({
               <LearnMoreLink
                 t={t}
                 i18nKey="hide_organizer_email_description"
-                href="https://cal.com/help/event-types/hideorganizersemail#hide-organizers-email"
+                href="https://amir9078.github.io/help/event-types/hideorganizersemail#hide-organizers-email"
               />
             }
             descriptionClassName={customClassNames?.hideOrganizerEmail?.description}
@@ -1218,7 +1218,7 @@ export const EventAdvancedTab = ({
                 <LearnMoreLink
                   t={t}
                   i18nKey="description_lock_timezone_toggle_on_booking_page"
-                  href="https://cal.com/help/event-types/timezone-lock"
+                  href="https://amir9078.github.io/help/event-types/timezone-lock"
                 />
               }
               checked={value}
@@ -1271,7 +1271,7 @@ export const EventAdvancedTab = ({
               <LearnMoreLink
                 t={t}
                 i18nKey="allow_rescheduling_past_events_description"
-                href="https://cal.com/help/event-types/allow-rescheduling"
+                href="https://amir9078.github.io/help/event-types/allow-rescheduling"
               />
             }
             checked={value}
@@ -1441,7 +1441,7 @@ export const EventAdvancedTab = ({
                 <LearnMoreLink
                   t={t}
                   i18nKey="show_optimized_slots_description"
-                  href="https://cal.com/help/event-types/optimized-slots#optimized-slots"
+                  href="https://amir9078.github.io/help/event-types/optimized-slots#optimized-slots"
                 />
               }
               checked={isChecked}

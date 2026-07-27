@@ -6,5 +6,5 @@
 -- the enum.
 
 
-ALTER TYPE "WebhookTriggerEvents" ADD VALUE 'AFTER_HOSTS_CAL_VIDEO_NO_SHOW';
-ALTER TYPE "WebhookTriggerEvents" ADD VALUE 'AFTER_GUESTS_CAL_VIDEO_NO_SHOW';
+ALTER TYPE "WebhookTriggerEvents" ADD VALUE 'AFTER_HOSTS_coachos_VIDEO_NO_SHOW';
+ALTER TYPE "WebhookTriggerEvents" ADD VALUE 'AFTER_GUESTS_coachos_VIDEO_NO_SHOW';

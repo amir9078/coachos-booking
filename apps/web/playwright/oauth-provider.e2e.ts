@@ -1,10 +1,10 @@
 import { expect } from "@playwright/test";
 import { createHash, randomBytes } from "node:crypto";
 
-import { OAUTH_ERROR_REASONS } from "@calcom/features/oauth/services/OAuthService";
-import { generateSecret } from "@calcom/features/oauth/utils/generateSecret";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { prisma } from "@calcom/prisma";
+import { OAUTH_ERROR_REASONS } from "@coachos/features/oauth/services/OAuthService";
+import { generateSecret } from "@coachos/features/oauth/utils/generateSecret";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { prisma } from "@coachos/prisma";
 import { getDefaultPassword } from "./lib/testUtils";
 
 import { test } from "./lib/fixtures";

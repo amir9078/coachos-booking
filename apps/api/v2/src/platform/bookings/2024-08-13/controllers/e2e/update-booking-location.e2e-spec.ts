@@ -1,13 +1,13 @@
 import {
-  CAL_API_VERSION_HEADER,
+  coachos_API_VERSION_HEADER,
   ERROR_STATUS,
   SUCCESS_STATUS,
   VERSION_2024_08_13,
-} from "@calcom/platform-constants";
-import type { BookingOutput_2024_08_13 } from "@calcom/platform-types";
-import { UpdateBookingLocationInput_2024_08_13 } from "@calcom/platform-types";
-import type { Team } from "@calcom/prisma/client";
-import { Booking } from "@calcom/prisma/client";
+} from "@coachos/platform-constants";
+import type { BookingOutput_2024_08_13 } from "@coachos/platform-types";
+import { UpdateBookingLocationInput_2024_08_13 } from "@coachos/platform-types";
+import type { Team } from "@coachos/prisma/client";
+import { Booking } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -16,8 +16,8 @@ import request from "supertest";
 const MOCK_GOOGLE_MEET_URL = "https://meet.google.com/mock-meet-id";
 const MOCK_MS_TEAMS_URL = "https://teams.microsoft.com/l/meetup-join/mock-teams-id";
 
-jest.mock("@calcom/platform-libraries/conferencing", () => ({
-  ...jest.requireActual("@calcom/platform-libraries/conferencing"),
+jest.mock("@coachos/platform-libraries/conferencing", () => ({
+  ...jest.requireActual("@coachos/platform-libraries/conferencing"),
   createMeeting: jest.fn().mockResolvedValue({
     appName: "daily-video",
     type: "daily_video",
@@ -34,8 +34,8 @@ jest.mock("@calcom/platform-libraries/conferencing", () => ({
   }),
 }));
 
-jest.mock("@calcom/platform-libraries", () => {
-  const actual = jest.requireActual("@calcom/platform-libraries");
+jest.mock("@coachos/platform-libraries", () => {
+  const actual = jest.requireActual("@coachos/platform-libraries");
   return {
     ...actual,
     updateEvent: jest.fn().mockImplementation((_credential, evt) => {
@@ -158,13 +158,13 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
       await request(app.getHttpServer())
         .patch(`/v2/bookings/${bookingUid}/location`)
         .send({ location: "https://unauthenticated.example.com" })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(401);
     });
 
     describe("can update booking with different locations", () => {
       const address = "123 Main St";
-      const link = "https://cal.com/join/123456";
+      const link = "https://amir9078.github.io/join/123456";
       const phone = "+37121999999";
 
       let booking: Booking;
@@ -181,7 +181,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
             locations: [
               { type: "integrations:daily" },
               { type: "inPerson", address: "123 Main St", displayLocationPublicly: true },
-              { type: "link", link: "https://cal.com/join/123456", displayLocationPublicly: true },
+              { type: "link", link: "https://amir9078.github.io/join/123456", displayLocationPublicly: true },
               { type: "userPhone", hostPhoneNumber: "+37121999999", displayLocationPublicly: true },
               { type: "attendeeInPerson" },
               { type: "phone" },
@@ -227,7 +227,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -255,7 +255,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -283,7 +283,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -312,7 +312,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -341,7 +341,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -370,7 +370,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -398,7 +398,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -456,7 +456,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${googleBooking.uid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -500,7 +500,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingWithoutGoogleCal.uid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -561,7 +561,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const updatedBookingResponse = await request(app.getHttpServer())
           .patch(`/v2/bookings/${msTeamsBooking.uid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -593,7 +593,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         const response = await request(app.getHttpServer())
           .patch(`/v2/bookings/${bookingUid}/location`)
           .send(updatedBookingBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(400);
 
@@ -616,7 +616,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
       const response = await request(app.getHttpServer())
         .patch(`/v2/bookings/${bookingUid}/location`)
         .send({})
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
         .expect(200);
 
@@ -636,7 +636,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
       await request(app.getHttpServer())
         .patch(`/v2/bookings/${bookingUid}/location`)
         .send({ location: { type: "link", link: "https://non-organizer.example.com" } })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${testSetup.unrelatedUser.accessToken}`)
         .expect(403);
     });
@@ -647,7 +647,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
       const response = await request(app.getHttpServer())
         .patch(`/v2/bookings/${bookingUid}/location`)
         .send({ location: { type: "invalid-location-type" } })
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
         .expect(400);
 

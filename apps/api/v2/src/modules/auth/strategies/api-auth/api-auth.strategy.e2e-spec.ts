@@ -1,5 +1,5 @@
-import { X_CAL_CLIENT_ID, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
-import type { PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+import { X_coachos_CLIENT_ID, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
+import type { PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { ExecutionContext, HttpException } from "@nestjs/common";
 import { ConfigModule, ConfigService } from "@nestjs/config";
 import { JwtService as NestJwtService } from "@nestjs/jwt";
@@ -227,10 +227,10 @@ describe("ApiAuthStrategy", () => {
         switchToHttp: () => ({
           getRequest: () => ({
             headers: {
-              authorization: `Bearer cal_test_}`,
+              authorization: `Bearer coachos_test_}`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3000" })[key],
+              ({ Authorization: `Bearer coachos_test_badkey1234`, origin: "http://localhost:3000" })[key],
           }),
         }),
       } as ExecutionContext;
@@ -250,7 +250,7 @@ describe("ApiAuthStrategy", () => {
         switchToHttp: () => ({
           getRequest: () => ({
             headers: {
-              [X_CAL_CLIENT_ID]: `${oAuthClient.id}gibberish`,
+              [X_coachos_CLIENT_ID]: `${oAuthClient.id}gibberish`,
             },
             get: (key: string) => ({ origin: "http://localhost:3000" })[key],
           }),
@@ -273,7 +273,7 @@ describe("ApiAuthStrategy", () => {
         switchToHttp: () => ({
           getRequest: () => ({
             headers: {
-              [X_CAL_SECRET_KEY]: `${oAuthClient.secret}gibberish`,
+              [X_coachos_SECRET_KEY]: `${oAuthClient.secret}gibberish`,
             },
             get: (key: string) => ({ origin: "http://localhost:3000" })[key],
           }),
@@ -296,11 +296,11 @@ describe("ApiAuthStrategy", () => {
         switchToHttp: () => ({
           getRequest: () => ({
             headers: {
-              [X_CAL_CLIENT_ID]: `${oAuthClient.id}gibberish`,
-              [X_CAL_SECRET_KEY]: `secret`,
+              [X_coachos_CLIENT_ID]: `${oAuthClient.id}gibberish`,
+              [X_coachos_SECRET_KEY]: `secret`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3000" })[key],
+              ({ Authorization: `Bearer coachos_test_badkey1234`, origin: "http://localhost:3000" })[key],
           }),
         }),
       } as ExecutionContext;
@@ -320,11 +320,11 @@ describe("ApiAuthStrategy", () => {
         switchToHttp: () => ({
           getRequest: () => ({
             headers: {
-              [X_CAL_CLIENT_ID]: `${oAuthClient.id}`,
-              [X_CAL_SECRET_KEY]: `gibberish`,
+              [X_coachos_CLIENT_ID]: `${oAuthClient.id}`,
+              [X_coachos_SECRET_KEY]: `gibberish`,
             },
             get: (key: string) =>
-              ({ Authorization: `Bearer cal_test_badkey1234`, origin: "http://localhost:3000" })[key],
+              ({ Authorization: `Bearer coachos_test_badkey1234`, origin: "http://localhost:3000" })[key],
           }),
         }),
       } as ExecutionContext;

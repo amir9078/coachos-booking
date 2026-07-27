@@ -2,10 +2,10 @@ import {
   EVENT_TYPE_READ,
   EVENT_TYPE_WRITE,
   SUCCESS_STATUS,
-  X_CAL_CLIENT_ID,
-} from "@calcom/platform-constants";
-import { getEventTypesByViewer, getPublicEvent } from "@calcom/platform-libraries/event-types";
-import type { PrismaClient } from "@calcom/prisma";
+  X_coachos_CLIENT_ID,
+} from "@coachos/platform-constants";
+import { getEventTypesByViewer, getPublicEvent } from "@coachos/platform-libraries/event-types";
+import type { PrismaClient } from "@coachos/prisma";
 import {
   Body,
   Controller,
@@ -120,7 +120,7 @@ export class EventTypesController_2024_04_15 {
     @Param("username") username: string,
     @Param("eventSlug") eventSlug: string,
     @Query() queryParams: GetPublicEventTypeQueryParams_2024_04_15,
-    @Headers(X_CAL_CLIENT_ID) clientId?: string
+    @Headers(X_coachos_CLIENT_ID) clientId?: string
   ): Promise<GetEventTypePublicOutput> {
     try {
       let orgSlug = queryParams.org;

@@ -1,6 +1,6 @@
-import { getManageLink } from "@calcom/lib/CalEventParser";
-import { EMAIL_FROM_NAME } from "@calcom/lib/constants";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import { getManageLink } from "@coachos/lib/CalEventParser";
+import { EMAIL_FROM_NAME } from "@coachos/lib/constants";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 import generateIcsFile, { GenerateIcsRole } from "../lib/generateIcsFile";
 import renderEmail from "../src/renderEmail";

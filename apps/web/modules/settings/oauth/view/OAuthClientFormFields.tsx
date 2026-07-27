@@ -4,13 +4,13 @@ import { useMemo } from "react";
 import type { Dispatch, SetStateAction } from "react";
 import type { RegisterOptions, UseFormReturn } from "react-hook-form";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Label, Switch, TextArea, TextField } from "@calcom/ui/components/form";
-import { ImageUploader } from "@calcom/ui/components/image-uploader";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Label, Switch, TextArea, TextField } from "@coachos/ui/components/form";
+import { ImageUploader } from "@coachos/ui/components/image-uploader";
 import { InfoIcon, KeyIcon } from "@coss/ui/icons";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 import type { OAuthClientCreateFormValues } from "../create/OAuthClientCreateModal";
 

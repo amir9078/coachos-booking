@@ -1,9 +1,9 @@
 import { usePathname } from "next/navigation";
 
-import AppCard from "@calcom/app-store/_components/AppCard";
-import useIsAppEnabled from "@calcom/app-store/_utils/useIsAppEnabled";
-import type { EventTypeAppCardComponent } from "@calcom/app-store/types";
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import AppCard from "@coachos/app-store/_components/AppCard";
+import useIsAppEnabled from "@coachos/app-store/_utils/useIsAppEnabled";
+import type { EventTypeAppCardComponent } from "@coachos/app-store/types";
+import { WEBAPP_URL } from "@coachos/lib/constants";
 
 const EventTypeAppCard: EventTypeAppCardComponent = function EventTypeAppCard({
   app,

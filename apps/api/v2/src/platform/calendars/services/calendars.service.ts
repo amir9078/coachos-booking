@@ -1,13 +1,13 @@
-import { APPS_TYPE_ID_MAPPING } from "@calcom/platform-constants";
-import type { ConnectedDestinationCalendars } from "@calcom/platform-libraries";
+import { APPS_TYPE_ID_MAPPING } from "@coachos/platform-constants";
+import type { ConnectedDestinationCalendars } from "@coachos/platform-libraries";
 import {
   type EventBusyDate,
   getBusyCalendarTimes,
   getConnectedDestinationCalendarsAndEnsureDefaultsInDb,
-} from "@calcom/platform-libraries";
-import type { Calendar } from "@calcom/platform-types";
-import type { PrismaClient } from "@calcom/prisma";
-import type { Prisma, User } from "@calcom/prisma/client";
+} from "@coachos/platform-libraries";
+import type { Calendar } from "@coachos/platform-types";
+import type { PrismaClient } from "@coachos/prisma";
+import type { Prisma, User } from "@coachos/prisma/client";
 import {
   Injectable,
   InternalServerErrorException,

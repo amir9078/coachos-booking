@@ -1,6 +1,6 @@
-import logger from "@calcom/lib/logger";
-import type { AnalyticsService } from "@calcom/types/AnalyticsService";
-import type { CredentialPayload } from "@calcom/types/Credential";
+import logger from "@coachos/lib/logger";
+import type { AnalyticsService } from "@coachos/types/AnalyticsService";
+import type { CredentialPayload } from "@coachos/types/Credential";
 
 import { AnalyticsServiceMap } from "../analytics.services.generated";
 

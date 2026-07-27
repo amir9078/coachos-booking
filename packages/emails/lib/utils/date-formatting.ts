@@ -1,6 +1,6 @@
-import dayjs from "@calcom/dayjs";
-import { TimeFormat } from "@calcom/lib/timeFormat";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import dayjs from "@coachos/dayjs";
+import { TimeFormat } from "@coachos/lib/timeFormat";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 
 export function getFormattedDate(calEvent: CalendarEvent, attendee: Person): string {
   const inviteeTimeFormat = calEvent.organizer.timeFormat || TimeFormat.TWELVE_HOUR;

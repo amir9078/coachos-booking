@@ -3,7 +3,7 @@
 import * as TooltipPrimitive from "@radix-ui/react-tooltip";
 import React from "react";
 
-import classNames from "@calcom/ui/classNames";
+import classNames from "@coachos/ui/classNames";
 
 export function Tooltip({
   children,
@@ -27,7 +27,7 @@ export function Tooltip({
     <TooltipPrimitive.Content
       {...props}
       className={classNames(
-        "calcom-tooltip",
+        "coachos-tooltip",
         side === "top" && "-mt-7",
         side === "left" && "mr-2",
         side === "right" && "ml-2",

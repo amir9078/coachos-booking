@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   linkType: "dynamic",
@@ -14,7 +14,7 @@ export const metadata = {
   category: "conferencing",
   slug: "zoom",
   title: "Zoom Video",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   appData: {
     location: {
       default: false,

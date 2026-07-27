@@ -2,11 +2,11 @@ import type { GetServerSidePropsContext } from "next";
 import { describe, it, expect, vi, beforeEach } from "vitest";
 
 // Mock dependencies before imports
-vi.mock("@calcom/features/auth/lib/getServerSession", () => ({
+vi.mock("@coachos/features/auth/lib/getServerSession", () => ({
   getServerSession: vi.fn(),
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {
     user: {
       findUnique: vi.fn(),
@@ -18,12 +18,12 @@ vi.mock("../../../lib/getStripeAppKeys", () => ({
   getStripeAppKeys: vi.fn(),
 }));
 
-vi.mock("@calcom/lib/constants", () => ({
-  WEBAPP_URL: "https://app.cal.com",
+vi.mock("@coachos/lib/constants", () => ({
+  WEBAPP_URL: "https://app.amir9078.github.io",
 }));
 
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import prisma from "@calcom/prisma";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import prisma from "@coachos/prisma";
 
 import { getStripeAppKeys } from "../../../lib/getStripeAppKeys";
 import { getServerSideProps } from "../_getServerSideProps";
@@ -187,7 +187,7 @@ describe("Stripe Setup Page getServerSideProps", () => {
 
       const redirect = (result as { redirect: { destination: string; permanent: boolean } }).redirect;
       expect(redirect.destination).toContain(
-        encodeURIComponent("https://app.cal.com/api/integrations/stripepayment/callback")
+        encodeURIComponent("https://app.amir9078.github.io/api/integrations/stripepayment/callback")
       );
     });
 
@@ -203,7 +203,7 @@ describe("Stripe Setup Page getServerSideProps", () => {
       const stateStr = decodeURIComponent(stateMatch![1]);
       const state = JSON.parse(stateStr);
       expect(state.fromApp).toBe(true);
-      expect(state.onErrorReturnTo).toBe("https://app.cal.com/apps/installed/payment");
+      expect(state.onErrorReturnTo).toBe("https://app.amir9078.github.io/apps/installed/payment");
       expect(state.returnTo).toBeUndefined();
     });
 
@@ -272,7 +272,7 @@ describe("Stripe Setup Page getServerSideProps", () => {
 
       expect(result).toEqual({
         redirect: {
-          destination: "https://app.cal.com/apps/installed/payment?error=stripe_oauth_failed",
+          destination: "https://app.amir9078.github.io/apps/installed/payment?error=stripe_oauth_failed",
           permanent: false,
         },
       });

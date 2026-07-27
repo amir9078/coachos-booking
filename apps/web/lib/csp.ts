@@ -1,5 +1,5 @@
-import { IS_PRODUCTION } from "@calcom/lib/constants";
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import { IS_PRODUCTION } from "@coachos/lib/constants";
+import { WEBAPP_URL } from "@coachos/lib/constants";
 
 import { buildNonce } from "./buildNonce";
 
@@ -12,7 +12,7 @@ function getCspPolicy(nonce: string) {
   // Maybe see how @next-safe/middleware does it if it's supported.
   const useNonStrictPolicy = CSP_POLICY === "non-strict";
 
-  // We add WEBAPP_URL to img-src because of booking pages, which end up loading images from app.cal.com on cal.com
+  // We add WEBAPP_URL to img-src because of booking pages, which end up loading images from app.amir9078.github.io on amir9078.github.io
   // FIXME: Write a layer to extract out EventType Analytics tracking endpoints and add them to img-src or connect-src as needed. e.g. fathom, Google Analytics and others
   return `
 	  default-src 'self' ${IS_PRODUCTION ? "" : "data:"};
@@ -25,10 +25,10 @@ function getCspPolicy(nonce: string) {
     };
     object-src 'none';
     base-uri 'none';
-	  child-src app.cal.com;
+	  child-src app.amir9078.github.io;
 	  style-src 'self' ${
       IS_PRODUCTION ? (useNonStrictPolicy ? "'unsafe-inline'" : "") : "'unsafe-inline'"
-    } app.cal.com;
+    } app.amir9078.github.io;
 	  font-src 'self';
 	  img-src 'self' ${WEBAPP_URL} https://img.youtube.com https://eu.ui-avatars.com/api/ data:;
     connect-src 'self'

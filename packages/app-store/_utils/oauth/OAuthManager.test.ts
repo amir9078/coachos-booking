@@ -1,4 +1,4 @@
-// import prismaMock from "@calcom/testing/lib/__mocks__/prismaMock";
+// import prismaMock from "@coachos/testing/lib/__mocks__/prismaMock";
 import { afterEach, expect, test, vi, describe } from "vitest";
 import "vitest-fetch-mock";
 
@@ -17,7 +17,7 @@ afterEach(() => {
 const credentialSyncVariables = {
   APP_CREDENTIAL_SHARING_ENABLED: false,
   CREDENTIAL_SYNC_SECRET: "SECRET",
-  CREDENTIAL_SYNC_SECRET_HEADER_NAME: "calcom-credential-sync-secret",
+  CREDENTIAL_SYNC_SECRET_HEADER_NAME: "coachos-credential-sync-secret",
   CREDENTIAL_SYNC_ENDPOINT: "https://example.com/getToken",
 };
 

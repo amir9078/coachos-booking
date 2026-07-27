@@ -1,7 +1,7 @@
 import React from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
 
 type SkeletonBaseProps = {
   className?: string;

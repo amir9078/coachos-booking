@@ -1,21 +1,21 @@
-import { prisma } from "@calcom/prisma/__mocks__/prisma";
-import dayjs from "@calcom/dayjs";
-import { getBusyTimesService } from "@calcom/features/di/containers/BusyTimes";
+import { prisma } from "@coachos/prisma/__mocks__/prisma";
+import dayjs from "@coachos/dayjs";
+import { getBusyTimesService } from "@coachos/features/di/containers/BusyTimes";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: prisma,
   prisma,
 }));
 
-vi.mock("@calcom/features/calendars/lib/CalendarManager", () => ({
+vi.mock("@coachos/features/calendars/lib/CalendarManager", () => ({
   getBusyCalendarTimes: vi.fn().mockResolvedValue([]),
   createEvent: vi.fn().mockResolvedValue({}),
   updateEvent: vi.fn().mockResolvedValue({}),
   deleteEvent: vi.fn().mockResolvedValue({}),
 }));
 
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   enrichHostsWithDelegationCredentials: vi.fn(),
   getUsersCredentialsIncludeServiceAccountKey: vi.fn(),
   getCredentialForSelectedCalendar: vi.fn(),

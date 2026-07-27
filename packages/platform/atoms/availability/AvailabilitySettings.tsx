@@ -13,38 +13,38 @@ import {
 } from "react";
 import { Controller, useFieldArray, useForm, useFormContext, useWatch } from "react-hook-form";
 
-import dayjs from "@calcom/dayjs";
-import { BookerStoreProvider } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { TimezoneSelect as WebTimezoneSelect } from "@calcom/web/modules/timezone/components/TimezoneSelect";
+import dayjs from "@coachos/dayjs";
+import { BookerStoreProvider } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { TimezoneSelect as WebTimezoneSelect } from "@coachos/web/modules/timezone/components/TimezoneSelect";
 import type {
   BulkUpdatParams,
   EventTypes,
-} from "@calcom/features/eventtypes/components/BulkEditDefaultForEventsModal";
-import { BulkEditDefaultForEventsModal } from "@calcom/features/eventtypes/components/BulkEditDefaultForEventsModal";
-import DateOverrideInputDialog from "@calcom/features/schedules/components/DateOverrideInputDialog";
-import DateOverrideList from "@calcom/features/schedules/components/DateOverrideList";
+} from "@coachos/features/eventtypes/components/BulkEditDefaultForEventsModal";
+import { BulkEditDefaultForEventsModal } from "@coachos/features/eventtypes/components/BulkEditDefaultForEventsModal";
+import DateOverrideInputDialog from "@coachos/features/schedules/components/DateOverrideInputDialog";
+import DateOverrideList from "@coachos/features/schedules/components/DateOverrideList";
 import {
   ScheduleComponent as PlatformSchedule,
-} from "@calcom/features/schedules/components/ScheduleComponent";
-import WebSchedule from "@calcom/web/modules/schedules/components/Schedule";
-import { availabilityAsString } from "@calcom/lib/availability";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { sortAvailabilityStrings } from "@calcom/lib/weekstart";
-import type { TravelScheduleRepository } from "@calcom/features/travelSchedule/repositories/TravelScheduleRepository";
-import type { TimeRange, WorkingHours } from "@calcom/types/schedule";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { DialogTrigger, ConfirmationDialogContent } from "@calcom/ui/components/dialog";
-import { VerticalDivider } from "@calcom/ui/components/divider";
-import { EditableHeading } from "@calcom/ui/components/editable-heading";
-import { Form } from "@calcom/ui/components/form";
-import { Label } from "@calcom/ui/components/form";
-import { Switch } from "@calcom/ui/components/form";
-import { Icon } from "@calcom/ui/components/icon";
-import { SkeletonText, SelectSkeletonLoader, Skeleton } from "@calcom/ui/components/skeleton";
-import { Tooltip } from "@calcom/ui/components/tooltip";
-import WebShell from "@calcom/web/modules/shell/Shell";
+} from "@coachos/features/schedules/components/ScheduleComponent";
+import WebSchedule from "@coachos/web/modules/schedules/components/Schedule";
+import { availabilityAsString } from "@coachos/lib/availability";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { sortAvailabilityStrings } from "@coachos/lib/weekstart";
+import type { TravelScheduleRepository } from "@coachos/features/travelSchedule/repositories/TravelScheduleRepository";
+import type { TimeRange, WorkingHours } from "@coachos/types/schedule";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { DialogTrigger, ConfirmationDialogContent } from "@coachos/ui/components/dialog";
+import { VerticalDivider } from "@coachos/ui/components/divider";
+import { EditableHeading } from "@coachos/ui/components/editable-heading";
+import { Form } from "@coachos/ui/components/form";
+import { Label } from "@coachos/ui/components/form";
+import { Switch } from "@coachos/ui/components/form";
+import { Icon } from "@coachos/ui/components/icon";
+import { SkeletonText, SelectSkeletonLoader, Skeleton } from "@coachos/ui/components/skeleton";
+import { Tooltip } from "@coachos/ui/components/tooltip";
+import WebShell from "@coachos/web/modules/shell/Shell";
 
 import { Shell as PlatformShell } from "../src/components/ui/shell";
 import { cn } from "../src/lib/utils";

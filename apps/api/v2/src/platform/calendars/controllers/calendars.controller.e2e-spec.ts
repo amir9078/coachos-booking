@@ -19,14 +19,14 @@ import {
   OFFICE_365_CALENDAR_ID,
   OFFICE_365_CALENDAR_TYPE,
   SUCCESS_STATUS,
-} from "@calcom/platform-constants";
-import { ICS_CALENDAR, ICS_CALENDAR_TYPE } from "@calcom/platform-constants/apps";
-import type { Credential, PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-constants";
+import { ICS_CALENDAR, ICS_CALENDAR_TYPE } from "@coachos/platform-constants/apps";
+import type { Credential, PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 
 // Mock the BuildIcsFeedCalendarService factory function
 const mockBuildIcsFeedCalendarService = jest.fn();
-jest.mock("@calcom/platform-libraries/app-store", () => {
-  const actual = jest.requireActual("@calcom/platform-libraries/app-store");
+jest.mock("@coachos/platform-libraries/app-store", () => {
+  const actual = jest.requireActual("@coachos/platform-libraries/app-store");
   return {
     ...actual,
     BuildIcsFeedCalendarService: (...args: unknown[]) => mockBuildIcsFeedCalendarService(...args),
@@ -144,7 +144,7 @@ describeCalendars("Platform Calendars Endpoints", () => {
 
   it(`/GET/v2/calendars/${GOOGLE_CALENDAR}/connect: it should redirect to auth-url for google calendar OAuth with valid access token `, async () => {
     const response = await request(app.getHttpServer())
-      .get(`/v2/calendars/${GOOGLE_CALENDAR}/connect?redir=https://cal.com&isDryRun=false`)
+      .get(`/v2/calendars/${GOOGLE_CALENDAR}/connect?redir=https://amir9078.github.io&isDryRun=false`)
       .set("Authorization", `Bearer ${accessTokenSecret}`)
       .set("Origin", CLIENT_REDIRECT_URI)
       .expect(200);
@@ -218,7 +218,7 @@ describeCalendars("Platform Calendars Endpoints", () => {
 
   it(`/POST/v2/calendars/${ICS_CALENDAR}/save with access token should fail to create a new ics feed calendar credentials with invalid urls`, async () => {
     const body = {
-      urls: ["https://cal.com/ics/feed.ics", "https://not-an-ics-feed.com"],
+      urls: ["https://amir9078.github.io/ics/feed.ics", "https://not-an-ics-feed.com"],
       readOnly: false,
     };
     await request(app.getHttpServer())
@@ -231,7 +231,7 @@ describeCalendars("Platform Calendars Endpoints", () => {
 
   it(`/POST/v2/calendars/${ICS_CALENDAR}/save with access token should create a new ics feed calendar credentials`, async () => {
     const body = {
-      urls: ["https://cal.com/ics/feed.ics"],
+      urls: ["https://amir9078.github.io/ics/feed.ics"],
       readOnly: false,
     };
     mockBuildIcsFeedCalendarService.mockReturnValue({

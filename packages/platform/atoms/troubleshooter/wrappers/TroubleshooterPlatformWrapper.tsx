@@ -1,10 +1,10 @@
-import { useInitalizeTroubleshooterStore } from "@calcom/features/troubleshooter/store";
-import useMediaQuery from "@calcom/lib/hooks/useMediaQuery";
-import classNames from "@calcom/ui/classNames";
+import { useInitalizeTroubleshooterStore } from "@coachos/features/troubleshooter/store";
+import useMediaQuery from "@coachos/lib/hooks/useMediaQuery";
+import classNames from "@coachos/ui/classNames";
 import { AtomsWrapper } from "../../src/components/atoms-wrapper";
 import { TroubleshooterSidebar } from "../sidebar/TroubleshooterSidebar";
 import { LargeCalendar } from "../large-calendar/LargeCalendar";
-import { BookerStoreProvider } from "@calcom/features/bookings/Booker/BookerStoreProvider";
+import { BookerStoreProvider } from "@coachos/features/bookings/Booker/BookerStoreProvider";
 
 interface TroubleshooterComponentProps {
   month?: string | null;

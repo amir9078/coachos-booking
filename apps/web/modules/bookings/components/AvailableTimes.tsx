@@ -1,19 +1,19 @@
 // We do not need to worry about importing framer-motion here as it is lazy imported in Booker.
 
-import { getPaymentAppData } from "@calcom/app-store/_utils/payments/getPaymentAppData";
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import dayjs from "@calcom/dayjs";
-import type { IOutOfOfficeData } from "@calcom/features/availability/lib/getUserAvailability";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import { useCheckOverlapWithOverlay } from "@calcom/features/bookings/lib/useCheckOverlapWithOverlay";
-import type { BookerEvent, Slots } from "@calcom/features/bookings/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { localStorage } from "@calcom/lib/webstorage";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
+import { getPaymentAppData } from "@coachos/app-store/_utils/payments/getPaymentAppData";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import dayjs from "@coachos/dayjs";
+import type { IOutOfOfficeData } from "@coachos/features/availability/lib/getUserAvailability";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import { useCheckOverlapWithOverlay } from "@coachos/features/bookings/lib/useCheckOverlapWithOverlay";
+import type { BookerEvent, Slots } from "@coachos/features/bookings/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { localStorage } from "@coachos/lib/webstorage";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
 import { CalendarX2Icon } from "@coss/ui/icons";
 import * as HoverCard from "@radix-ui/react-hover-card";
 import { AnimatePresence, m } from "framer-motion";

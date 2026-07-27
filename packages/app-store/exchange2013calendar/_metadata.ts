@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Microsoft Exchange 2013 Calendar",
@@ -13,8 +13,8 @@ export const metadata = {
   logo: "icon.svg",
   publisher: "Cal.diy",
   slug: "exchange2013-calendar",
-  url: "https://cal.com/",
-  email: "help@cal.com",
+  url: "https://amir9078.github.io/",
+  email: "shaikhamirhussain2000@gmail.com",
   dirName: "exchange2013calendar",
   isOAuth: false,
 } as AppMeta;

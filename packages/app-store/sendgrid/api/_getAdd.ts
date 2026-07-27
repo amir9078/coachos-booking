@@ -1,6 +1,6 @@
 import type { NextApiRequest } from "next";
 
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
 
 import checkSession from "../../_utils/auth";
 import { checkInstalled } from "../../_utils/installation";

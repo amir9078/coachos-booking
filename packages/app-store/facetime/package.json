@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
-  "name": "@calcom/facetime",
+  "name": "@coachos/facetime",
   "version": "0.0.0",
   "main": "./index.ts",
   "description": "Facetime makes it super simple for collaborating teams to jump on a video call.",
   "dependencies": {
-    "@calcom/lib": "workspace:*"
+    "@coachos/lib": "workspace:*"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*"
+    "@coachos/types": "workspace:*"
   }
 }

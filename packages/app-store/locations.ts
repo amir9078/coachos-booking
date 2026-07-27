@@ -2,10 +2,10 @@
  * TODO: Consolidate this file with BookingLocationService and add tests
  */
 
-import { appStoreMetadata } from "@calcom/app-store/bookerAppsMetaData";
-import logger from "@calcom/lib/logger";
-import { BookingStatus } from "@calcom/prisma/enums";
-import type { Ensure, Optional } from "@calcom/types/utils";
+import { appStoreMetadata } from "@coachos/app-store/bookerAppsMetaData";
+import logger from "@coachos/lib/logger";
+import { BookingStatus } from "@coachos/prisma/enums";
+import type { Ensure, Optional } from "@coachos/types/utils";
 import type { TFunction } from "i18next";
 import { isValidPhoneNumber } from "libphonenumber-js/max";
 import { z } from "zod";
@@ -561,7 +561,7 @@ export const locationsResolver = (t: TFunction) => {
                   path: [eventLocationType?.defaultValueVariable ?? "link"],
                   message: t("invalid_url_error_message", {
                     label: eventLocationType.label,
-                    sampleUrl: sampleUrl ?? "https://cal.com",
+                    sampleUrl: sampleUrl ?? "https://amir9078.github.io",
                   }),
                 });
               }

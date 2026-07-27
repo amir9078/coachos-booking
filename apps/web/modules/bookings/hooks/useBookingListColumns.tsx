@@ -1,8 +1,8 @@
-import { ColumnFilterType } from "@calcom/features/data-table";
-import { isSeparatorRow } from "@calcom/features/data-table/lib/separator";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import BookingListItem from "@calcom/web/components/booking/BookingListItem";
+import { ColumnFilterType } from "@coachos/features/data-table";
+import { isSeparatorRow } from "@coachos/features/data-table/lib/separator";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import BookingListItem from "@coachos/web/components/booking/BookingListItem";
 import { createColumnHelper } from "@tanstack/react-table";
 import { useMemo } from "react";
 

@@ -5,13 +5,13 @@ import type { NextRequest } from "next/server";
 import { NextResponse } from "next/server";
 import { z } from "zod";
 
-import { validPassword } from "@calcom/features/auth/lib/validPassword";
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import getIP from "@calcom/lib/getIP";
-import { piiHasher } from "@calcom/lib/server/PiiHasher";
-import prisma from "@calcom/prisma";
-import { IdentityProvider } from "@calcom/prisma/enums";
+import { validPassword } from "@coachos/features/auth/lib/validPassword";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import getIP from "@coachos/lib/getIP";
+import { piiHasher } from "@coachos/lib/server/PiiHasher";
+import prisma from "@coachos/prisma";
+import { IdentityProvider } from "@coachos/prisma/enums";
 
 const passwordResetRequestSchema = z.object({
   csrfToken: z.string(),

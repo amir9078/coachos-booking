@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { X_CAL_SECRET_KEY } from "@calcom/platform-constants";
+import { X_coachos_SECRET_KEY } from "@coachos/platform-constants";
 
 import prisma from "../../lib/prismaClient";
 
@@ -9,7 +9,7 @@ type Data = {
   accessToken: string;
 };
 
-// example endpoint called by the client to refresh the access token of cal.com managed user
+// example endpoint called by the client to refresh the access token of amir9078.github.io managed user
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const authHeader = req.headers.authorization;
 
@@ -25,7 +25,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
       if (process.env.NEXT_PUBLIC_OAUTH2_MODE === "true") {
         const oAuth2Request = await fetch(
-        `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/auth/oauth2/clients/${process.env.NEXT_PUBLIC_OAUTH2_CLIENT_ID}/refresh`,
+        `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/auth/oauth2/clients/${process.env.NEXT_PUBLIC_OAUTH2_CLIENT_ID}/refresh`,
         {
           method: "POST",
           headers: {
@@ -56,16 +56,16 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 
       const response = await fetch(
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/oauth/${
+        `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/oauth/${
           // eslint-disable-next-line turbo/no-undeclared-env-vars
-          process.env.NEXT_PUBLIC_X_CAL_ID ?? ""
+          process.env.NEXT_PUBLIC_X_coachos_ID ?? ""
         }/refresh`,
         {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
             // eslint-disable-next-line turbo/no-undeclared-env-vars
-            [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+            [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
           },
           body: JSON.stringify({
             refreshToken: localUser.refreshToken,

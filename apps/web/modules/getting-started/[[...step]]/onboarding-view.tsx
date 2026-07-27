@@ -8,14 +8,14 @@ import { Toaster } from "sonner";
 import { z } from "zod";
 import posthog from "posthog-js";
 
-import { APP_NAME } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useParamsWithFallback } from "@calcom/lib/hooks/useParamsWithFallback";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { StepCard } from "@calcom/ui/components/card";
-import { Steps } from "@calcom/ui/components/form";
+import { APP_NAME } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useParamsWithFallback } from "@coachos/lib/hooks/useParamsWithFallback";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { StepCard } from "@coachos/ui/components/card";
+import { Steps } from "@coachos/ui/components/form";
 import { LoaderIcon } from "@coss/ui/icons";
 
 import { ConnectedCalendars } from "@components/getting-started/steps-views/ConnectCalendars";
@@ -42,7 +42,7 @@ const getStepsAndHeadersForUser = (t: TFunction) => {
     skipText?: string;
   }[] = [
     {
-      title: t("welcome_to_cal_header", { appName: APP_NAME }),
+      title: t("welcome_to_coachos_header", { appName: APP_NAME }),
       subtitle: [t("we_just_need_basic_info")],
     },
     {

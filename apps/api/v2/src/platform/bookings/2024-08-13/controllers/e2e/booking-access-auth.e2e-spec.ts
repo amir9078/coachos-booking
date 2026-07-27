@@ -1,5 +1,5 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
-import type { Booking, PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
+import type { Booking, PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -84,13 +84,13 @@ describe("Bookings Endpoints 2024-08-13", () => {
       });
 
       const { keyString: ownerKeyString } = await apiKeysRepositoryFixture.createApiKey(ownerUser.id, null);
-      ownerApiKey = `cal_test_${ownerKeyString}`;
+      ownerApiKey = `coachos_test_${ownerKeyString}`;
 
       const { keyString: unauthorizedKeyString } = await apiKeysRepositoryFixture.createApiKey(
         unauthorizedUser.id,
         null
       );
-      unauthorizedApiKey = `cal_test_${unauthorizedKeyString}`;
+      unauthorizedApiKey = `coachos_test_${unauthorizedKeyString}`;
 
       const userSchedule: CreateScheduleInput_2024_04_15 = {
         name: `booking-access-auth-schedule-${randomString()}`,
@@ -170,7 +170,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/conferencing-sessions`)
           .set("Authorization", `Bearer ${ownerApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200);
 
         expect(response.body.status).toEqual(SUCCESS_STATUS);
@@ -180,7 +180,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/conferencing-sessions`)
           .set("Authorization", `Bearer ${unauthorizedApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(403);
       });
     });
@@ -193,7 +193,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/recordings`)
           .set("Authorization", `Bearer ${ownerApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200);
 
         expect(response.body.status).toEqual(SUCCESS_STATUS);
@@ -203,7 +203,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/recordings`)
           .set("Authorization", `Bearer ${unauthorizedApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(403);
       });
     });
@@ -216,7 +216,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/transcripts`)
           .set("Authorization", `Bearer ${ownerApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(200);
 
         expect(response.body.status).toEqual(SUCCESS_STATUS);
@@ -226,7 +226,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/transcripts`)
           .set("Authorization", `Bearer ${unauthorizedApiKey}`)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .expect(403);
       });
     });

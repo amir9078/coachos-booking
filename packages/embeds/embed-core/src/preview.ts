@@ -1,4 +1,4 @@
-// We can't import @calcom/lib/constants here yet as this file is compiled using Vite
+// We can't import @coachos/lib/constants here yet as this file is compiled using Vite
 const WEBAPP_URL = process.env.EMBED_PUBLIC_WEBAPP_URL || "";
 if (!WEBAPP_URL) {
   throw new Error("WEBAPP_URL is not set");
@@ -39,7 +39,7 @@ function isSafeUrlToLoadResourceFrom(urlString: string) {
   }
 
   function getTldPlus1(hostname: string) {
-    // Note: It doesn't support multipart tlds like .co.uk and thus makes only one part tld's safe like .com(and thus cal.com)
+    // Note: It doesn't support multipart tlds like .co.uk and thus makes only one part tld's safe like .com(and thus amir9078.github.io)
     // If we want to use it elsewhere as well(apart from embed/preview.ts) we must consider Public Suffix List
     return hostname.split(".").slice(-2).join(".");
   }

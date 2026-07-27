@@ -1,8 +1,8 @@
 import { usePathname } from "next/navigation";
 
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
 // TODO: This approach of checking booking page isn't correct.
-// app.cal.com/rick is a booking page but useIsBookingPage won't return true. This is because all unregistered router in Next.js could technically be a booking page throw catch all routes.
+// app.amir9078.github.io/rick is a booking page but useIsBookingPage won't return true. This is because all unregistered router in Next.js could technically be a booking page throw catch all routes.
 // The only way to confirm it is by actually checking if we actually rendered a booking route.
 export default function useIsBookingPage(): boolean {
   const pathname = usePathname();

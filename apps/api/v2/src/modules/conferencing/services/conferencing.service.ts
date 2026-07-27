@@ -16,14 +16,14 @@ import { Injectable } from "@nestjs/common";
 
 import {
   CONFERENCING_APPS,
-  CAL_VIDEO,
+  coachos_VIDEO,
   GOOGLE_MEET,
   ZOOM,
   OFFICE_365_VIDEO,
-} from "@calcom/platform-constants";
-import { userMetadata } from "@calcom/platform-libraries";
-import { getUsersCredentialsIncludeServiceAccountKey } from "@calcom/platform-libraries/app-store";
-import { getApps, handleDeleteCredential } from "@calcom/platform-libraries/app-store";
+} from "@coachos/platform-constants";
+import { userMetadata } from "@coachos/platform-libraries";
+import { getUsersCredentialsIncludeServiceAccountKey } from "@coachos/platform-libraries/app-store";
+import { getApps, handleDeleteCredential } from "@coachos/platform-libraries/app-store";
 
 @Injectable()
 export class ConferencingService {
@@ -114,7 +114,7 @@ export class ConferencingService {
 
   async setDefaultConferencingApp(user: UserWithProfile, app: string) {
     // cal-video is global, so we can skip this check
-    if (app !== CAL_VIDEO) {
+    if (app !== coachos_VIDEO) {
       await this.checkAppIsValidAndConnected(user, app);
     }
     const updatedUser = await this.usersRepository.setDefaultConferencingApp(user.id, app);

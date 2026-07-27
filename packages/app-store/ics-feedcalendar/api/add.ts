@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { symmetricEncrypt } from "@calcom/lib/crypto";
-import logger from "@calcom/lib/logger";
-import prisma from "@calcom/prisma";
+import { symmetricEncrypt } from "@coachos/lib/crypto";
+import logger from "@coachos/lib/logger";
+import prisma from "@coachos/prisma";
 
 import getInstalledAppPath from "../../_utils/getInstalledAppPath";
 import appConfig from "../config.json";

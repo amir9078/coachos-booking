@@ -1,8 +1,8 @@
 import type { Session } from "next-auth";
 
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import prisma from "@calcom/prisma";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import prisma from "@coachos/prisma";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 type MyStatsOptions = {
   ctx: {

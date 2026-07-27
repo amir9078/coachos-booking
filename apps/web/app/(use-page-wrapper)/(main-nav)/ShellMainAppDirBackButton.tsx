@@ -2,7 +2,7 @@
 
 import { useRouter } from "next/navigation";
 
-import { Button } from "@calcom/ui/components/button";
+import { Button } from "@coachos/ui/components/button";
 
 import type { LayoutProps } from "~/shell/Shell";
 

@@ -1,4 +1,4 @@
-import type { IFromUser, IToUser } from "@calcom/features/availability/lib/getUserAvailability";
+import type { IFromUser, IToUser } from "@coachos/features/availability/lib/getUserAvailability";
 
 export type SlotInfo = {
   time: string;

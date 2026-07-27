@@ -1,16 +1,16 @@
 import { z } from "zod";
 
-import { triggerDelegationCredentialErrorWebhook } from "@calcom/features/webhooks/lib/triggerDelegationCredentialErrorWebhook";
+import { triggerDelegationCredentialErrorWebhook } from "@coachos/features/webhooks/lib/triggerDelegationCredentialErrorWebhook";
 import {
   CalendarAppDelegationCredentialConfigurationError,
   CalendarAppDelegationCredentialInvalidGrantError,
-} from "@calcom/lib/CalendarAppError";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialForCalendarServiceWithTenantId } from "@calcom/types/Credential";
-import type { PartialReference } from "@calcom/types/EventManager";
-import type { VideoApiAdapter, VideoCallData } from "@calcom/types/VideoApiAdapter";
+} from "@coachos/lib/CalendarAppError";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialForCalendarServiceWithTenantId } from "@coachos/types/Credential";
+import type { PartialReference } from "@coachos/types/EventManager";
+import type { VideoApiAdapter, VideoCallData } from "@coachos/types/VideoApiAdapter";
 
 import getParsedAppKeysFromSlug from "../../_utils/getParsedAppKeysFromSlug";
 import { OAuthManager } from "../../_utils/oauth/OAuthManager";

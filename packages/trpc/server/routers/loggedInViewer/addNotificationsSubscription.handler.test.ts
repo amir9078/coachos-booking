@@ -1,18 +1,18 @@
 import { afterEach, describe, expect, it, vi } from "vitest";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import { WEBAPP_URL } from "@coachos/lib/constants";
 
 const sendNotification = vi.fn();
 
-vi.mock("@calcom/features/notifications/sendNotification", () => ({
+vi.mock("@coachos/features/notifications/sendNotification", () => ({
   sendNotification,
 }));
 
-vi.mock("@calcom/i18n/server", () => ({
+vi.mock("@coachos/i18n/server", () => ({
   getTranslation: vi.fn().mockResolvedValue((key: string) => key),
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {
     notificationsSubscriptions: {
       findFirst: vi.fn().mockResolvedValue(null),

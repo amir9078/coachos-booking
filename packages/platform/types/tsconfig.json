@@ -1,5 +1,5 @@
 {
-  "extends": "@calcom/tsconfig/base.json",
+  "extends": "@coachos/tsconfig/base.json",
   "compilerOptions": {
     "target": "ES5",
     "resolveJsonModule": true,

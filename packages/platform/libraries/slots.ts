@@ -1,8 +1,8 @@
-import { BusyTimesService } from "@calcom/features/busyTimes/services/getBusyTimes";
-import { NoSlotsNotificationService } from "@calcom/features/slots/handleNotificationWhenNoSlots";
-import { AvailableSlotsService } from "@calcom/trpc/server/routers/viewer/slots/util";
+import { BusyTimesService } from "@coachos/features/busyTimes/services/getBusyTimes";
+import { NoSlotsNotificationService } from "@coachos/features/slots/handleNotificationWhenNoSlots";
+import { AvailableSlotsService } from "@coachos/trpc/server/routers/viewer/slots/util";
 
-export type { GetScheduleOptions } from "@calcom/trpc/server/routers/viewer/slots/types";
+export type { GetScheduleOptions } from "@coachos/trpc/server/routers/viewer/slots/types";
 
 export { AvailableSlotsService };
 

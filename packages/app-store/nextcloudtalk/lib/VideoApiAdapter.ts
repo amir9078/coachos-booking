@@ -2,14 +2,14 @@ import { stringify } from "node:querystring";
 import { v4 as uuidv4 } from "uuid";
 import { z } from "zod";
 
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
-import type { PartialReference } from "@calcom/types/EventManager";
-import type { VideoApiAdapter, VideoCallData } from "@calcom/types/VideoApiAdapter";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
+import type { PartialReference } from "@coachos/types/EventManager";
+import type { VideoApiAdapter, VideoCallData } from "@coachos/types/VideoApiAdapter";
 
 import getAppKeysFromSlug from "../../_utils/getAppKeysFromSlug";
 import getParsedAppKeysFromSlug from "../../_utils/getParsedAppKeysFromSlug";

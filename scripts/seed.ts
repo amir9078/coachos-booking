@@ -1,17 +1,17 @@
 import { createHash } from "node:crypto";
 import process from "node:process";
-import dailyMeta from "@calcom/app-store/dailyvideo/_metadata";
-import googleMeetMeta from "@calcom/app-store/googlevideo/_metadata";
-import zoomMeta from "@calcom/app-store/zoomvideo/_metadata";
-import dayjs from "@calcom/dayjs";
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
-import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@calcom/lib/availability";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { prisma } from "@calcom/prisma";
-import type { Membership, Team, User, UserPermissionRole } from "@calcom/prisma/client";
-import { Prisma } from "@calcom/prisma/client";
-import { BookingStatus, MembershipRole, RedirectType, SchedulingType } from "@calcom/prisma/enums";
-import type { Ensure } from "@calcom/types/utils";
+import dailyMeta from "@coachos/app-store/dailyvideo/_metadata";
+import googleMeetMeta from "@coachos/app-store/googlevideo/_metadata";
+import zoomMeta from "@coachos/app-store/zoomvideo/_metadata";
+import dayjs from "@coachos/dayjs";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
+import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@coachos/lib/availability";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { prisma } from "@coachos/prisma";
+import type { Membership, Team, User, UserPermissionRole } from "@coachos/prisma/client";
+import { Prisma } from "@coachos/prisma/client";
+import { BookingStatus, MembershipRole, RedirectType, SchedulingType } from "@coachos/prisma/enums";
+import type { Ensure } from "@coachos/types/utils";
 import { uuid } from "short-uuid";
 import type z from "zod";
 import type { teamMetadataSchema } from "../packages/prisma/zod-utils";
@@ -515,7 +515,7 @@ async function seedApiKey(userId: number, apiKey: string) {
     },
   });
 
-  const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "cal_";
+  const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "coachos_";
   console.log(`🔑 Created seeded API Key: ${apiKeyPrefix}${apiKey}`);
 }
 
@@ -1027,11 +1027,11 @@ async function main() {
     });
   }
 
-  if (process.env.E2E_TEST_CALCOM_QA_EMAIL && process.env.E2E_TEST_CALCOM_QA_PASSWORD) {
+  if (process.env.E2E_TEST_COACHOS_QA_EMAIL && process.env.E2E_TEST_COACHOS_QA_PASSWORD) {
     await createUserAndEventType({
       user: {
-        email: process.env.E2E_TEST_CALCOM_QA_EMAIL || "qa@example.com",
-        password: process.env.E2E_TEST_CALCOM_QA_PASSWORD || "qa",
+        email: process.env.E2E_TEST_COACHOS_QA_EMAIL || "qa@example.com",
+        password: process.env.E2E_TEST_COACHOS_QA_PASSWORD || "qa",
         username: "qa",
         name: "QA Example",
       },
@@ -1043,10 +1043,10 @@ async function main() {
         },
       ],
       credentials: [
-        process.env.E2E_TEST_CALCOM_QA_GCAL_CREDENTIALS
+        process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS
           ? {
               type: "google_calendar",
-              key: JSON.parse(process.env.E2E_TEST_CALCOM_QA_GCAL_CREDENTIALS) as Prisma.JsonObject,
+              key: JSON.parse(process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS) as Prisma.JsonObject,
               appId: "google-calendar",
             }
           : null,

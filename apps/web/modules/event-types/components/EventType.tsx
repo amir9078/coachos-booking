@@ -1,16 +1,16 @@
 "use client";
 
-import type { ChildrenEventType } from "@calcom/features/eventtypes/components/ChildrenEventTypeSelect";
+import type { ChildrenEventType } from "@coachos/features/eventtypes/components/ChildrenEventTypeSelect";
 import type {
   EventTypeApps,
   EventTypeSetupProps,
   FormValues,
   TabMap,
-} from "@calcom/features/eventtypes/lib/types";
-import type { customInputSchema } from "@calcom/prisma/zod-utils";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { Form } from "@calcom/ui/components/form";
-import type { VerticalTabItemProps } from "@calcom/ui/components/navigation";
+} from "@coachos/features/eventtypes/lib/types";
+import type { customInputSchema } from "@coachos/prisma/zod-utils";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { Form } from "@coachos/ui/components/form";
+import type { VerticalTabItemProps } from "@coachos/ui/components/navigation";
 /* eslint-disable @typescript-eslint/no-empty-function */
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import type { UseFormReturn } from "react-hook-form";

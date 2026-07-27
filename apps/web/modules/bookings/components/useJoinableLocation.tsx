@@ -1,9 +1,9 @@
 import type { TFunction } from "i18next";
 import { useMemo } from "react";
 
-import { useBookingLocation } from "@calcom/features/bookings/hooks";
-import type { BookingStatus } from "@calcom/prisma/enums";
-import { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
+import { useBookingLocation } from "@coachos/features/bookings/hooks";
+import type { BookingStatus } from "@coachos/prisma/enums";
+import { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
 
 interface UseJoinableLocationParams {
   location: string | null;

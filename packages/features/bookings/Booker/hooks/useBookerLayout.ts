@@ -6,16 +6,16 @@ import {
   useEmbedUiConfig,
   useIsEmbed,
   useSlotsViewOnSmallScreen,
-} from "@calcom/embed-core/embed-iframe";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { extraDaysConfig } from "@calcom/features/bookings/Booker/config";
-import type { BookerLayout } from "@calcom/features/bookings/Booker/types";
-import { validateLayout } from "@calcom/features/bookings/Booker/utils/layout";
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import useMediaQuery from "@calcom/lib/hooks/useMediaQuery";
-import type { BookerLayouts } from "@calcom/prisma/zod-utils";
-import { defaultBookerLayoutSettings } from "@calcom/prisma/zod-utils";
+} from "@coachos/embed-core/embed-iframe";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { extraDaysConfig } from "@coachos/features/bookings/Booker/config";
+import type { BookerLayout } from "@coachos/features/bookings/Booker/types";
+import { validateLayout } from "@coachos/features/bookings/Booker/utils/layout";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import useMediaQuery from "@coachos/lib/hooks/useMediaQuery";
+import type { BookerLayouts } from "@coachos/prisma/zod-utils";
+import { defaultBookerLayoutSettings } from "@coachos/prisma/zod-utils";
 
 export type UseBookerLayoutType = ReturnType<typeof useBookerLayout>;
 

@@ -1,14 +1,14 @@
-import { CalendarSubscriptionService } from "@calcom/features/calendar-subscription/lib/CalendarSubscriptionService";
-import { CalendarCacheEventRepository } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
-import { CalendarCacheEventService } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheEventService";
-import { CalendarCacheWrapper } from "@calcom/features/calendar-subscription/lib/cache/CalendarCacheWrapper";
-import { CalendarTelemetryWrapper } from "@calcom/features/calendar-subscription/lib/telemetry/CalendarTelemetryWrapper";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import logger from "@calcom/lib/logger";
-import { isTelemetryEnabled } from "@calcom/lib/sentryWrapper";
-import { prisma } from "@calcom/prisma";
-import type { Calendar, CalendarFetchMode } from "@calcom/types/Calendar";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+import { CalendarSubscriptionService } from "@coachos/features/calendar-subscription/lib/CalendarSubscriptionService";
+import { CalendarCacheEventRepository } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventRepository";
+import { CalendarCacheEventService } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheEventService";
+import { CalendarCacheWrapper } from "@coachos/features/calendar-subscription/lib/cache/CalendarCacheWrapper";
+import { CalendarTelemetryWrapper } from "@coachos/features/calendar-subscription/lib/telemetry/CalendarTelemetryWrapper";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import logger from "@coachos/lib/logger";
+import { isTelemetryEnabled } from "@coachos/lib/sentryWrapper";
+import { prisma } from "@coachos/prisma";
+import type { Calendar, CalendarFetchMode } from "@coachos/types/Calendar";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 
 import { CalendarServiceMap } from "../calendar.services.generated";
 

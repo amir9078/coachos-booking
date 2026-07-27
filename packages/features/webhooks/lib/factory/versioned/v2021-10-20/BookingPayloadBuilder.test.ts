@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from "vitest";
-import { BookingStatus, WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import { BookingStatus, WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 import type {
   BookingWebhookEventDTO,
@@ -9,7 +9,7 @@ import type {
 } from "../../../dto/types";
 import { BookingPayloadBuilder } from "./BookingPayloadBuilder";
 
-vi.mock("@calcom/lib/dayjs", () => ({
+vi.mock("@coachos/lib/dayjs", () => ({
   getUTCOffsetByTimezone: vi.fn(() => 0),
 }));
 
@@ -47,7 +47,7 @@ describe("v2021-10-20/BookingPayloadBuilder", () => {
         language: { locale: "en" },
       },
     ],
-    location: "https://cal.com/video/123",
+    location: "https://amir9078.github.io/video/123",
     uid: "booking-uid-123",
     customInputs: {},
     responses: {},
@@ -263,12 +263,12 @@ describe("v2021-10-20/BookingPayloadBuilder", () => {
 
     it("BOOKING_REQUESTED payload includes metadata from extra", () => {
       const dto = createMockDTO(WebhookTriggerEvents.BOOKING_REQUESTED, {
-        metadata: { videoCallUrl: "https://cal.com/video/abc" },
+        metadata: { videoCallUrl: "https://amir9078.github.io/video/abc" },
       });
       const result = builder.build(dto);
       const p = result.payload as EventPayloadType;
 
-      expect(p.metadata).toEqual({ videoCallUrl: "https://cal.com/video/abc" });
+      expect(p.metadata).toEqual({ videoCallUrl: "https://amir9078.github.io/video/abc" });
     });
 
     it("preserves empty string description (does not replace with additionalNotes)", () => {

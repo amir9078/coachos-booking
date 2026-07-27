@@ -1,7 +1,7 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import classNames from "@calcom/ui/classNames";
-import { Avatar } from "@calcom/ui/components/avatar";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import classNames from "@coachos/ui/classNames";
+import { Avatar } from "@coachos/ui/components/avatar";
 import {
   Menu,
   MenuItem,

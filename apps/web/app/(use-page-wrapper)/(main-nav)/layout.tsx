@@ -2,7 +2,7 @@ import { setUser as SentrySetUser } from "@sentry/nextjs";
 import { cookies, headers } from "next/headers";
 import React from "react";
 
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
 
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 

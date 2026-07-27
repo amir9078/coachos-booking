@@ -16,8 +16,8 @@ import { ConfigService } from "@nestjs/config";
 import Stripe from "stripe";
 import { z } from "zod";
 
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { Prisma, Credential, User } from "@calcom/prisma/client";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { Prisma, Credential, User } from "@coachos/prisma/client";
 
 import { stripeKeysResponseSchema } from "./utils/stripeDataSchemas";
 

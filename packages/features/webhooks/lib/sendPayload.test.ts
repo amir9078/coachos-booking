@@ -19,8 +19,8 @@ describe("sendPayload", () => {
     vi.resetAllMocks();
   });
 
-  describe("X-Cal-Webhook-Version header", () => {
-    it("should include X-Cal-Webhook-Version header with the webhook version", async () => {
+  describe("x-coachos-Webhook-Version header", () => {
+    it("should include x-coachos-Webhook-Version header with the webhook version", async () => {
       const webhook = {
         subscriberUrl: "https://example.com/webhook",
         appId: null,
@@ -47,10 +47,10 @@ describe("sendPayload", () => {
       const [url, options] = mockFetch.mock.calls[0];
 
       expect(url).toBe("https://example.com/webhook");
-      expect(options.headers).toHaveProperty("X-Cal-Webhook-Version", "2021-10-20");
+      expect(options.headers).toHaveProperty("x-coachos-Webhook-Version", "2021-10-20");
     });
 
-    it("should include X-Cal-Signature-256 header alongside version header", async () => {
+    it("should include x-coachos-Signature-256 header alongside version header", async () => {
       const webhook = {
         subscriberUrl: "https://example.com/webhook",
         appId: null,
@@ -75,8 +75,8 @@ describe("sendPayload", () => {
 
       const [, options] = mockFetch.mock.calls[0];
 
-      expect(options.headers).toHaveProperty("X-Cal-Signature-256");
-      expect(options.headers).toHaveProperty("X-Cal-Webhook-Version");
+      expect(options.headers).toHaveProperty("x-coachos-Signature-256");
+      expect(options.headers).toHaveProperty("x-coachos-Webhook-Version");
       expect(options.headers).toHaveProperty("Content-Type", "application/json");
     });
 
@@ -105,7 +105,7 @@ describe("sendPayload", () => {
       } as unknown as Parameters<typeof sendPayload>[4]);
 
       const [, options] = mockFetch.mock.calls[0];
-      expect(options.headers["X-Cal-Webhook-Version"]).toBe("2021-10-20");
+      expect(options.headers["x-coachos-Webhook-Version"]).toBe("2021-10-20");
     });
   });
 

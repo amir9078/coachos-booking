@@ -1,5 +1,5 @@
-import type { PrismaClient } from "@calcom/prisma";
-import type { User } from "@calcom/prisma/client";
+import type { PrismaClient } from "@coachos/prisma";
+import type { User } from "@coachos/prisma/client";
 import type { Mock } from "vitest";
 import { vi } from "vitest";
 import { type DeepMockProxy, mockDeep, mockReset } from "vitest-mock-extended";

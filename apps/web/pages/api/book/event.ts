@@ -1,17 +1,17 @@
 import process from "node:process";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { getRegularBookingService } from "@calcom/features/bookings/di/RegularBookingService.container";
-import { BotDetectionService } from "@calcom/features/bot-detection";
-import { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import getIP from "@calcom/lib/getIP";
-import { checkCfTurnstileToken } from "@calcom/lib/server/checkCfTurnstileToken";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import { piiHasher } from "@calcom/lib/server/PiiHasher";
-import type { TraceContext } from "@calcom/lib/tracing";
-import { prisma } from "@calcom/prisma";
-import { CreationSource } from "@calcom/prisma/enums";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { getRegularBookingService } from "@coachos/features/bookings/di/RegularBookingService.container";
+import { BotDetectionService } from "@coachos/features/bot-detection";
+import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import getIP from "@coachos/lib/getIP";
+import { checkCfTurnstileToken } from "@coachos/lib/server/checkCfTurnstileToken";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import { piiHasher } from "@coachos/lib/server/PiiHasher";
+import type { TraceContext } from "@coachos/lib/tracing";
+import { prisma } from "@coachos/prisma";
+import { CreationSource } from "@coachos/prisma/enums";
 import type { NextApiRequest } from "next";
 
 async function handler(req: NextApiRequest & { userId?: number; traceContext: TraceContext }) {
@@ -52,7 +52,7 @@ async function handler(req: NextApiRequest & { userId?: number; traceContext: Tr
     bookingMeta: {
       userId: session?.user?.id || -1,
       hostname: req.headers.host || "",
-      forcedSlug: req.headers["x-cal-force-slug"] as string | undefined,
+      forcedSlug: req.headers["x-coachos-force-slug"] as string | undefined,
       traceContext: req.traceContext,
     },
   });

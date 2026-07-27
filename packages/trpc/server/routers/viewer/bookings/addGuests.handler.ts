@@ -1,23 +1,23 @@
 import process from "node:process";
-import { getUsersCredentialsIncludeServiceAccountKey } from "@calcom/app-store/delegationCredential";
-import { eventTypeMetaDataSchemaWithTypedApps } from "@calcom/app-store/zod-utils";
-import dayjs from "@calcom/dayjs";
-import { BookingEmailSmsHandler } from "@calcom/features/bookings/lib/BookingEmailSmsHandler";
-import EventManager from "@calcom/features/bookings/lib/EventManager";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
+import { getUsersCredentialsIncludeServiceAccountKey } from "@coachos/app-store/delegationCredential";
+import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
+import dayjs from "@coachos/dayjs";
+import { BookingEmailSmsHandler } from "@coachos/features/bookings/lib/BookingEmailSmsHandler";
+import EventManager from "@coachos/features/bookings/lib/EventManager";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { getTranslation } from "@calcom/i18n/server";
-import { extractBaseEmail } from "@calcom/lib/extract-base-email";
-import { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
-import logger from "@calcom/lib/logger";
-import { prisma } from "@calcom/prisma";
-import type { BookingResponses } from "@calcom/prisma/zod-utils";
-import { eventTypeBookingFields } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { getTranslation } from "@coachos/i18n/server";
+import { extractBaseEmail } from "@coachos/lib/extract-base-email";
+import { parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
+import logger from "@coachos/lib/logger";
+import { prisma } from "@coachos/prisma";
+import type { BookingResponses } from "@coachos/prisma/zod-utils";
+import { eventTypeBookingFields } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 import { TRPCError } from "@trpc/server";
 import type { TrpcSessionUser } from "../../../types";
 import type { TAddGuestsInputSchema } from "./addGuests.schema";

@@ -29,9 +29,9 @@ import {
 import { ApiHeader, ApiOperation, ApiParam, ApiTags as DocsTags } from "@nestjs/swagger";
 import { plainToClass } from "class-transformer";
 
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import { SkipTakePagination } from "@calcom/platform-types";
-import type { Webhook } from "@calcom/prisma/client";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import { SkipTakePagination } from "@coachos/platform-types";
+import type { Webhook } from "@coachos/prisma/client";
 
 @Controller({
   path: "/v2/event-types/:eventTypeId/webhooks",

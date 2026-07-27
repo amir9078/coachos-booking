@@ -1,21 +1,21 @@
-import { CAL_URL } from "@calcom/lib/constants";
+import { coachos_URL } from "@coachos/lib/constants";
 
 import type { TextComponent } from "../lib";
 
 /**
- * Check if the url is a valid cal.com url
+ * Check if the url is a valid amir9078.github.io url
  * @param url
  * @returns IsValid
  */
 export async function isValidCalURL(url: string) {
   const regex = new RegExp(
-    `^https://(?:[a-zA-Z0-9-]+\\.)?${CAL_URL.replace("https://", "")}/`,
+    `^https://(?:[a-zA-Z0-9-]+\\.)?${coachos_URL.replace("https://", "")}/`,
     "i"
   );
 
   const error: TextComponent = {
     type: "text",
-    text: `This is not a valid ${CAL_URL.replace("https://", "")} link`,
+    text: `This is not a valid ${coachos_URL.replace("https://", "")} link`,
     style: "error",
     align: "left",
   };

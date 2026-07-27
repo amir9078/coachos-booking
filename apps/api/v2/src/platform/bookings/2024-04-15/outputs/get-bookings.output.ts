@@ -14,7 +14,7 @@ import {
   IsEmail,
 } from "class-validator";
 
-import { SUCCESS_STATUS, ERROR_STATUS } from "@calcom/platform-constants";
+import { SUCCESS_STATUS, ERROR_STATUS } from "@coachos/platform-constants";
 
 const Status = {
   CANCELLED: "CANCELLED",

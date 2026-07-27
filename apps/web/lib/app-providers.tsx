@@ -9,8 +9,8 @@
 
 import process from "node:process";
 import type { ParsedUrlQuery } from "node:querystring";
-import { FeatureProvider } from "@calcom/features/flags/context/provider";
-import { useFlags } from "@calcom/web/modules/feature-flags/hooks/useFlags";
+import { FeatureProvider } from "@coachos/features/flags/context/provider";
+import { useFlags } from "@coachos/web/modules/feature-flags/hooks/useFlags";
 import { useViewerI18n } from "@components/I18nLanguageHandler";
 import useIsBookingPage from "@lib/hooks/useIsBookingPage";
 import { useNuqsParams } from "@lib/hooks/useNuqsParams";
@@ -165,8 +165,8 @@ const CalcomThemeProvider = (props: CalcomThemeProps) => {
  * So, we handle all the cases here namely,
  * - Both Booking Pages, /free/30min and /pro/30min but configured with different themes but being operated together.
  * - Embeds using different namespace. They can be completely themed different on the same page.
- * - Embeds using the same namespace but showing different cal.com links with different themes
- * - Embeds using the same namespace and showing same cal.com links with different themes(Different theme is possible for same cal.com link in case of embed because of theme config available in embed)
+ * - Embeds using the same namespace but showing different amir9078.github.io links with different themes
+ * - Embeds using the same namespace and showing same amir9078.github.io links with different themes(Different theme is possible for same amir9078.github.io link in case of embed because of theme config available in embed)
  * - App has different theme then Booking Pages.
  *
  * All the above cases have one thing in common, which is the origin and thus localStorage is shared and thus `storageKey` is critical to avoid theme flickering.

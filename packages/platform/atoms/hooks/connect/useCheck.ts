@@ -1,8 +1,8 @@
 import { useQuery, useQueryClient } from "@tanstack/react-query";
 
-import type { CALENDARS } from "@calcom/platform-constants";
-import { ERROR_STATUS, SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { ApiErrorResponse, ApiResponse } from "@calcom/platform-types";
+import type { CALENDARS } from "@coachos/platform-constants";
+import { ERROR_STATUS, SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { ApiErrorResponse, ApiResponse } from "@coachos/platform-types";
 
 import http from "../../lib/http";
 import { useAtomsContext } from "../useAtomsContext";

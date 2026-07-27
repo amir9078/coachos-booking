@@ -1,20 +1,20 @@
 import process from "node:process";
-import type { LocationObject } from "@calcom/app-store/locations";
-import { privacyFilteredLocations } from "@calcom/app-store/locations";
-import { getAppFromSlug } from "@calcom/app-store/utils";
-import { eventTypeMetaDataSchemaWithTypedApps } from "@calcom/app-store/zod-utils";
-import dayjs from "@calcom/dayjs";
-import { getBookingFieldsWithSystemFields } from "@calcom/features/bookings/lib/getBookingFields";
-import { getDefaultEvent, getUsernameList } from "@calcom/features/eventtypes/lib/defaultEvents";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { getOrgOrTeamAvatar, getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { isRecurringEvent, parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import type { PrismaClient } from "@calcom/prisma";
-import type { Prisma, Team, User as UserType } from "@calcom/prisma/client";
-import { MembershipRole } from "@calcom/prisma/enums";
-import type { BookerLayoutSettings } from "@calcom/prisma/zod-utils";
+import type { LocationObject } from "@coachos/app-store/locations";
+import { privacyFilteredLocations } from "@coachos/app-store/locations";
+import { getAppFromSlug } from "@coachos/app-store/utils";
+import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
+import dayjs from "@coachos/dayjs";
+import { getBookingFieldsWithSystemFields } from "@coachos/features/bookings/lib/getBookingFields";
+import { getDefaultEvent, getUsernameList } from "@coachos/features/eventtypes/lib/defaultEvents";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { getOrgOrTeamAvatar, getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { isRecurringEvent, parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import type { PrismaClient } from "@coachos/prisma";
+import type { Prisma, Team, User as UserType } from "@coachos/prisma/client";
+import { MembershipRole } from "@coachos/prisma/enums";
+import type { BookerLayoutSettings } from "@coachos/prisma/zod-utils";
 import {
   BookerLayouts,
   bookerLayoutOptions,
@@ -22,8 +22,8 @@ import {
   customInputSchema,
   teamMetadataSchema,
   userMetadata as userMetadataSchema,
-} from "@calcom/prisma/zod-utils";
-import type { UserProfile } from "@calcom/types/UserProfile";
+} from "@coachos/prisma/zod-utils";
+import type { UserProfile } from "@coachos/types/UserProfile";
 
 class PermissionCheckService {
   constructor(_prisma?: unknown) {}
@@ -39,7 +39,7 @@ class PermissionCheckService {
 }
 const getSlugOrRequestedSlug = (slug: string) => ({ slug });
 const getBookerBaseUrlSync = (_orgSlug?: string | number | null): string =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
 const userSelect = {
   id: true,

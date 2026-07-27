@@ -1,13 +1,13 @@
 import z from "zod";
 
-import type { CloseComFieldOptions } from "@calcom/lib/CloseCom";
-import CloseCom from "@calcom/lib/CloseCom";
-import { getCustomActivityTypeInstanceData } from "@calcom/lib/CloseComeUtils";
-import { symmetricDecrypt } from "@calcom/lib/crypto";
-import logger from "@calcom/lib/logger";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
-import type { CRM, ContactCreateInput, CrmEvent, Contact } from "@calcom/types/CrmService";
+import type { CloseComFieldOptions } from "@coachos/lib/CloseCom";
+import CloseCom from "@coachos/lib/CloseCom";
+import { getCustomActivityTypeInstanceData } from "@coachos/lib/CloseComeUtils";
+import { symmetricDecrypt } from "@coachos/lib/crypto";
+import logger from "@coachos/lib/logger";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
+import type { CRM, ContactCreateInput, CrmEvent, Contact } from "@coachos/types/CrmService";
 
 // Schema that supports both OAuth and API key credentials
 const credentialSchema = z

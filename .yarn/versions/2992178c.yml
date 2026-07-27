@@ -1,6 +1,6 @@
 undecided:
-  - "@calcom/platform-constants"
-  - "@calcom/platform-enums"
-  - "@calcom/platform-types"
-  - "@calcom/platform-utils"
-  - "@calcom/prisma"
+  - "@coachos/platform-constants"
+  - "@coachos/platform-enums"
+  - "@coachos/platform-types"
+  - "@coachos/platform-utils"
+  - "@coachos/prisma"

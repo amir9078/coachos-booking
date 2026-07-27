@@ -1,4 +1,4 @@
-import { md } from "@calcom/lib/markdownIt";
+import { md } from "@coachos/lib/markdownIt";
 import DOMPurify from "dompurify";
 
 if (typeof window == "undefined") {

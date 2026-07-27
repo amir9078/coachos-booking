@@ -5,14 +5,14 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 
-import { getQueryParam } from "@calcom/features/bookings/Booker/utils/query-param";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
+import { getQueryParam } from "@coachos/features/bookings/Booker/utils/query-param";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
 
 import { TRPCClientError } from "@trpc/client";
 

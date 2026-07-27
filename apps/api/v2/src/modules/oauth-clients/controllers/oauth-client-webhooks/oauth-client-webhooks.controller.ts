@@ -1,7 +1,7 @@
-import { SUCCESS_STATUS, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
-import { MembershipRole } from "@calcom/platform-libraries";
-import { SkipTakePagination } from "@calcom/platform-types";
-import type { Webhook } from "@calcom/prisma/client";
+import { SUCCESS_STATUS, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
+import { MembershipRole } from "@coachos/platform-libraries";
+import { SkipTakePagination } from "@coachos/platform-types";
+import type { Webhook } from "@coachos/prisma/client";
 import { Body, Controller, Delete, Get, Param, Patch, Post, Query, UseGuards } from "@nestjs/common";
 import { ApiHeader, ApiOperation, ApiParam, ApiTags as DocsTags } from "@nestjs/swagger";
 import { plainToClass } from "class-transformer";
@@ -31,7 +31,7 @@ import { OAuthClientGuard } from "../../guards/oauth-client-guard";
 @UseGuards(ApiAuthGuard, OAuthClientGuard)
 @DocsTags("Deprecated: Platform / Webhooks")
 @ApiHeader({
-  name: X_CAL_SECRET_KEY,
+  name: X_coachos_SECRET_KEY,
   description: "OAuth client secret key",
   required: true,
 })

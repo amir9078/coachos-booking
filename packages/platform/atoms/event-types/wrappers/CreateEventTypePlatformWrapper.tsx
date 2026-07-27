@@ -1,7 +1,7 @@
-import CreateEventTypeForm from "@calcom/features/eventtypes/components/CreateEventTypeForm";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { EventType } from "@calcom/prisma/client";
-import { Button } from "@calcom/ui/components/button";
+import CreateEventTypeForm from "@coachos/features/eventtypes/components/CreateEventTypeForm";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { EventType } from "@coachos/prisma/client";
+import { Button } from "@coachos/ui/components/button";
 import { useCreateEventType } from "../../hooks/event-types/private/useCreateEventType";
 import { useCreateEventTypeForm } from "../../hooks/event-types/private/useCreateEventTypeForm";
 import { cn } from "../../src/lib/utils";

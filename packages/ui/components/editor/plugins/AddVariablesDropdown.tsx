@@ -1,7 +1,7 @@
 import { useMemo, useState, useRef, useEffect } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import useMediaQuery from "@calcom/lib/hooks/useMediaQuery";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import useMediaQuery from "@coachos/lib/hooks/useMediaQuery";
 
 import classNames from "../../../classNames";
 import { Dropdown, DropdownMenuContent, DropdownMenuItem, DropdownMenuTrigger } from "../../dropdown";

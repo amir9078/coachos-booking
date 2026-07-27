@@ -1,7 +1,7 @@
-import { sendEmailVerification } from "@calcom/features/auth/lib/verifyEmail";
-import { GlobalWatchlistRepository } from "@calcom/features/watchlist/lib/repository/GlobalWatchlistRepository";
-import { normalizeEmail } from "@calcom/features/watchlist/lib/utils/normalization";
-import { prisma } from "@calcom/prisma";
+import { sendEmailVerification } from "@coachos/features/auth/lib/verifyEmail";
+import { GlobalWatchlistRepository } from "@coachos/features/watchlist/lib/repository/GlobalWatchlistRepository";
+import { normalizeEmail } from "@coachos/features/watchlist/lib/utils/normalization";
+import { prisma } from "@coachos/prisma";
 import type { TrpcSessionUser } from "../../../types";
 import type { TAdminLockUserAccountSchema } from "./lockUserAccount.schema";
 

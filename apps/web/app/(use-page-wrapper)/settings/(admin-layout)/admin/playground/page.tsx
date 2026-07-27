@@ -1,5 +1,5 @@
-import SettingsHeader from "@calcom/features/settings/appDir/SettingsHeader";
-import { Icon } from "@calcom/ui/components/icon";
+import SettingsHeader from "@coachos/features/settings/appDir/SettingsHeader";
+import { Icon } from "@coachos/ui/components/icon";
 import { _generateMetadata, getTranslate } from "app/_utils";
 import Link from "next/link";
 

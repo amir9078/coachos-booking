@@ -4,15 +4,15 @@ import { useRouter } from "next/navigation";
 import { useState, useCallback, useEffect } from "react";
 import { Toaster } from "sonner";
 
-import AppNotInstalledMessage from "@calcom/app-store/_components/AppNotInstalledMessage";
-import { albyCredentialKeysSchema } from "@calcom/app-store/alby/lib/albyCredentialKeysSchema";
-import type { IAlbySetupProps } from "@calcom/app-store/alby/pages/setup/_getServerSideProps";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
+import AppNotInstalledMessage from "@coachos/app-store/_components/AppNotInstalledMessage";
+import { albyCredentialKeysSchema } from "@coachos/app-store/alby/lib/albyCredentialKeysSchema";
+import type { IAlbySetupProps } from "@coachos/app-store/alby/pages/setup/_getServerSideProps";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
 import { InfoIcon } from "@coss/ui/icons";
 
 export default function AlbySetup(props: IAlbySetupProps) {
@@ -88,7 +88,7 @@ function AlbySetupPage(props: IAlbySetupProps) {
       client_secret: props.clientSecret,
       callback: `${process.env.NEXT_PUBLIC_WEBAPP_URL}/apps/alby/setup?callback=true`,
       scopes: ["invoices:read", "account:read"],
-      user_agent: "cal.com",
+      user_agent: "amir9078.github.io",
     });
 
     const weblnOAuthProvider = new webln.OauthWeblnProvider({

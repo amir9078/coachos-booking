@@ -3,23 +3,23 @@
 import { useQueryClient } from "@tanstack/react-query";
 import { useRef, useState, useEffect, forwardRef, useImperativeHandle, useCallback } from "react";
 
-import { BookerStoreProvider } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import type { ChildrenEventType } from "@calcom/web/modules/event-types/components/ChildrenEventTypeSelect";
-import { EventType as EventTypeComponent } from "@calcom/web/modules/event-types/components/EventType";
-import ManagedEventTypeDialog from "@calcom/features/eventtypes/components/dialogs/ManagedEventDialog";
+import { BookerStoreProvider } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import type { ChildrenEventType } from "@coachos/web/modules/event-types/components/ChildrenEventTypeSelect";
+import { EventType as EventTypeComponent } from "@coachos/web/modules/event-types/components/EventType";
+import ManagedEventTypeDialog from "@coachos/features/eventtypes/components/dialogs/ManagedEventDialog";
 import type {
   EventTypeSetupProps,
   FormValues,
   EventTypePlatformWrapperRef,
-} from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SchedulingType } from "@calcom/prisma/enums";
-import type { EventAdvancedTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/advanced/EventAdvancedTab";
-import type { EventTeamAssignmentTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/assignment/EventTeamAssignmentTab";
-import type { EventAvailabilityTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/availability/EventAvailabilityTab";
-import type { EventLimitsTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/limits/EventLimitsTab";
-import type { EventRecurringTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/recurring/RecurringEventController";
-import type { EventSetupTabCustomClassNames } from "@calcom/web/modules/event-types/components/tabs/setup/EventSetupTab";
+} from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SchedulingType } from "@coachos/prisma/enums";
+import type { EventAdvancedTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/advanced/EventAdvancedTab";
+import type { EventTeamAssignmentTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/assignment/EventTeamAssignmentTab";
+import type { EventAvailabilityTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/availability/EventAvailabilityTab";
+import type { EventLimitsTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/limits/EventLimitsTab";
+import type { EventRecurringTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/recurring/RecurringEventController";
+import type { EventSetupTabCustomClassNames } from "@coachos/web/modules/event-types/components/tabs/setup/EventSetupTab";
 
 import { useDeleteEventTypeById } from "../../hooks/event-types/private/useDeleteEventTypeById";
 import { useAtomsContext } from "../../hooks/useAtomsContext";

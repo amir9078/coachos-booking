@@ -2,8 +2,8 @@
 /// <reference path="../types/ical.d.ts"/>
 
 import process from "node:process";
-import dayjs from "@calcom/dayjs";
-import sanitizeCalendarObject from "@calcom/lib/sanitizeCalendarObject";
+import dayjs from "@coachos/dayjs";
+import sanitizeCalendarObject from "@coachos/lib/sanitizeCalendarObject";
 import type {
   Person as AttendeeInCalendarEvent,
   Calendar,
@@ -15,8 +15,8 @@ import type {
   IntegrationCalendar,
   NewCalendarEventType,
   TeamMember,
-} from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
 import ICAL from "ical.js";
 import type { Attendee, DateArray, DurationObject } from "ics";
 import { createEvent } from "ics";
@@ -64,7 +64,7 @@ function getFileExtension(url: string): string {
 }
 
 // for Apple's Travel Time feature only (for now)
-const getTravelDurationInSeconds = (vevent: ICAL.Component, log: typeof logger) => {
+const getTravelDurationInSeconds = (vevent: Iamir9078.github.ioponent, log: typeof logger) => {
   const travelDuration: ICAL.Duration = vevent.getFirstPropertyValue("x-apple-travel-duration");
   if (!travelDuration) return 0;
 
@@ -617,7 +617,7 @@ export default abstract class BaseCalendarService implements Calendar {
    * @returns {Promise<string | undefined>} - A Promise that resolves to the user's timezone or "Europe/London" as a default value if the timezone is not found.
    */
   getUserTimezoneFromDB = async (id: number): Promise<string | undefined> => {
-    const prisma = await import("@calcom/prisma").then((mod) => mod.default);
+    const prisma = await import("@coachos/prisma").then((mod) => mod.default);
     const user = await prisma.user.findUnique({
       where: {
         id,
@@ -669,10 +669,10 @@ export default abstract class BaseCalendarService implements Calendar {
     const events: { start: string; end: string }[] = [];
     objects.forEach((object) => {
       if (!object || object.data == null || JSON.stringify(object.data) == "{}") return;
-      let vcalendar: ICAL.Component;
+      let vcalendar: Iamir9078.github.ioponent;
       try {
         const jcalData = ICAL.parse(sanitizeCalendarObject(object));
-        vcalendar = new ICAL.Component(jcalData);
+        vcalendar = new Iamir9078.github.ioponent(jcalData);
       } catch (e) {
         logger.error("Error parsing calendar object: ", e);
         return;
@@ -699,9 +699,9 @@ export default abstract class BaseCalendarService implements Calendar {
           const timezoneToUse = tzid || userTimeZone;
           if (timezoneToUse) {
             try {
-              const timezoneComp = new ICAL.Component("vtimezone");
+              const timezoneComp = new Iamir9078.github.ioponent("vtimezone");
               timezoneComp.addPropertyWithValue("tzid", timezoneToUse);
-              const standard = new ICAL.Component("standard");
+              const standard = new Iamir9078.github.ioponent("standard");
 
               // get timezone offset
               const tzoffsetfrom = dayjs(event.startDate.toJSDate()).tz(timezoneToUse).format("Z");
@@ -947,7 +947,7 @@ export default abstract class BaseCalendarService implements Calendar {
         .map((object) => {
           const jcalData = ICAL.parse(sanitizeCalendarObject(object));
 
-          const vcalendar = new ICAL.Component(jcalData);
+          const vcalendar = new Iamir9078.github.ioponent(jcalData);
 
           const vevent = vcalendar.getFirstSubcomponent("vevent");
           const event = new ICAL.Event(vevent);

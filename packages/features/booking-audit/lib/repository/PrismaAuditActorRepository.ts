@@ -1,4 +1,4 @@
-import type { PrismaClient } from "@calcom/prisma/client";
+import type { PrismaClient } from "@coachos/prisma/client";
 import type { IAuditActorRepository } from "./IAuditActorRepository";
 
 type Dependencies = {

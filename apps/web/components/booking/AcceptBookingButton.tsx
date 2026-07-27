@@ -1,5 +1,5 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
 
 import { useBookingConfirmation } from "./hooks/useBookingConfirmation";
 

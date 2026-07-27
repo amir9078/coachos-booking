@@ -2,15 +2,15 @@ import {
   generateGuestMeetingTokenFromOwnerMeetingToken,
   setEnableRecordingUIAndUserIdForOrganizer,
   updateMeetingTokenIfExpired,
-} from "@calcom/app-store/dailyvideo/lib/VideoApiAdapter";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import { getCalVideoReference } from "@calcom/features/get-cal-video-reference";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { CAL_VIDEO_MEETING_LINK_FOR_TESTING } from "@calcom/lib/constants";
-import { isENVDev } from "@calcom/lib/env";
-import prisma from "@calcom/prisma";
+} from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import { getCalVideoReference } from "@coachos/features/get-cal-video-reference";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { coachos_VIDEO_MEETING_LINK_FOR_TESTING } from "@coachos/lib/constants";
+import { isENVDev } from "@coachos/lib/env";
+import prisma from "@coachos/prisma";
 import MarkdownIt from "markdown-it";
 import type { GetServerSidePropsContext } from "next";
 
@@ -128,9 +128,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   // Below if block is for local testing purposes only
   // STARTS------------------------------------------------------------------------------
-  if (booking?.references[0] && isENVDev && CAL_VIDEO_MEETING_LINK_FOR_TESTING) {
+  if (booking?.references[0] && isENVDev && coachos_VIDEO_MEETING_LINK_FOR_TESTING) {
     // meetingUrl is `null` in dev env, so setting a dummy meetingUrl (it's a past but real meeting link in production env)
-    booking.references[0].meetingUrl = CAL_VIDEO_MEETING_LINK_FOR_TESTING;
+    booking.references[0].meetingUrl = coachos_VIDEO_MEETING_LINK_FOR_TESTING;
   }
   // ENDS--------------------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   //find out if the meeting is in the past
   const isPast = booking?.endTime <= exitDate;
-  const testingUid = CAL_VIDEO_MEETING_LINK_FOR_TESTING?.split("/").pop();
+  const testingUid = coachos_VIDEO_MEETING_LINK_FOR_TESTING?.split("/").pop();
   const isTestingLink = booking?.uid === testingUid;
 
   if (isPast && !isTestingLink) {

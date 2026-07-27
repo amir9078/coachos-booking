@@ -1,8 +1,8 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
 
 import { initVitalClient, vitalEnv } from "../lib/client";
 
@@ -26,9 +26,9 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   // Create a user on vital
   let userVital;
   try {
-    userVital = await vitalClient.User.create(`cal_${calcomUserId}`);
+    userVital = await vitalClient.User.create(`coachos_${calcomUserId}`);
   } catch (e) {
-    userVital = await vitalClient.User.resolve(`cal_${calcomUserId}`);
+    userVital = await vitalClient.User.resolve(`coachos_${calcomUserId}`);
   }
 
   try {

@@ -1,9 +1,9 @@
 "use client";
 
-import SectionBottomActions from "@calcom/features/settings/SectionBottomActions";
-import SettingsHeader from "@calcom/features/settings/appDir/SettingsHeader";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SkeletonButton, SkeletonContainer, SkeletonText } from "@calcom/ui/components/skeleton";
+import SectionBottomActions from "@coachos/features/settings/SectionBottomActions";
+import SettingsHeader from "@coachos/features/settings/appDir/SettingsHeader";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SkeletonButton, SkeletonContainer, SkeletonText } from "@coachos/ui/components/skeleton";
 
 export const SkeletonLoader = () => {
   const { t } = useLocale();

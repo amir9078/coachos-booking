@@ -1,1 +1,1 @@
-export const CALCOM_ATOMS_WRAPPER_CLASS = "calcom-atoms";
+export const COACHOS_ATOMS_WRAPPER_CLASS = "coachos-atoms";

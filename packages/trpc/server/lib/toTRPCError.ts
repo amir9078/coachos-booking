@@ -1,5 +1,5 @@
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { getHttpStatusCode } from "@calcom/lib/server/getServerErrorFromUnknown";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { getHttpStatusCode } from "@coachos/lib/server/getServerErrorFromUnknown";
 
 import { TRPCError } from "@trpc/server";
 

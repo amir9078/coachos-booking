@@ -1,4 +1,4 @@
-import { AssignmentReasonEnum } from "@calcom/prisma/enums";
+import { AssignmentReasonEnum } from "@coachos/prisma/enums";
 
 /**
  * Maps an AssignmentReasonEnum to a translation key for the category label.

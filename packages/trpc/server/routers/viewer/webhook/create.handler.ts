@@ -1,12 +1,12 @@
 import { v4 } from "uuid";
 
-import { updateTriggerForExistingBookings } from "@calcom/features/webhooks/lib/scheduleTrigger";
-import { validateUrlForSSRFSync } from "@calcom/lib/ssrfProtection";
-import { prisma } from "@calcom/prisma";
-import type { Webhook } from "@calcom/prisma/client";
-import type { Prisma } from "@calcom/prisma/client";
-import { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { updateTriggerForExistingBookings } from "@coachos/features/webhooks/lib/scheduleTrigger";
+import { validateUrlForSSRFSync } from "@coachos/lib/ssrfProtection";
+import { prisma } from "@coachos/prisma";
+import type { Webhook } from "@coachos/prisma/client";
+import type { Prisma } from "@coachos/prisma/client";
+import { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

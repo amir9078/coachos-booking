@@ -1,11 +1,11 @@
 import process from "node:process";
-import dayjs from "@calcom/dayjs";
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
-import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@calcom/lib/availability";
-import prisma from "@calcom/prisma";
-import type { Prisma, UserPermissionRole } from "@calcom/prisma/client";
-import { MembershipRole } from "@calcom/prisma/enums";
-import type { teamMetadataSchema } from "@calcom/prisma/zod-utils";
+import dayjs from "@coachos/dayjs";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
+import { DEFAULT_SCHEDULE, getAvailabilityFromSchedule } from "@coachos/lib/availability";
+import prisma from "@coachos/prisma";
+import type { Prisma, UserPermissionRole } from "@coachos/prisma/client";
+import { MembershipRole } from "@coachos/prisma/enums";
+import type { teamMetadataSchema } from "@coachos/prisma/zod-utils";
 import { uuid } from "short-uuid";
 import type z from "zod";
 

@@ -1,16 +1,16 @@
 import { useMemo } from "react";
 import { shallow } from "zustand/shallow";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { useTimePreferences } from "@calcom/features/bookings/lib";
-import classNames from "@calcom/ui/classNames";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { useTimePreferences } from "@coachos/features/bookings/lib";
+import classNames from "@coachos/ui/classNames";
 
-import { OutOfOfficeInSlots } from "@calcom/web/modules/bookings/components/OutOfOfficeInSlots";
-import { useCalendarStore } from "@calcom/features/calendars/weeklyview/state/store";
-import type { CalendarAvailableTimeslots } from "@calcom/features/calendars/weeklyview/types/state";
-import type { GridCellToDateProps } from "@calcom/features/calendars/weeklyview/utils";
-import { gridCellToDateTime } from "@calcom/features/calendars/weeklyview/utils";
+import { OutOfOfficeInSlots } from "@coachos/web/modules/bookings/components/OutOfOfficeInSlots";
+import { useCalendarStore } from "@coachos/features/calendars/weeklyview/state/store";
+import type { CalendarAvailableTimeslots } from "@coachos/features/calendars/weeklyview/types/state";
+import type { GridCellToDateProps } from "@coachos/features/calendars/weeklyview/utils";
+import { gridCellToDateTime } from "@coachos/features/calendars/weeklyview/utils";
 
 type EmptyCellProps = GridCellToDateProps & {
   isDisabled?: boolean;

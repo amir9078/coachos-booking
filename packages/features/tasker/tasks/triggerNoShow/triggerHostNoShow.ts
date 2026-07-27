@@ -1,8 +1,8 @@
-import type { Host } from "@calcom/features/bookings/lib/getHostsAndGuests";
-import { AttendeeRepository } from "@calcom/features/bookings/repositories/AttendeeRepository";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { prisma } from "@calcom/prisma";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import type { Host } from "@coachos/features/bookings/lib/getHostsAndGuests";
+import { AttendeeRepository } from "@coachos/features/bookings/repositories/AttendeeRepository";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { prisma } from "@coachos/prisma";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 import type { Booking } from "./common";
 import {
   calculateMaxStartTime,
@@ -65,7 +65,7 @@ export async function triggerHostNoShow(payload: string): Promise<void> {
   const hostsNoShowPromises = hostsThatDidntJoinTheCall.map((host) => {
     return sendWebhookPayload(
       webhook,
-      WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+      WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
       bookingWithUpdatedData,
       maxStartTime,
       participants,

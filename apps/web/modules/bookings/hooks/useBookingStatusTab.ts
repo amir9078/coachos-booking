@@ -1,7 +1,7 @@
 import { useSearchParams, usePathname } from "next/navigation";
 import { useMemo } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 export function useBookingStatusTab() {
   const { t } = useLocale();

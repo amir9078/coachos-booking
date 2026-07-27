@@ -1,9 +1,9 @@
 import { useState } from "react";
 
-import { useAppContextWithSchema } from "@calcom/app-store/EventTypeAppContext";
-import AppCard from "@calcom/app-store/_components/AppCard";
-import type { EventTypeAppCardComponent } from "@calcom/app-store/types";
-import { TextField } from "@calcom/ui/components/form";
+import { useAppContextWithSchema } from "@coachos/app-store/EventTypeAppContext";
+import AppCard from "@coachos/app-store/_components/AppCard";
+import type { EventTypeAppCardComponent } from "@coachos/app-store/types";
+import { TextField } from "@coachos/ui/components/form";
 
 import type { appDataSchema } from "../zod";
 

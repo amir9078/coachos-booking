@@ -58,7 +58,7 @@ export default defineConfig({
     alias: [
       // Mock generated files that may not exist in CI (must come before general aliases)
       {
-        find: "@calcom/web/public/app-store/svg-hashes.json",
+        find: "@coachos/web/public/app-store/svg-hashes.json",
         replacement: path.resolve(__dirname, "vitest-mocks/svg-hashes.json"),
       },
       {
@@ -75,24 +75,24 @@ export default defineConfig({
       // apps/web path aliases
       { find: "@lib", replacement: path.resolve(__dirname, "apps/web/lib") },
       { find: "app", replacement: path.resolve(__dirname, "apps/web/app") },
-      { find: "@calcom/web", replacement: path.resolve(__dirname, "apps/web") },
+      { find: "@coachos/web", replacement: path.resolve(__dirname, "apps/web") },
       // Platform packages that need to be resolved from source in CI
       {
-        find: "@calcom/platform-constants",
+        find: "@coachos/platform-constants",
         replacement: path.resolve(
           __dirname,
           "packages/platform/constants/index.ts"
         ),
       },
       {
-        find: "@calcom/embed-react",
+        find: "@coachos/embed-react",
         replacement: path.resolve(
           __dirname,
           "packages/embeds/embed-react/src/index.ts"
         ),
       },
       {
-        find: "@calcom/embed-snippet",
+        find: "@coachos/embed-snippet",
         replacement: path.resolve(
           __dirname,
           "packages/embeds/embed-snippet/src/index.ts"
@@ -128,7 +128,7 @@ function setEnvVariablesThatAreUsedBeforeSetup() {
   process.env.DAILY_API_KEY = "MOCK_DAILY_API_KEY";
   // With same env variable, we can test both non org and org booking scenarios
   process.env.NEXT_PUBLIC_WEBAPP_URL = "http://app.cal.local:3000";
-  process.env.CALCOM_SERVICE_ACCOUNT_ENCRYPTION_KEY =
+  process.env.COACHOS_SERVICE_ACCOUNT_ENCRYPTION_KEY =
     "UNIT_TEST_ENCRYPTION_KEY";
   process.env.STRIPE_PRIVATE_KEY =
     process.env.STRIPE_PRIVATE_KEY || "sk_test_dummy_unit_test_key";

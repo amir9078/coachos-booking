@@ -1,18 +1,18 @@
-import { getCalendar } from "@calcom/app-store/_utils/getCalendar";
-import { MeetLocationType } from "@calcom/app-store/locations";
-import getApps from "@calcom/app-store/utils";
-import dayjs from "@calcom/dayjs";
+import { getCalendar } from "@coachos/app-store/_utils/getCalendar";
+import { MeetLocationType } from "@coachos/app-store/locations";
+import getApps from "@coachos/app-store/utils";
+import dayjs from "@coachos/dayjs";
 import getCalendarsEvents, {
   getCalendarsEventsWithTimezones,
-} from "@calcom/features/calendars/lib/getCalendarsEvents";
-import { getRichDescription, getUid } from "@calcom/lib/CalEventParser";
-import { CalendarAppDelegationCredentialError } from "@calcom/lib/CalendarAppError";
-import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@calcom/lib/constants";
-import { buildNonDelegationCredentials } from "@calcom/lib/delegationCredential";
-import { formatCalEvent } from "@calcom/lib/formatCalendarEvent";
-import logger from "@calcom/lib/logger";
-import { getPiiFreeCalendarEvent, getPiiFreeCredential } from "@calcom/lib/piiFreeData";
-import { safeStringify } from "@calcom/lib/safeStringify";
+} from "@coachos/features/calendars/lib/getCalendarsEvents";
+import { getRichDescription, getUid } from "@coachos/lib/CalEventParser";
+import { CalendarAppDelegationCredentialError } from "@coachos/lib/CalendarAppError";
+import { ORGANIZER_EMAIL_EXEMPT_DOMAINS } from "@coachos/lib/constants";
+import { buildNonDelegationCredentials } from "@coachos/lib/delegationCredential";
+import { formatCalEvent } from "@coachos/lib/formatCalendarEvent";
+import logger from "@coachos/lib/logger";
+import { getPiiFreeCalendarEvent, getPiiFreeCredential } from "@coachos/lib/piiFreeData";
+import { safeStringify } from "@coachos/lib/safeStringify";
 import type {
   CalendarEvent,
   CalendarFetchMode,
@@ -21,9 +21,9 @@ import type {
   IntegrationCalendar,
   NewCalendarEventType,
   SelectedCalendar,
-} from "@calcom/types/Calendar";
-import type { CredentialForCalendarService, CredentialPayload } from "@calcom/types/Credential";
-import type { EventResult } from "@calcom/types/EventManager";
+} from "@coachos/types/Calendar";
+import type { CredentialForCalendarService, CredentialPayload } from "@coachos/types/Credential";
+import type { EventResult } from "@coachos/types/EventManager";
 import { sortBy } from "lodash";
 
 const log = logger.getSubLogger({ prefix: ["CalendarManager"] });

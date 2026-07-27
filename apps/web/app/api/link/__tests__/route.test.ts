@@ -1,4 +1,4 @@
-import { confirmHandler } from "@calcom/trpc/server/routers/viewer/bookings/confirm.handler";
+import { confirmHandler } from "@coachos/trpc/server/routers/viewer/bookings/confirm.handler";
 import type { NextRequest } from "next/server";
 import type { Mock } from "vitest";
 import { beforeEach, describe, expect, it, vi } from "vitest";
@@ -31,7 +31,7 @@ vi.mock("next/server", () => ({
   },
 }));
 
-vi.mock("@calcom/lib/crypto", () => ({
+vi.mock("@coachos/lib/crypto", () => ({
   symmetricDecrypt: vi.fn().mockReturnValue(
     JSON.stringify({
       bookingUid: "test-booking-uid",
@@ -40,7 +40,7 @@ vi.mock("@calcom/lib/crypto", () => ({
   ),
 }));
 
-vi.mock("@calcom/prisma", () => {
+vi.mock("@coachos/prisma", () => {
   const mockBookingFindUniqueOrThrow = vi.fn().mockResolvedValue({
     id: 1,
     uid: "test-booking-uid",
@@ -68,21 +68,21 @@ vi.mock("@calcom/prisma", () => {
   };
 });
 
-vi.mock("@calcom/trpc/server/routers/viewer/bookings/confirm.handler", () => ({
+vi.mock("@coachos/trpc/server/routers/viewer/bookings/confirm.handler", () => ({
   confirmHandler: vi.fn(),
 }));
 
-vi.mock("@calcom/lib/tracing/factory", () => ({
+vi.mock("@coachos/lib/tracing/factory", () => ({
   distributedTracing: {
     createTrace: vi.fn().mockReturnValue({}),
   },
 }));
 
-vi.mock("@calcom/features/booking-audit/lib/makeActor", () => ({
+vi.mock("@coachos/features/booking-audit/lib/makeActor", () => ({
   makeUserActor: vi.fn().mockReturnValue({ type: "user", id: "test-uuid" }),
 }));
 
-import prisma from "@calcom/prisma";
+import prisma from "@coachos/prisma";
 // Import after mocks are set up
 import { GET } from "../route";
 
@@ -150,8 +150,8 @@ describe("link route", () => {
 
     it("should construct redirect URLs using WEBAPP_URL regardless of request origin", async () => {
       const testOrigins = [
-        "https://app.cal.com",
-        "https://acme.cal.com",
+        "https://app.amir9078.github.io",
+        "https://acme.amir9078.github.io",
         "https://calcom.company.internal",
         "http://192.168.1.100:3000",
       ];

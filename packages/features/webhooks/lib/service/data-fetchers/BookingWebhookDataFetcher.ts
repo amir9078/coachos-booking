@@ -1,6 +1,6 @@
-import type { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import type { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 import type { IWebhookDataFetcher, SubscriberContext } from "../../interface/IWebhookDataFetcher";
 import type { ILogger } from "../../interface/infrastructure";
 import type { BookingWebhookTaskPayload } from "../../types/webhookTask";

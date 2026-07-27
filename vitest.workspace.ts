@@ -65,7 +65,7 @@ const workspaces = packagedEmbedTestsOnly
                 "packages/platform/**/*",
                 "apps/api/v2/**/*",
               ],
-              name: "@calcom/lib",
+              name: "@coachos/lib",
               setupFiles: ["packages/testing/src/setupVitest.ts"],
               pool,
             },
@@ -82,7 +82,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/features",
+              name: "@coachos/features",
               include: ["packages/features/**/*.{test,spec}.tsx"],
               exclude: ["packages/features/form-builder/**/*", "packages/features/bookings/**/*"],
               environment: "jsdom",
@@ -93,7 +93,7 @@ const workspaces = packagedEmbedTestsOnly
 
           {
             test: {
-              name: "@calcom/closecom",
+              name: "@coachos/closecom",
               include: ["packages/app-store/closecom/**/*.{test,spec}.{ts,js}"],
               environment: "jsdom",
               setupFiles: ["packages/app-store/closecom/test/globals.ts"],
@@ -103,7 +103,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/app-store-core",
+              name: "@coachos/app-store-core",
               include: ["packages/app-store/*.{test,spec}.[jt]s?(x)"],
               exclude: ["packages/app-store/delegationCredential.test.ts"],
               environment: "jsdom",
@@ -114,7 +114,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/app-store-delegation-credential",
+              name: "@coachos/app-store-delegation-credential",
               include: ["packages/app-store/delegationCredential.test.ts"],
               environment: "node",
               setupFiles: ["packages/testing/src/setupVitest.ts"],
@@ -124,7 +124,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/ui",
+              name: "@coachos/ui",
               include: ["packages/ui/components/**/*.{test,spec}.[jt]s?(x)"],
               environment: "jsdom",
               setupFiles: ["packages/ui/components/test-setup.tsx"],
@@ -134,7 +134,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/features/form-builder",
+              name: "@coachos/features/form-builder",
               include: ["packages/features/form-builder/**/*.{test,spec}.[jt]sx"],
               environment: "jsdom",
               setupFiles: ["packages/ui/components/test-setup.tsx"],
@@ -144,7 +144,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/features/bookings",
+              name: "@coachos/features/bookings",
               include: ["packages/features/bookings/**/*.{test,spec}.[jt]sx"],
               environment: "jsdom",
               setupFiles: ["packages/ui/components/test-setup.tsx"],
@@ -154,7 +154,7 @@ const workspaces = packagedEmbedTestsOnly
           {
             test: {
               globals: true,
-              name: "@calcom/web/components",
+              name: "@coachos/web/components",
               include: ["apps/web/components/**/*.{test,spec}.[jt]sx"],
               environment: "jsdom",
               setupFiles: ["packages/ui/components/test-setup.tsx"],
@@ -173,7 +173,7 @@ const workspaces = packagedEmbedTestsOnly
           },
           {
             test: {
-              name: "@calcom/packages/lib/hooks",
+              name: "@coachos/packages/lib/hooks",
               include: ["packages/lib/hooks/**/*.{test,spec}.{ts,js}"],
               environment: "jsdom",
               setupFiles: [],
@@ -184,7 +184,7 @@ const workspaces = packagedEmbedTestsOnly
             test: {
               globals: true,
               environment: "jsdom",
-              name: "@calcom/web/modules/views",
+              name: "@coachos/web/modules/views",
               include: ["apps/web/modules/**/*.{test,spec}.tsx"],
               setupFiles: ["apps/web/modules/test-setup.ts"],
               pool,
@@ -195,7 +195,7 @@ const workspaces = packagedEmbedTestsOnly
             test: {
               globals: true,
               environment: "jsdom",
-              name: "@calcom/embeds",
+              name: "@coachos/embeds",
               include: ["packages/embeds/**/*.{test,spec}.{ts,js}"],
               exclude: ["packages/embeds/**/packaged/**/*.{test,spec}.{ts,js}"],
               pool,

@@ -46,9 +46,9 @@ export const API_ERROR_CODES = [
 ] as const;
 
 // Request headers
-export const X_CAL_SECRET_KEY = "x-cal-secret-key";
-export const X_CAL_CLIENT_ID = "x-cal-client-id";
-export const X_CAL_PLATFORM_EMBED = "x-cal-platform-embed";
+export const X_coachos_SECRET_KEY = "x-coachos-secret-key";
+export const X_coachos_CLIENT_ID = "x-coachos-client-id";
+export const X_coachos_PLATFORM_EMBED = "x-coachos-platform-embed";
 
 // HTTP status codes
 export const HTTP_CODE_TOKEN_EXPIRED = 498;
@@ -69,7 +69,7 @@ export const API_VERSIONS = [
 
 export type API_VERSIONS_ENUM = (typeof API_VERSIONS)[number];
 export type API_VERSIONS_TYPE = typeof API_VERSIONS;
-export const CAL_API_VERSION_HEADER = "cal-api-version";
+export const coachos_API_VERSION_HEADER = "cal-api-version";
 export const MAX_SEATS_PER_TIME_SLOT = 1000;
 
 // Keep in sync with i18n.json locale.targets

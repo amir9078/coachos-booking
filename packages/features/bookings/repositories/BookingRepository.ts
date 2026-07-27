@@ -1,9 +1,9 @@
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import type { PrismaClient } from "@calcom/prisma";
-import type { Booking, Prisma } from "@calcom/prisma/client";
-import { BookingStatus, RRTimestampBasis } from "@calcom/prisma/enums";
-import { bookingDetailsSelect, bookingMinimalSelect } from "@calcom/prisma/selects/booking";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import type { PrismaClient } from "@coachos/prisma";
+import type { Booking, Prisma } from "@coachos/prisma/client";
+import { BookingStatus, RRTimestampBasis } from "@coachos/prisma/enums";
+import { bookingDetailsSelect, bookingMinimalSelect } from "@coachos/prisma/selects/booking";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
 import type {
   BookingUpdateData,
   BookingWhereInput,

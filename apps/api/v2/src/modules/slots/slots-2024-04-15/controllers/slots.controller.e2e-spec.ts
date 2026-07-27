@@ -1,5 +1,5 @@
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { User } from "@calcom/prisma/client";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";

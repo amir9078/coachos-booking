@@ -1,6 +1,6 @@
 import { v4 as uuidv4 } from "uuid";
 
-import type { PrismaClient } from "@calcom/prisma";
+import type { PrismaClient } from "@coachos/prisma";
 
 import { generateUniqueAPIKey as generateHashedApiKey } from "../lib/apiKeys";
 
@@ -8,7 +8,7 @@ export class PrismaApiKeyRepository {
   constructor(private prismaClient: PrismaClient) {}
 
   static async withGlobalPrisma() {
-    return new PrismaApiKeyRepository((await import("@calcom/prisma")).prisma);
+    return new PrismaApiKeyRepository((await import("@coachos/prisma")).prisma);
   }
 
   async findByHashedKey(hashedKey: string) {
@@ -79,7 +79,7 @@ export class PrismaApiKeyRepository {
       },
     });
 
-    const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "cal_";
+    const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "coachos_";
 
     const prefixedApiKey = `${apiKeyPrefix}${apiKey}`;
 

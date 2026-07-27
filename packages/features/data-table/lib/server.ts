@@ -1,4 +1,4 @@
-import { Prisma } from "@calcom/prisma/client";
+import { Prisma } from "@coachos/prisma/client";
 
 import type { FilterValue, SortingState } from "./types";
 import {

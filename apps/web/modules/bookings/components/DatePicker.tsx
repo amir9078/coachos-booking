@@ -1,18 +1,18 @@
 import { shallow } from "zustand/shallow";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import type { DatePickerClassNames } from "@calcom/features/bookings/Booker/types";
-import { DatePicker as DatePickerComponent } from "@calcom/features/calendars/components/DatePicker";
-import { useNonEmptyScheduleDays } from "@calcom/web/modules/schedules/hooks/useNonEmptyScheduleDays";
-import { weekdayToWeekIndex } from "@calcom/lib/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { User } from "@calcom/prisma/client";
-import type { PeriodData } from "@calcom/types/Event";
-import { useSlotsViewOnSmallScreen } from "@calcom/embed-core/embed-iframe";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import type { DatePickerClassNames } from "@coachos/features/bookings/Booker/types";
+import { DatePicker as DatePickerComponent } from "@coachos/features/calendars/components/DatePicker";
+import { useNonEmptyScheduleDays } from "@coachos/web/modules/schedules/hooks/useNonEmptyScheduleDays";
+import { weekdayToWeekIndex } from "@coachos/lib/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { User } from "@coachos/prisma/client";
+import type { PeriodData } from "@coachos/types/Event";
+import { useSlotsViewOnSmallScreen } from "@coachos/embed-core/embed-iframe";
 
-import type { Slots } from "@calcom/features/bookings/types";
+import type { Slots } from "@coachos/features/bookings/types";
 
 const useMoveToNextMonthOnNoAvailability = ({
   browsingDate,

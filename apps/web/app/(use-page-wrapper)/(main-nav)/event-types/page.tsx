@@ -1,8 +1,8 @@
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { checkOnboardingRedirect } from "@calcom/features/auth/lib/onboardingUtils";
-import { getTeamsFiltersFromQuery } from "@calcom/features/filters/lib/getTeamsFiltersFromQuery";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { eventTypesRouter } from "@calcom/trpc/server/routers/viewer/eventTypes/_router";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { checkOnboardingRedirect } from "@coachos/features/auth/lib/onboardingUtils";
+import { getTeamsFiltersFromQuery } from "@coachos/features/filters/lib/getTeamsFiltersFromQuery";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { eventTypesRouter } from "@coachos/trpc/server/routers/viewer/eventTypes/_router";
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 import { createRouterCaller, getTRPCContext } from "app/_trpc/context";
 import type { PageProps, ReadonlyHeaders, ReadonlyRequestCookies } from "app/_types";

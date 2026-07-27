@@ -1,6 +1,6 @@
-import { SUCCESS_STATUS } from "@calcom/platform-constants";
-import { MembershipRole } from "@calcom/platform-libraries";
-import { CreateOAuthClientInput, Pagination, UpdateOAuthClientInput } from "@calcom/platform-types";
+import { SUCCESS_STATUS } from "@coachos/platform-constants";
+import { MembershipRole } from "@coachos/platform-libraries";
+import { CreateOAuthClientInput, Pagination, UpdateOAuthClientInput } from "@coachos/platform-types";
 import {
   BadRequestException,
   Body,

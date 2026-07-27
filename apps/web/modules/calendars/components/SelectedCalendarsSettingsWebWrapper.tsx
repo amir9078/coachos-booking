@@ -1,14 +1,14 @@
-import { SelectedCalendarsSettings } from "@calcom/atoms/selected-calendars/SelectedCalendarsSettings";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import { Alert } from "@calcom/ui/components/alert";
-import { Select } from "@calcom/ui/components/form";
-import { List } from "@calcom/ui/components/list";
-import AppListCardWebWrapper from "@calcom/web/modules/apps/components/AppListCardWebWrapper";
-import CredentialActionsDropdown from "@calcom/web/modules/apps/components/CredentialActionsDropdown";
-import AdditionalCalendarSelector from "@calcom/web/modules/calendars/components/AdditionalCalendarSelector";
-import { CalendarSwitch } from "@calcom/web/modules/calendars/components/CalendarSwitch";
+import { SelectedCalendarsSettings } from "@coachos/atoms/selected-calendars/SelectedCalendarsSettings";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import { Alert } from "@coachos/ui/components/alert";
+import { Select } from "@coachos/ui/components/form";
+import { List } from "@coachos/ui/components/list";
+import AppListCardWebWrapper from "@coachos/web/modules/apps/components/AppListCardWebWrapper";
+import CredentialActionsDropdown from "@coachos/web/modules/apps/components/CredentialActionsDropdown";
+import AdditionalCalendarSelector from "@coachos/web/modules/calendars/components/AdditionalCalendarSelector";
+import { CalendarSwitch } from "@coachos/web/modules/calendars/components/CalendarSwitch";
 import Link from "next/link";
 import React from "react";
 

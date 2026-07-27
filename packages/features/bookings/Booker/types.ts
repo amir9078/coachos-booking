@@ -1,4 +1,4 @@
-import type { IntlSupportedTimeZones } from "@calcom/lib/timeZones";
+import type { IntlSupportedTimeZones } from "@coachos/lib/timeZones";
 import type React from "react";
 import type { GetBookingType } from "../lib/get-booking";
 

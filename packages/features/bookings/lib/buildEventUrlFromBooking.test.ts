@@ -1,4 +1,4 @@
-import { constantsScenarios } from "@calcom/lib/__mocks__/constants";
+import { constantsScenarios } from "@coachos/lib/__mocks__/constants";
 import { beforeEach, describe, expect, it } from "vitest";
 import { buildEventUrlFromBooking } from "./buildEventUrlFromBooking";
 

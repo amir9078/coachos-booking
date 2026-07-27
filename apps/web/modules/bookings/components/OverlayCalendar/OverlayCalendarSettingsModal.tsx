@@ -1,14 +1,14 @@
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { DialogClose, DialogContent } from "@calcom/ui/components/dialog";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { Switch } from "@calcom/ui/components/form";
-import { ListItem, ListItemText, ListItemTitle } from "@calcom/ui/components/list";
-import { SkeletonContainer, SkeletonText } from "@calcom/ui/components/skeleton";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { DialogClose, DialogContent } from "@coachos/ui/components/dialog";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { Switch } from "@coachos/ui/components/form";
+import { ListItem, ListItemText, ListItemTitle } from "@coachos/ui/components/list";
+import { SkeletonContainer, SkeletonText } from "@coachos/ui/components/skeleton";
 import Image from "next/image";
 import Link from "next/link";
 import { Fragment } from "react";
@@ -75,7 +75,7 @@ export function OverlayCalendarSettingsModal({
                   )}
                   width={40}
                   height={40}
-                  src={isPlatform ? `https://app.cal.com${item.integration.logo}` : item.integration.logo}
+                  src={isPlatform ? `https://app.amir9078.github.io${item.integration.logo}` : item.integration.logo}
                   alt={`${item.integration.title} logo`}
                 />
               )}

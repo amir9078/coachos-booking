@@ -1,5 +1,5 @@
-import { getEventTypeById } from "@calcom/platform-libraries/event-types";
-import type { PrismaClient } from "@calcom/prisma";
+import { getEventTypeById } from "@coachos/platform-libraries/event-types";
+import type { PrismaClient } from "@coachos/prisma";
 import { Injectable } from "@nestjs/common";
 import { CreateEventTypeInput_2024_04_15 } from "@/platform/event-types/event-types_2024_04_15/inputs/create-event-type.input";
 import { PrismaReadService } from "@/modules/prisma/prisma-read.service";

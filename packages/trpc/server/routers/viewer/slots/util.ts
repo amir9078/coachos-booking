@@ -1,16 +1,16 @@
 import process from "node:process";
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { getAggregatedAvailability } from "@calcom/features/availability/lib/getAggregatedAvailability/getAggregatedAvailability";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { getAggregatedAvailability } from "@coachos/features/availability/lib/getAggregatedAvailability/getAggregatedAvailability";
 import type {
   CurrentSeats,
   EventType,
   GetAvailabilityUser,
   UserAvailabilityService,
-} from "@calcom/features/availability/lib/getUserAvailability";
-import type { IGetAvailableSlots } from "@calcom/features/bookings/Booker/hooks/useAvailableTimeSlots";
-import type { CheckBookingLimitsService } from "@calcom/features/bookings/lib/checkBookingLimits";
-import { checkForConflicts } from "@calcom/features/bookings/lib/conflictChecker/checkForConflicts";
+} from "@coachos/features/availability/lib/getUserAvailability";
+import type { IGetAvailableSlots } from "@coachos/features/bookings/Booker/hooks/useAvailableTimeSlots";
+import type { CheckBookingLimitsService } from "@coachos/features/bookings/lib/checkBookingLimits";
+import { checkForConflicts } from "@coachos/features/bookings/lib/conflictChecker/checkForConflicts";
 
 type QualifiedHostsService = {
   findQualifiedHostsWithDelegationCredentials: (...args: unknown[]) => Promise<{
@@ -32,43 +32,43 @@ type QualifiedHostsService = {
   }>;
 };
 
-import { isEventTypeLoggingEnabled } from "@calcom/features/bookings/lib/isEventTypeLoggingEnabled";
-import type { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import type { BusyTimesService } from "@calcom/features/busyTimes/services/getBusyTimes";
-import type { getBusyTimesService } from "@calcom/features/di/containers/BusyTimes";
-import { getDefaultEvent } from "@calcom/features/eventtypes/lib/defaultEvents";
-import type { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import type { PrismaOOORepository } from "@calcom/features/ooo/repositories/PrismaOOORepository";
-import type { IRedisService } from "@calcom/features/redis/IRedisService";
-import { buildDateRanges } from "@calcom/features/schedules/lib/date-ranges";
-import getSlots from "@calcom/features/schedules/lib/slots";
-import type { ScheduleRepository } from "@calcom/features/schedules/repositories/ScheduleRepository";
-import type { ISelectedSlotRepository } from "@calcom/features/selectedSlots/repositories/ISelectedSlotRepository";
-import type { NoSlotsNotificationService } from "@calcom/features/slots/handleNotificationWhenNoSlots";
-import type { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { withSelectedCalendars } from "@calcom/features/users/repositories/UserRepository";
-import { filterBlockedHosts } from "@calcom/features/watchlist/operations/filter-blocked-hosts.controller";
-import { shouldIgnoreContactOwner } from "@calcom/lib/bookings/routing/utils";
-import { RESERVED_SUBDOMAINS } from "@calcom/lib/constants";
-import { getUTCOffsetByTimezone } from "@calcom/lib/dayjs";
-import { descendingLimitKeys, intervalLimitKeyToUnit } from "@calcom/lib/intervalLimits/intervalLimit";
-import type { IntervalLimit } from "@calcom/lib/intervalLimits/intervalLimitSchema";
-import { parseBookingLimit } from "@calcom/lib/intervalLimits/isBookingLimits";
-import { parseDurationLimit } from "@calcom/lib/intervalLimits/isDurationLimits";
-import LimitManager, { LimitSources } from "@calcom/lib/intervalLimits/limitManager";
-import { isBookingWithinPeriod } from "@calcom/lib/intervalLimits/utils";
+import { isEventTypeLoggingEnabled } from "@coachos/features/bookings/lib/isEventTypeLoggingEnabled";
+import type { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import type { BusyTimesService } from "@coachos/features/busyTimes/services/getBusyTimes";
+import type { getBusyTimesService } from "@coachos/features/di/containers/BusyTimes";
+import { getDefaultEvent } from "@coachos/features/eventtypes/lib/defaultEvents";
+import type { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import type { PrismaOOORepository } from "@coachos/features/ooo/repositories/PrismaOOORepository";
+import type { IRedisService } from "@coachos/features/redis/IRedisService";
+import { buildDateRanges } from "@coachos/features/schedules/lib/date-ranges";
+import getSlots from "@coachos/features/schedules/lib/slots";
+import type { ScheduleRepository } from "@coachos/features/schedules/repositories/ScheduleRepository";
+import type { ISelectedSlotRepository } from "@coachos/features/selectedSlots/repositories/ISelectedSlotRepository";
+import type { NoSlotsNotificationService } from "@coachos/features/slots/handleNotificationWhenNoSlots";
+import type { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { withSelectedCalendars } from "@coachos/features/users/repositories/UserRepository";
+import { filterBlockedHosts } from "@coachos/features/watchlist/operations/filter-blocked-hosts.controller";
+import { shouldIgnoreContactOwner } from "@coachos/lib/bookings/routing/utils";
+import { RESERVED_SUBDOMAINS } from "@coachos/lib/constants";
+import { getUTCOffsetByTimezone } from "@coachos/lib/dayjs";
+import { descendingLimitKeys, intervalLimitKeyToUnit } from "@coachos/lib/intervalLimits/intervalLimit";
+import type { IntervalLimit } from "@coachos/lib/intervalLimits/intervalLimitSchema";
+import { parseBookingLimit } from "@coachos/lib/intervalLimits/isBookingLimits";
+import { parseDurationLimit } from "@coachos/lib/intervalLimits/isDurationLimits";
+import LimitManager, { LimitSources } from "@coachos/lib/intervalLimits/limitManager";
+import { isBookingWithinPeriod } from "@coachos/lib/intervalLimits/utils";
 import {
   BookingDateInPastError,
   calculatePeriodLimits,
   isTimeOutOfBounds,
   isTimeViolatingFutureLimit,
-} from "@calcom/lib/isOutOfBounds";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { withReporting } from "@calcom/lib/sentryWrapper";
-import { PeriodType } from "@calcom/prisma/enums";
-import type { CalendarFetchMode, EventBusyDate, EventBusyDetails } from "@calcom/types/Calendar";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+} from "@coachos/lib/isOutOfBounds";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { withReporting } from "@coachos/lib/sentryWrapper";
+import { PeriodType } from "@coachos/prisma/enums";
+import type { CalendarFetchMode, EventBusyDate, EventBusyDetails } from "@coachos/types/Calendar";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 import { TRPCError } from "@trpc/server";
 import type { Logger } from "tslog";
 import { v4 as uuid } from "uuid";

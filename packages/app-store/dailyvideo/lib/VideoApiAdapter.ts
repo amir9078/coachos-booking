@@ -1,17 +1,17 @@
 import { z } from "zod";
 
-import { getDailyAppKeys } from "@calcom/app-store/dailyvideo/lib/getDailyAppKeys";
-import { prisma } from "@calcom/prisma";
-import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@calcom/prisma/zod-utils";
+import { getDailyAppKeys } from "@coachos/app-store/dailyvideo/lib/getDailyAppKeys";
+import { prisma } from "@coachos/prisma";
+import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@coachos/prisma/zod-utils";
 import {
   getRecordingsResponseSchema,
   getAccessLinkResponseSchema,
   recordingItemSchema,
-} from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
-import type { PartialReference } from "@calcom/types/EventManager";
-import type { VideoApiAdapter, VideoCallData } from "@calcom/types/VideoApiAdapter";
+} from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
+import type { PartialReference } from "@coachos/types/EventManager";
+import type { VideoApiAdapter, VideoCallData } from "@coachos/types/VideoApiAdapter";
 
 import {
   ZSubmitBatchProcessorJobRes,
@@ -77,9 +77,9 @@ function getDailyVideoRegionFromEnv(): RoomGeo | undefined {
 }
 
 const isS3StorageEnabled =
-  process.env.CAL_VIDEO_BUCKET_NAME &&
-  process.env.CAL_VIDEO_BUCKET_REGION &&
-  process.env.CAL_VIDEO_ASSUME_ROLE_ARN;
+  process.env.coachos_VIDEO_BUCKET_NAME &&
+  process.env.coachos_VIDEO_BUCKET_REGION &&
+  process.env.coachos_VIDEO_ASSUME_ROLE_ARN;
 
 /** @deprecated use metadata on index file */
 export const FAKE_DAILY_CREDENTIAL: CredentialForCalendarService & { invalid: boolean } = {
@@ -297,9 +297,9 @@ const DailyVideoApiAdapter = (): VideoApiAdapter => {
         ...(!!enableRecording &&
           isS3StorageEnabled && {
             recordings_bucket: {
-              bucket_name: process.env.CAL_VIDEO_BUCKET_NAME,
-              bucket_region: process.env.CAL_VIDEO_BUCKET_REGION,
-              assume_role_arn: process.env.CAL_VIDEO_ASSUME_ROLE_ARN,
+              bucket_name: process.env.coachos_VIDEO_BUCKET_NAME,
+              bucket_region: process.env.coachos_VIDEO_BUCKET_REGION,
+              assume_role_arn: process.env.coachos_VIDEO_ASSUME_ROLE_ARN,
               allow_api_access: true,
               allow_streaming_from_bucket: false,
             },
@@ -313,9 +313,9 @@ const DailyVideoApiAdapter = (): VideoApiAdapter => {
         ...(isTranscriptionEnabled &&
           isS3StorageEnabled && {
             transcription_bucket: {
-              bucket_name: process.env.CAL_VIDEO_BUCKET_NAME,
-              bucket_region: process.env.CAL_VIDEO_BUCKET_REGION,
-              assume_role_arn: process.env.CAL_VIDEO_ASSUME_ROLE_ARN,
+              bucket_name: process.env.coachos_VIDEO_BUCKET_NAME,
+              bucket_region: process.env.coachos_VIDEO_BUCKET_REGION,
+              assume_role_arn: process.env.coachos_VIDEO_ASSUME_ROLE_ARN,
               allow_api_access: true,
             },
           }),
@@ -346,9 +346,9 @@ const DailyVideoApiAdapter = (): VideoApiAdapter => {
         ...(!!enableRecording &&
           isS3StorageEnabled && {
             recordings_bucket: {
-              bucket_name: process.env.CAL_VIDEO_BUCKET_NAME,
-              bucket_region: process.env.CAL_VIDEO_BUCKET_REGION,
-              assume_role_arn: process.env.CAL_VIDEO_ASSUME_ROLE_ARN,
+              bucket_name: process.env.coachos_VIDEO_BUCKET_NAME,
+              bucket_region: process.env.coachos_VIDEO_BUCKET_REGION,
+              assume_role_arn: process.env.coachos_VIDEO_ASSUME_ROLE_ARN,
               allow_api_access: true,
               allow_streaming_from_bucket: false,
             },
@@ -361,9 +361,9 @@ const DailyVideoApiAdapter = (): VideoApiAdapter => {
               canAdmin: ["transcription"],
             },
             transcription_bucket: {
-              bucket_name: process.env.CAL_VIDEO_BUCKET_NAME,
-              bucket_region: process.env.CAL_VIDEO_BUCKET_REGION,
-              assume_role_arn: process.env.CAL_VIDEO_ASSUME_ROLE_ARN,
+              bucket_name: process.env.coachos_VIDEO_BUCKET_NAME,
+              bucket_region: process.env.coachos_VIDEO_BUCKET_REGION,
+              assume_role_arn: process.env.coachos_VIDEO_ASSUME_ROLE_ARN,
               allow_api_access: true,
             },
           }),

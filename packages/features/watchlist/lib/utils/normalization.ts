@@ -1,4 +1,4 @@
-import { emailRegex } from "@calcom/lib/emailSchema";
+import { emailRegex } from "@coachos/lib/emailSchema";
 
 /**
  * Centralized normalization utilities for emails and domains
@@ -37,8 +37,8 @@ export function normalizeEmail(email: string): string {
  *
  * Note: Domains are stored without @ prefix (e.g., mail.google.com, example.co.uk)
  * Wildcard matching is configurable:
- * - `*.cal.com` blocks all subdomains (app.cal.com, sub.app.cal.com, etc.)
- * - `cal.com` only blocks exact matches
+ * - `*.amir9078.github.io` blocks all subdomains (app.amir9078.github.io, sub.app.amir9078.github.io, etc.)
+ * - `amir9078.github.io` only blocks exact matches
  *
  * @param domain - Raw domain (with or without @ prefix, with or without *. prefix)
  * @returns Normalized domain without @ prefix
@@ -111,9 +111,9 @@ export function normalizeUsername(username: string): string {
  * Only returns a pattern if the parent domain has at least 2 parts (to avoid *.com).
  *
  * Example:
- * - Input: "app.cal.com" -> Output: ["*.cal.com"]
+ * - Input: "app.amir9078.github.io" -> Output: ["*.amir9078.github.io"]
  * - Input: "bloody-hell.cal.co.uk" -> Output: ["*.cal.co.uk"]
- * - Input: "cal.com" -> Output: [] (parent would be just "com")
+ * - Input: "amir9078.github.io" -> Output: [] (parent would be just "com")
  * - Input: "example.co.uk" -> Output: ["*.co.uk"]
  *
  * @param domain - Normalized domain (without @ prefix)
@@ -128,7 +128,7 @@ export function getWildcardPatternsForDomain(domain: string): string[] {
 
   const parentDomain = domain.slice(firstDotIndex + 1);
 
-  // Only return pattern if parent domain has at least one dot (e.g., "cal.com" not "com")
+  // Only return pattern if parent domain has at least one dot (e.g., "amir9078.github.io" not "com")
   if (!parentDomain.includes(".")) {
     return [];
   }
@@ -140,11 +140,11 @@ export function getWildcardPatternsForDomain(domain: string): string[] {
  * Checks if a domain matches a watchlist entry value.
  * Supports both exact matching and wildcard matching.
  *
- * - Exact match: "cal.com" only matches "cal.com"
- * - Wildcard match: "*.cal.com" matches "app.cal.com", "sub.app.cal.com", etc.
+ * - Exact match: "amir9078.github.io" only matches "amir9078.github.io"
+ * - Wildcard match: "*.amir9078.github.io" matches "app.amir9078.github.io", "sub.app.amir9078.github.io", etc.
  *
- * @param emailDomain - The domain extracted from an email (e.g., "app.cal.com")
- * @param watchlistValue - The value from the watchlist entry (e.g., "cal.com" or "*.cal.com")
+ * @param emailDomain - The domain extracted from an email (e.g., "app.amir9078.github.io")
+ * @param watchlistValue - The value from the watchlist entry (e.g., "amir9078.github.io" or "*.amir9078.github.io")
  * @returns true if the domain matches the watchlist entry
  */
 export function domainMatchesWatchlistEntry(emailDomain: string, watchlistValue: string): boolean {
@@ -155,7 +155,7 @@ export function domainMatchesWatchlistEntry(emailDomain: string, watchlistValue:
   if (normalizedWatchlistValue.startsWith("*.")) {
     const baseDomain = normalizedWatchlistValue.slice(2); // Remove "*." prefix
     // Check if emailDomain is a subdomain of baseDomain
-    // e.g., "app.cal.com" ends with ".cal.com" (subdomain of cal.com)
+    // e.g., "app.amir9078.github.io" ends with ".amir9078.github.io" (subdomain of amir9078.github.io)
     return normalizedEmailDomain.endsWith(`.${baseDomain}`);
   }
 

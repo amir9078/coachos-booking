@@ -1,5 +1,5 @@
-import { prisma } from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
+import { prisma } from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
 
 import { TRPCError } from "@trpc/server";
 
@@ -14,7 +14,7 @@ export type UpdateAppCredentialsOptions = {
 };
 
 const validators = {
-  paypal: () => import("@calcom/paypal/lib/updateAppCredentials.validator"),
+  paypal: () => import("@coachos/paypal/lib/updateAppCredentials.validator"),
 };
 
 export const handleCustomValidations = async ({

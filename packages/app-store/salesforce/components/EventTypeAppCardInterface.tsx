@@ -1,20 +1,20 @@
 import { usePathname } from "next/navigation";
 import { useState } from "react";
 
-import { useAppContextWithSchema } from "@calcom/app-store/EventTypeAppContext";
-import AppCard from "@calcom/app-store/_components/AppCard";
-import useIsAppEnabled from "@calcom/app-store/_utils/useIsAppEnabled";
-import type { EventTypeAppCardComponent } from "@calcom/app-store/types";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SchedulingType } from "@calcom/prisma/enums";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { InputField, Label } from "@calcom/ui/components/form";
-import { Select } from "@calcom/ui/components/form";
-import { Switch } from "@calcom/ui/components/form";
-import { Section } from "@calcom/ui/components/section";
-import { showToast } from "@calcom/ui/components/toast";
+import { useAppContextWithSchema } from "@coachos/app-store/EventTypeAppContext";
+import AppCard from "@coachos/app-store/_components/AppCard";
+import useIsAppEnabled from "@coachos/app-store/_utils/useIsAppEnabled";
+import type { EventTypeAppCardComponent } from "@coachos/app-store/types";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SchedulingType } from "@coachos/prisma/enums";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { InputField, Label } from "@coachos/ui/components/form";
+import { Select } from "@coachos/ui/components/form";
+import { Switch } from "@coachos/ui/components/form";
+import { Section } from "@coachos/ui/components/section";
+import { showToast } from "@coachos/ui/components/toast";
 
 import { SalesforceRecordEnum } from "../lib/enums";
 import type { appDataSchema, RRSkipFieldRule } from "../zod";

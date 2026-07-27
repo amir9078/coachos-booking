@@ -1,16 +1,16 @@
 import { useEffect } from "react";
 import { shallow } from "zustand/shallow";
 
-import dayjs from "@calcom/dayjs";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useSlotReservationId } from "@calcom/features/bookings/Booker/useSlotReservationId";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import { MINUTES_TO_BOOK } from "@calcom/lib/constants";
+import dayjs from "@coachos/dayjs";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useSlotReservationId } from "@coachos/features/bookings/Booker/useSlotReservationId";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import { MINUTES_TO_BOOK } from "@coachos/lib/constants";
 import type {
   ApiErrorResponse,
   ApiSuccessResponse,
   ApiSuccessResponseWithoutData,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 
 import { useDeleteSelectedSlot } from "./useDeleteSelectedSlot";
 import { useReserveSlot } from "./useReserveSlot";

@@ -1,5 +1,5 @@
-import { getUserSession } from "@calcom/features/auth/lib/userFromSessionUtils";
-import logger from "@calcom/lib/logger";
+import { getUserSession } from "@coachos/features/auth/lib/userFromSessionUtils";
+import logger from "@coachos/lib/logger";
 import { setUser as SentrySetUser } from "@sentry/nextjs";
 import { TRPCError } from "@trpc/server";
 import { middleware } from "../trpc";

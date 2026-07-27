@@ -1,6 +1,6 @@
-import { DestinationCalendarRepository } from "@calcom/features/calendars/repositories/DestinationCalendarRepository";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
-import { moduleLoader as prismaModuleLoader } from "@calcom/features/di/modules/Prisma";
+import { DestinationCalendarRepository } from "@coachos/features/calendars/repositories/DestinationCalendarRepository";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
+import { moduleLoader as prismaModuleLoader } from "@coachos/features/di/modules/Prisma";
 
 import { createModule, bindModuleToClassOnToken, type ModuleLoader } from "../di";
 

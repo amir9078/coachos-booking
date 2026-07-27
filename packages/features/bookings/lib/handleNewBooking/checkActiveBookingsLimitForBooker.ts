@@ -1,8 +1,8 @@
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import prisma from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import prisma from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 const log = logger.getSubLogger({ prefix: ["[checkActiveBookingsLimitForBooker]"] });
 

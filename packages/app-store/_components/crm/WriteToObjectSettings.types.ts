@@ -1,6 +1,6 @@
-import { CrmFieldType, WhenToWrite } from "@calcom/app-store/_lib/crm-enums";
+import { CrmFieldType, WhenToWrite } from "@coachos/app-store/_lib/crm-enums";
 
-export { CrmFieldType, DateFieldType, WhenToWrite } from "@calcom/app-store/_lib/crm-enums";
+export { CrmFieldType, DateFieldType, WhenToWrite } from "@coachos/app-store/_lib/crm-enums";
 
 export enum BookingActionEnum {
   ON_BOOKING = "on_booking",
@@ -33,6 +33,6 @@ export interface WriteToObjectSettingsProps {
   writeToObjectData: Record<string, WriteToRecordEntry>;
   updateWriteToObjectData: (data: Record<string, WriteToRecordEntry>) => void;
   supportedFieldTypes: readonly CrmFieldType[];
-  supportedDateFields?: readonly import("@calcom/app-store/_lib/crm-enums").DateFieldType[];
+  supportedDateFields?: readonly import("@coachos/app-store/_lib/crm-enums").DateFieldType[];
   supportedWriteTriggers?: readonly WhenToWrite[];
 }

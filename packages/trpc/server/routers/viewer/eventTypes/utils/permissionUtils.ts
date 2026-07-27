@@ -1,4 +1,4 @@
-import { MembershipRole } from "@calcom/prisma/enums";
+import { MembershipRole } from "@coachos/prisma/enums";
 
 const getResourcePermissions = async (..._args: unknown[]) => ({
   canCreate: true, canEdit: true, canDelete: true, canRead: true

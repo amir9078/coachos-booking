@@ -2,8 +2,8 @@ import { ApiProperty } from "@nestjs/swagger";
 import { Expose, Type } from "class-transformer";
 import { IsBoolean, IsEnum, IsInt, IsString, ValidateNested, IsArray } from "class-validator";
 
-import { SUCCESS_STATUS, ERROR_STATUS } from "@calcom/platform-constants";
-import { WebhookTriggerEvents } from "@calcom/platform-libraries";
+import { SUCCESS_STATUS, ERROR_STATUS } from "@coachos/platform-constants";
+import { WebhookTriggerEvents } from "@coachos/platform-libraries";
 
 export class WebhookOutputDto {
   @IsInt()
@@ -14,7 +14,7 @@ export class WebhookOutputDto {
   @Expose()
   @ApiProperty({
     description:
-      "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+      "The template of the payload that will be sent to the subscriberUrl, check amir9078.github.io/docs/core-features/webhooks for more information",
     example: JSON.stringify({
       content: "A new event has been scheduled",
       type: "{{type}}",

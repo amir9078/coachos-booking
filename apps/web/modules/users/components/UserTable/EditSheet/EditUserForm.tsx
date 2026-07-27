@@ -1,11 +1,11 @@
-import { timeZoneSchema } from "@calcom/lib/dayjs/timeZone.schema";
-import { emailSchema } from "@calcom/lib/emailSchema";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { MembershipRole } from "@calcom/prisma/enums";
-import { trpc } from "@calcom/trpc/react";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Button } from "@calcom/ui/components/button";
-import { Divider } from "@calcom/ui/components/divider";
+import { timeZoneSchema } from "@coachos/lib/dayjs/timeZone.schema";
+import { emailSchema } from "@coachos/lib/emailSchema";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { MembershipRole } from "@coachos/prisma/enums";
+import { trpc } from "@coachos/trpc/react";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Button } from "@coachos/ui/components/button";
+import { Divider } from "@coachos/ui/components/divider";
 import {
   Form,
   Label,
@@ -13,11 +13,11 @@ import {
   TextAreaField,
   TextField,
   ToggleGroup,
-} from "@calcom/ui/components/form";
-import { ImageUploader } from "@calcom/ui/components/image-uploader";
-import { SheetBody, SheetFooter, SheetHeader, SheetTitle } from "@calcom/ui/components/sheet";
-import { showToast } from "@calcom/ui/components/toast";
-import { TimezoneSelect } from "@calcom/web/modules/timezone/components/TimezoneSelect";
+} from "@coachos/ui/components/form";
+import { ImageUploader } from "@coachos/ui/components/image-uploader";
+import { SheetBody, SheetFooter, SheetHeader, SheetTitle } from "@coachos/ui/components/sheet";
+import { showToast } from "@coachos/ui/components/toast";
+import { TimezoneSelect } from "@coachos/web/modules/timezone/components/TimezoneSelect";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useSession } from "next-auth/react";
 import type { Dispatch } from "react";

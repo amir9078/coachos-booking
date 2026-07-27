@@ -1,16 +1,16 @@
 "use client";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { useDebounce } from "@calcom/lib/hooks/useDebounce";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { ConfirmationDialogContent, Dialog } from "@calcom/ui/components/dialog";
-import { TextField } from "@calcom/ui/components/form";
-import { DropdownActions, Table } from "@calcom/ui/components/table";
-import { showToast } from "@calcom/ui/components/toast";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { useDebounce } from "@coachos/lib/hooks/useDebounce";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { ConfirmationDialogContent, Dialog } from "@coachos/ui/components/dialog";
+import { TextField } from "@coachos/ui/components/form";
+import { DropdownActions, Table } from "@coachos/ui/components/table";
+import { showToast } from "@coachos/ui/components/toast";
 import { keepPreviousData } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useCallback, useEffect, useMemo, useRef, useState } from "react";

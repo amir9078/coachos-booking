@@ -1,4 +1,4 @@
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { PayloadBuilderFactory } from "../../../factory/versioned/PayloadBuilderFactory";
 import { createPayloadBuilderFactory } from "../../../factory/versioned/registry";
@@ -51,7 +51,7 @@ describe("BOOKING_REQUESTED Trigger", () => {
         language: { locale: "en" },
       },
     ],
-    location: "https://cal.com/video/test",
+    location: "https://amir9078.github.io/video/test",
     ...overrides,
   });
 
@@ -378,7 +378,7 @@ describe("BOOKING_REQUESTED Trigger", () => {
       vi.mocked(mockBookingDataFetcher.fetchEventData).mockResolvedValueOnce({
         calendarEvent: createMockCalendarEvent({
           title: "My Booking",
-          location: "https://cal.com/video/abc",
+          location: "https://amir9078.github.io/video/abc",
           organizer: {
             id: 1,
             email: "host@example.com",
@@ -416,7 +416,7 @@ describe("BOOKING_REQUESTED Trigger", () => {
       const p = getDeliveredPayload();
       expect(p.bookingId).toBe(999);
       expect(p.title).toBe("My Booking");
-      expect(p.location).toBe("https://cal.com/video/abc");
+      expect(p.location).toBe("https://amir9078.github.io/video/abc");
       expect(p.organizer).toEqual(
         expect.objectContaining({
           email: "host@example.com",

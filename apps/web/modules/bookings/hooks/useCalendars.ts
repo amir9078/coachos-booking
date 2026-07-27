@@ -2,12 +2,12 @@ import { useSearchParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { shallow } from "zustand/shallow";
 
-import { useOverlayCalendarStore } from "@calcom/features/bookings/Booker/components/OverlayCalendar/store";
-import { useBookerStore } from "@calcom/features/bookings/Booker/store";
-import type { ToggledConnectedCalendars } from "@calcom/features/bookings/Booker/types";
-import { useTimePreferences } from "@calcom/features/bookings/lib";
-import { localStorage } from "@calcom/lib/webstorage";
-import { trpc } from "@calcom/trpc/react";
+import { useOverlayCalendarStore } from "@coachos/features/bookings/Booker/components/OverlayCalendar/store";
+import { useBookerStore } from "@coachos/features/bookings/Booker/store";
+import type { ToggledConnectedCalendars } from "@coachos/features/bookings/Booker/types";
+import { useTimePreferences } from "@coachos/features/bookings/lib";
+import { localStorage } from "@coachos/lib/webstorage";
+import { trpc } from "@coachos/trpc/react";
 
 type UseCalendarsProps = {
   hasSession: boolean;

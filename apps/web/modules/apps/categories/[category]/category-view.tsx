@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 
-import { AppCard } from "@calcom/web/modules/apps/components/AppCard";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
+import { AppCard } from "@coachos/web/modules/apps/components/AppCard";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
 
 import type { CategoryDataProps } from "@lib/apps/categories/[category]/getStaticProps";
 

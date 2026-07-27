@@ -1,7 +1,7 @@
 import { useState } from "react";
 
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
 
 import { ConfirmDialog } from "./confirmDialog";
 
@@ -22,7 +22,7 @@ const WipeMyCalActionButton = (props: IWipeMyCalActionButtonProps) => {
   if (bookingStatus !== "upcoming" || bookingsEmpty) {
     return <></>;
   }
-  const wipeMyCalCredentials = data?.items.find((item: { type: string }) => item.type === "wipemycal_other");
+  const wipeMyCalCredentials = data?.items.find((item: { type: string }) => item.type === "wipemycoachos_other");
 
   const [credentialId] = wipeMyCalCredentials?.userCredentialIds || [false];
 

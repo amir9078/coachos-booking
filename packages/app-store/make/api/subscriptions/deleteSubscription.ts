@@ -1,6 +1,6 @@
-import { deleteSubscription } from "@calcom/features/webhooks/lib/scheduleTrigger";
-import { defaultHandler } from "@calcom/lib/server/defaultHandler";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
+import { deleteSubscription } from "@coachos/features/webhooks/lib/scheduleTrigger";
+import { defaultHandler } from "@coachos/lib/server/defaultHandler";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
 import type { NextApiRequest, NextApiResponse } from "next";
 import z from "zod";
 import { findValidApiKey } from "../../../_utils/findValidApiKey";

@@ -1,11 +1,11 @@
 import type { Dispatch, SetStateAction } from "react";
 import { useState, useEffect } from "react";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogFooter, DialogClose } from "@calcom/ui/components/dialog";
-import { TextAreaField } from "@calcom/ui/components/form";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogFooter, DialogClose } from "@coachos/ui/components/dialog";
+import { TextAreaField } from "@coachos/ui/components/form";
 
 interface RejectionReasonDialogProps {
   isOpenDialog: boolean;

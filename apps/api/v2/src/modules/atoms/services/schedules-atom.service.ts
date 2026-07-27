@@ -5,11 +5,11 @@ import { UserWithProfile } from "@/modules/users/users.repository";
 import { Logger } from "@nestjs/common";
 import { Injectable } from "@nestjs/common";
 
-import { ScheduleRepository, UpdateScheduleResponse } from "@calcom/platform-libraries/schedules";
-import { getScheduleByEventSlugHandler } from "@calcom/platform-libraries/schedules";
-import { updateSchedule } from "@calcom/platform-libraries/schedules";
-import { UpdateAtomScheduleDto } from "@calcom/platform-types";
-import type { PrismaClient } from "@calcom/prisma";
+import { ScheduleRepository, UpdateScheduleResponse } from "@coachos/platform-libraries/schedules";
+import { getScheduleByEventSlugHandler } from "@coachos/platform-libraries/schedules";
+import { updateSchedule } from "@coachos/platform-libraries/schedules";
+import { UpdateAtomScheduleDto } from "@coachos/platform-types";
+import type { PrismaClient } from "@coachos/prisma";
 
 @Injectable()
 export class SchedulesAtomsService {

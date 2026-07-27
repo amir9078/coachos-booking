@@ -1,6 +1,6 @@
-import { generateSecret } from "@calcom/platform-libraries";
-import type { Membership, Team, User } from "@calcom/prisma/client";
-import { AccessScope, OAuthClientStatus, OAuthClientType } from "@calcom/prisma/enums";
+import { generateSecret } from "@coachos/platform-libraries";
+import type { Membership, Team, User } from "@coachos/prisma/client";
+import { AccessScope, OAuthClientStatus, OAuthClientType } from "@coachos/prisma/enums";
 import type { INestApplication } from "@nestjs/common";
 import type { NestExpressApplication } from "@nestjs/platform-express";
 import type { TestingModule } from "@nestjs/testing";
@@ -162,7 +162,7 @@ describe("OAuth2 Controller Endpoints", () => {
         it("should return OAuth client info for valid client ID", async () => {
           const response = await request(app.getHttpServer())
             .get(`/api/v2/auth/oauth2/clients/${testClientId}`)
-            .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+            .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
             .expect(200);
 
           expect(response.body.status).toBe("success");
@@ -178,7 +178,7 @@ describe("OAuth2 Controller Endpoints", () => {
         it("should return 404 for non-existent client ID", async () => {
           await request(app.getHttpServer())
             .get("/api/v2/auth/oauth2/clients/non-existent-client-id")
-            .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+            .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
             .expect(404);
         });
       });
@@ -545,7 +545,7 @@ describe("OAuth2 Controller Endpoints", () => {
     it("should return PENDING client info when authenticated as owner", async () => {
       const response = await request(app.getHttpServer())
         .get(`/api/v2/auth/oauth2/clients/${pendingClientId}`)
-        .set({ Authorization: `Bearer cal_test_${apiKeyString}` })
+        .set({ Authorization: `Bearer coachos_test_${apiKeyString}` })
         .expect(200);
 
       expect(response.body.status).toBe("success");

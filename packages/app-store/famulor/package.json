@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
-  "name": "@calcom/famulor",
+  "name": "@coachos/famulor",
   "version": "0.0.0",
   "main": "./index.ts",
   "dependencies": {
-    "@calcom/lib": "workspace:*"
+    "@coachos/lib": "workspace:*"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*"
+    "@coachos/types": "workspace:*"
   },
-  "description": "Famulor AI assistants reach your customers, make calls independently & enhance your customer experience - fully integrated into Cal.com."
+  "description": "Famulor AI assistants reach your customers, make calls independently & enhance your customer experience - fully integrated into amir9078.github.io."
 }

@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import prisma from "@calcom/prisma";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import prisma from "@coachos/prisma";
 
 import getInstalledAppPath from "../../_utils/getInstalledAppPath";
 
@@ -14,7 +14,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
   if (!req.session?.user?.id) {
     return res.status(401).json({ message: "You must be logged in to do this" });
   }
-  const appType = "wipemycal_other";
+  const appType = "wipemycoachos_other";
   try {
     const alreadyInstalled = await prisma.credential.findFirst({
       where: {

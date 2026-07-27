@@ -1,15 +1,15 @@
 "use client";
 
-import getStripe from "@calcom/app-store/stripepayment/lib/client";
-import { getPremiumPlanPriceValue } from "@calcom/app-store/stripepayment/lib/utils";
+import getStripe from "@coachos/app-store/stripepayment/lib/client";
+import { getPremiumPlanPriceValue } from "@coachos/app-store/stripepayment/lib/utils";
 import {
   fetchSignup,
   hasCheckoutSession,
   isAccountUnderReview,
   isUserAlreadyExistsError,
-} from "@calcom/features/auth/signup/lib/fetchSignup";
-import { getOrgUsernameFromEmail } from "@calcom/features/auth/signup/utils/getOrgUsernameFromEmail";
-import ServerTrans from "@calcom/lib/components/ServerTrans";
+} from "@coachos/features/auth/signup/lib/fetchSignup";
+import { getOrgUsernameFromEmail } from "@coachos/features/auth/signup/utils/getOrgUsernameFromEmail";
+import ServerTrans from "@coachos/lib/components/ServerTrans";
 import {
   APP_NAME,
   CLOUDFLARE_SITE_ID,
@@ -19,22 +19,22 @@ import {
   WEBSITE_PRIVACY_POLICY_URL,
   WEBSITE_TERMS_URL,
   WEBSITE_URL,
-} from "@calcom/lib/constants";
-import { isENVDev } from "@calcom/lib/env";
-import { fetchUsername } from "@calcom/lib/fetchUsername";
-import { pushGTMEvent } from "@calcom/lib/gtm";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useDebounce } from "@calcom/lib/hooks/useDebounce";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { INVALID_CLOUDFLARE_TOKEN_ERROR } from "@calcom/lib/server/checkCfTurnstileToken";
-import { signupSchema as apiSignupSchema } from "@calcom/prisma/zod-utils";
-import type { inferSSRProps } from "@calcom/types/inferSSRProps";
-import classNames from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { CheckboxField, Form, PasswordField, SelectField, TextField } from "@calcom/ui/components/form";
-import { Icon } from "@calcom/ui/components/icon";
-import { showToast } from "@calcom/ui/components/toast";
+} from "@coachos/lib/constants";
+import { isENVDev } from "@coachos/lib/env";
+import { fetchUsername } from "@coachos/lib/fetchUsername";
+import { pushGTMEvent } from "@coachos/lib/gtm";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useDebounce } from "@coachos/lib/hooks/useDebounce";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { INVALID_CLOUDFLARE_TOKEN_ERROR } from "@coachos/lib/server/checkCfTurnstileToken";
+import { signupSchema as apiSignupSchema } from "@coachos/prisma/zod-utils";
+import type { inferSSRProps } from "@coachos/types/inferSSRProps";
+import classNames from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { CheckboxField, Form, PasswordField, SelectField, TextField } from "@coachos/ui/components/form";
+import { Icon } from "@coachos/ui/components/icon";
+import { showToast } from "@coachos/ui/components/toast";
 import { InfoIcon, ShieldCheckIcon, StarIcon } from "@coss/ui/icons";
 import { zodResolver } from "@hookform/resolvers/zod";
 import type { getServerSideProps } from "@lib/signup/getServerSideProps";
@@ -54,7 +54,7 @@ const signupSchema = apiSignupSchema.extend({
   cfToken: z.string().optional(),
 });
 
-const TurnstileCaptcha = dynamic(() => import("@calcom/web/modules/auth/components/Turnstile"), {
+const TurnstileCaptcha = dynamic(() => import("@coachos/web/modules/auth/components/Turnstile"), {
   ssr: false,
 });
 
@@ -333,8 +333,8 @@ export default function Signup({
 
   return (
     <>
-      {/* CoachOS: removed Cal.com's GTM + Dub analytics block outright (was
-          gated behind IS_CALCOM, which only true on a *.cal.com/.cal.dev/.cal.eu
+      {/* CoachOS: removed amir9078.github.io's GTM + Dub analytics block outright (was
+          gated behind IS_CALCOM, which only true on a *.amir9078.github.io/.cal.dev/.cal.eu
           hostname — already inert here, but removed rather than left to rely
           on that coincidence). See also the removed /_proxy/dub rewrite in
           next.config.ts. */}
@@ -381,15 +381,15 @@ export default function Signup({
                 )}
                 <div className="flex flex-col gap-2">
                   <h1 className="font-cal text-[28px] leading-none">
-                    {IS_CALCOM ? t("create_your_calcom_account") : t("create_your_account")}
+                    {IS_CALCOM ? t("create_your_COACHOS_account") : t("create_your_account")}
                   </h1>
                   {IS_CALCOM ? (
                     <p className="font-medium text-base text-subtle leading-5">
-                      {t("cal_signup_description")}
+                      {t("coachos_signup_description")}
                     </p>
                   ) : (
                     <p className="font-medium text-base text-subtle leading-5">
-                      {t("calcom_explained", {
+                      {t("COACHOS_explained", {
                         appName: APP_NAME,
                       })}
                     </p>
@@ -434,9 +434,9 @@ export default function Signup({
 
                             // Handle production domains - modify hostname only to preserve query params
                             if (option.value === "eu") {
-                              currentUrl.hostname = currentUrl.hostname.replace("cal.com", "cal.eu");
+                              currentUrl.hostname = currentUrl.hostname.replace("amir9078.github.io", "cal.eu");
                             } else {
-                              currentUrl.hostname = currentUrl.hostname.replace("cal.eu", "cal.com");
+                              currentUrl.hostname = currentUrl.hostname.replace("cal.eu", "amir9078.github.io");
                             }
                             window.location.href = currentUrl.toString();
                           }

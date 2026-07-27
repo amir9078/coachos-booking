@@ -3,11 +3,11 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { Toaster } from "sonner";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { Form } from "@calcom/ui/components/form";
-import { TextField } from "@calcom/ui/components/form";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { Form } from "@coachos/ui/components/form";
+import { TextField } from "@coachos/ui/components/form";
 
 export default function CalDavCalendarSetup() {
   const { t } = useLocale();

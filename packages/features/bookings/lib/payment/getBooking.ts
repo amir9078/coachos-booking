@@ -1,22 +1,22 @@
 import process from "node:process";
-import { enrichUserWithDelegationCredentials } from "@calcom/app-store/delegationCredential";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
+import { enrichUserWithDelegationCredentials } from "@coachos/app-store/delegationCredential";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { getTranslation } from "@calcom/i18n/server";
-import { HttpError as HttpCode } from "@calcom/lib/http-error";
-import { isPrismaObjOrUndefined } from "@calcom/lib/isPrismaObj";
-import { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
-import { bookingMinimalSelect, prisma } from "@calcom/prisma";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
-import { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { getTranslation } from "@coachos/i18n/server";
+import { HttpError as HttpCode } from "@coachos/lib/http-error";
+import { isPrismaObjOrUndefined } from "@coachos/lib/isPrismaObj";
+import { parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
+import { bookingMinimalSelect, prisma } from "@coachos/prisma";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
+import { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 const getBookerBaseUrl = async (_orgSlug?: string | number | null): Promise<string> =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
 async function getEventType(id: number) {
   return prisma.eventType.findUnique({

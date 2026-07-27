@@ -2,9 +2,9 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import queue from "queue";
 import { z, ZodError } from "zod";
 
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import prisma from "@calcom/prisma";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import prisma from "@coachos/prisma";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { Reschedule } from "../lib";
 

@@ -1,22 +1,22 @@
 "use client";
 
-import { sdkActionManager, useIsEmbed } from "@calcom/embed-core/embed-iframe";
-import { useBookerEmbedEvents } from "@calcom/embed-core/src/embed-iframe/react-hooks";
-import type { BookerProps } from "@calcom/features/bookings/Booker";
+import { sdkActionManager, useIsEmbed } from "@coachos/embed-core/embed-iframe";
+import { useBookerEmbedEvents } from "@coachos/embed-core/src/embed-iframe/react-hooks";
+import type { BookerProps } from "@coachos/features/bookings/Booker";
 import {
   BookerStoreProvider,
   useBookerStoreContext,
   useInitializeBookerStoreContext,
-} from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useBookerLayout } from "@calcom/features/bookings/Booker/hooks/useBookerLayout";
-import { useBookingForm } from "@calcom/features/bookings/Booker/hooks/useBookingForm";
-import { useInitializeBookerStore } from "@calcom/features/bookings/Booker/store";
-import { useBrandColors } from "@calcom/features/bookings/Booker/utils/use-brand-colors";
-import type { getPublicEvent } from "@calcom/features/eventtypes/lib/getPublicEvent";
-import { DEFAULT_DARK_BRAND_COLOR, DEFAULT_LIGHT_BRAND_COLOR, WEBAPP_URL } from "@calcom/lib/constants";
-import { useRouterQuery } from "@calcom/lib/hooks/useRouterQuery";
-import { localStorage } from "@calcom/lib/webstorage";
-import { useEvent, useScheduleForEvent } from "@calcom/web/modules/schedules/hooks/useEvent";
+} from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useBookerLayout } from "@coachos/features/bookings/Booker/hooks/useBookerLayout";
+import { useBookingForm } from "@coachos/features/bookings/Booker/hooks/useBookingForm";
+import { useInitializeBookerStore } from "@coachos/features/bookings/Booker/store";
+import { useBrandColors } from "@coachos/features/bookings/Booker/utils/use-brand-colors";
+import type { getPublicEvent } from "@coachos/features/eventtypes/lib/getPublicEvent";
+import { DEFAULT_DARK_BRAND_COLOR, DEFAULT_LIGHT_BRAND_COLOR, WEBAPP_URL } from "@coachos/lib/constants";
+import { useRouterQuery } from "@coachos/lib/hooks/useRouterQuery";
+import { localStorage } from "@coachos/lib/webstorage";
+import { useEvent, useScheduleForEvent } from "@coachos/web/modules/schedules/hooks/useEvent";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { useSession } from "next-auth/react";
 import { useCallback, useEffect, useMemo } from "react";

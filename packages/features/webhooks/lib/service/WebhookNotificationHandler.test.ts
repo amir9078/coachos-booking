@@ -1,5 +1,5 @@
 import { describe, it, expect, vi, beforeEach } from "vitest";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 
 import type { BookingWebhookEventDTO, WebhookEventDTO, WebhookSubscriber } from "../dto/types";
 import { WebhookVersion } from "../interface/IWebhookRepository";
@@ -221,9 +221,9 @@ describe("WebhookNotificationHandler", () => {
   });
 
   describe("Special Event Handling", () => {
-    it("should handle AFTER_HOSTS_CAL_VIDEO_NO_SHOW through factory", async () => {
+    it("should handle AFTER_HOSTS_coachos_VIDEO_NO_SHOW through factory", async () => {
       const noShowDTO: WebhookEventDTO = {
-        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
         createdAt: "2024-01-15T10:00:00Z",
         bookingId: 1,
         webhook: { id: "webhook-1" },
@@ -236,12 +236,12 @@ describe("WebhookNotificationHandler", () => {
       // All events now go through the factory for consistent versioning
       expect(mockFactory.getBuilder).toHaveBeenCalledWith(
         WebhookVersion.V_2021_10_20,
-        WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW
+        WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
       );
       expect(mockWebhookService.processWebhooks).toHaveBeenCalledWith(
-        WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+        WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
         {
-          triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+          triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
           createdAt: noShowDTO.createdAt,
           payload: noShowDTO,
         },

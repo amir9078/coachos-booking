@@ -1,8 +1,8 @@
 import { Injectable } from "@nestjs/common";
 
-import { PERMISSIONS, PERMISSION_MAP } from "@calcom/platform-constants";
-import type { PlatformOAuthClientDto } from "@calcom/platform-types";
-import type { PlatformOAuthClient } from "@calcom/prisma/client";
+import { PERMISSIONS, PERMISSION_MAP } from "@coachos/platform-constants";
+import type { PlatformOAuthClientDto } from "@coachos/platform-types";
+import type { PlatformOAuthClient } from "@coachos/prisma/client";
 
 @Injectable()
 export class OAuthClientsOutputService {

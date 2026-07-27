@@ -1,5 +1,5 @@
-import SettingsHeader from "@calcom/features/settings/appDir/SettingsHeader";
-import { Button } from "@calcom/ui/components/button";
+import SettingsHeader from "@coachos/features/settings/appDir/SettingsHeader";
+import { Button } from "@coachos/ui/components/button";
 import { _generateMetadata, getTranslate } from "app/_utils";
 import UsersListingView from "~/users/views/users-listing-view";
 

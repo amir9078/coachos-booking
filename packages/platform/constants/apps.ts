@@ -23,8 +23,8 @@ export const ZOOM_TYPE = "zoom_video";
 export const OFFICE_365_VIDEO = "msteams";
 export const OFFICE_365_VIDEO_TYPE = "office365_video";
 
-export const CAL_VIDEO = "daily-video";
-export const CAL_VIDEO_TYPE = "daily_video";
+export const coachos_VIDEO = "daily-video";
+export const coachos_VIDEO_TYPE = "daily_video";
 
 export const CONFERENCING_APPS = [GOOGLE_MEET, ZOOM, OFFICE_365_VIDEO];
 export const APPS_TYPE_ID_MAPPING = {

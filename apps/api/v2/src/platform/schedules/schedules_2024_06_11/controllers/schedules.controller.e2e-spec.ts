@@ -1,4 +1,4 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_06_11 } from "@calcom/platform-constants";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_06_11 } from "@coachos/platform-constants";
 import type {
   CreateScheduleInput_2024_06_11,
   CreateScheduleOutput_2024_06_11,
@@ -7,8 +7,8 @@ import type {
   ScheduleOutput_2024_06_11,
   UpdateScheduleInput_2024_06_11,
   UpdateScheduleOutput_2024_06_11,
-} from "@calcom/platform-types";
-import type { User } from "@calcom/prisma/client";
+} from "@coachos/platform-types";
+import type { User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -83,7 +83,7 @@ describe("Schedules Endpoints", () => {
     it("should create a default schedule", async () => {
       return request(app.getHttpServer())
         .post("/api/v2/schedules")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .send(createScheduleInput)
         .expect(201)
         .then(async (response) => {
@@ -134,7 +134,7 @@ describe("Schedules Endpoints", () => {
     it("should get default schedule", async () => {
       return request(app.getHttpServer())
         .get("/api/v2/schedules/default")
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .expect(200)
         .then(async (response) => {
           const responseBody: GetScheduleOutput_2024_06_11 = response.body;
@@ -153,7 +153,7 @@ describe("Schedules Endpoints", () => {
     it("should get schedules", async () => {
       return request(app.getHttpServer())
         .get(`/api/v2/schedules`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .expect(200)
         .then((response) => {
           const responseBody: GetSchedulesOutput_2024_06_11 = response.body;
@@ -178,7 +178,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/schedules/${createdSchedule.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .send(body)
         .expect(200)
         .then((response: any) => {
@@ -208,7 +208,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/schedules/${createdSchedule.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .send(body)
         .expect(200)
         .then((response: any) => {
@@ -231,7 +231,7 @@ describe("Schedules Endpoints", () => {
 
       return request(app.getHttpServer())
         .patch(`/api/v2/schedules/${createdSchedule.id}`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_06_11)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_06_11)
         .send(body)
         .expect(200)
         .then((response: any) => {

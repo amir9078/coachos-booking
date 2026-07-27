@@ -1,16 +1,16 @@
 import {
-  CAL_API_VERSION_HEADER,
+  coachos_API_VERSION_HEADER,
   ERROR_STATUS,
   SUCCESS_STATUS,
   VERSION_2024_08_13,
-} from "@calcom/platform-constants";
+} from "@coachos/platform-constants";
 import {
   AttendeeAddGuestsEmail,
   AttendeeScheduledEmail,
   OrganizerAddGuestsEmail,
-} from "@calcom/platform-libraries/emails";
-import type { BookingOutput_2024_08_13, CreateBookingInput_2024_08_13 } from "@calcom/platform-types";
-import type { Team, User } from "@calcom/prisma/client";
+} from "@coachos/platform-libraries/emails";
+import type { BookingOutput_2024_08_13, CreateBookingInput_2024_08_13 } from "@coachos/platform-types";
+import type { Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -212,7 +212,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
       const createBookingResponse = await request(app.getHttpServer())
         .post("/v2/bookings")
         .send(createBookingBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const createBookingResponseBody: CreateBookingOutput_2024_08_13 = createBookingResponse.body;
@@ -236,7 +236,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         const addGuestsResponse = await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13);
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13);
 
         expect(addGuestsResponse.status).toBe(401);
       });
@@ -251,7 +251,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         const addGuestsResponse = await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -275,7 +275,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.unrelatedUser.accessToken}`)
           .expect(403);
       });
@@ -291,7 +291,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         const addguestResponse = await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addguestBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`)
           .expect(200);
 
@@ -307,7 +307,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         const addGuestsResponse = await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.guest.accessToken}`)
           .expect(200);
 
@@ -324,7 +324,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.unrelatedUser.accessToken}`)
           .expect(403);
       });
@@ -339,7 +339,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
         const addGuestsResponse = await request(app.getHttpServer())
           .post(`/v2/bookings/${testSetup.bookingUid}/guests`)
           .send(addGuestsBody)
-          .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+          .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
           .set("Authorization", `Bearer ${testSetup.organizer.accessToken}`);
 
         expect(addGuestsResponse.status).toEqual(400);
@@ -403,7 +403,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
       const createBookingResponse = await request(app.getHttpServer())
         .post("/v2/bookings")
         .send(createBookingBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(201);
 
       const createBookingResponseBody: CreateBookingOutput_2024_08_13 = createBookingResponse.body;
@@ -439,7 +439,7 @@ describe("Bookings Endpoints 2024-08-13 add guests", () => {
       const addGuestsResponse = await request(app.getHttpServer())
         .post(`/v2/bookings/${emailsDisabledSetup.bookingUid}/guests`)
         .send(addGuestsBody)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .set("Authorization", `Bearer ${emailsDisabledSetup.organizer.accessToken}`)
         .expect(200);
 

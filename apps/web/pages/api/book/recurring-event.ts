@@ -1,12 +1,12 @@
 import process from "node:process";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { getRecurringBookingService } from "@calcom/features/bookings/di/RecurringBookingService.container";
-import type { BookingResponse } from "@calcom/features/bookings/types";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import getIP from "@calcom/lib/getIP";
-import { checkCfTurnstileToken } from "@calcom/lib/server/checkCfTurnstileToken";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import { piiHasher } from "@calcom/lib/server/PiiHasher";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { getRecurringBookingService } from "@coachos/features/bookings/di/RecurringBookingService.container";
+import type { BookingResponse } from "@coachos/features/bookings/types";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import getIP from "@coachos/lib/getIP";
+import { checkCfTurnstileToken } from "@coachos/lib/server/checkCfTurnstileToken";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import { piiHasher } from "@coachos/lib/server/PiiHasher";
 import type { NextApiRequest } from "next";
 
 // @TODO: Didn't look at the contents of this function in order to not break old booking page.

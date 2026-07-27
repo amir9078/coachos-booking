@@ -1,18 +1,18 @@
 import type { ReactNode } from "react";
 import React from "react";
 
-import { useEventTypeById } from "@calcom/atoms/hooks/event-types/private/useEventTypeById";
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Badge } from "@calcom/ui/components/badge";
-import { DialogContent } from "@calcom/ui/components/dialog";
+import { useEventTypeById } from "@coachos/atoms/hooks/event-types/private/useEventTypeById";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Badge } from "@coachos/ui/components/badge";
+import { DialogContent } from "@coachos/ui/components/dialog";
 
 import { getDurationFormatted } from "../event-meta/Duration";
-import { FromTime } from "@calcom/features/bookings/Booker/utils/dates";
-import { useEvent } from "@calcom/web/modules/schedules/hooks/useEvent";
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
+import { FromTime } from "@coachos/features/bookings/Booker/utils/dates";
+import { useEvent } from "@coachos/web/modules/schedules/hooks/useEvent";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
 
 const BookEventFormWrapper = ({ children, onCancel }: { onCancel: () => void; children: ReactNode }) => {
   const { data } = useEvent();

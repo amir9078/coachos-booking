@@ -1,5 +1,5 @@
-import { FeaturesRepository } from "@calcom/features/flags/features.repository";
-import prisma from "@calcom/prisma";
+import { FeaturesRepository } from "@coachos/features/flags/features.repository";
+import prisma from "@coachos/prisma";
 
 import type { IUrlShortenerProvider } from "./IUrlShortenerProvider";
 import { DubShortener } from "./providers/DubShortener";

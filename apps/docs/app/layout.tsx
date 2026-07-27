@@ -51,8 +51,8 @@ const navbar: React.ReactElement = (
 const footer: React.ReactElement = (
   <Footer>
     <small>
-      Cal.diy is the open source community edition of Cal.com. Cal.diy® and Cal®
-      are a registered trademark by Cal.com, Inc. All rights reserved.
+      Cal.diy is the open source community edition of amir9078.github.io. Cal.diy® and Cal®
+      are a registered trademark by amir9078.github.io, Inc. All rights reserved.
     </small>
   </Footer>
 );

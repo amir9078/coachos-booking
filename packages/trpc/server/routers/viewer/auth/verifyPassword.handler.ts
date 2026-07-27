@@ -1,5 +1,5 @@
-import { verifyPassword } from "@calcom/features/auth/lib/verifyPassword";
-import { prisma } from "@calcom/prisma";
+import { verifyPassword } from "@coachos/features/auth/lib/verifyPassword";
+import { prisma } from "@coachos/prisma";
 
 import { TRPCError } from "@trpc/server";
 

@@ -7,9 +7,9 @@ import {
   ZOOM,
   GOOGLE_MEET,
   OFFICE_365_VIDEO,
-} from "@calcom/platform-constants";
-import type { ApiErrorResponse, ApiResponse } from "@calcom/platform-types";
-import type { App } from "@calcom/types/App";
+} from "@coachos/platform-constants";
+import type { ApiErrorResponse, ApiResponse } from "@coachos/platform-types";
+import type { App } from "@coachos/types/App";
 
 import { useAtomsContext } from "../../../hooks/useAtomsContext";
 import http from "../../../lib/http";

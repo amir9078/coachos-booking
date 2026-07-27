@@ -1,11 +1,11 @@
 import { cloneDeep } from "lodash";
 
-import { sendRescheduledSeatEmailAndSMS } from "@calcom/emails/email-manager";
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
-import type EventManager from "@calcom/features/bookings/lib/EventManager";
-import { getTranslation } from "@calcom/i18n/server";
-import prisma from "@calcom/prisma";
-import type { Person, CalendarEvent } from "@calcom/types/Calendar";
+import { sendRescheduledSeatEmailAndSMS } from "@coachos/emails/email-manager";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
+import type EventManager from "@coachos/features/bookings/lib/EventManager";
+import { getTranslation } from "@coachos/i18n/server";
+import prisma from "@coachos/prisma";
+import type { Person, CalendarEvent } from "@coachos/types/Calendar";
 
 import { findBookingQuery } from "../../../handleNewBooking/findBookingQuery";
 import lastAttendeeDeleteBooking from "../../lib/lastAttendeeDeleteBooking";

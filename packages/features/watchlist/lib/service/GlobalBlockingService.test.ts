@@ -1,6 +1,6 @@
 import { describe, test, expect, vi, beforeEach } from "vitest";
 
-import { WatchlistType, WatchlistAction, WatchlistSource } from "@calcom/prisma/enums";
+import { WatchlistType, WatchlistAction, WatchlistSource } from "@coachos/prisma/enums";
 
 import type { IGlobalWatchlistRepository } from "../interface/IWatchlistRepositories";
 import { GlobalBlockingService } from "./GlobalBlockingService";
@@ -140,7 +140,7 @@ describe("GlobalBlockingService", () => {
       const exactDomainEntry = {
         id: "789",
         type: WatchlistType.DOMAIN,
-        value: "cal.com",
+        value: "amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -151,12 +151,12 @@ describe("GlobalBlockingService", () => {
 
       vi.mocked(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).mockResolvedValue([exactDomainEntry]);
 
-      const result = await service.isBlocked("user@app.cal.com");
+      const result = await service.isBlocked("user@app.amir9078.github.io");
 
       expect(result.isBlocked).toBe(false);
       expect(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).toHaveBeenCalledWith({
-        emails: ["user@app.cal.com"],
-        domains: ["app.cal.com", "*.cal.com"],
+        emails: ["user@app.amir9078.github.io"],
+        domains: ["app.amir9078.github.io", "*.amir9078.github.io"],
       });
     });
 
@@ -164,7 +164,7 @@ describe("GlobalBlockingService", () => {
       const wildcardEntry = {
         id: "789",
         type: WatchlistType.DOMAIN,
-        value: "*.cal.com",
+        value: "*.amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -175,7 +175,7 @@ describe("GlobalBlockingService", () => {
 
       vi.mocked(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).mockResolvedValue([wildcardEntry]);
 
-      const result = await service.isBlocked("user@app.cal.com");
+      const result = await service.isBlocked("user@app.amir9078.github.io");
 
       expect(result.isBlocked).toBe(true);
       expect(result.reason).toBe(WatchlistType.DOMAIN);
@@ -186,7 +186,7 @@ describe("GlobalBlockingService", () => {
       const wildcardEntry = {
         id: "789",
         type: WatchlistType.DOMAIN,
-        value: "*.app.cal.com",
+        value: "*.app.amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -197,14 +197,14 @@ describe("GlobalBlockingService", () => {
 
       vi.mocked(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).mockResolvedValue([wildcardEntry]);
 
-      const result = await service.isBlocked("user@sub.app.cal.com");
+      const result = await service.isBlocked("user@sub.app.amir9078.github.io");
 
       expect(result.isBlocked).toBe(true);
       expect(result.reason).toBe(WatchlistType.DOMAIN);
       expect(result.watchlistEntry).toEqual(wildcardEntry);
       expect(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).toHaveBeenCalledWith({
-        emails: ["user@sub.app.cal.com"],
-        domains: ["sub.app.cal.com", "*.app.cal.com"],
+        emails: ["user@sub.app.amir9078.github.io"],
+        domains: ["sub.app.amir9078.github.io", "*.app.amir9078.github.io"],
       });
     });
 
@@ -212,7 +212,7 @@ describe("GlobalBlockingService", () => {
       const wildcardEntry = {
         id: "789",
         type: WatchlistType.DOMAIN,
-        value: "*.cal.com",
+        value: "*.amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -223,7 +223,7 @@ describe("GlobalBlockingService", () => {
 
       vi.mocked(mockGlobalRepo.findBlockingEntriesForEmailsAndDomains).mockResolvedValue([wildcardEntry]);
 
-      const result = await service.isBlocked("user@cal.com");
+      const result = await service.isBlocked("user@amir9078.github.io");
 
       expect(result.isBlocked).toBe(false);
     });
@@ -232,7 +232,7 @@ describe("GlobalBlockingService", () => {
       const exactEntry = {
         id: "111",
         type: WatchlistType.DOMAIN,
-        value: "app.cal.com",
+        value: "app.amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -244,7 +244,7 @@ describe("GlobalBlockingService", () => {
       const wildcardEntry = {
         id: "222",
         type: WatchlistType.DOMAIN,
-        value: "*.cal.com",
+        value: "*.amir9078.github.io",
         description: null,
         action: WatchlistAction.BLOCK,
         isGlobal: true,
@@ -258,7 +258,7 @@ describe("GlobalBlockingService", () => {
         wildcardEntry,
       ]);
 
-      const result = await service.isBlocked("user@app.cal.com");
+      const result = await service.isBlocked("user@app.amir9078.github.io");
 
       expect(result.isBlocked).toBe(true);
       expect(result.reason).toBe(WatchlistType.DOMAIN);

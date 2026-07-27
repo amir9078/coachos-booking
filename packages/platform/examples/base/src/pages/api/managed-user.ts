@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { X_CAL_CLIENT_ID, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
+import { X_coachos_CLIENT_ID, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
 
 import prisma from "../../lib/prismaClient";
 
@@ -21,13 +21,13 @@ async function createUserWithDefaultSchedule(email: string, name: string, avatar
 
   const managedUserResponse = await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/oauth-clients/${process.env.NEXT_PUBLIC_X_CAL_ID}/users`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/oauth-clients/${process.env.NEXT_PUBLIC_X_coachos_ID}/users`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -55,7 +55,7 @@ async function createUserWithDefaultSchedule(email: string, name: string, avatar
   return managedUserResponseBody.data;
 }
 
-// example endpoint to create a managed cal.com user
+// example endpoint to create a managed amir9078.github.io user
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const { emails } = JSON.parse(req.body);
   const emailOne = emails[0];
@@ -150,20 +150,20 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse<
 async function createTeam(orgId: number, name: string) {
   const response = await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/teams`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/teams`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
         name,
-        bannerUrl: "https://i.cal.com/api/avatar/949be534-7a88-4185-967c-c020b0c0bef3.png",
+        bannerUrl: "https://i.amir9078.github.io/api/avatar/949be534-7a88-4185-967c-c020b0c0bef3.png",
       }),
     }
   );
@@ -175,15 +175,15 @@ async function createTeam(orgId: number, name: string) {
 async function createOrgTeamMembershipMember(orgId: number, teamId: number, userId: number) {
   await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/memberships`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/memberships`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -198,15 +198,15 @@ async function createOrgTeamMembershipMember(orgId: number, teamId: number, user
 async function createOrgMembershipAdmin(orgId: number, userId: number) {
   await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/memberships`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/memberships`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -221,15 +221,15 @@ async function createOrgMembershipAdmin(orgId: number, userId: number) {
 async function createCollectiveEventType(orgId: number, teamId: number, userIds: number[]) {
   await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -246,15 +246,15 @@ async function createCollectiveEventType(orgId: number, teamId: number, userIds:
 async function createRoundRobinEventType(orgId: number, teamId: number, userIds: number[]) {
   await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -271,15 +271,15 @@ async function createRoundRobinEventType(orgId: number, teamId: number, userIds:
 async function createManagedEventType(orgId: number, teamId: number, userIds: number[]) {
   await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/organizations/${orgId}/teams/${teamId}/event-types`,
     {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_SECRET_KEY]: process.env.X_CAL_SECRET_KEY ?? "",
+        [X_coachos_SECRET_KEY]: process.env.X_coachos_SECRET_KEY ?? "",
         // eslint-disable-next-line turbo/no-undeclared-env-vars
-        [X_CAL_CLIENT_ID]: process.env.NEXT_PUBLIC_X_CAL_ID ?? "",
+        [X_coachos_CLIENT_ID]: process.env.NEXT_PUBLIC_X_coachos_ID ?? "",
         origin: "http://localhost:4321",
       },
       body: JSON.stringify({
@@ -300,7 +300,7 @@ async function createDefaultSchedule(accessToken: string) {
 
   const response = await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/schedules`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/schedules`,
     {
       method: "POST",
       headers: {

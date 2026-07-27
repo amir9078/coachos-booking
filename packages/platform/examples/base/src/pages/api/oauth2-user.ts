@@ -1,7 +1,7 @@
 // Next.js API route support: https://nextjs.org/docs/api-routes/introduction
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { X_CAL_CLIENT_ID, X_CAL_SECRET_KEY } from "@calcom/platform-constants";
+import { X_coachos_CLIENT_ID, X_coachos_SECRET_KEY } from "@coachos/platform-constants";
 
 import prisma from "../../lib/prismaClient";
 
@@ -12,7 +12,7 @@ type Data = {
   accessToken: string;
 };
 
-// example endpoint to create a managed cal.com user
+// example endpoint to create a managed amir9078.github.io user
 export default async function handler(req: NextApiRequest, res: NextApiResponse<Data>) {
   const body = typeof req.body === "string" ? JSON.parse(req.body) : req.body;
   const { email, authorizationCode } = body;
@@ -55,7 +55,7 @@ async function createOAuthUser(authorizationCode:string, email: string, name: st
 
   const exchangeResponse = await fetch(
     // eslint-disable-next-line turbo/no-undeclared-env-vars
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/auth/oauth2/clients/${process.env.NEXT_PUBLIC_OAUTH2_CLIENT_ID}/exchange`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/auth/oauth2/clients/${process.env.NEXT_PUBLIC_OAUTH2_CLIENT_ID}/exchange`,
     {
       method: "POST",
       headers: {
@@ -77,7 +77,7 @@ async function createOAuthUser(authorizationCode:string, email: string, name: st
   const refreshToken = exchangeResponseBody.data.refresh_token;
 
   const me = await fetch(
-    `${process.env.NEXT_PUBLIC_CALCOM_API_URL ?? ""}/me`,
+    `${process.env.NEXT_PUBLIC_COACHOS_API_URL ?? ""}/me`,
     {
       headers: {
         "Content-Type": "application/json",

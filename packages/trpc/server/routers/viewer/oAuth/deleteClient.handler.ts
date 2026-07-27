@@ -1,7 +1,7 @@
 import { TRPCError } from "@trpc/server";
 
-import { OAuthClientRepository } from "@calcom/features/oauth/repositories/OAuthClientRepository";
-import type { PrismaClient } from "@calcom/prisma";
+import { OAuthClientRepository } from "@coachos/features/oauth/repositories/OAuthClientRepository";
+import type { PrismaClient } from "@coachos/prisma";
 
 import type { TDeleteClientInputSchema } from "./deleteClient.schema";
 

@@ -1,8 +1,8 @@
 import type { Page } from "@playwright/test";
 
-import type { AppFlags } from "@calcom/features/flags/config";
-import { prisma } from "@calcom/prisma";
-import type { Feature } from "@calcom/prisma/client";
+import type { AppFlags } from "@coachos/features/flags/config";
+import { prisma } from "@coachos/prisma";
+import type { Feature } from "@coachos/prisma/client";
 
 type FeatureSlugs = keyof AppFlags;
 

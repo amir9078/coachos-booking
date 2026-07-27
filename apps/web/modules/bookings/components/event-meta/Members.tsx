@@ -1,11 +1,11 @@
-import { useIsPlatform } from "@calcom/atoms/hooks/useIsPlatform";
-import { useIsEmbed } from "@calcom/embed-core/embed-iframe";
-import { useBookerStore } from "@calcom/features/bookings/Booker/store";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { SchedulingType } from "@calcom/prisma/enums";
-import { AvatarGroup } from "@calcom/ui/components/avatar";
+import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
+import { useIsEmbed } from "@coachos/embed-core/embed-iframe";
+import { useBookerStore } from "@coachos/features/bookings/Booker/store";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { SchedulingType } from "@coachos/prisma/enums";
+import { AvatarGroup } from "@coachos/ui/components/avatar";
 
 export interface EventMembersProps {
   /**

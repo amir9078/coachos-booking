@@ -1,6 +1,6 @@
-import dayjs from "@calcom/dayjs";
-import type { TimeUnit } from "@calcom/prisma/enums";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import type { TimeUnit } from "@coachos/prisma/enums";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
 
 import type {
   BookingCreatedDTO,
@@ -346,7 +346,7 @@ export class BookingWebhookService implements IBookingWebhookService {
       const subscribersHostsNoShow = await webhookService.getSubscribers({
         userId: params.triggerForUser ? params.organizerUser.id : null,
         eventTypeId: params.booking.eventTypeId,
-        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
         teamId: params.teamId,
         orgId: params.orgId,
         oAuthClientId: params.oAuthClientId,
@@ -363,7 +363,7 @@ export class BookingWebhookService implements IBookingWebhookService {
             return tasker.create(
               "triggerHostNoShowWebhook",
               {
-                triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_CAL_VIDEO_NO_SHOW,
+                triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
                 bookingId: params.booking.id,
                 webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit as TimeUnit },
               },
@@ -377,7 +377,7 @@ export class BookingWebhookService implements IBookingWebhookService {
       const subscribersGuestsNoShow = await webhookService.getSubscribers({
         userId: params.triggerForUser ? params.organizerUser.id : null,
         eventTypeId: params.booking.eventTypeId,
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
         teamId: params.teamId,
         orgId: params.orgId,
         oAuthClientId: params.oAuthClientId,
@@ -394,7 +394,7 @@ export class BookingWebhookService implements IBookingWebhookService {
             return tasker.create(
               "triggerGuestNoShowWebhook",
               {
-                triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_CAL_VIDEO_NO_SHOW,
+                triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
                 bookingId: params.booking.id,
                 webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit as TimeUnit },
               },

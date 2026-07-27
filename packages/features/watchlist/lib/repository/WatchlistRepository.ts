@@ -1,5 +1,5 @@
-import type { PrismaClient } from "@calcom/prisma";
-import { WatchlistAction, WatchlistSource } from "@calcom/prisma/enums";
+import type { PrismaClient } from "@coachos/prisma";
+import { WatchlistAction, WatchlistSource } from "@coachos/prisma/enums";
 import type {
   CheckWatchlistInput,
   CreateWatchlistInput,

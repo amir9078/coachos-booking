@@ -1,5 +1,5 @@
 import z from "zod";
-import type { GetPublicEventInput } from "@calcom/features/eventtypes/repositories/EventRepository";
+import type { GetPublicEventInput } from "@coachos/features/eventtypes/repositories/EventRepository";
 
 // Note: fromRedirectOfNonOrgLink has .default(false), so input has it optional but output has it required
 
@@ -19,7 +19,7 @@ export const ZEventInputSchema: z.ZodType<TEventInputSchema, z.ZodTypeDef, TEven
     isTeamEvent: z.boolean().optional(),
     org: z.string().nullable(),
     /**
-     * Informs that the event request has been sent from a page that was reached by a redirect from non-org link(i.e. app.cal.com/username redirected to acme.cal.com/username)
+     * Informs that the event request has been sent from a page that was reached by a redirect from non-org link(i.e. app.amir9078.github.io/username redirected to acme.amir9078.github.io/username)
      * Based on this decision like whether to allow unpublished organization's event to be served or not can be made.
      */
     fromRedirectOfNonOrgLink: z.boolean().optional().default(false),

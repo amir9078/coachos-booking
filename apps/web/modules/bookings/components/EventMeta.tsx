@@ -1,18 +1,18 @@
-import { Timezone as PlatformTimezoneSelect } from "@calcom/atoms/timezone";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
-import { fadeInUp } from "@calcom/features/bookings/Booker/config";
-import type { Timezone } from "@calcom/features/bookings/Booker/types";
-import { FromToTime } from "@calcom/features/bookings/Booker/utils/dates";
-import { useTimePreferences } from "@calcom/features/bookings/lib";
-import type { BookerEvent } from "@calcom/features/bookings/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { markdownToSafeHTMLClient } from "@calcom/lib/markdownToSafeHTMLClient";
-import { CURRENT_TIMEZONE } from "@calcom/lib/timezoneConstants";
-import type { EventTypeTranslation } from "@calcom/prisma/client";
-import { EventTypeAutoTranslatedField } from "@calcom/prisma/enums";
-import { EventMetaBlock } from "@calcom/web/modules/bookings/components/event-meta/Details";
-import { SeatsAvailabilityText } from "@calcom/web/modules/bookings/components/SeatsAvailabilityText";
+import { Timezone as PlatformTimezoneSelect } from "@coachos/atoms/timezone";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
+import { fadeInUp } from "@coachos/features/bookings/Booker/config";
+import type { Timezone } from "@coachos/features/bookings/Booker/types";
+import { FromToTime } from "@coachos/features/bookings/Booker/utils/dates";
+import { useTimePreferences } from "@coachos/features/bookings/lib";
+import type { BookerEvent } from "@coachos/features/bookings/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { markdownToSafeHTMLClient } from "@coachos/lib/markdownToSafeHTMLClient";
+import { CURRENT_TIMEZONE } from "@coachos/lib/timezoneConstants";
+import type { EventTypeTranslation } from "@coachos/prisma/client";
+import { EventTypeAutoTranslatedField } from "@coachos/prisma/enums";
+import { EventMetaBlock } from "@coachos/web/modules/bookings/components/event-meta/Details";
+import { SeatsAvailabilityText } from "@coachos/web/modules/bookings/components/SeatsAvailabilityText";
 import { m } from "framer-motion";
 import dynamic from "next/dynamic";
 import { useEffect, useMemo } from "react";
@@ -22,7 +22,7 @@ import { EventDetails, EventMembers, EventMetaSkeleton, EventTitle } from "./eve
 import { ScrollableWithGradients } from "./ScrollableWithGradients";
 
 const WebTimezoneSelect = dynamic(
-  () => import("@calcom/web/modules/timezone/components/TimezoneSelect").then((mod) => mod.TimezoneSelect),
+  () => import("@coachos/web/modules/timezone/components/TimezoneSelect").then((mod) => mod.TimezoneSelect),
   {
     ssr: false,
   }

@@ -1,14 +1,14 @@
-import type { BookingWithUserAndEventDetails, CalendarEvent } from "@calcom/platform-libraries";
-import { BookingReferenceRepository, updateEvent } from "@calcom/platform-libraries";
-import { createMeeting, FAKE_DAILY_CREDENTIAL } from "@calcom/platform-libraries/conferencing";
-import type { Integration_2024_08_13 } from "@calcom/platform-types";
+import type { BookingWithUserAndEventDetails, CalendarEvent } from "@coachos/platform-libraries";
+import { BookingReferenceRepository, updateEvent } from "@coachos/platform-libraries";
+import { createMeeting, FAKE_DAILY_CREDENTIAL } from "@coachos/platform-libraries/conferencing";
+import type { Integration_2024_08_13 } from "@coachos/platform-types";
 import type {
   BookingOutput_2024_08_13,
   GetRecurringSeatedBookingOutput_2024_08_13,
   GetSeatedBookingOutput_2024_08_13,
   RecurringBookingOutput_2024_08_13,
-} from "@calcom/platform-types/bookings/2024-08-13/outputs/booking.output";
-import type { Booking, Prisma } from "@calcom/prisma/client";
+} from "@coachos/platform-types/bookings/2024-08-13/outputs/booking.output";
+import type { Booking, Prisma } from "@coachos/prisma/client";
 import { BadRequestException, Injectable, Logger, NotFoundException } from "@nestjs/common";
 import { BookingsRepository_2024_08_13 } from "@/platform/bookings/2024-08-13/repositories/bookings.repository";
 import { BookingLocationCalendarSyncService_2024_08_13 } from "@/platform/bookings/2024-08-13/services/booking-location-calendar-sync.service";

@@ -2,11 +2,11 @@ import type { Control } from "react-hook-form";
 import { useFormContext } from "react-hook-form";
 import { describe, expect, vi, beforeEach, test } from "vitest";
 
-import { useRouterQuery } from "@calcom/lib/hooks/useRouterQuery";
+import { useRouterQuery } from "@coachos/lib/hooks/useRouterQuery";
 
 import { useShouldBeDisabledDueToPrefill } from "./useShouldBeDisabledDueToPrefill";
 
-vi.mock("@calcom/lib/hooks/useRouterQuery", () => ({
+vi.mock("@coachos/lib/hooks/useRouterQuery", () => ({
   useRouterQuery: vi.fn(),
 }));
 

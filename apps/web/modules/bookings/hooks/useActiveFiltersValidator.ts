@@ -1,7 +1,7 @@
-import type { ActiveFilter, ActiveFilters } from "@calcom/features/data-table";
-import { ColumnFilterType } from "@calcom/features/data-table";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
+import type { ActiveFilter, ActiveFilters } from "@coachos/features/data-table";
+import { ColumnFilterType } from "@coachos/features/data-table";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
 import { useCallback, useMemo } from "react";
 import type { ActiveFiltersValidator } from "~/data-table/DataTableProvider";
 import { useEventTypes } from "./useEventTypes";

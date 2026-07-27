@@ -1,17 +1,17 @@
-import checkForMultiplePaymentApps from "@calcom/app-store/_utils/payments/checkForMultiplePaymentApps";
-import { locationsResolver } from "@calcom/app-store/locations";
-import { stripChildrenForPayload } from "@calcom/features/eventtypes/lib/childrenEventType";
-import { validateCustomEventName } from "@calcom/features/eventtypes/lib/eventNaming";
+import checkForMultiplePaymentApps from "@coachos/app-store/_utils/payments/checkForMultiplePaymentApps";
+import { locationsResolver } from "@coachos/app-store/locations";
+import { stripChildrenForPayload } from "@coachos/features/eventtypes/lib/childrenEventType";
+import { validateCustomEventName } from "@coachos/features/eventtypes/lib/eventNaming";
 import type {
   EventTypeSetupProps,
   EventTypeUpdateInput,
   FormValues,
-} from "@calcom/features/eventtypes/lib/types";
-import { sortHosts } from "@calcom/lib/bookings/hostGroupUtils";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { validateIntervalLimitOrder } from "@calcom/lib/intervalLimits/validateIntervalLimitOrder";
-import { validateBookerLayouts } from "@calcom/lib/validateBookerLayouts";
-import { eventTypeBookingFields as eventTypeBookingFieldsSchema } from "@calcom/prisma/zod-utils";
+} from "@coachos/features/eventtypes/lib/types";
+import { sortHosts } from "@coachos/lib/bookings/hostGroupUtils";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { validateIntervalLimitOrder } from "@coachos/lib/intervalLimits/validateIntervalLimitOrder";
+import { validateBookerLayouts } from "@coachos/lib/validateBookerLayouts";
+import { eventTypeBookingFields as eventTypeBookingFieldsSchema } from "@coachos/prisma/zod-utils";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useEffect, useMemo, useState } from "react";
 import { useForm } from "react-hook-form";

@@ -1,20 +1,20 @@
-import { PaymentServiceMap } from "@calcom/app-store/payment.services.generated";
-import { eventTypeMetaDataSchemaWithTypedApps } from "@calcom/app-store/zod-utils";
-import dayjs from "@calcom/dayjs";
-import { sendNoShowFeeChargedEmail } from "@calcom/emails/billing-email-service";
-import { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
+import { PaymentServiceMap } from "@coachos/app-store/payment.services.generated";
+import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
+import dayjs from "@coachos/dayjs";
+import { sendNoShowFeeChargedEmail } from "@coachos/emails/billing-email-service";
+import { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import { getTranslation } from "@calcom/i18n/server";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { IAbstractPaymentService } from "@calcom/types/PaymentService";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import { getTranslation } from "@coachos/i18n/server";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { IAbstractPaymentService } from "@coachos/types/PaymentService";
 
 export const handleNoShowFee= async ({
   booking,

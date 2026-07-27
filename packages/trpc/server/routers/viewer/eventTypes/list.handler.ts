@@ -1,5 +1,5 @@
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import { prisma } from "@calcom/prisma";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import { prisma } from "@coachos/prisma";
 
 import type { TrpcSessionUser } from "../../../types";
 

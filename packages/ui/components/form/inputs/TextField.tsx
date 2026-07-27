@@ -1,7 +1,7 @@
 "use client";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
 import { InfoIcon } from "@coss/ui/icons";
 import { cva } from "class-variance-authority";
 import type React from "react";

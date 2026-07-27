@@ -13,7 +13,7 @@ import {
   expectWebhookProducerNotCalled,
   type MockWebhookProducer,
   resetMockWebhookProducer,
-} from "@calcom/testing/lib/webhookProducer";
+} from "@coachos/testing/lib/webhookProducer";
 
 const mockWebhookProducer: MockWebhookProducer = vi.hoisted(() => ({
   queueBookingCreatedWebhook: vi.fn().mockResolvedValue(undefined),
@@ -29,7 +29,7 @@ const mockWebhookProducer: MockWebhookProducer = vi.hoisted(() => ({
   queueOOOCreatedWebhook: vi.fn().mockResolvedValue(undefined),
 }));
 
-vi.mock("@calcom/features/webhooks/lib/service/WebhookTaskerProducerService", () => {
+vi.mock("@coachos/features/webhooks/lib/service/WebhookTaskerProducerService", () => {
   const MockProducer = class {
     queueBookingCreatedWebhook = mockWebhookProducer.queueBookingCreatedWebhook;
     queueBookingCancelledWebhook = mockWebhookProducer.queueBookingCancelledWebhook;
@@ -58,18 +58,18 @@ import {
   mockCalendarToHaveNoBusySlots,
   mockSuccessfulVideoMeetingCreation,
   TestData,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
 import process from "node:process";
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import { BookingStatus, SchedulingType } from "@calcom/prisma/enums";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import { BookingStatus, SchedulingType } from "@coachos/prisma/enums";
 import {
   expectBookingInDBToBeRescheduledFromTo,
   expectBookingRequestedEmails,
   expectBookingToBeInDatabase,
-} from "@calcom/testing/lib/bookingScenario/expects";
-import { getMockRequestDataForBooking } from "@calcom/testing/lib/bookingScenario/getMockRequestDataForBooking";
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+} from "@coachos/testing/lib/bookingScenario/expects";
+import { getMockRequestDataForBooking } from "@coachos/testing/lib/bookingScenario/getMockRequestDataForBooking";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 import { beforeEach, describe, expect, vi } from "vitest";
 import { getNewBookingHandler } from "./getNewBookingHandler";
 

@@ -1,5 +1,5 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Skeleton } from "@calcom/ui/components/skeleton";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Skeleton } from "@coachos/ui/components/skeleton";
 import { CalendarToggleContainer } from "./CalendarToggleContainer";
 import { EventScheduleItem } from "./EventScheduleItem";
 import { EventTypeSelect } from "./EventTypeSelect";

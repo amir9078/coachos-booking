@@ -1,4 +1,4 @@
-import type { Ensure } from "@calcom/types/utils";
+import type { Ensure } from "@coachos/types/utils";
 import { z } from "zod";
 import { BooleanChangeSchema } from "../common/changeSchemas";
 import type { DataRequirements } from "../service/EnrichmentDataStore";

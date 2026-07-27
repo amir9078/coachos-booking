@@ -1,5 +1,5 @@
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { randomString } from "@calcom/lib/random";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { randomString } from "@coachos/lib/random";
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 
@@ -353,7 +353,7 @@ test.describe("Event Types tests", () => {
 
         await page.locator("[data-testid=add-location]").click();
 
-        const testUrl2 = "https://cal.com/ai";
+        const testUrl2 = "https://amir9078.github.io/ai";
         await page.locator(`text="Link meeting"`).last().click();
         await page.locator(`input[name="${locationInputName(1)}"]`).waitFor();
         await page.locator(`input[name="${locationInputName(1)}"]`).fill(testUrl2);

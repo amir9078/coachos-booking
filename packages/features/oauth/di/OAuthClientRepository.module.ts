@@ -1,6 +1,6 @@
-import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@calcom/features/di/di";
-import { moduleLoader as prismaModuleLoader } from "@calcom/features/di/modules/Prisma";
-import { OAuthClientRepository } from "@calcom/features/oauth/repositories/OAuthClientRepository";
+import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@coachos/features/di/di";
+import { moduleLoader as prismaModuleLoader } from "@coachos/features/di/modules/Prisma";
+import { OAuthClientRepository } from "@coachos/features/oauth/repositories/OAuthClientRepository";
 
 import { OAUTH_DI_TOKENS } from "./tokens";
 

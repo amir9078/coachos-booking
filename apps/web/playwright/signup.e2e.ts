@@ -1,7 +1,7 @@
 import { randomBytes } from "node:crypto";
 import process from "node:process";
-import { APP_NAME, IS_MAILHOG_ENABLED } from "@calcom/lib/constants";
-import prisma from "@calcom/prisma";
+import { APP_NAME, IS_MAILHOG_ENABLED } from "@coachos/lib/constants";
+import prisma from "@coachos/prisma";
 import type { Page } from "@playwright/test";
 import { expect } from "@playwright/test";
 import { IS_GOOGLE_LOGIN_ENABLED } from "../server/lib/constants";

@@ -2,14 +2,14 @@ import type { NextApiRequest, NextApiResponse } from "next";
 import getRawBody from "raw-body";
 import { z } from "zod";
 
-import { handlePaymentSuccess } from "@calcom/app-store/_utils/payments/handlePaymentSuccess";
-import { distributedTracing } from "@calcom/lib/tracing/factory";
-import { albyCredentialKeysSchema } from "@calcom/app-store/alby/lib";
-import parseInvoice from "@calcom/app-store/alby/lib/parseInvoice";
-import { IS_PRODUCTION } from "@calcom/lib/constants";
-import { HttpError as HttpCode } from "@calcom/lib/http-error";
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import prisma from "@calcom/prisma";
+import { handlePaymentSuccess } from "@coachos/app-store/_utils/payments/handlePaymentSuccess";
+import { distributedTracing } from "@coachos/lib/tracing/factory";
+import { albyCredentialKeysSchema } from "@coachos/app-store/alby/lib";
+import parseInvoice from "@coachos/app-store/alby/lib/parseInvoice";
+import { IS_PRODUCTION } from "@coachos/lib/constants";
+import { HttpError as HttpCode } from "@coachos/lib/http-error";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import prisma from "@coachos/prisma";
 
 export const config = {
   api: {
@@ -43,8 +43,8 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const { data: parsedPayload } = parse;
 
-    if (parsedPayload.metadata?.payer_data?.appId !== "cal.com") {
-      throw new HttpCode({ statusCode: 204, message: "Payment not for cal.com" });
+    if (parsedPayload.metadata?.payer_data?.appId !== "amir9078.github.io") {
+      throw new HttpCode({ statusCode: 204, message: "Payment not for amir9078.github.io" });
     }
 
     const payment = await prisma.payment.findFirst({

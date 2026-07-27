@@ -1,11 +1,11 @@
-import { getUsersCredentialsIncludeServiceAccountKey } from "@calcom/app-store/delegationCredential";
+import { getUsersCredentialsIncludeServiceAccountKey } from "@coachos/app-store/delegationCredential";
 import {
   getCalendarCredentials,
   getConnectedCalendars,
-} from "@calcom/features/calendars/lib/CalendarManager";
-import { DestinationCalendarRepository } from "@calcom/features/calendars/repositories/DestinationCalendarRepository";
-import { prisma } from "@calcom/prisma";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+} from "@coachos/features/calendars/lib/CalendarManager";
+import { DestinationCalendarRepository } from "@coachos/features/calendars/repositories/DestinationCalendarRepository";
+import { prisma } from "@coachos/prisma";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

@@ -1,13 +1,13 @@
-import { prisma } from "@calcom/prisma/__mocks__/prisma";
+import { prisma } from "@coachos/prisma/__mocks__/prisma";
 
 import { describe, expect, it, vi } from "vitest";
 
-import type { Prisma } from "@calcom/prisma/client";
-import { IdentityProvider } from "@calcom/prisma/enums";
+import type { Prisma } from "@coachos/prisma/client";
+import { IdentityProvider } from "@coachos/prisma/enums";
 
 import unlinkConnectedAccountHandler from "./unlinkConnectedAccount.handler";
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   prisma,
 }));
 

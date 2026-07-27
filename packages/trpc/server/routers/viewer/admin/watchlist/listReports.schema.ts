@@ -1,6 +1,6 @@
 import { z } from "zod";
 
-import { BookingReportReason, BookingReportStatus, SystemReportStatus } from "@calcom/prisma/enums";
+import { BookingReportReason, BookingReportStatus, SystemReportStatus } from "@coachos/prisma/enums";
 
 export const ZListReportsInputSchema = z.object({
   limit: z.number().min(1).max(100).default(25),

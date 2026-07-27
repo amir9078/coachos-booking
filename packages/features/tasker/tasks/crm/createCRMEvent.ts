@@ -1,11 +1,11 @@
-import { appDataSchemas } from "@calcom/app-store/apps.schemas.generated";
-import { RetryableError } from "@calcom/lib/crmManager/errors";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { BookingStatus } from "@calcom/prisma/enums";
-import { EventTypeMetaDataSchema } from "@calcom/prisma/zod-utils";
+import { appDataSchemas } from "@coachos/app-store/apps.schemas.generated";
+import { RetryableError } from "@coachos/lib/crmManager/errors";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { BookingStatus } from "@coachos/prisma/enums";
+import { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
 
 import buildCalendarEvent from "./lib/buildCalendarEvent";
 import { createCRMEventSchema } from "./schema";
@@ -198,7 +198,7 @@ export async function createCRMEvent(payload: string): Promise<void> {
           continue;
         }
 
-        const CrmManager = (await import("@calcom/features/crmManager/crmManager")).default;
+        const CrmManager = (await import("@coachos/features/crmManager/crmManager")).default;
 
         const crm = new CrmManager(crmCredential, app);
 

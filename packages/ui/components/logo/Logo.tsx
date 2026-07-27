@@ -1,5 +1,5 @@
-import { APP_NAME } from "@calcom/lib/constants";
-import classNames from "@calcom/ui/classNames";
+import { APP_NAME } from "@coachos/lib/constants";
+import classNames from "@coachos/ui/classNames";
 
 export function Logo({
   small,

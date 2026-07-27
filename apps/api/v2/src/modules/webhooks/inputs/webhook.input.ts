@@ -1,14 +1,14 @@
 import { ApiProperty, ApiPropertyOptional, PartialType } from "@nestjs/swagger";
 import { IsArray, IsBoolean, IsEnum, IsOptional, IsString } from "class-validator";
 
-import { WebhookTriggerEvents, WebhookVersion } from "@calcom/platform-libraries";
+import { WebhookTriggerEvents, WebhookVersion } from "@coachos/platform-libraries";
 
 export class CreateWebhookInputDto {
   @IsString()
   @IsOptional()
   @ApiProperty({
     description:
-      "The template of the payload that will be sent to the subscriberUrl, check cal.com/docs/core-features/webhooks for more information",
+      "The template of the payload that will be sent to the subscriberUrl, check amir9078.github.io/docs/core-features/webhooks for more information",
     example: JSON.stringify({
       content: "A new event has been scheduled",
       type: "{{type}}",

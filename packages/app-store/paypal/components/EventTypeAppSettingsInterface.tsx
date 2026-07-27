@@ -4,16 +4,16 @@ import {
   currencyOptions,
   currencySymbols,
   isAcceptedCurrencyCode,
-} from "@calcom/app-store/paypal/lib/currencyOptions";
-import type { EventTypeAppSettingsComponent } from "@calcom/app-store/types";
+} from "@coachos/app-store/paypal/lib/currencyOptions";
+import type { EventTypeAppSettingsComponent } from "@coachos/app-store/types";
 import {
   convertToSmallestCurrencyUnit,
   convertFromSmallestToPresentableCurrencyUnit,
-} from "@calcom/lib/currencyConversions";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Alert } from "@calcom/ui/components/alert";
-import { Select } from "@calcom/ui/components/form";
-import { TextField } from "@calcom/ui/components/form";
+} from "@coachos/lib/currencyConversions";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Alert } from "@coachos/ui/components/alert";
+import { Select } from "@coachos/ui/components/form";
+import { TextField } from "@coachos/ui/components/form";
 
 import { PaypalPaymentOptions as paymentOptions } from "../zod";
 

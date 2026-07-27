@@ -1,6 +1,6 @@
-import type { ISimpleLogger } from "@calcom/features/di/shared/services/logger.service";
-import type { HashedLinkService } from "@calcom/features/hashedLink/lib/service/HashedLinkService";
-import { safeStringify } from "@calcom/lib/safeStringify";
+import type { ISimpleLogger } from "@coachos/features/di/shared/services/logger.service";
+import type { HashedLinkService } from "@coachos/features/hashedLink/lib/service/HashedLinkService";
+import { safeStringify } from "@coachos/lib/safeStringify";
 import type { BookingCreatedPayload, BookingRescheduledPayload } from "./types";
 
 interface BookingEventHandlerDeps {

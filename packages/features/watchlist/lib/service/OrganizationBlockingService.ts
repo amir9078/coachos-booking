@@ -60,8 +60,8 @@ export class OrganizationBlockingService implements IBlockingService {
    * Bulk check multiple emails in a single query for an organization.
    * Returns Map<email (lowercase), BlockingResult> for efficient lookup.
    * Supports configurable wildcard domain matching:
-   * - `*.cal.com` blocks all subdomains
-   * - `cal.com` only blocks exact matches
+   * - `*.amir9078.github.io` blocks all subdomains
+   * - `amir9078.github.io` only blocks exact matches
    */
   async areBlocked(emails: string[], organizationId: number): Promise<BulkBlockingResult> {
     const result: BulkBlockingResult = new Map();

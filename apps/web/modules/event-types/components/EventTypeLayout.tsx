@@ -1,11 +1,11 @@
-import type { EventTypeSetupProps, FormValues } from "@calcom/features/eventtypes/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { SchedulingType } from "@calcom/prisma/enums";
-import classNames from "@calcom/ui/classNames";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { ButtonGroup } from "@calcom/ui/components/buttonGroup";
-import { VerticalDivider } from "@calcom/ui/components/divider";
+import type { EventTypeSetupProps, FormValues } from "@coachos/features/eventtypes/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { SchedulingType } from "@coachos/prisma/enums";
+import classNames from "@coachos/ui/classNames";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { ButtonGroup } from "@coachos/ui/components/buttonGroup";
+import { VerticalDivider } from "@coachos/ui/components/divider";
 import {
   Dropdown,
   DropdownItem,
@@ -13,18 +13,18 @@ import {
   DropdownMenuItem,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@calcom/ui/components/dropdown";
-import { Label, Switch } from "@calcom/ui/components/form";
-import type { VerticalTabItemProps } from "@calcom/ui/components/navigation";
-import { HorizontalTabs, VerticalTabs } from "@calcom/ui/components/navigation";
-import { Skeleton } from "@calcom/ui/components/skeleton";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/dropdown";
+import { Label, Switch } from "@coachos/ui/components/form";
+import type { VerticalTabItemProps } from "@coachos/ui/components/navigation";
+import { HorizontalTabs, VerticalTabs } from "@coachos/ui/components/navigation";
+import { Skeleton } from "@coachos/ui/components/skeleton";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import {
   EventTypeEmbedButton,
   EventTypeEmbedDialog,
-} from "@calcom/web/modules/embed/components/EventTypeEmbed";
-import WebShell from "@calcom/web/modules/shell/Shell";
+} from "@coachos/web/modules/embed/components/EventTypeEmbed";
+import WebShell from "@coachos/web/modules/shell/Shell";
 import { LoaderIcon } from "@coss/ui/icons";
 import { Suspense, useMemo, useState } from "react";
 import type { UseFormReturn } from "react-hook-form";

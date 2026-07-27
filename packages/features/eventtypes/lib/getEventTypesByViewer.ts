@@ -1,18 +1,18 @@
-import { EventTypeRepository } from "@calcom/features/eventtypes/repositories/eventTypeRepository";
-import { hasFilter } from "@calcom/features/filters/lib/hasFilter";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import logger from "@calcom/lib/logger";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import prisma from "@calcom/prisma";
-import { MembershipRole, SchedulingType } from "@calcom/prisma/enums";
-import { eventTypeMetaDataSchemaWithUntypedApps, teamMetadataSchema } from "@calcom/prisma/zod-utils";
+import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
+import { hasFilter } from "@coachos/features/filters/lib/hasFilter";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import logger from "@coachos/lib/logger";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import prisma from "@coachos/prisma";
+import { MembershipRole, SchedulingType } from "@coachos/prisma/enums";
+import { eventTypeMetaDataSchemaWithUntypedApps, teamMetadataSchema } from "@coachos/prisma/zod-utils";
 import { orderBy } from "lodash";
 
 class PermissionCheckService {
@@ -22,9 +22,9 @@ class PermissionCheckService {
   async getTeamIdsWithPermission(..._args: unknown[]): Promise<number[]> { return []; }
 }
 const getBookerBaseUrl = async (_orgSlug?: string | number | null): Promise<string> =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 const getBookerBaseUrlSync = (_orgSlug?: string | number | null): string =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
 const log = logger.getSubLogger({ prefix: ["viewer.eventTypes.getByViewer"] });
 

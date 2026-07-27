@@ -1,14 +1,14 @@
 {
   "$schema": "https://json.schemastore.org/package.json",
   "private": true,
-  "name": "@calcom/mock-payment-app",
+  "name": "@coachos/mock-payment-app",
   "version": "0.0.0",
   "main": "./index.ts",
   "dependencies": {
-    "@calcom/lib": "workspace:*"
+    "@coachos/lib": "workspace:*"
   },
   "devDependencies": {
-    "@calcom/types": "workspace:*"
+    "@coachos/types": "workspace:*"
   },
   "description": "The mock payment app for tests"
 }

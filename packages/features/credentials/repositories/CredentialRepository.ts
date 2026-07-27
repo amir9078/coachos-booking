@@ -1,9 +1,9 @@
-import { buildNonDelegationCredential } from "@calcom/lib/delegationCredential";
-import logger from "@calcom/lib/logger";
-import { prisma } from "@calcom/prisma";
-import type { Prisma, PrismaClient } from "@calcom/prisma/client";
-import { safeCredentialSelect } from "@calcom/prisma/selects/credential";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
+import { buildNonDelegationCredential } from "@coachos/lib/delegationCredential";
+import logger from "@coachos/lib/logger";
+import { prisma } from "@coachos/prisma";
+import type { Prisma, PrismaClient } from "@coachos/prisma/client";
+import { safeCredentialSelect } from "@coachos/prisma/selects/credential";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
 
 const log = logger.getSubLogger({ prefix: ["CredentialRepository"] });
 

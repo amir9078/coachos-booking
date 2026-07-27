@@ -1,5 +1,5 @@
-import { formatDateTime, formatDateTimeRange } from "@calcom/lib/dateTimeFormatter";
-import { TimeFormat } from "@calcom/lib/timeFormat";
+import { formatDateTime, formatDateTimeRange } from "@coachos/lib/dateTimeFormatter";
+import { TimeFormat } from "@coachos/lib/timeFormat";
 
 interface EventFromToTime {
   date: string;

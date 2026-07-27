@@ -2,7 +2,7 @@ import {
   APP_NAME,
   SENDER_NAME,
   SUPPORT_MAIL_ADDRESS,
-} from "@calcom/lib/constants";
+} from "@coachos/lib/constants";
 import type { EmailVerifyCode } from "../../lib/types/email-types";
 import { BaseEmailHtml } from "../components";
 
@@ -54,7 +54,7 @@ export const VerifyEmailByCode = (
                 rel="noreferrer"
               >
                 <>
-                  {props.language("the_calcom_team", {
+                  {props.language("the_COACHOS_team", {
                     companyName: SENDER_NAME,
                   })}
                 </>

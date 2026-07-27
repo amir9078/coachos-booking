@@ -1,6 +1,6 @@
 import z from "zod";
 
-import { AppCategories } from "@calcom/prisma/enums";
+import { AppCategories } from "@coachos/prisma/enums";
 
 const variantSchema = z.nativeEnum(AppCategories);
 

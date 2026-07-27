@@ -7,16 +7,16 @@ import type React from "react";
 import { cloneElement } from "react";
 import { Toaster } from "sonner";
 
-import { useFormbricks } from "@calcom/web/modules/formbricks/hooks/useFormbricks";
-import { useRedirectToLoginIfUnauthenticated } from "@calcom/web/modules/auth/hooks/useRedirectToLoginIfUnauthenticated";
-import { useRedirectToOnboardingIfNeeded } from "@calcom/web/modules/auth/hooks/useRedirectToOnboardingIfNeeded";
+import { useFormbricks } from "@coachos/web/modules/formbricks/hooks/useFormbricks";
+import { useRedirectToLoginIfUnauthenticated } from "@coachos/web/modules/auth/hooks/useRedirectToLoginIfUnauthenticated";
+import { useRedirectToOnboardingIfNeeded } from "@coachos/web/modules/auth/hooks/useRedirectToOnboardingIfNeeded";
 
-import TimezoneChangeDialog from "@calcom/web/modules/settings/components/TimezoneChangeDialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { ErrorBoundary } from "@calcom/ui/components/errorBoundary";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
+import TimezoneChangeDialog from "@coachos/web/modules/settings/components/TimezoneChangeDialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { ErrorBoundary } from "@coachos/ui/components/errorBoundary";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
 
 import { DynamicModals } from "./DynamicModals";
 import { KBarContent, KBarRoot } from "./Kbar";

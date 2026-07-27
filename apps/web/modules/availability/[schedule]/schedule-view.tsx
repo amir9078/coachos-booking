@@ -5,15 +5,15 @@ import { revalidateSchedulePage } from "app/(use-page-wrapper)/availability/[sch
 import { useRouter, useSearchParams } from "next/navigation";
 import { useState } from "react";
 
-import { AvailabilitySettings } from "@calcom/atoms/availability/AvailabilitySettings";
-import type { BulkUpdatParams } from "@calcom/features/eventtypes/components/BulkEditDefaultForEventsModal";
-import { withErrorFromUnknown } from "@calcom/lib/getClientErrorFromUnknown";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { HttpError } from "@calcom/lib/http-error";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import { showToast } from "@calcom/ui/components/toast";
+import { AvailabilitySettings } from "@coachos/atoms/availability/AvailabilitySettings";
+import type { BulkUpdatParams } from "@coachos/features/eventtypes/components/BulkEditDefaultForEventsModal";
+import { withErrorFromUnknown } from "@coachos/lib/getClientErrorFromUnknown";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { HttpError } from "@coachos/lib/http-error";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import { showToast } from "@coachos/ui/components/toast";
 
 type PageProps = {
   scheduleData: RouterOutputs["viewer"]["availability"]["schedule"]["get"];

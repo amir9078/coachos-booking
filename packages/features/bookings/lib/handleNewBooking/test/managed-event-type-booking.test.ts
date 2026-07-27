@@ -1,8 +1,8 @@
-import { setupAndTeardown } from "@calcom/testing/lib/bookingScenario/setupAndTeardown";
+import { setupAndTeardown } from "@coachos/testing/lib/bookingScenario/setupAndTeardown";
 
 import { describe } from "vitest";
 
-import { test } from "@calcom/testing/lib/fixtures/fixtures";
+import { test } from "@coachos/testing/lib/fixtures/fixtures";
 
 describe("handleNewBooking", () => {
   setupAndTeardown();

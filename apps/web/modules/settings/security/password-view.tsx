@@ -4,21 +4,21 @@ import { signOut, useSession } from "next-auth/react";
 import { useState } from "react";
 import { useForm } from "react-hook-form";
 
-import SectionBottomActions from "@calcom/features/settings/SectionBottomActions";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { IdentityProvider } from "@calcom/prisma/enums";
-import { userMetadata as userMetadataSchema } from "@calcom/prisma/zod-utils";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { Form } from "@calcom/ui/components/form";
-import { PasswordField } from "@calcom/ui/components/form";
-import { Select } from "@calcom/ui/components/form";
-import { SettingsToggle } from "@calcom/ui/components/form";
-import { SkeletonButton, SkeletonContainer, SkeletonText } from "@calcom/ui/components/skeleton";
-import { showToast } from "@calcom/ui/components/toast";
+import SectionBottomActions from "@coachos/features/settings/SectionBottomActions";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { IdentityProvider } from "@coachos/prisma/enums";
+import { userMetadata as userMetadataSchema } from "@coachos/prisma/zod-utils";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { Form } from "@coachos/ui/components/form";
+import { PasswordField } from "@coachos/ui/components/form";
+import { Select } from "@coachos/ui/components/form";
+import { SettingsToggle } from "@coachos/ui/components/form";
+import { SkeletonButton, SkeletonContainer, SkeletonText } from "@coachos/ui/components/skeleton";
+import { showToast } from "@coachos/ui/components/toast";
 
 type ChangePasswordSessionFormValues = {
   oldPassword: string;

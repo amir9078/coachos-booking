@@ -3,8 +3,8 @@
 import { useCallback, useState, useEffect } from "react";
 import Cropper from "react-easy-crop";
 
-import checkIfItFallbackImage from "@calcom/lib/checkIfItFallbackImage";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import checkIfItFallbackImage from "@coachos/lib/checkIfItFallbackImage";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 
 import type { ButtonColor } from "../button";
 import { Button } from "../button";

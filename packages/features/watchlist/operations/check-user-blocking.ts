@@ -1,5 +1,5 @@
-import { getWatchlistFeature } from "@calcom/features/di/watchlist/containers/watchlist";
-import logger from "@calcom/lib/logger";
+import { getWatchlistFeature } from "@coachos/features/di/watchlist/containers/watchlist";
+import logger from "@coachos/lib/logger";
 
 const log: ReturnType<typeof logger.getSubLogger> = logger.getSubLogger({
   prefix: ["watchlist", "check-user-blocking"],

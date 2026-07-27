@@ -1,13 +1,13 @@
-import { useRouterQuery } from "@calcom/lib/hooks/useRouterQuery";
+import { useRouterQuery } from "@coachos/lib/hooks/useRouterQuery";
 import { render } from "@testing-library/react";
 import { describe, it, vi } from "vitest";
 import UserPage from "./users-public-view";
 
-vi.mock("@calcom/lib/constants", async () => {
-  return await vi.importActual("@calcom/lib/constants");
+vi.mock("@coachos/lib/constants", async () => {
+  return await vi.importActual("@coachos/lib/constants");
 });
 
-vi.mock("@calcom/lib/hooks/useRouterQuery", () => ({
+vi.mock("@coachos/lib/hooks/useRouterQuery", () => ({
   useRouterQuery: vi.fn(),
 }));
 

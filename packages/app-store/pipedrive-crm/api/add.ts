@@ -1,9 +1,9 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { createDefaultInstallation } from "@calcom/app-store/_utils/installation";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { WEBAPP_URL_FOR_OAUTH } from "@calcom/lib/constants";
-import { HttpError } from "@calcom/lib/http-error";
+import { createDefaultInstallation } from "@coachos/app-store/_utils/installation";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { WEBAPP_URL_FOR_OAUTH } from "@coachos/lib/constants";
+import { HttpError } from "@coachos/lib/http-error";
 
 import getAppKeysFromSlug from "../../_utils/getAppKeysFromSlug";
 import { encodeOAuthState } from "../../_utils/oauth/encodeOAuthState";

@@ -53,7 +53,7 @@ describe("BookingPageTagManager", () => {
     const trackingScript = scripts[0];
     const pushEventScript = scripts[1];
     expect(trackingScript.innerHTML).toContain(GTM_CONFIG.trackingId);
-    expect(pushEventScript.innerHTML).toContain("cal_analytics_app__gtm");
+    expect(pushEventScript.innerHTML).toContain("coachos_analytics_app__gtm");
   });
 
   it("GTM App when disabled should not have its scripts added", () => {
@@ -147,10 +147,10 @@ describe("handleEvent", () => {
     const pushEventRandom = vi.fn();
     const pushEventNotme = vi.fn();
 
-    setOnWindow("cal_analytics_app__xyz", pushEventXyz);
-    setOnWindow("cal_analytics_app__anything", pushEventAnything);
-    setOnWindow("cal_analytics_app_random", pushEventRandom);
-    setOnWindow("cal_analytics_notme", pushEventNotme);
+    setOnWindow("coachos_analytics_app__xyz", pushEventXyz);
+    setOnWindow("coachos_analytics_app__anything", pushEventAnything);
+    setOnWindow("coachos_analytics_app_random", pushEventRandom);
+    setOnWindow("coachos_analytics_notme", pushEventNotme);
 
     handleEvent({
       detail: {
@@ -186,8 +186,8 @@ describe("handleEvent", () => {
   it("should not error if accidentally the value is not a function", () => {
     const pushEventNotAfunction = "abc";
     const pushEventAnything = vi.fn();
-    setOnWindow("cal_analytics_app__notafun", pushEventNotAfunction);
-    setOnWindow("cal_analytics_app__anything", pushEventAnything);
+    setOnWindow("coachos_analytics_app__notafun", pushEventNotAfunction);
+    setOnWindow("coachos_analytics_app__anything", pushEventAnything);
 
     handleEvent({
       detail: {
@@ -196,7 +196,7 @@ describe("handleEvent", () => {
       },
     });
 
-    // No error for cal_analytics_app__notafun and pushEventAnything is called
+    // No error for coachos_analytics_app__notafun and pushEventAnything is called
     expect(pushEventAnything).toHaveBeenCalledWith({
       name: "abc",
       data: {

@@ -1,23 +1,23 @@
 import { useEffect } from "react";
 import { shallow } from "zustand/shallow";
 
-import type { Dayjs } from "@calcom/dayjs";
-import dayjs from "@calcom/dayjs";
-import { useEmbedStyles } from "@calcom/embed-core/embed-iframe";
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { getAvailableDatesInMonth } from "@calcom/features/calendars/lib/getAvailableDatesInMonth";
-import type { Slots } from "@calcom/features/calendars/lib/types";
-import { daysInMonth, yyyymmdd } from "@calcom/lib/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { weekdayNames } from "@calcom/lib/weekday";
-import type { PeriodData } from "@calcom/types/Event";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+import type { Dayjs } from "@coachos/dayjs";
+import dayjs from "@coachos/dayjs";
+import { useEmbedStyles } from "@coachos/embed-core/embed-iframe";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { getAvailableDatesInMonth } from "@coachos/features/calendars/lib/getAvailableDatesInMonth";
+import type { Slots } from "@coachos/features/calendars/lib/types";
+import { daysInMonth, yyyymmdd } from "@coachos/lib/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { weekdayNames } from "@coachos/lib/weekday";
+import type { PeriodData } from "@coachos/types/Event";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 import NoAvailabilityDialog from "./NoAvailabilityDialog";
-import { useSlotsViewOnSmallScreen } from "@calcom/embed-core/embed-iframe";
+import { useSlotsViewOnSmallScreen } from "@coachos/embed-core/embed-iframe";
 
 export type DatePickerProps = {
   /** which day of the week to render the calendar. Usually Sunday (=0) or Monday (=1) - default: Sunday */

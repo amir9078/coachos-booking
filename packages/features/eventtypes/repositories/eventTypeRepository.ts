@@ -1,20 +1,20 @@
-import type { IEventTypesRepository } from "@calcom/features/eventtypes/eventtypes.repository.interface";
-import { MembershipRepository } from "@calcom/features/membership/repositories/MembershipRepository";
-import { LookupTarget, ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-import type { UserWithLegacySelectedCalendars } from "@calcom/features/users/repositories/UserRepository";
-import { withSelectedCalendars } from "@calcom/features/users/repositories/UserRepository";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { eventTypeSelect } from "@calcom/lib/server/eventTypeSelect";
-import type { PrismaClient } from "@calcom/prisma";
-import { availabilityUserSelect, userSelect as userSelectWithSelectedCalendars } from "@calcom/prisma";
-import type { Prisma, EventType as PrismaEventType } from "@calcom/prisma/client";
-import { MembershipRole } from "@calcom/prisma/enums";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
-import { EventTypeMetaDataSchema, rrSegmentQueryValueSchema } from "@calcom/prisma/zod-utils";
-import type { Ensure } from "@calcom/types/utils";
+import type { IEventTypesRepository } from "@coachos/features/eventtypes/eventtypes.repository.interface";
+import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
+import { LookupTarget, ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+import type { UserWithLegacySelectedCalendars } from "@coachos/features/users/repositories/UserRepository";
+import { withSelectedCalendars } from "@coachos/features/users/repositories/UserRepository";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { eventTypeSelect } from "@coachos/lib/server/eventTypeSelect";
+import type { PrismaClient } from "@coachos/prisma";
+import { availabilityUserSelect, userSelect as userSelectWithSelectedCalendars } from "@coachos/prisma";
+import type { Prisma, EventType as PrismaEventType } from "@coachos/prisma/client";
+import { MembershipRole } from "@coachos/prisma/enums";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
+import { EventTypeMetaDataSchema, rrSegmentQueryValueSchema } from "@coachos/prisma/zod-utils";
+import type { Ensure } from "@coachos/types/utils";
 
 const log = logger.getSubLogger({ prefix: ["repository/eventType"] });
 

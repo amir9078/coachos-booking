@@ -3,9 +3,9 @@ import EventEmitter from "node:events";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { createServer } from "node:http";
 import process from "node:process";
-import type { IntervalLimit } from "@calcom/lib/intervalLimits/intervalLimitSchema";
-import type { Prisma } from "@calcom/prisma/client";
-import { BookingStatus, SchedulingType } from "@calcom/prisma/enums";
+import type { IntervalLimit } from "@coachos/lib/intervalLimits/intervalLimitSchema";
+import type { Prisma } from "@coachos/prisma/client";
+import { BookingStatus, SchedulingType } from "@coachos/prisma/enums";
 import type { Frame, Page, Request as PlaywrightRequest } from "@playwright/test";
 import { expect } from "@playwright/test";
 import type { Messages } from "mailhog";
@@ -36,8 +36,8 @@ export const IS_STRIPE_ENABLED = !!(
 
 export const IS_GOOGLE_CALENDAR_ENABLED = !!(
   process.env.GOOGLE_API_CREDENTIALS &&
-  process.env.E2E_TEST_CALCOM_GCAL_KEYS &&
-  process.env.E2E_TEST_CALCOM_QA_GCAL_CREDENTIALS
+  process.env.E2E_TEST_COACHOS_Gcoachos_KEYS &&
+  process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS
 );
 
 export const IS_SENDGRID_ENABLED = !!process.env.SENDGRID_API_KEY;
@@ -507,7 +507,7 @@ export async function doOnOrgDomain(
   }
 
   page.setExtraHTTPHeaders({
-    "x-cal-force-slug": orgSlug,
+    "x-coachos-force-slug": orgSlug,
   });
   const callbackResult = await callback({
     page,
@@ -516,7 +516,7 @@ export async function doOnOrgDomain(
     },
   });
   await page.setExtraHTTPHeaders({
-    "x-cal-force-slug": "",
+    "x-coachos-force-slug": "",
   });
   return callbackResult;
 }

@@ -1,14 +1,14 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 import queue from "queue";
 
-import dayjs from "@calcom/dayjs";
-import { IS_PRODUCTION } from "@calcom/lib/constants";
-import { HttpError as HttpCode } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import prisma from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { BookingStatus } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import { IS_PRODUCTION } from "@coachos/lib/constants";
+import { HttpError as HttpCode } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import prisma from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { Reschedule } from "../lib";
 import { initVitalClient, vitalEnv } from "../lib/client";

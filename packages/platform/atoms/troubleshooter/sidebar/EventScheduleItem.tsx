@@ -1,5 +1,5 @@
-import { useTroubleshooterStore } from "@calcom/features/troubleshooter/store";
-import { EventScheduleItemComponent } from "@calcom/features/troubleshooter/components/EventScheduleItemComponent";
+import { useTroubleshooterStore } from "@coachos/features/troubleshooter/store";
+import { EventScheduleItemComponent } from "@coachos/features/troubleshooter/components/EventScheduleItemComponent";
 import { useScheduleByEventSlug } from "../../hooks/useScheduleByEventSlug";
 
 export function EventScheduleItem(): JSX.Element {

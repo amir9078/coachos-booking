@@ -1,4 +1,4 @@
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 
 type QualifiedHost = {
   user: {

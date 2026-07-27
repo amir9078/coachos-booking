@@ -3,13 +3,13 @@ import {
   replaceDates,
   TestData,
   Timezones,
-} from "@calcom/testing/lib/bookingScenario/bookingScenario";
-import type { ScenarioData } from "@calcom/testing/lib/bookingScenario/bookingScenario";
+} from "@coachos/testing/lib/bookingScenario/bookingScenario";
+import type { ScenarioData } from "@coachos/testing/lib/bookingScenario/bookingScenario";
 
 import { describe, expect, vi, test } from "vitest";
 
-import { getAvailableSlotsService } from "@calcom/features/di/containers/AvailableSlots";
-import { PeriodType } from "@calcom/prisma/enums";
+import { getAvailableSlotsService } from "@coachos/features/di/containers/AvailableSlots";
+import { PeriodType } from "@coachos/prisma/enums";
 
 import { expectedSlotsForSchedule } from "./expects";
 import { setupAndTeardown } from "./setupAndTeardown";
@@ -61,7 +61,7 @@ function getPeriodTypeData({
   }
 }
 
-vi.mock("@calcom/lib/constants", () => ({
+vi.mock("@coachos/lib/constants", () => ({
   IS_PRODUCTION: true,
   WEBAPP_URL: "http://localhost:3000",
   RESERVED_SUBDOMAINS: ["auth", "docs"],

@@ -1,12 +1,12 @@
 "use client";
 
-import dayjs from "@calcom/dayjs";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import useMeQuery from "@calcom/trpc/react/hooks/useMeQuery";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { ButtonGroup } from "@calcom/ui/components/buttonGroup";
+import dayjs from "@coachos/dayjs";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import useMeQuery from "@coachos/trpc/react/hooks/useMeQuery";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { ButtonGroup } from "@coachos/ui/components/buttonGroup";
 import { ChevronLeftIcon, ChevronRightIcon } from "@coss/ui/icons";
 import { getCoreRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 import React, { useEffect, useMemo } from "react";

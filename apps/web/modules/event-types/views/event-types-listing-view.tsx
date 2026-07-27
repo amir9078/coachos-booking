@@ -1,26 +1,26 @@
 "use client";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { APP_NAME } from "@calcom/lib/constants";
-import { extractHostTimezone, filterActiveLinks } from "@calcom/lib/hashedLinksUtils";
-import { useCopy } from "@calcom/lib/hooks/useCopy";
-import { useInViewObserver } from "@calcom/lib/hooks/useInViewObserver";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useGetTheme } from "@calcom/lib/hooks/useTheme";
-import { useTypedQuery } from "@calcom/lib/hooks/useTypedQuery";
-import { HttpError } from "@calcom/lib/http-error";
-import { parseEventTypeColor } from "@calcom/lib/isEventTypeColor";
-import { localStorage } from "@calcom/lib/webstorage";
-import { MembershipRole, SchedulingType } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { ArrowButton } from "@calcom/ui/components/arrow-button";
-import { UserAvatarGroup } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { ButtonGroup } from "@calcom/ui/components/buttonGroup";
-import { ConfirmationDialogContent } from "@calcom/ui/components/dialog";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { APP_NAME } from "@coachos/lib/constants";
+import { extractHostTimezone, filterActiveLinks } from "@coachos/lib/hashedLinksUtils";
+import { useCopy } from "@coachos/lib/hooks/useCopy";
+import { useInViewObserver } from "@coachos/lib/hooks/useInViewObserver";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useGetTheme } from "@coachos/lib/hooks/useTheme";
+import { useTypedQuery } from "@coachos/lib/hooks/useTypedQuery";
+import { HttpError } from "@coachos/lib/http-error";
+import { parseEventTypeColor } from "@coachos/lib/isEventTypeColor";
+import { localStorage } from "@coachos/lib/webstorage";
+import { MembershipRole, SchedulingType } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { ArrowButton } from "@coachos/ui/components/arrow-button";
+import { UserAvatarGroup } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { ButtonGroup } from "@coachos/ui/components/buttonGroup";
+import { ConfirmationDialogContent } from "@coachos/ui/components/dialog";
 import {
   Dropdown,
   DropdownItem,
@@ -29,24 +29,24 @@ import {
   DropdownMenuPortal,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from "@calcom/ui/components/dropdown";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { Label, Switch, TextField } from "@calcom/ui/components/form";
-import { HorizontalTabs } from "@calcom/ui/components/navigation";
-import { Skeleton } from "@calcom/ui/components/skeleton";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/dropdown";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { Label, Switch, TextField } from "@coachos/ui/components/form";
+import { HorizontalTabs } from "@coachos/ui/components/navigation";
+import { Skeleton } from "@coachos/ui/components/skeleton";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import {
   EventTypeEmbedButton,
   EventTypeEmbedDialog,
-} from "@calcom/web/modules/embed/components/EventTypeEmbed";
-import { EventTypeDescription } from "@calcom/web/modules/event-types/components";
+} from "@coachos/web/modules/embed/components/EventTypeEmbed";
+import { EventTypeDescription } from "@coachos/web/modules/event-types/components";
 import {
   CreateEventTypeDialog,
   type ProfileOption,
-} from "@calcom/web/modules/event-types/components/CreateEventTypeDialog";
-import { DuplicateDialog } from "@calcom/web/modules/event-types/components/DuplicateDialog";
-import { InfiniteSkeletonLoader } from "@calcom/web/modules/event-types/components/SkeletonLoader";
+} from "@coachos/web/modules/event-types/components/CreateEventTypeDialog";
+import { DuplicateDialog } from "@coachos/web/modules/event-types/components/DuplicateDialog";
+import { InfiniteSkeletonLoader } from "@coachos/web/modules/event-types/components/SkeletonLoader";
 import { SearchIcon } from "@coss/ui/icons";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 import { TRPCClientError } from "@trpc/client";

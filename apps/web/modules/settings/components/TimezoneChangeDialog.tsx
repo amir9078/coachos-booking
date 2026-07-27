@@ -4,16 +4,16 @@ import type { ManipulateType as DayjsManipulateType } from "dayjs";
 import { useSession } from "next-auth/react";
 import { useEffect, useState } from "react";
 
-import dayjs from "@calcom/dayjs";
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { CURRENT_TIMEZONE } from "@calcom/lib/timezoneConstants";
-import { trpc } from "@calcom/trpc/react";
-import { DialogContent, DialogFooter, DialogHeader, DialogClose } from "@calcom/ui/components/dialog";
-import { showToast } from "@calcom/ui/components/toast";
+import dayjs from "@coachos/dayjs";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { CURRENT_TIMEZONE } from "@coachos/lib/timezoneConstants";
+import { trpc } from "@coachos/trpc/react";
+import { DialogContent, DialogFooter, DialogHeader, DialogClose } from "@coachos/ui/components/dialog";
+import { showToast } from "@coachos/ui/components/toast";
 
 function hideDialogFor(hideFor: [number, DayjsManipulateType], toastContent: string) {
-  document.cookie = `calcom-timezone-dialog=1;max-age=${
+  document.cookie = `coachos-timezone-dialog=1;max-age=${
     dayjs().add(hideFor[0], hideFor[1]).unix() - dayjs().unix()
   }`;
   if (toastContent) showToast(toastContent, "success");
@@ -120,7 +120,7 @@ export default function TimezoneChangeDialog() {
     if (typeof window !== "undefined" && document) {
       const cookie = document.cookie
         .split(";")
-        .find((cookie) => cookie.trim().startsWith("calcom-timezone-dialog"));
+        .find((cookie) => cookie.trim().startsWith("coachos-timezone-dialog"));
       if (!cookie) {
         setRenderDialog(true);
       }

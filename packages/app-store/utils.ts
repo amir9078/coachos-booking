@@ -1,13 +1,13 @@
 // If you import this file on any app it should produce circular dependency
 // import appStore from "./index";
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import type { EventLocationType } from "@calcom/app-store/locations";
-import logger from "@calcom/lib/logger";
-import { getPiiFreeCredential } from "@calcom/lib/piiFreeData";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { AppCategories } from "@calcom/prisma/client";
-import type { App, AppMeta } from "@calcom/types/App";
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import type { EventLocationType } from "@coachos/app-store/locations";
+import logger from "@coachos/lib/logger";
+import { getPiiFreeCredential } from "@coachos/lib/piiFreeData";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { AppCategories } from "@coachos/prisma/client";
+import type { App, AppMeta } from "@coachos/types/App";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 
 export * from "./_utils/getEventTypeAppData";
 

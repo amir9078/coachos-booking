@@ -1,8 +1,8 @@
 import { useCallback, useMemo } from "react";
 
-import type { ColumnFilter } from "@calcom/features/data-table/lib/types";
-import { ZFilterValue } from "@calcom/features/data-table/lib/types";
-import { isMultiSelectFilterValue } from "@calcom/features/data-table/lib/utils";
+import type { ColumnFilter } from "@coachos/features/data-table/lib/types";
+import { ZFilterValue } from "@coachos/features/data-table/lib/types";
+import { isMultiSelectFilterValue } from "@coachos/features/data-table/lib/utils";
 import { useDataTable } from "./useDataTable";
 
 export function useColumnFilters({ exclude }: { exclude?: string[] } = {}): ColumnFilter[] {

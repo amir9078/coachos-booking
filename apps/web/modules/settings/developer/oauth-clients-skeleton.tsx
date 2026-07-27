@@ -1,6 +1,6 @@
 "use client";
 
-import { SkeletonText, SkeletonContainer } from "@calcom/ui/components/skeleton";
+import { SkeletonText, SkeletonContainer } from "@coachos/ui/components/skeleton";
 
 const skeletonItems = Array(3).fill(undefined);
 

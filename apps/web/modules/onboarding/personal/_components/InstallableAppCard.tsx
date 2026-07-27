@@ -1,8 +1,8 @@
-import { InstallAppButtonWithoutPlanCheck } from "@calcom/app-store/InstallAppButtonWithoutPlanCheck";
-import type { UseAddAppMutationOptions } from "@calcom/app-store/_utils/useAddAppMutation";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { App } from "@calcom/types/App";
-import { Button } from "@calcom/ui/components/button";
+import { InstallAppButtonWithoutPlanCheck } from "@coachos/app-store/InstallAppButtonWithoutPlanCheck";
+import type { UseAddAppMutationOptions } from "@coachos/app-store/_utils/useAddAppMutation";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { App } from "@coachos/types/App";
+import { Button } from "@coachos/ui/components/button";
 
 type AppData = {
   slug: string;

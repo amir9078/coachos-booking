@@ -37,7 +37,7 @@ export function collectPageParameters(
 
 
 // CoachOS: the upstream Jitsu driver here shipped a live key/endpoint
-// (t.calendso.com) that reported page views back to Cal.com regardless of
+// (t.calendso.com) that reported page views back to amir9078.github.io regardless of
 // this app's own users' consent. Removed outright rather than left behind an
 // env flag — no telemetry destination ships in this fork at all.
 export const nextCollectBasicSettings: CollectOpts = {

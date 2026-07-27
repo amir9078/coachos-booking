@@ -1,11 +1,11 @@
-import AttendeeCancelledEmail from "@calcom/emails/templates/attendee-cancelled-email";
-import type { PrismaBookingAttendeeRepository } from "@calcom/features/bookings/repositories/PrismaBookingAttendeeRepository";
-import { getTranslation } from "@calcom/i18n/server";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import { extractBaseEmail } from "@calcom/lib/extract-base-email";
-import logger from "@calcom/lib/logger";
-import type { BookingResponses } from "@calcom/prisma/zod-utils";
-import type { Booking, TUser } from "@calcom/trpc/server/routers/viewer/bookings/addGuests.handler";
+import AttendeeCancelledEmail from "@coachos/emails/templates/attendee-cancelled-email";
+import type { PrismaBookingAttendeeRepository } from "@coachos/features/bookings/repositories/PrismaBookingAttendeeRepository";
+import { getTranslation } from "@coachos/i18n/server";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import { extractBaseEmail } from "@coachos/lib/extract-base-email";
+import logger from "@coachos/lib/logger";
+import type { BookingResponses } from "@coachos/prisma/zod-utils";
+import type { Booking, TUser } from "@coachos/trpc/server/routers/viewer/bookings/addGuests.handler";
 import {
   buildCalendarEvent,
   getBooking,
@@ -13,8 +13,8 @@ import {
   prepareAttendeesList,
   updateCalendarEvent,
   validateUserPermissions,
-} from "@calcom/trpc/server/routers/viewer/bookings/addGuests.handler";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+} from "@coachos/trpc/server/routers/viewer/bookings/addGuests.handler";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 
 type RemoveAttendeeInput = {
   bookingId: number;

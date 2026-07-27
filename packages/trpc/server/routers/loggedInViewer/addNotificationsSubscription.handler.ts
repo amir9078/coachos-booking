@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-import { sendNotification } from "@calcom/features/notifications/sendNotification";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import logger from "@calcom/lib/logger";
-import { getTranslation } from "@calcom/i18n/server";
-import prisma from "@calcom/prisma";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { sendNotification } from "@coachos/features/notifications/sendNotification";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import logger from "@coachos/lib/logger";
+import { getTranslation } from "@coachos/i18n/server";
+import prisma from "@coachos/prisma";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import { TRPCError } from "@trpc/server";
 

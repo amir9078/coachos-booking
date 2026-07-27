@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: () => ({
       debug: vi.fn(),
@@ -10,7 +10,7 @@ vi.mock("@calcom/lib/logger", () => ({
   },
 }));
 
-vi.mock("@calcom/features/auth/lib/dub", () => ({
+vi.mock("@coachos/features/auth/lib/dub", () => ({
   dub: {
     links: {
       createMany: vi.fn(),
@@ -21,7 +21,7 @@ vi.mock("@calcom/features/auth/lib/dub", () => ({
 const mockCheckIfUserHasFeature = vi.fn();
 const mockCheckIfTeamHasFeature = vi.fn();
 const mockCheckIfFeatureIsEnabledGlobally = vi.fn();
-vi.mock("@calcom/features/flags/features.repository", () => ({
+vi.mock("@coachos/features/flags/features.repository", () => ({
   FeaturesRepository: class {
     checkIfUserHasFeature = mockCheckIfUserHasFeature;
     checkIfTeamHasFeature = mockCheckIfTeamHasFeature;
@@ -29,7 +29,7 @@ vi.mock("@calcom/features/flags/features.repository", () => ({
   },
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {},
 }));
 

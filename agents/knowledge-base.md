@@ -24,8 +24,8 @@ There are two types of OAuth clients:
 
 | Type | Table | Purpose |
 |------|-------|---------|
-| OAuth client | `OAuthClient` | Allows 3rd party apps to connect users' cal.com accounts |
-| Platform OAuth client | `PlatformOAuthClient` | Used by platform customers integrating cal.com scheduling directly in their platforms |
+| OAuth client | `OAuthClient` | Allows 3rd party apps to connect users' amir9078.github.io accounts |
+| Platform OAuth client | `PlatformOAuthClient` | Used by platform customers integrating amir9078.github.io scheduling directly in their platforms |
 
 If someone says "platform OAuth client" they mean the one in the `PlatformOAuthClient` table.
 

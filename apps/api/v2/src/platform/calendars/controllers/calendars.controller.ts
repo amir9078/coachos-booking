@@ -43,7 +43,7 @@ import { plainToClass } from "class-transformer";
 import { Request } from "express";
 import { z } from "zod";
 
-import { APPS_READ } from "@calcom/platform-constants";
+import { APPS_READ } from "@coachos/platform-constants";
 import {
   SUCCESS_STATUS,
   CALENDARS,
@@ -51,9 +51,9 @@ import {
   OFFICE_365_CALENDAR,
   APPLE_CALENDAR,
   CREDENTIAL_CALENDARS,
-} from "@calcom/platform-constants";
-import { ApiResponse, CalendarBusyTimesInput, CreateCalendarCredentialsInput } from "@calcom/platform-types";
-import type { User } from "@calcom/prisma/client";
+} from "@coachos/platform-constants";
+import { ApiResponse, CalendarBusyTimesInput, CreateCalendarCredentialsInput } from "@coachos/platform-types";
+import type { User } from "@coachos/prisma/client";
 
 export interface CalendarState {
   accessToken: string;
@@ -114,7 +114,7 @@ export class CalendarsController {
   @ApiOperation({
     summary: "Get busy times",
     description:
-      "Get busy times from a calendar. Example request URL is `https://api.cal.com/v2/calendars/busy-times?timeZone=Europe%2FMadrid&dateFrom=2024-12-18&dateTo=2024-12-18&calendarsToLoad[0][credentialId]=135&calendarsToLoad[0][externalId]=skrauciz%40gmail.com`. Note: loggedInUsersTz is deprecated, use timeZone instead.",
+      "Get busy times from a calendar. Example request URL is `https://api.amir9078.github.io/v2/calendars/busy-times?timeZone=Europe%2FMadrid&dateFrom=2024-12-18&dateTo=2024-12-18&calendarsToLoad[0][credentialId]=135&calendarsToLoad[0][externalId]=skrauciz%40gmail.com`. Note: loggedInUsersTz is deprecated, use timeZone instead.",
   })
   async getBusyTimes(
     @Query() queryParams: CalendarBusyTimesInput,

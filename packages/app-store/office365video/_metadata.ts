@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Microsoft 365/Teams (Requires work/school account)",
@@ -21,7 +21,7 @@ export const metadata = {
   slug: "msteams",
   dirName: "office365video",
   url: "https://www.microsoft.com/en-ca/microsoft-teams/group-chat-software",
-  email: "help@cal.com",
+  email: "shaikhamirhussain2000@gmail.com",
   isOAuth: true,
 } as AppMeta;
 

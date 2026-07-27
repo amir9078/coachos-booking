@@ -1,5 +1,5 @@
 import { createOrganization } from "./bookingScenario";
-import { WEBSITE_URL } from "@calcom/lib/constants";
+import { WEBSITE_URL } from "@coachos/lib/constants";
 import type { Fixtures } from "../fixtures/fixtures";
 import { test } from "../fixtures/fixtures";
 

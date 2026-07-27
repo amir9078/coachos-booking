@@ -1,7 +1,7 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { getSafeRedirectUrl } from "@calcom/lib/getSafeRedirectUrl";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { getSafeRedirectUrl } from "@coachos/lib/getSafeRedirectUrl";
 
 import getInstalledAppPath from "../../_utils/getInstalledAppPath";
 import { decodeOAuthState } from "../../_utils/oauth/decodeOAuthState";

@@ -1,1 +1,1 @@
-web: npx turbo run @calcom/web#start
+web: npx turbo run @coachos/web#start

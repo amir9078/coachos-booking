@@ -1,6 +1,6 @@
 import path from "node:path";
-import type { PrismaClient } from "@calcom/prisma";
-import type { OAuthClientType } from "@calcom/prisma/enums";
+import type { PrismaClient } from "@coachos/prisma";
+import type { OAuthClientType } from "@coachos/prisma/enums";
 import { expect, type Locator, type Page } from "@playwright/test";
 import { test } from "../lib/fixtures";
 

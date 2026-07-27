@@ -1,9 +1,9 @@
-import type { LocationObject } from "@calcom/app-store/locations";
-import { locationKeyToString } from "@calcom/app-store/locations";
-import { getLocationByType } from "@calcom/app-store/locations";
-import { getTranslatedLocation } from "@calcom/app-store/locations";
-import type { useLocale } from "@calcom/lib/hooks/useLocale";
-import notEmpty from "@calcom/lib/notEmpty";
+import type { LocationObject } from "@coachos/app-store/locations";
+import { locationKeyToString } from "@coachos/app-store/locations";
+import { getLocationByType } from "@coachos/app-store/locations";
+import { getTranslatedLocation } from "@coachos/app-store/locations";
+import type { useLocale } from "@coachos/lib/hooks/useLocale";
+import notEmpty from "@coachos/lib/notEmpty";
 
 export default function getLocationsOptionsForSelect(
   locations: LocationObject[],

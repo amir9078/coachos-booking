@@ -1,8 +1,8 @@
 import Link from "next/link";
 import { createElement } from "react";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
 
 import { Badge } from "../badge";
 

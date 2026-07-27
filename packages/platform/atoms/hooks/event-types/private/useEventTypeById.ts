@@ -1,8 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
 
-import { V2_ENDPOINTS, SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { EventTypeOutput_2024_06_14 } from "@calcom/platform-types";
-import type { ApiResponse, ApiSuccessResponse } from "@calcom/platform-types";
+import { V2_ENDPOINTS, SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { EventTypeOutput_2024_06_14 } from "@coachos/platform-types";
+import type { ApiResponse, ApiSuccessResponse } from "@coachos/platform-types";
 
 import http from "../../../lib/http";
 

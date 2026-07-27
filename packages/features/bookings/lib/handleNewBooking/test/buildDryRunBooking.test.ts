@@ -1,31 +1,31 @@
-import { BookingStatus, CreationSource } from "@calcom/prisma/enums";
+import { BookingStatus, CreationSource } from "@coachos/prisma/enums";
 import { describe, expect, it, vi } from "vitest";
 import { buildDryRunBooking } from "../../service/RegularBookingService";
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {}, // empty object as default export
   prisma: {},
 }));
 
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   enrichHostsWithDelegationCredentials: vi.fn(),
   getUsersCredentialsIncludeServiceAccountKey: vi.fn(),
   getCredentialForSelectedCalendar: vi.fn(),
 }));
 
-vi.mock("@calcom/features/abuse-scoring/lib/hooks", () => ({
+vi.mock("@coachos/features/abuse-scoring/lib/hooks", () => ({
   onEventTypeChange: vi.fn(),
   onSignup: vi.fn(),
   onBookingCreated: vi.fn(),
 }));
 
-vi.mock("@calcom/features/di/watchlist/containers/SpamCheckService.container", () => ({
+vi.mock("@coachos/features/di/watchlist/containers/SpamCheckService.container", () => ({
   getSpamCheckService: vi.fn().mockReturnValue({
     checkForSpam: vi.fn().mockResolvedValue({ isSpam: false }),
   }),
 }));
 
-vi.mock("@calcom/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
+vi.mock("@coachos/features/watchlist/lib/freeEmailDomainCheck/checkIfFreeEmailDomain", () => ({
   checkIfFreeEmailDomain: vi.fn().mockResolvedValue(false),
 }));
 
@@ -73,7 +73,7 @@ describe("buildDryRunBooking", () => {
     expect(bookingExceptUser).toEqual({
       id: -101,
       uid: "DRY_RUN_UID",
-      iCalUID: "DRY_RUN_ICAL_UID",
+      iCalUID: "DRY_RUN_Icoachos_UID",
       status: BookingStatus.ACCEPTED,
       eventTypeId: baseInputs.eventTypeId,
       userId: baseOrganizerUser.id,

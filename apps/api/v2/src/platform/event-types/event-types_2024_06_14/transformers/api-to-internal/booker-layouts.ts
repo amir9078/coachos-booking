@@ -1,8 +1,8 @@
 import {
   BookerLayoutsInputEnum_2024_06_14,
   BookerLayoutsOutputEnum_2024_06_14,
-} from "@calcom/platform-enums";
-import { type CreateEventTypeInput_2024_06_14 } from "@calcom/platform-types";
+} from "@coachos/platform-enums";
+import { type CreateEventTypeInput_2024_06_14 } from "@coachos/platform-types";
 
 export function transformBookerLayoutsApiToInternal(
   inputBookerLayout: CreateEventTypeInput_2024_06_14["bookerLayouts"]

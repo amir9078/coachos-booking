@@ -1,6 +1,6 @@
-import { useIsEmbed } from "@calcom/embed-core/embed-iframe";
-import { useIsStandalone } from "@calcom/lib/hooks/useIsStandalone";
-import classNames from "@calcom/ui/classNames";
+import { useIsEmbed } from "@coachos/embed-core/embed-iframe";
+import { useIsStandalone } from "@coachos/lib/hooks/useIsStandalone";
+import classNames from "@coachos/ui/classNames";
 import { useSession } from "next-auth/react";
 import { useMemo } from "react";
 import UnconfirmedBookingBadge from "../../bookings/components/UnconfirmedBookingBadge";

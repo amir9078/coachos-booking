@@ -1,4 +1,4 @@
-import type { MembershipRole } from "@calcom/prisma/enums";
+import type { MembershipRole } from "@coachos/prisma/enums";
 
 // --- Response DTOs ---
 

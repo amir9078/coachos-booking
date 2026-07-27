@@ -1,26 +1,26 @@
-import { getBookingForReschedule } from "@calcom/features/bookings/lib/get-booking";
-import getAllUserBookings from "@calcom/features/bookings/lib/getAllUserBookings";
-import { getBookingFieldsWithSystemFields } from "@calcom/features/bookings/lib/getBookingFields";
-import getBookingInfo from "@calcom/features/bookings/lib/getBookingInfo";
-import handleCancelBooking from "@calcom/features/bookings/lib/handleCancelBooking";
-import handleMarkNoShow from "@calcom/features/handleMarkNoShow";
-import { getTranslation } from "@calcom/i18n/server";
-import { symmetricDecrypt, symmetricEncrypt } from "@calcom/lib/crypto";
-import type { Prisma } from "@calcom/prisma/client";
-import { credentialForCalendarServiceSelect } from "@calcom/prisma/selects/credential";
-import { paymentDataSelect } from "@calcom/prisma/selects/payment";
+import { getBookingForReschedule } from "@coachos/features/bookings/lib/get-booking";
+import getAllUserBookings from "@coachos/features/bookings/lib/getAllUserBookings";
+import { getBookingFieldsWithSystemFields } from "@coachos/features/bookings/lib/getBookingFields";
+import getBookingInfo from "@coachos/features/bookings/lib/getBookingInfo";
+import handleCancelBooking from "@coachos/features/bookings/lib/handleCancelBooking";
+import handleMarkNoShow from "@coachos/features/handleMarkNoShow";
+import { getTranslation } from "@coachos/i18n/server";
+import { symmetricDecrypt, symmetricEncrypt } from "@coachos/lib/crypto";
+import type { Prisma } from "@coachos/prisma/client";
+import { credentialForCalendarServiceSelect } from "@coachos/prisma/selects/credential";
+import { paymentDataSelect } from "@coachos/prisma/selects/payment";
 
-export { slugify } from "@calcom/lib/slugify";
-export { slugifyLenient } from "@calcom/lib/slugify-lenient";
+export { slugify } from "@coachos/lib/slugify";
+export { slugifyLenient } from "@coachos/lib/slugify-lenient";
 export { getBookingForReschedule };
 
-export { getWebhookProducer } from "@calcom/features/di/webhooks/containers/webhook";
-export { getUsernameList } from "@calcom/features/eventtypes/lib/defaultEvents";
+export { getWebhookProducer } from "@coachos/features/di/webhooks/containers/webhook";
+export { getUsernameList } from "@coachos/features/eventtypes/lib/defaultEvents";
 export {
   DEFAULT_WEBHOOK_VERSION,
   WebhookVersion,
-} from "@calcom/features/webhooks/lib/interface/IWebhookRepository";
-export type { IWebhookProducerService } from "@calcom/features/webhooks/lib/interface/WebhookProducerService";
+} from "@coachos/features/webhooks/lib/interface/IWebhookRepository";
+export type { IWebhookProducerService } from "@coachos/features/webhooks/lib/interface/WebhookProducerService";
 export {
   AttributeType,
   CreationSource,
@@ -29,51 +29,51 @@ export {
   SchedulingType,
   TimeUnit,
   WebhookTriggerEvents,
-} from "@calcom/prisma/enums";
-export type { CalendarEvent, EventBusyDate } from "@calcom/types/Calendar";
+} from "@coachos/prisma/enums";
+export type { CalendarEvent, EventBusyDate } from "@coachos/types/Calendar";
 
 export { handleMarkNoShow };
 
 export type {
   BookingCreateBody,
   BookingResponse,
-} from "@calcom/features/bookings/types";
-export type { ConnectedCalendar } from "@calcom/features/calendars/lib/CalendarManager";
+} from "@coachos/features/bookings/types";
+export type { ConnectedCalendar } from "@coachos/features/calendars/lib/CalendarManager";
 export {
   getBusyCalendarTimes,
   updateEvent,
-} from "@calcom/features/calendars/lib/CalendarManager";
-export type { ConnectedDestinationCalendars } from "@calcom/features/calendars/lib/getConnectedDestinationCalendars";
-export { getConnectedDestinationCalendarsAndEnsureDefaultsInDb } from "@calcom/features/calendars/lib/getConnectedDestinationCalendars";
-export type { CityTimezones } from "@calcom/features/cityTimezones/cityTimezonesHandler";
-export { cityTimezonesHandler } from "@calcom/features/cityTimezones/cityTimezonesHandler";
-export { ENABLE_ASYNC_TASKER, MINUTES_TO_BOOK } from "@calcom/lib/constants";
+} from "@coachos/features/calendars/lib/CalendarManager";
+export type { ConnectedDestinationCalendars } from "@coachos/features/calendars/lib/getConnectedDestinationCalendars";
+export { getConnectedDestinationCalendarsAndEnsureDefaultsInDb } from "@coachos/features/calendars/lib/getConnectedDestinationCalendars";
+export type { CityTimezones } from "@coachos/features/cityTimezones/cityTimezonesHandler";
+export { cityTimezonesHandler } from "@coachos/features/cityTimezones/cityTimezonesHandler";
+export { ENABLE_ASYNC_TASKER, MINUTES_TO_BOOK } from "@coachos/lib/constants";
 export { TRPCError } from "@trpc/server";
 
 export { getAllUserBookings };
 export { getBookingInfo };
 export { handleCancelBooking };
 
-export { dynamicEvent } from "@calcom/features/eventtypes/lib/defaultEvents";
-export { parseBookingLimit } from "@calcom/lib/intervalLimits/isBookingLimits";
-export { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
+export { dynamicEvent } from "@coachos/features/eventtypes/lib/defaultEvents";
+export { parseBookingLimit } from "@coachos/lib/intervalLimits/isBookingLimits";
+export { parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
 export {
   bookingMetadataSchema,
   teamMetadataSchema,
   userMetadata,
-} from "@calcom/prisma/zod-utils";
+} from "@coachos/prisma/zod-utils";
 
 export { symmetricEncrypt, symmetricDecrypt };
 
 export { getTranslation };
 
-export { validateCustomEventName } from "@calcom/features/eventtypes/lib/eventNaming";
+export { validateCustomEventName } from "@coachos/features/eventtypes/lib/eventNaming";
 
 export type TeamQuery = Prisma.TeamGetPayload<{
   select: {
     id: true;
     credentials: {
-      select: typeof import("@calcom/prisma/selects/credential").credentialForCalendarServiceSelect;
+      select: typeof import("@coachos/prisma/selects/credential").credentialForCalendarServiceSelect;
     };
     name: true;
     logoUrl: true;
@@ -87,38 +87,38 @@ export type TeamQuery = Prisma.TeamGetPayload<{
 
 export { credentialForCalendarServiceSelect };
 export { paymentDataSelect };
-export { confirmHandler as confirmBookingHandler } from "@calcom/trpc/server/routers/viewer/bookings/confirm.handler";
+export { confirmHandler as confirmBookingHandler } from "@coachos/trpc/server/routers/viewer/bookings/confirm.handler";
 export { getBookingFieldsWithSystemFields };
 
-export { checkAdminOrOwner } from "@calcom/features/auth/lib/checkAdminOrOwner";
-export { sendLocationChangeEmailsAndSMS } from "@calcom/emails/email-manager";
-export { verifyCodeUnAuthenticated } from "@calcom/features/auth/lib/verifyCodeUnAuthenticated";
-export { sendEmailVerificationByCode } from "@calcom/features/auth/lib/verifyEmail";
-export { getCalendarLinks } from "@calcom/features/bookings/lib/getCalendarLinks";
-export { BookingReferenceRepository } from "@calcom/features/bookingReference/repositories/BookingReferenceRepository";
-export { BookingAccessService } from "@calcom/features/bookings/services/BookingAccessService";
-export { CredentialRepository } from "@calcom/features/credentials/repositories/CredentialRepository";
-export type { OrgMembershipLookup } from "@calcom/features/di/modules/OrgMembershipLookup";
-export type { OAuth2Tokens } from "@calcom/features/oauth/services/OAuthService";
-export { OAuthService } from "@calcom/features/oauth/services/OAuthService";
-export { generateSecret } from "@calcom/features/oauth/utils/generateSecret";
-export { ProfileRepository } from "@calcom/features/profile/repositories/ProfileRepository";
-export { SelectedCalendarRepository } from "@calcom/features/selectedCalendar/repositories/SelectedCalendarRepository";
-export type { Tasker } from "@calcom/features/tasker/tasker";
-export { getTasker } from "@calcom/features/tasker/tasker-factory";
-export { buildCalEventFromBooking } from "@calcom/lib/buildCalEventFromBooking";
-export { getVideoCallUrlFromCalEvent } from "@calcom/lib/CalEventParser";
-export { verifyCodeChallenge } from "@calcom/lib/pkce";
-export { encryptServiceAccountKey } from "@calcom/lib/server/serviceAccountKey";
-export { validateUrlForSSRFSync } from "@calcom/lib/ssrfProtection";
-export type { TraceContext } from "@calcom/lib/tracing";
-export { distributedTracing } from "@calcom/lib/tracing/factory";
+export { checkAdminOrOwner } from "@coachos/features/auth/lib/checkAdminOrOwner";
+export { sendLocationChangeEmailsAndSMS } from "@coachos/emails/email-manager";
+export { verifyCodeUnAuthenticated } from "@coachos/features/auth/lib/verifyCodeUnAuthenticated";
+export { sendEmailVerificationByCode } from "@coachos/features/auth/lib/verifyEmail";
+export { getCalendarLinks } from "@coachos/features/bookings/lib/getCalendarLinks";
+export { BookingReferenceRepository } from "@coachos/features/bookingReference/repositories/BookingReferenceRepository";
+export { BookingAccessService } from "@coachos/features/bookings/services/BookingAccessService";
+export { CredentialRepository } from "@coachos/features/credentials/repositories/CredentialRepository";
+export type { OrgMembershipLookup } from "@coachos/features/di/modules/OrgMembershipLookup";
+export type { OAuth2Tokens } from "@coachos/features/oauth/services/OAuthService";
+export { OAuthService } from "@coachos/features/oauth/services/OAuthService";
+export { generateSecret } from "@coachos/features/oauth/utils/generateSecret";
+export { ProfileRepository } from "@coachos/features/profile/repositories/ProfileRepository";
+export { SelectedCalendarRepository } from "@coachos/features/selectedCalendar/repositories/SelectedCalendarRepository";
+export type { Tasker } from "@coachos/features/tasker/tasker";
+export { getTasker } from "@coachos/features/tasker/tasker-factory";
+export { buildCalEventFromBooking } from "@coachos/lib/buildCalEventFromBooking";
+export { getVideoCallUrlFromCalEvent } from "@coachos/lib/CalEventParser";
+export { verifyCodeChallenge } from "@coachos/lib/pkce";
+export { encryptServiceAccountKey } from "@coachos/lib/server/serviceAccountKey";
+export { validateUrlForSSRFSync } from "@coachos/lib/ssrfProtection";
+export type { TraceContext } from "@coachos/lib/tracing";
+export { distributedTracing } from "@coachos/lib/tracing/factory";
 export {
   type BookingWithUserAndEventDetails,
   bookingWithUserAndEventDetailsSelect,
-} from "@calcom/prisma/selects/booking";
-export { checkEmailVerificationRequired } from "@calcom/trpc/server/routers/publicViewer/checkIfUserEmailVerificationRequired.handler";
-export type { CredentialForCalendarService } from "@calcom/types/Credential";
+} from "@coachos/prisma/selects/booking";
+export { checkEmailVerificationRequired } from "@coachos/trpc/server/routers/publicViewer/checkIfUserEmailVerificationRequired.handler";
+export type { CredentialForCalendarService } from "@coachos/types/Credential";
 
 // === Stubs for deleted EE features still imported by API v2 ===
 

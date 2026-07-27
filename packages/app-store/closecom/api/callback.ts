@@ -1,11 +1,11 @@
 import type { NextApiRequest, NextApiResponse } from "next";
 
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { getSafeRedirectUrl } from "@calcom/lib/getSafeRedirectUrl";
-import { HttpError } from "@calcom/lib/http-error";
-import { defaultHandler } from "@calcom/lib/server/defaultHandler";
-import { defaultResponder } from "@calcom/lib/server/defaultResponder";
-import prisma from "@calcom/prisma";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { getSafeRedirectUrl } from "@coachos/lib/getSafeRedirectUrl";
+import { HttpError } from "@coachos/lib/http-error";
+import { defaultHandler } from "@coachos/lib/server/defaultHandler";
+import { defaultResponder } from "@coachos/lib/server/defaultResponder";
+import prisma from "@coachos/prisma";
 
 import getAppKeysFromSlug from "../../_utils/getAppKeysFromSlug";
 import getInstalledAppPath from "../../_utils/getInstalledAppPath";

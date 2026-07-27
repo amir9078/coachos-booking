@@ -1,4 +1,4 @@
-export { ErrorCode } from "@calcom/lib/errorCodes";
-export { ErrorWithCode } from "@calcom/lib/errors";
-export { getHttpStatusCode } from "@calcom/lib/server/getServerErrorFromUnknown";
-export { HttpError } from "@calcom/lib/http-error";
+export { ErrorCode } from "@coachos/lib/errorCodes";
+export { ErrorWithCode } from "@coachos/lib/errors";
+export { getHttpStatusCode } from "@coachos/lib/server/getServerErrorFromUnknown";
+export { HttpError } from "@coachos/lib/http-error";

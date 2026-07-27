@@ -2,19 +2,19 @@ import Stripe from "stripe";
 import { v4 as uuidv4 } from "uuid";
 import z from "zod";
 
-import dayjs from "@calcom/dayjs";
-import { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
-import tasker from "@calcom/features/tasker";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { ErrorWithCode } from "@calcom/lib/errors";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { getServerErrorFromUnknown } from "@calcom/lib/server/getServerErrorFromUnknown";
-import prisma from "@calcom/prisma";
-import type { Booking, Payment, PaymentOption, Prisma } from "@calcom/prisma/client";
-import type { EventTypeMetadata } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
-import type { IAbstractPaymentService } from "@calcom/types/PaymentService";
+import dayjs from "@coachos/dayjs";
+import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
+import tasker from "@coachos/features/tasker";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { ErrorWithCode } from "@coachos/lib/errors";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { getServerErrorFromUnknown } from "@coachos/lib/server/getServerErrorFromUnknown";
+import prisma from "@coachos/prisma";
+import type { Booking, Payment, PaymentOption, Prisma } from "@coachos/prisma/client";
+import type { EventTypeMetadata } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+import type { IAbstractPaymentService } from "@coachos/types/PaymentService";
 
 import { paymentOptionEnum } from "../zod";
 import { retrieveOrCreateStripeCustomerByEmail } from "./customer";
@@ -469,7 +469,7 @@ class StripePaymentService implements IAbstractPaymentService {
     bookingTitle: string;
   }) {
     return {
-      identifier: "cal.com",
+      identifier: "amir9078.github.io",
       bookingId,
       calAccountId: userId ?? null,
       calUsername: username ?? null,

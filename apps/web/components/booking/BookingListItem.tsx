@@ -2,26 +2,26 @@ import Link from "next/link";
 import { useState, useEffect, useRef } from "react";
 import { Controller, useFieldArray, useForm } from "react-hook-form";
 
-import { getPaymentAppData } from "@calcom/app-store/_utils/payments/getPaymentAppData";
-import type { getEventLocationValue } from "@calcom/app-store/locations";
-import { getSuccessPageLocationMessage, guessEventLocationType } from "@calcom/app-store/locations";
-import dayjs from "@calcom/dayjs";
+import { getPaymentAppData } from "@coachos/app-store/_utils/payments/getPaymentAppData";
+import type { getEventLocationValue } from "@coachos/app-store/locations";
+import { getSuccessPageLocationMessage, guessEventLocationType } from "@coachos/app-store/locations";
+import dayjs from "@coachos/dayjs";
 // TODO: Use browser locale, implement Intl in Dayjs maybe?
-import "@calcom/dayjs/locales";
-import { formatTime } from "@calcom/lib/dayjs";
-import { useCopy } from "@calcom/lib/hooks/useCopy";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useGetTheme } from "@calcom/lib/hooks/useTheme";
-import isSmsCalEmail from "@calcom/lib/isSmsCalEmail";
-import { getEveryFreqFor } from "@calcom/lib/recurringStrings";
-import type { AssignmentReason } from "@calcom/prisma/client";
-import { BookingStatus } from "@calcom/prisma/enums";
-import { bookingMetadataSchema } from "@calcom/prisma/zod-utils";
-import { trpc } from "@calcom/trpc/react";
-import type { Ensure } from "@calcom/types/utils";
-import classNames from "@calcom/ui/classNames";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
+import "@coachos/dayjs/locales";
+import { formatTime } from "@coachos/lib/dayjs";
+import { useCopy } from "@coachos/lib/hooks/useCopy";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useGetTheme } from "@coachos/lib/hooks/useTheme";
+import isSmsCalEmail from "@coachos/lib/isSmsCalEmail";
+import { getEveryFreqFor } from "@coachos/lib/recurringStrings";
+import type { AssignmentReason } from "@coachos/prisma/client";
+import { BookingStatus } from "@coachos/prisma/enums";
+import { bookingMetadataSchema } from "@coachos/prisma/zod-utils";
+import { trpc } from "@coachos/trpc/react";
+import type { Ensure } from "@coachos/types/utils";
+import classNames from "@coachos/ui/classNames";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
 import {
   Dropdown,
   DropdownItem,
@@ -32,11 +32,11 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
   DropdownMenuPortal,
-} from "@calcom/ui/components/dropdown";
-import { Icon } from "@calcom/ui/components/icon";
-import { MeetingTimeInTimezones } from "@calcom/ui/components/popover";
-import { showToast } from "@calcom/ui/components/toast";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/dropdown";
+import { Icon } from "@coachos/ui/components/icon";
+import { MeetingTimeInTimezones } from "@coachos/ui/components/popover";
+import { showToast } from "@coachos/ui/components/toast";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 
 import assignmentReasonBadgeTitleMap from "@lib/booking/assignmentReasonBadgeTitleMap";
 

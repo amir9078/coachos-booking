@@ -1,10 +1,10 @@
-import type deTranslations from "@calcom/i18n/locales/de/common.json";
-import type enTranslations from "@calcom/i18n/locales/en/common.json";
-import type esTranslations from "@calcom/i18n/locales/es/common.json";
-import type frTranslations from "@calcom/i18n/locales/fr/common.json";
-import type itTranslations from "@calcom/i18n/locales/it/common.json";
-import type nlTranslations from "@calcom/i18n/locales/nl/common.json";
-import type ptBrTranslations from "@calcom/i18n/locales/pt-BR/common.json";
+import type deTranslations from "@coachos/i18n/locales/de/common.json";
+import type enTranslations from "@coachos/i18n/locales/en/common.json";
+import type esTranslations from "@coachos/i18n/locales/es/common.json";
+import type frTranslations from "@coachos/i18n/locales/fr/common.json";
+import type itTranslations from "@coachos/i18n/locales/it/common.json";
+import type nlTranslations from "@coachos/i18n/locales/nl/common.json";
+import type ptBrTranslations from "@coachos/i18n/locales/pt-BR/common.json";
 
 export type enTranslationKeys = keyof typeof enTranslations;
 export type frTranslationKeys = keyof typeof frTranslations;
@@ -30,8 +30,8 @@ export const ES = "es";
 export const IT = "it";
 export const NL = "nl";
 
-const CAL_PROVIDER_LANGUAGES = [FR, EN, PT_BR, DE, ES, IT, NL] as const;
-export type CalProviderLanguagesType = (typeof CAL_PROVIDER_LANGUAGES)[number];
+const coachos_PROVIDER_LANGUAGES = [FR, EN, PT_BR, DE, ES, IT, NL] as const;
+export type CalProviderLanguagesType = (typeof coachos_PROVIDER_LANGUAGES)[number];
 
 type i18nFrProps = {
   labels?: Partial<Record<frTranslationKeys, string>>;

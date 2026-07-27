@@ -1,12 +1,12 @@
 "use client";
 
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Checkbox } from "@calcom/ui/components/form";
-import { SkeletonText } from "@calcom/ui/components/skeleton";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Checkbox } from "@coachos/ui/components/form";
+import { SkeletonText } from "@coachos/ui/components/skeleton";
 import { keepPreviousData } from "@tanstack/react-query";
 import { type ColumnDef, getCoreRowModel, getSortedRowModel, useReactTable } from "@tanstack/react-table";
 import { useMemo, useReducer, useState } from "react";

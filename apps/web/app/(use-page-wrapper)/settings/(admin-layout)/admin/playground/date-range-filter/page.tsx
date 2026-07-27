@@ -1,7 +1,7 @@
 "use client";
 
-import type { DateRangeFilterOptions } from "@calcom/features/data-table/lib/types";
-import { ColumnFilterType } from "@calcom/features/data-table/lib/types";
+import type { DateRangeFilterOptions } from "@coachos/features/data-table/lib/types";
+import { ColumnFilterType } from "@coachos/features/data-table/lib/types";
 import { createColumnHelper, getCoreRowModel, useReactTable } from "@tanstack/react-table";
 import { useMemo } from "react";
 import { DateRangeFilter } from "~/data-table/components/filters/DateRangeFilter";

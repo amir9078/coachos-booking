@@ -1,6 +1,6 @@
 import { afterEach, describe, expect, it } from "vitest";
 
-import { prisma } from "@calcom/prisma";
+import { prisma } from "@coachos/prisma";
 
 import type { FeatureId } from "./config";
 import { FeaturesRepository } from "./features.repository";

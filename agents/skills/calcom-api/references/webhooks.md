@@ -110,7 +110,7 @@ POST /v2/webhooks
         "timeZone": "America/New_York"
       }
     ],
-    "location": "https://cal.com/video/abc123",
+    "location": "https://amir9078.github.io/video/abc123",
     "destinationCalendar": {
       "integration": "google_calendar",
       "externalId": "calendar-id"
@@ -167,7 +167,7 @@ POST /v2/webhooks
 Webhooks include a signature header for verification:
 
 ```
-X-Cal-Signature-256: sha256=<signature>
+x-coachos-Signature-256: sha256=<signature>
 ```
 
 ### Verification Example (Node.js)
@@ -186,7 +186,7 @@ function verifyWebhookSignature(payload, signature, secret) {
 
 // In your webhook handler
 app.post('/webhook', (req, res) => {
-  const signature = req.headers['x-cal-signature-256'];
+  const signature = req.headers['x-coachos-signature-256'];
   const payload = JSON.stringify(req.body);
   
   if (!verifyWebhookSignature(payload, signature, process.env.WEBHOOK_SECRET)) {

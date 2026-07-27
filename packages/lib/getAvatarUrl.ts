@@ -1,10 +1,10 @@
-import { AVATAR_FALLBACK, CAL_URL } from "@calcom/lib/constants";
-import type { User } from "@calcom/prisma/client";
+import { AVATAR_FALLBACK, coachos_URL } from "@coachos/lib/constants";
+import type { User } from "@coachos/prisma/client";
 import { z } from "zod";
 
 export const getAbsoluteAvatarUrl = (url: string): string => {
   const isAbsolute = z.string().url().safeParse(url).success;
-  return isAbsolute ? url : CAL_URL + url;
+  return isAbsolute ? url : coachos_URL + url;
 };
 
 /**
@@ -16,5 +16,5 @@ export const getUserAvatarUrl = (user: Pick<User, "avatarUrl"> | undefined): str
   if (user?.avatarUrl) {
     return getAbsoluteAvatarUrl(user.avatarUrl);
   }
-  return CAL_URL + AVATAR_FALLBACK;
+  return coachos_URL + AVATAR_FALLBACK;
 };

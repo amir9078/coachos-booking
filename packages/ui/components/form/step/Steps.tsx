@@ -1,4 +1,4 @@
-import classNames from "@calcom/ui/classNames";
+import classNames from "@coachos/ui/classNames";
 
 type StepWithNav = {
   maxSteps: number;

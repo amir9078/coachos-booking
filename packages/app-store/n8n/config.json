@@ -4,13 +4,13 @@
   "slug": "n8n",
   "type": "n8n_automation",
   "logo": "icon.svg",
-  "url": "https://cal.com/",
+  "url": "https://amir9078.github.io/",
   "variant": "automation",
   "categories": [
     "automation"
   ],
-  "publisher": "Cal.com, Inc.",
-  "email": "help@cal.com",
+  "publisher": "amir9078.github.io, Inc.",
+  "email": "shaikhamirhussain2000@gmail.com",
   "description": "Automate without limits. The workflow automation platform that doesn't box you in, that you never outgrow",
   "__createdUsingCli": true,
   "isOAuth": false,

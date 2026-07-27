@@ -1,5 +1,5 @@
-import handleDeleteCredential from "@calcom/features/credentials/handleDeleteCredential";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import handleDeleteCredential from "@coachos/features/credentials/handleDeleteCredential";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 
 import type { TDeleteCredentialInputSchema } from "./deleteCredential.schema";
 

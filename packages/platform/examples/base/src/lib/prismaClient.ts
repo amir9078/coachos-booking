@@ -1,5 +1,5 @@
 // prisma client of example app
-//  using local prisma db, not related to the cal.com monorepo prisma client
+//  using local prisma db, not related to the amir9078.github.io monorepo prisma client
 // eslint-disable-next-line
 import { PrismaClient } from "@prisma/client";
 

@@ -1,19 +1,19 @@
-import "@calcom/testing/lib/__mocks__/prisma";
+import "@coachos/testing/lib/__mocks__/prisma";
 
 import { describe, expect, it, vi, beforeEach, afterEach } from "vitest";
 
-import { symmetricDecrypt } from "@calcom/lib/crypto";
-import logger from "@calcom/lib/logger";
-import type { SelectedCalendar } from "@calcom/prisma/client";
-import type { EventBusyDate } from "@calcom/types/Calendar";
-import type { CredentialForCalendarService, CredentialPayload } from "@calcom/types/Credential";
+import { symmetricDecrypt } from "@coachos/lib/crypto";
+import logger from "@coachos/lib/logger";
+import type { SelectedCalendar } from "@coachos/prisma/client";
+import type { EventBusyDate } from "@coachos/types/Calendar";
+import type { CredentialForCalendarService, CredentialPayload } from "@coachos/types/Credential";
 
 import getCalendarsEvents, {
   getCalendarsEventsWithTimezones,
   filterSelectedCalendarsForCredential,
 } from "./getCalendarsEvents";
 
-vi.mock("@calcom/lib/crypto", () => ({
+vi.mock("@coachos/lib/crypto", () => ({
   symmetricDecrypt: vi.fn(),
 }));
 
@@ -24,7 +24,7 @@ const mockGoogleGetAvailabilityWithTimeZones = vi.fn().mockResolvedValue([]);
 const mockOfficeGetAvailability = vi.fn().mockResolvedValue([]);
 const mockOfficeGetAvailabilityWithTimeZones = vi.fn().mockResolvedValue([]);
 
-vi.mock("@calcom/app-store/calendar.services.generated", () => {
+vi.mock("@coachos/app-store/calendar.services.generated", () => {
   return {
     CalendarServiceMap: {
       googlecalendar: Promise.resolve({
@@ -785,12 +785,12 @@ describe("CalDAV credential leak prevention", () => {
       // Selected calendars from both servers
       const selectedCalendars = [
         buildCalDAVSelectedCalendar({
-          id: "cal_1",
+          id: "coachos_1",
           externalId: "https://server-a.example.com/dav/calendars/user/calendar1/",
           credentialId: 1,
         }),
         buildCalDAVSelectedCalendar({
-          id: "cal_2",
+          id: "coachos_2",
           externalId: "https://server-b.example.com/dav/calendars/user/calendar2/",
           credentialId: 2,
         }),
@@ -820,12 +820,12 @@ describe("CalDAV credential leak prevention", () => {
 
       const selectedCalendars = [
         buildCalDAVSelectedCalendar({
-          id: "cal_1",
+          id: "coachos_1",
           externalId: "https://server-a.example.com/dav/calendars/user/calendar1/",
           credentialId: 1,
         }),
         buildCalDAVSelectedCalendar({
-          id: "cal_2",
+          id: "coachos_2",
           externalId: "https://server-b.example.com/dav/calendars/user/calendar2/",
           credentialId: 2,
         }),
@@ -865,12 +865,12 @@ describe("CalDAV credential leak prevention", () => {
 
       const selectedCalendars = [
         buildCalDAVSelectedCalendar({
-          id: "cal_1",
+          id: "coachos_1",
           externalId: "https://server-a.example.com/dav/calendars/user/calendar1/",
         }),
         {
           ...buildCalDAVSelectedCalendar({
-            id: "cal_2",
+            id: "coachos_2",
             externalId: "primary",
           }),
           integration: "google_calendar",
@@ -898,7 +898,7 @@ describe("CalDAV credential leak prevention", () => {
 
       const selectedCalendars = [
         buildCalDAVSelectedCalendar({
-          id: "cal_1",
+          id: "coachos_1",
           externalId: "https://server-a.example.com/dav/calendars/user/calendar1/",
         }),
       ];

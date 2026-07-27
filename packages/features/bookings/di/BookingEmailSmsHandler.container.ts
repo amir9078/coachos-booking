@@ -1,5 +1,5 @@
-import type { BookingEmailSmsHandler } from "@calcom/features/bookings/lib/BookingEmailSmsHandler";
-import { createContainer } from "@calcom/features/di/di";
+import type { BookingEmailSmsHandler } from "@coachos/features/bookings/lib/BookingEmailSmsHandler";
+import { createContainer } from "@coachos/features/di/di";
 import { moduleLoader as BookingEmailSmsHandlerModule } from "./BookingEmailSmsHandler.module";
 
 const container = createContainer();

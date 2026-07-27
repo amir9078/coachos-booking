@@ -1,7 +1,7 @@
-import { sendEmailVerification } from "@calcom/features/auth/lib/verifyEmail";
-import { checkRateLimitAndThrowError } from "@calcom/lib/checkRateLimitAndThrowError";
-import { prisma } from "@calcom/prisma";
-import type { TrpcSessionUser } from "@calcom/trpc/server/types";
+import { sendEmailVerification } from "@coachos/features/auth/lib/verifyEmail";
+import { checkRateLimitAndThrowError } from "@coachos/lib/checkRateLimitAndThrowError";
+import { prisma } from "@coachos/prisma";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
 import { TRPCError } from "@trpc/server";
 import type { GetServerSidePropsContext, NextApiResponse } from "next";
 import type { TAddSecondaryEmailInputSchema } from "./addSecondaryEmail.schema";

@@ -1,16 +1,16 @@
-import dayjs from "@calcom/dayjs";
-import type { BookingForCalEventBuilder } from "@calcom/features/CalendarEventBuilder";
-import { CalendarEventBuilder } from "@calcom/features/CalendarEventBuilder";
-import { TimeFormat } from "@calcom/lib/timeFormat";
-import type { CalendarEvent, Person } from "@calcom/types/Calendar";
+import dayjs from "@coachos/dayjs";
+import type { BookingForCalEventBuilder } from "@coachos/features/CalendarEventBuilder";
+import { CalendarEventBuilder } from "@coachos/features/CalendarEventBuilder";
+import { TimeFormat } from "@coachos/lib/timeFormat";
+import type { CalendarEvent, Person } from "@coachos/types/Calendar";
 import type { TFunction } from "i18next";
 import { describe, expect, it, vi } from "vitest";
 
-vi.mock("@calcom/i18n/server", () => ({
+vi.mock("@coachos/i18n/server", () => ({
   getTranslation: vi.fn(async () => vi.fn(() => "translated")),
 }));
 
-vi.mock("@calcom/features/bookings/lib/getCalEventResponses", () => ({
+vi.mock("@coachos/features/bookings/lib/getCalEventResponses", () => ({
   getCalEventResponses: vi.fn(() => ({
     responses: {
       name: { label: "your_name", value: "Test User", isHidden: false },
@@ -20,7 +20,7 @@ vi.mock("@calcom/features/bookings/lib/getCalEventResponses", () => ({
   })),
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {},
   prisma: {},
 }));
@@ -52,7 +52,7 @@ describe("CalendarEventBuilder", () => {
   ];
   const createBuilder = (overrides: Partial<CalendarEvent> = {}) =>
     new CalendarEventBuilder({
-      bookerUrl: "https://cal.com/user/test-slug",
+      bookerUrl: "https://amir9078.github.io/user/test-slug",
       title: "Test Event",
       startTime: mockStartTime,
       endTime: mockEndTime,
@@ -72,7 +72,7 @@ describe("CalendarEventBuilder", () => {
 
     expect(event).not.toBeNull();
     if (event) {
-      expect(event.bookerUrl).toBe("https://cal.com/user/test-slug");
+      expect(event.bookerUrl).toBe("https://amir9078.github.io/user/test-slug");
       expect(event.title).toBe("Test Event");
       expect(event.startTime).toBe(mockStartTime);
       expect(event.endTime).toBe(mockEndTime);
@@ -147,7 +147,7 @@ describe("CalendarEventBuilder", () => {
       },
     ];
 
-    const event = createBuilder({ attendees, bookerUrl: "https://cal.com/user" })
+    const event = createBuilder({ attendees, bookerUrl: "https://amir9078.github.io/user" })
       .withEventType({
         id: 123,
       })
@@ -664,7 +664,7 @@ describe("CalendarEventBuilder", () => {
       startTime: mockStartTime,
       endTime: mockEndTime,
       type: "existing-type",
-      bookerUrl: "https://cal.com/user/test-slug",
+      bookerUrl: "https://amir9078.github.io/user/test-slug",
       organizer: defaultOrganizer,
       attendees: defaultAttendees,
     };
@@ -1370,7 +1370,7 @@ describe("CalendarEventBuilder", () => {
         type: "match-event",
         organizer: organizerPerson,
         attendees: [attendeePerson],
-        bookerUrl: "https://cal.com",
+        bookerUrl: "https://amir9078.github.io",
         title: "Match Test",
         startTime: new Date(mockStartTime).toISOString(),
         endTime: new Date(mockEndTime).toISOString(),

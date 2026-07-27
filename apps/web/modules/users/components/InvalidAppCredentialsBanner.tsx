@@ -1,7 +1,7 @@
-import type { InvalidAppCredentialBannerProps } from "@calcom/features/users/types/invalidAppCredentials";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { TopBanner } from "@calcom/ui/components/top-banner";
+import type { InvalidAppCredentialBannerProps } from "@coachos/features/users/types/invalidAppCredentials";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { TopBanner } from "@coachos/ui/components/top-banner";
 import { useRouter } from "next/navigation";
 
 export type InvalidAppCredentialBannersProps = {

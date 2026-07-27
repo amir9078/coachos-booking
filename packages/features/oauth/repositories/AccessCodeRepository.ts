@@ -1,6 +1,6 @@
-import dayjs from "@calcom/dayjs";
-import type { PrismaClient } from "@calcom/prisma";
-import type { AccessScope } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import type { PrismaClient } from "@coachos/prisma";
+import type { AccessScope } from "@coachos/prisma/enums";
 
 interface CreateAccessCodeInput {
   code: string;

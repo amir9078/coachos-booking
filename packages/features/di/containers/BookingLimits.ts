@@ -1,6 +1,6 @@
-import type { CheckBookingLimitsService } from "@calcom/features/bookings/lib/checkBookingLimits";
-import { DI_TOKENS } from "@calcom/features/di/tokens";
-import { prismaModule } from "@calcom/features/di/modules/Prisma";
+import type { CheckBookingLimitsService } from "@coachos/features/bookings/lib/checkBookingLimits";
+import { DI_TOKENS } from "@coachos/features/di/tokens";
+import { prismaModule } from "@coachos/features/di/modules/Prisma";
 
 import type { CheckBookingAndDurationLimitsService } from "../../bookings/lib/handleNewBooking/checkBookingAndDurationLimits";
 import { createContainer } from "../di";

@@ -5,8 +5,8 @@ import { SessionProvider } from "next-auth/react";
 import CacheProvider from "react-inlinesvg/provider";
 import { ToastProvider } from "@coss/ui/components/toast";
 
-import { WebPushProvider } from "@calcom/web/modules/notifications/components/WebPushContext";
-import { NotificationSoundHandler } from "@calcom/web/components/notification-sound-handler";
+import { WebPushProvider } from "@coachos/web/modules/notifications/components/WebPushContext";
+import { NotificationSoundHandler } from "@coachos/web/components/notification-sound-handler";
 
 import useIsBookingPage from "@lib/hooks/useIsBookingPage";
 

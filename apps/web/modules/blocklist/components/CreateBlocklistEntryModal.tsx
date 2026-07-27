@@ -3,16 +3,16 @@
 import { useEffect } from "react";
 import { Controller, useForm } from "react-hook-form";
 
-import { domainRegex, emailRegex } from "@calcom/lib/emailSchema";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { WatchlistType } from "@calcom/prisma/enums";
-import { Alert } from "@calcom/ui/components/alert";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@calcom/ui/components/dialog";
-import { Input, Label, TextArea, ToggleGroup } from "@calcom/ui/components/form";
+import { domainRegex, emailRegex } from "@coachos/lib/emailSchema";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { WatchlistType } from "@coachos/prisma/enums";
+import { Alert } from "@coachos/ui/components/alert";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@coachos/ui/components/dialog";
+import { Input, Label, TextArea, ToggleGroup } from "@coachos/ui/components/form";
 import { GlobeIcon, MailIcon } from "@coss/ui/icons";
 
-import type { BlocklistScope, CreateBlocklistEntryFormData } from "@calcom/features/blocklist/types";
+import type { BlocklistScope, CreateBlocklistEntryFormData } from "@coachos/features/blocklist/types";
 
 export interface CreateBlocklistEntryModalProps {
   isOpen: boolean;

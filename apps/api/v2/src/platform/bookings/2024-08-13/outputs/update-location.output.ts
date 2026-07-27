@@ -1,3 +1,3 @@
-import { GetBookingOutput_2024_08_13 } from "@calcom/platform-types";
+import { GetBookingOutput_2024_08_13 } from "@coachos/platform-types";
 
 export class UpdateBookingLocationOutput_2024_08_13 extends GetBookingOutput_2024_08_13 {}

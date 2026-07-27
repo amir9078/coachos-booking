@@ -1,5 +1,5 @@
-import { bookingWithUserAndEventDetailsSelect } from "@calcom/platform-libraries/bookings";
-import type { Prisma } from "@calcom/prisma/client";
+import { bookingWithUserAndEventDetailsSelect } from "@coachos/platform-libraries/bookings";
+import type { Prisma } from "@coachos/prisma/client";
 import { Injectable } from "@nestjs/common";
 import { PrismaReadService } from "@/modules/prisma/prisma-read.service";
 import { PrismaWriteService } from "@/modules/prisma/prisma-write.service";

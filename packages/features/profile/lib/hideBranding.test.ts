@@ -6,7 +6,7 @@ import {
 } from "./hideBranding";
 
 // Mock the dependencies
-vi.mock("@calcom/features/users/repositories/UserRepository", () => {
+vi.mock("@coachos/features/users/repositories/UserRepository", () => {
   return {
     UserRepository: class MockUserRepository {
       findUserWithHideBranding = vi.fn();
@@ -14,13 +14,13 @@ vi.mock("@calcom/features/users/repositories/UserRepository", () => {
   };
 });
 
-vi.mock("@calcom/features/profile/repositories/ProfileRepository", () => ({
+vi.mock("@coachos/features/profile/repositories/ProfileRepository", () => ({
   ProfileRepository: {
     findByUserIdAndOrgSlug: vi.fn(),
   },
 }));
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: () => ({
       error: vi.fn(),
@@ -28,7 +28,7 @@ vi.mock("@calcom/lib/logger", () => ({
   },
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   prisma: {},
 }));
 

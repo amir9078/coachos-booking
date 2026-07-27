@@ -17,10 +17,10 @@ ENV USE_POOL="true"
 COPY . .
 
 RUN yarn install
-RUN yarn workspace @calcom/api-v2 run generate-schemas
-RUN yarn workspace @calcom/api-v2 run build:docker
-RUN yarn workspace @calcom/api-v2 run build
+RUN yarn workspace @coachos/api-v2 run generate-schemas
+RUN yarn workspace @coachos/api-v2 run build:docker
+RUN yarn workspace @coachos/api-v2 run build
 
 EXPOSE 80
 
-CMD [ "yarn", "workspace", "@calcom/api-v2", "start:prod"]
+CMD [ "yarn", "workspace", "@coachos/api-v2", "start:prod"]

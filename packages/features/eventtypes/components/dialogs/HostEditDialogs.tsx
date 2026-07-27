@@ -3,24 +3,24 @@ import { useState } from "react";
 import { useFormContext } from "react-hook-form";
 import type { Options } from "react-select";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
 import type {
   FormValues,
   Host,
   InputClassNames,
   SelectClassNames,
-} from "@calcom/features/eventtypes/lib/types";
-import { groupHostsByGroupId, getHostsFromOtherGroups, sortHosts } from "@calcom/lib/bookings/hostGroupUtils";
-import { DEFAULT_GROUP_ID } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogFooter, DialogClose } from "@calcom/ui/components/dialog";
-import { Label } from "@calcom/ui/components/form";
-import { Select } from "@calcom/ui/components/form";
-import { TextField } from "@calcom/ui/components/form";
+} from "@coachos/features/eventtypes/lib/types";
+import { groupHostsByGroupId, getHostsFromOtherGroups, sortHosts } from "@coachos/lib/bookings/hostGroupUtils";
+import { DEFAULT_GROUP_ID } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogFooter, DialogClose } from "@coachos/ui/components/dialog";
+import { Label } from "@coachos/ui/components/form";
+import { Select } from "@coachos/ui/components/form";
+import { TextField } from "@coachos/ui/components/form";
 
-import type { CheckedSelectOption } from "@calcom/features/eventtypes/components/CheckedTeamSelect";
+import type { CheckedSelectOption } from "@coachos/features/eventtypes/components/CheckedTeamSelect";
 
 interface IDialog {
   isOpenDialog: boolean;

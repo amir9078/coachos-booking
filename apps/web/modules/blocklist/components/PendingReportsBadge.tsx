@@ -1,6 +1,6 @@
 "use client";
 
-import { Badge } from "@calcom/ui/components/badge";
+import { Badge } from "@coachos/ui/components/badge";
 
 export interface PendingReportsBadgeProps {
   count: number | undefined;

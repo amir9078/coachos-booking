@@ -1,6 +1,6 @@
-import { BookingEmailSmsHandler } from "@calcom/features/bookings/lib/BookingEmailSmsHandler";
-import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@calcom/features/di/di";
-import { moduleLoader as loggerServiceModule } from "@calcom/features/di/shared/services/logger.service";
+import { BookingEmailSmsHandler } from "@coachos/features/bookings/lib/BookingEmailSmsHandler";
+import { bindModuleToClassOnToken, createModule, type ModuleLoader } from "@coachos/features/di/di";
+import { moduleLoader as loggerServiceModule } from "@coachos/features/di/shared/services/logger.service";
 
 import { BOOKING_DI_TOKENS } from "./tokens";
 

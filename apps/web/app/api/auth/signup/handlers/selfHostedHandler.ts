@@ -1,27 +1,27 @@
 import process from "node:process";
-import { sendEmailVerification } from "@calcom/features/auth/lib/verifyEmail";
-import { SIGNUP_ERROR_CODES } from "@calcom/features/auth/signup/constants";
-import { createOrUpdateMemberships } from "@calcom/features/auth/signup/utils/createOrUpdateMemberships";
-import { joinAnyChildTeamOnOrgInvite } from "@calcom/features/auth/signup/utils/organization";
-import { prefillAvatar } from "@calcom/features/auth/signup/utils/prefillAvatar";
+import { sendEmailVerification } from "@coachos/features/auth/lib/verifyEmail";
+import { SIGNUP_ERROR_CODES } from "@coachos/features/auth/signup/constants";
+import { createOrUpdateMemberships } from "@coachos/features/auth/signup/utils/createOrUpdateMemberships";
+import { joinAnyChildTeamOnOrgInvite } from "@coachos/features/auth/signup/utils/organization";
+import { prefillAvatar } from "@coachos/features/auth/signup/utils/prefillAvatar";
 import {
   findTokenByToken,
   throwIfTokenExpired,
   validateAndGetCorrectedUsernameForTeam,
-} from "@calcom/features/auth/signup/utils/token";
-import { validateAndGetCorrectedUsernameAndEmail } from "@calcom/features/auth/signup/utils/validateUsername";
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
+} from "@coachos/features/auth/signup/utils/token";
+import { validateAndGetCorrectedUsernameAndEmail } from "@coachos/features/auth/signup/utils/validateUsername";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
 
-import logger from "@calcom/lib/logger";
-import { isPrismaError } from "@calcom/lib/server/getServerErrorFromUnknown";
-import { isUsernameReservedDueToMigration } from "@calcom/lib/server/username";
-import slugify from "@calcom/lib/slugify";
-import { prisma } from "@calcom/prisma";
-import { IdentityProvider } from "@calcom/prisma/enums";
-import { signupSchema } from "@calcom/prisma/zod-utils";
+import logger from "@coachos/lib/logger";
+import { isPrismaError } from "@coachos/lib/server/getServerErrorFromUnknown";
+import { isUsernameReservedDueToMigration } from "@coachos/lib/server/username";
+import slugify from "@coachos/lib/slugify";
+import { prisma } from "@coachos/prisma";
+import { IdentityProvider } from "@coachos/prisma/enums";
+import { signupSchema } from "@coachos/prisma/zod-utils";
 import { NextResponse } from "next/server";
-import { getUserRepository } from "@calcom/features/di/containers/UserRepository";
-import { CreationSource } from "@calcom/prisma/enums";
+import { getUserRepository } from "@coachos/features/di/containers/UserRepository";
+import { CreationSource } from "@coachos/prisma/enums";
 
 export default async function handler(body: Record<string, string>) {
   const { email, password, language, token } = signupSchema.parse(body);

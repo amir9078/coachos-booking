@@ -1,7 +1,7 @@
 import process from "node:process";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import type { Contact } from "@calcom/types/CrmService";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import type { Contact } from "@coachos/types/CrmService";
 import { Client, cacheExchange, fetchExchange } from "@urql/core";
 import { retryExchange } from "@urql/exchange-retry";
 import type { RRSkipFieldRule } from "../../zod";

@@ -1,4 +1,4 @@
 export {
   type TUpdateInputSchema,
   ZUpdateInputSchema,
-} from "@calcom/features/schedules/services/ScheduleService";
+} from "@coachos/features/schedules/services/ScheduleService";

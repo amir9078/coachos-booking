@@ -1,9 +1,9 @@
 import { createModule } from "@evyweb/ioctopus";
 
-import { BookingWebhookService } from "@calcom/features/webhooks/lib/service/BookingWebhookService";
-import { OOOWebhookService } from "@calcom/features/webhooks/lib/service/OOOWebhookService";
-import { RecordingWebhookService } from "@calcom/features/webhooks/lib/service/RecordingWebhookService";
-import { WebhookService } from "@calcom/features/webhooks/lib/service/WebhookService";
+import { BookingWebhookService } from "@coachos/features/webhooks/lib/service/BookingWebhookService";
+import { OOOWebhookService } from "@coachos/features/webhooks/lib/service/OOOWebhookService";
+import { RecordingWebhookService } from "@coachos/features/webhooks/lib/service/RecordingWebhookService";
+import { WebhookService } from "@coachos/features/webhooks/lib/service/WebhookService";
 
 import { SHARED_TOKENS } from "../../shared/shared.tokens";
 import { WEBHOOK_TOKENS } from "../webhooks.tokens";

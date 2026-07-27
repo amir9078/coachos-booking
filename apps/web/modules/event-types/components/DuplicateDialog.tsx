@@ -4,24 +4,24 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { EventTypeDuplicateInput } from "@calcom/features/eventtypes/lib/types";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { useDebounce } from "@calcom/lib/hooks/useDebounce";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { useTypedQuery } from "@calcom/lib/hooks/useTypedQuery";
-import { HttpError } from "@calcom/lib/http-error";
-import { md } from "@calcom/lib/markdownIt";
-import slugify from "@calcom/lib/slugify";
-import turndown from "@calcom/lib/turndownService";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { DialogContent, DialogFooter, DialogClose } from "@calcom/ui/components/dialog";
-import { Editor } from "@calcom/ui/components/editor";
-import { Form } from "@calcom/ui/components/form";
-import { TextField } from "@calcom/ui/components/form";
-import { showToast } from "@calcom/ui/components/toast";
-import { revalidateEventTypesList } from "@calcom/web/app/(use-page-wrapper)/(main-nav)/event-types/actions";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { EventTypeDuplicateInput } from "@coachos/features/eventtypes/lib/types";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { useDebounce } from "@coachos/lib/hooks/useDebounce";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { useTypedQuery } from "@coachos/lib/hooks/useTypedQuery";
+import { HttpError } from "@coachos/lib/http-error";
+import { md } from "@coachos/lib/markdownIt";
+import slugify from "@coachos/lib/slugify";
+import turndown from "@coachos/lib/turndownService";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { DialogContent, DialogFooter, DialogClose } from "@coachos/ui/components/dialog";
+import { Editor } from "@coachos/ui/components/editor";
+import { Form } from "@coachos/ui/components/form";
+import { TextField } from "@coachos/ui/components/form";
+import { showToast } from "@coachos/ui/components/toast";
+import { revalidateEventTypesList } from "@coachos/web/app/(use-page-wrapper)/(main-nav)/event-types/actions";
 
 const querySchema = z.object({
   title: z.string().min(1),

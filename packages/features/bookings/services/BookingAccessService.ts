@@ -1,6 +1,6 @@
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import type { PrismaClient } from "@calcom/prisma";
-import { MembershipRole } from "@calcom/prisma/enums";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import type { PrismaClient } from "@coachos/prisma";
+import { MembershipRole } from "@coachos/prisma/enums";
 import { BookingRepository } from "../repositories/BookingRepository";
 
 class PermissionCheckService {

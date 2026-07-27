@@ -2,13 +2,13 @@ import { BookingsRepository_2024_08_13 } from "@/platform/bookings/2024-08-13/re
 import { CalVideoOutputService } from "@/platform/bookings/2024-08-13/services/cal-video.output.service";
 import { Injectable, Logger, NotFoundException } from "@nestjs/common";
 
-import { CAL_VIDEO_TYPE } from "@calcom/platform-constants";
+import { coachos_VIDEO_TYPE } from "@coachos/platform-constants";
 import {
   getRecordingsOfCalVideoByRoomName,
   getAllTranscriptsAccessLinkFromRoomName,
   getDownloadLinkOfCalVideoByRecordingId,
   getCalVideoMeetingSessionsByRoomName,
-} from "@calcom/platform-libraries/conferencing";
+} from "@coachos/platform-libraries/conferencing";
 
 @Injectable()
 export class CalVideoService {
@@ -20,7 +20,7 @@ export class CalVideoService {
 
   private getVideoSessionsRoomName(references?: Array<{ type: string; meetingId?: string | null }>) {
     return (
-      references?.filter((reference) => reference.type === CAL_VIDEO_TYPE)?.pop()?.meetingId ??
+      references?.filter((reference) => reference.type === coachos_VIDEO_TYPE)?.pop()?.meetingId ??
       undefined
     );
   }

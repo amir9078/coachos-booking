@@ -1,7 +1,7 @@
 "use client";
 
-import SkeletonLoader from "@calcom/features/availability/components/SkeletonLoader";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
+import SkeletonLoader from "@coachos/features/availability/components/SkeletonLoader";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
 import { ShellMainAppDir } from "app/(use-page-wrapper)/(main-nav)/ShellMainAppDir";
 import { AvailabilityCTA } from "~/availability/availability-view";
 

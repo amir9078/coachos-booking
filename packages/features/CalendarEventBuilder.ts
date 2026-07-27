@@ -1,15 +1,15 @@
 import process from "node:process";
-import { ALL_APPS } from "@calcom/app-store/utils";
-import { getAssignmentReasonCategory } from "@calcom/features/bookings/lib/getAssignmentReasonCategory";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
-import type { BookingRepository } from "@calcom/features/bookings/repositories/BookingRepository";
+import { ALL_APPS } from "@coachos/app-store/utils";
+import { getAssignmentReasonCategory } from "@coachos/features/bookings/lib/getAssignmentReasonCategory";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
+import type { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { getTranslation } from "@calcom/i18n/server";
-import { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { getTranslation } from "@coachos/i18n/server";
+import { parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
 import type {
   Attendee,
   BookingReference,
@@ -17,15 +17,15 @@ import type {
   DestinationCalendar,
   Prisma,
   User,
-} from "@calcom/prisma/client";
-import type { SchedulingType } from "@calcom/prisma/enums";
-import { bookingResponses as bookingResponsesSchema } from "@calcom/prisma/zod-utils";
-import type { AppsStatus, CalEventResponses, CalendarEvent, Person } from "@calcom/types/Calendar";
-import type { VideoCallData } from "@calcom/types/VideoApiAdapter";
+} from "@coachos/prisma/client";
+import type { SchedulingType } from "@coachos/prisma/enums";
+import { bookingResponses as bookingResponsesSchema } from "@coachos/prisma/zod-utils";
+import type { AppsStatus, CalEventResponses, CalendarEvent, Person } from "@coachos/types/Calendar";
+import type { VideoCallData } from "@coachos/types/VideoApiAdapter";
 import type { TFunction } from "i18next";
 
 const getBookerBaseUrl = async (_orgSlug?: string | number | null): Promise<string> =>
-  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
 type CalendarEventRequiredFields = Required<
   Pick<CalendarEvent, "startTime" | "endTime" | "type" | "bookerUrl" | "title" | "organizer" | "attendees">

@@ -1,5 +1,5 @@
-import { CAL_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@calcom/platform-constants";
-import type { Booking, PlatformOAuthClient, Team, User } from "@calcom/prisma/client";
+import { coachos_API_VERSION_HEADER, SUCCESS_STATUS, VERSION_2024_08_13 } from "@coachos/platform-constants";
+import type { Booking, PlatformOAuthClient, Team, User } from "@coachos/prisma/client";
 import { INestApplication } from "@nestjs/common";
 import { NestExpressApplication } from "@nestjs/platform-express";
 import { Test } from "@nestjs/testing";
@@ -142,7 +142,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should get calendar links for a booking", async () => {
       const response = await request(app.getHttpServer())
         .get(`/v2/bookings/${booking.uid}/calendar-links`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(200);
 
       expect(response.body.status).toEqual(SUCCESS_STATUS);
@@ -168,7 +168,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     it("should return 404 for non-existent booking", async () => {
       await request(app.getHttpServer())
         .get(`/v2/bookings/non-existent-uid/calendar-links`)
-        .set(CAL_API_VERSION_HEADER, VERSION_2024_08_13)
+        .set(coachos_API_VERSION_HEADER, VERSION_2024_08_13)
         .expect(404);
     });
 

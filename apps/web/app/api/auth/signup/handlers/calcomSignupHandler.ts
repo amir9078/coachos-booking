@@ -1,41 +1,41 @@
 import process from "node:process";
-import { getPremiumMonthlyPlanPriceId } from "@calcom/app-store/stripepayment/lib/utils";
-import { getLocaleFromRequest } from "@calcom/features/auth/lib/getLocaleFromRequest";
-import { sendEmailVerification } from "@calcom/features/auth/lib/verifyEmail";
-import { SIGNUP_ERROR_CODES } from "@calcom/features/auth/signup/constants";
-import { createOrUpdateMemberships } from "@calcom/features/auth/signup/utils/createOrUpdateMemberships";
-import { joinAnyChildTeamOnOrgInvite } from "@calcom/features/auth/signup/utils/organization";
-import { prefillAvatar } from "@calcom/features/auth/signup/utils/prefillAvatar";
+import { getPremiumMonthlyPlanPriceId } from "@coachos/app-store/stripepayment/lib/utils";
+import { getLocaleFromRequest } from "@coachos/features/auth/lib/getLocaleFromRequest";
+import { sendEmailVerification } from "@coachos/features/auth/lib/verifyEmail";
+import { SIGNUP_ERROR_CODES } from "@coachos/features/auth/signup/constants";
+import { createOrUpdateMemberships } from "@coachos/features/auth/signup/utils/createOrUpdateMemberships";
+import { joinAnyChildTeamOnOrgInvite } from "@coachos/features/auth/signup/utils/organization";
+import { prefillAvatar } from "@coachos/features/auth/signup/utils/prefillAvatar";
 import {
   findTokenByToken,
   throwIfTokenExpired,
   validateAndGetCorrectedUsernameForTeam,
-} from "@calcom/features/auth/signup/utils/token";
-import { validateAndGetCorrectedUsernameAndEmail } from "@calcom/features/auth/signup/utils/validateUsername";
-import { getFeatureRepository } from "@calcom/features/di/containers/FeatureRepository";
-import { getUserRepository } from "@calcom/features/di/containers/UserRepository";
-import { GlobalWatchlistRepository } from "@calcom/features/watchlist/lib/repository/GlobalWatchlistRepository";
-import { sentrySpan } from "@calcom/features/watchlist/lib/telemetry";
-import { normalizeEmail } from "@calcom/features/watchlist/lib/utils/normalization";
-import { checkIfEmailIsBlockedInWatchlistController } from "@calcom/features/watchlist/operations/check-if-email-in-watchlist.controller";
-import { hashPassword } from "@calcom/lib/auth/hashPassword";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { HttpError } from "@calcom/lib/http-error";
-import logger from "@calcom/lib/logger";
-import { isPrismaError } from "@calcom/lib/server/getServerErrorFromUnknown";
-import type { CustomNextApiHandler } from "@calcom/lib/server/username";
-import { usernameHandler } from "@calcom/lib/server/username";
-import { getTrackingFromCookies } from "@calcom/lib/tracking";
-import { prisma } from "@calcom/prisma";
+} from "@coachos/features/auth/signup/utils/token";
+import { validateAndGetCorrectedUsernameAndEmail } from "@coachos/features/auth/signup/utils/validateUsername";
+import { getFeatureRepository } from "@coachos/features/di/containers/FeatureRepository";
+import { getUserRepository } from "@coachos/features/di/containers/UserRepository";
+import { GlobalWatchlistRepository } from "@coachos/features/watchlist/lib/repository/GlobalWatchlistRepository";
+import { sentrySpan } from "@coachos/features/watchlist/lib/telemetry";
+import { normalizeEmail } from "@coachos/features/watchlist/lib/utils/normalization";
+import { checkIfEmailIsBlockedInWatchlistController } from "@coachos/features/watchlist/operations/check-if-email-in-watchlist.controller";
+import { hashPassword } from "@coachos/lib/auth/hashPassword";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { HttpError } from "@coachos/lib/http-error";
+import logger from "@coachos/lib/logger";
+import { isPrismaError } from "@coachos/lib/server/getServerErrorFromUnknown";
+import type { CustomNextApiHandler } from "@coachos/lib/server/username";
+import { usernameHandler } from "@coachos/lib/server/username";
+import { getTrackingFromCookies } from "@coachos/lib/tracking";
+import { prisma } from "@coachos/prisma";
 import {
   CreationSource,
   IdentityProvider,
   WatchlistAction,
   WatchlistSource,
   WatchlistType,
-} from "@calcom/prisma/enums";
-import { signupSchema } from "@calcom/prisma/zod-utils";
-import { buildLegacyRequest } from "@calcom/web/lib/buildLegacyCtx";
+} from "@coachos/prisma/enums";
+import { signupSchema } from "@coachos/prisma/zod-utils";
+import { buildLegacyRequest } from "@coachos/web/lib/buildLegacyCtx";
 import { cookies, headers } from "next/headers";
 import { NextResponse } from "next/server";
 

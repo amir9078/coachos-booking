@@ -1,15 +1,15 @@
-import type { CredentialForCalendarService } from "@calcom/types/Credential";
+import type { CredentialForCalendarService } from "@coachos/types/Credential";
 import { TRPCError } from "@trpc/server";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { appByIdHandler } from "./appById.handler";
 import type { TAppByIdInputSchema } from "./appById.schema";
 
 // Mock the dependencies
-vi.mock("@calcom/app-store/delegationCredential", () => ({
+vi.mock("@coachos/app-store/delegationCredential", () => ({
   getUsersCredentialsIncludeServiceAccountKey: vi.fn(),
 }));
 
-vi.mock("@calcom/app-store/utils", () => ({
+vi.mock("@coachos/app-store/utils", () => ({
   default: vi.fn(),
   sanitizeAppForViewer: vi.fn((app) => {
     const { key: _, credential: _1, credentials: _2, ...sanitized } = app;
@@ -17,19 +17,19 @@ vi.mock("@calcom/app-store/utils", () => ({
   }),
 }));
 
-vi.mock("@calcom/app-store/_utils/getCalendar", () => ({
+vi.mock("@coachos/app-store/_utils/getCalendar", () => ({
   getCalendar: vi.fn().mockReturnValue(null),
 }));
 
-vi.mock("@calcom/prisma", () => ({
+vi.mock("@coachos/prisma", () => ({
   default: {},
   prisma: {},
 }));
 
-import { getUsersCredentialsIncludeServiceAccountKey } from "@calcom/app-store/delegationCredential";
-import type { CredentialDataWithTeamName, LocationOption } from "@calcom/app-store/utils";
-import getApps, { sanitizeAppForViewer } from "@calcom/app-store/utils";
-import type { App } from "@calcom/types/App";
+import { getUsersCredentialsIncludeServiceAccountKey } from "@coachos/app-store/delegationCredential";
+import type { CredentialDataWithTeamName, LocationOption } from "@coachos/app-store/utils";
+import getApps, { sanitizeAppForViewer } from "@coachos/app-store/utils";
+import type { App } from "@coachos/types/App";
 
 describe("appByIdHandler", () => {
   const mockUser = {
@@ -76,7 +76,7 @@ describe("appByIdHandler", () => {
       logo: "icon.svg",
       publisher: "Cal.diy",
       url: "https://daily.co",
-      email: "help@cal.com",
+      email: "shaikhamirhussain2000@gmail.com",
       isGlobal: true,
       // This is the sensitive key that should NOT be exposed
       key: { apikey: secretApiKey },

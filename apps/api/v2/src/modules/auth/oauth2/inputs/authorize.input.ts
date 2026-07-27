@@ -1,4 +1,4 @@
-import { AccessScope } from "@calcom/prisma/enums";
+import { AccessScope } from "@coachos/prisma/enums";
 import { ApiHideProperty, ApiProperty } from "@nestjs/swagger";
 import { Equals, IsArray, IsEnum, IsOptional, IsString } from "class-validator";
 

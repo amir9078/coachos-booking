@@ -1,42 +1,42 @@
-import { DailyLocationType } from "@calcom/app-store/constants";
-import { FAKE_DAILY_CREDENTIAL } from "@calcom/app-store/dailyvideo/lib/VideoApiAdapter";
-import { eventTypeMetaDataSchemaWithTypedApps } from "@calcom/app-store/zod-utils";
-import dayjs from "@calcom/dayjs";
-import { sendCancelledEmailsAndSMS } from "@calcom/emails/email-manager";
-import { BookingReferenceRepository } from "@calcom/features/bookingReference/repositories/BookingReferenceRepository";
-import EventManager from "@calcom/features/bookings/lib/EventManager";
-import { getCalEventResponses } from "@calcom/features/bookings/lib/getCalEventResponses";
-import { processNoShowFeeOnCancellation } from "@calcom/features/bookings/lib/payment/processNoShowFeeOnCancellation";
-import { processPaymentRefund } from "@calcom/features/bookings/lib/payment/processPaymentRefund";
+import { DailyLocationType } from "@coachos/app-store/constants";
+import { FAKE_DAILY_CREDENTIAL } from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
+import dayjs from "@coachos/dayjs";
+import { sendCancelledEmailsAndSMS } from "@coachos/emails/email-manager";
+import { BookingReferenceRepository } from "@coachos/features/bookingReference/repositories/BookingReferenceRepository";
+import EventManager from "@coachos/features/bookings/lib/EventManager";
+import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
+import { processNoShowFeeOnCancellation } from "@coachos/features/bookings/lib/payment/processNoShowFeeOnCancellation";
+import { processPaymentRefund } from "@coachos/features/bookings/lib/payment/processPaymentRefund";
 import {
   type EventTypeBrandingData,
   getEventTypeService,
-} from "@calcom/features/eventtypes/di/EventTypeService.container";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import type { GetSubscriberOptions } from "@calcom/features/webhooks/lib/getWebhooks";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
+} from "@coachos/features/eventtypes/di/EventTypeService.container";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import type { GetSubscriberOptions } from "@coachos/features/webhooks/lib/getWebhooks";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
 import {
   cancelNoShowTasksForBooking,
   deleteWebhookScheduledTriggers,
-} from "@calcom/features/webhooks/lib/scheduleTrigger";
-import sendPayload from "@calcom/features/webhooks/lib/sendOrSchedulePayload";
-import type { EventTypeInfo } from "@calcom/features/webhooks/lib/sendPayload";
-import { HttpError } from "@calcom/lib/http-error";
-import { isPrismaObjOrUndefined } from "@calcom/lib/isPrismaObj";
-import { parseRecurringEvent } from "@calcom/lib/isRecurringEvent";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { getTranslation } from "@calcom/i18n/server";
-import { getTimeFormatStringFromUserTimeFormat } from "@calcom/lib/timeFormat";
+} from "@coachos/features/webhooks/lib/scheduleTrigger";
+import sendPayload from "@coachos/features/webhooks/lib/sendOrSchedulePayload";
+import type { EventTypeInfo } from "@coachos/features/webhooks/lib/sendPayload";
+import { HttpError } from "@coachos/lib/http-error";
+import { isPrismaObjOrUndefined } from "@coachos/lib/isPrismaObj";
+import { parseRecurringEvent } from "@coachos/lib/isRecurringEvent";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { getTranslation } from "@coachos/i18n/server";
+import { getTimeFormatStringFromUserTimeFormat } from "@coachos/lib/timeFormat";
 // TODO: Prisma import would be used from DI in a followup PR when we remove `handler` export
-import prisma from "@calcom/prisma";
-import type { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import { BookingStatus } from "@calcom/prisma/enums";
+import prisma from "@coachos/prisma";
+import type { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { isCancellationReasonRequired } from "./cancellationReason";
-import type { EventTypeMetadata } from "@calcom/prisma/zod-utils";
-import { bookingCancelInput } from "@calcom/prisma/zod-utils";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import type { EventTypeMetadata } from "@coachos/prisma/zod-utils";
+import { bookingCancelInput } from "@coachos/prisma/zod-utils";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 import type { z } from "zod";
 import { BookingRepository } from "../repositories/BookingRepository";
 import { PrismaBookingAttendeeRepository } from "../repositories/PrismaBookingAttendeeRepository";
@@ -49,7 +49,7 @@ import { getAllCredentialsIncludeServiceAccountKey } from "./getAllCredentialsFo
 import { getBookingToDelete } from "./getBookingToDelete";
 import cancelAttendeeSeat from "./handleSeats/cancel/cancelAttendeeSeat";
 import type { IBookingCancelService } from "./interfaces/IBookingCancelService";
-import { isPrismaError } from "@calcom/lib/server/getServerErrorFromUnknown";
+import { isPrismaError } from "@coachos/lib/server/getServerErrorFromUnknown";
 
 const log = logger.getSubLogger({ prefix: ["handleCancelBooking"] });
 
@@ -233,7 +233,7 @@ async function handler(input: CancelBookingInput, dependencies?: Dependencies) {
   const attendeesList = await Promise.all(attendeesListPromises);
   const tOrganizer = await getTranslation(organizer.locale ?? "en", "common");
 
-  const bookerUrl = process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.cal.com";
+  const bookerUrl = process.env.NEXT_PUBLIC_WEBAPP_URL || "https://app.amir9078.github.io";
 
   const evt: CalendarEvent = {
     bookerUrl,

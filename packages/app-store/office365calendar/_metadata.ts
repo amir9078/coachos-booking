@@ -1,4 +1,4 @@
-import type { AppMeta } from "@calcom/types/App";
+import type { AppMeta } from "@coachos/types/App";
 
 export const metadata = {
   name: "Outlook Calendar",
@@ -13,8 +13,8 @@ export const metadata = {
   publisher: "Cal.diy",
   slug: "office365-calendar",
   dirName: "office365calendar",
-  url: "https://cal.com/",
-  email: "help@cal.com",
+  url: "https://amir9078.github.io/",
+  email: "shaikhamirhussain2000@gmail.com",
   isOAuth: true,
 } as AppMeta;
 

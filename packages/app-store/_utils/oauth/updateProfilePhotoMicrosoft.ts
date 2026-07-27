@@ -1,7 +1,7 @@
-import logger from "@calcom/lib/logger";
-import { uploadAvatar } from "@calcom/lib/server/avatar";
-import { resizeBase64Image } from "@calcom/lib/server/resizeBase64Image";
-import { updateUserAvatarUrl } from "@calcom/lib/server/updateUserAvatarUrl";
+import logger from "@coachos/lib/logger";
+import { uploadAvatar } from "@coachos/lib/server/avatar";
+import { resizeBase64Image } from "@coachos/lib/server/resizeBase64Image";
+import { updateUserAvatarUrl } from "@coachos/lib/server/updateUserAvatarUrl";
 
 export async function updateProfilePhotoMicrosoft(accessToken: string, userId: number) {
   logger.info("updateProfilePhotoMicrosoft called", { hasToken: !!accessToken });

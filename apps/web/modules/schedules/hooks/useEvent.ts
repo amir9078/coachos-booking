@@ -1,11 +1,11 @@
 import { shallow } from "zustand/shallow";
 
-import { useBookerStoreContext } from "@calcom/features/bookings/Booker/BookerStoreProvider";
-import { useSchedule } from "@calcom/web/modules/schedules/hooks/useSchedule";
-import { useCompatSearchParams } from "@calcom/lib/hooks/useCompatSearchParams";
-import { trpc } from "@calcom/trpc/react";
+import { useBookerStoreContext } from "@coachos/features/bookings/Booker/BookerStoreProvider";
+import { useSchedule } from "@coachos/web/modules/schedules/hooks/useSchedule";
+import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";
+import { trpc } from "@coachos/trpc/react";
 
-import { useBookerTime } from "@calcom/features/bookings/Booker/hooks/useBookerTime";
+import { useBookerTime } from "@coachos/features/bookings/Booker/hooks/useBookerTime";
 
 export type useEventReturnType = ReturnType<typeof useEvent>;
 export type useScheduleForEventReturnType = ReturnType<typeof useScheduleForEvent>;

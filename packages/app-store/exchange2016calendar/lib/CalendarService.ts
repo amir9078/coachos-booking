@@ -20,10 +20,10 @@ import {
   WellKnownFolderName,
 } from "ews-javascript-api";
 
-import { symmetricDecrypt } from "@calcom/lib/crypto";
+import { symmetricDecrypt } from "@coachos/lib/crypto";
 // Probably don't need
-// import { CALENDAR_INTEGRATIONS_TYPES } from "@calcom/lib/integrations/calendar/constants/generals";
-import logger from "@calcom/lib/logger";
+// import { CALENDAR_INTEGRATIONS_TYPES } from "@coachos/lib/integrations/calendar/constants/generals";
+import logger from "@coachos/lib/logger";
 import type {
   Calendar,
   CalendarEvent,
@@ -31,8 +31,8 @@ import type {
   GetAvailabilityParams,
   IntegrationCalendar,
   NewCalendarEventType,
-} from "@calcom/types/Calendar";
-import type { CredentialPayload } from "@calcom/types/Credential";
+} from "@coachos/types/Calendar";
+import type { CredentialPayload } from "@coachos/types/Credential";
 
 class ExchangeCalendarService implements Calendar {
   private url = "";

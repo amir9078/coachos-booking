@@ -1,5 +1,5 @@
-import type { PrismaClient } from "@calcom/prisma";
-import type { WrongAssignmentReportStatus } from "@calcom/prisma/enums";
+import type { PrismaClient } from "@coachos/prisma";
+import type { WrongAssignmentReportStatus } from "@coachos/prisma/enums";
 
 export class WrongAssignmentReportRepository {
   constructor(private readonly prismaClient: PrismaClient) {}

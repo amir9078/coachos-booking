@@ -1,5 +1,5 @@
 {
-  "extends": "@calcom/tsconfig/react-library.json",
+  "extends": "@coachos/tsconfig/react-library.json",
   "compilerOptions": {
     "composite": true,
     "declaration": true,
@@ -10,14 +10,14 @@
     "paths": {
       "@components/*": ["../../apps/web/components/*"],
       "@lib/*": ["../../apps/web/lib/*"],
-      "@prisma/client/*": ["@calcom/prisma/client/*"]
+      "@prisma/client/*": ["@coachos/prisma/client/*"]
     },
     "resolveJsonModule": true,
     "experimentalDecorators": true
   },
   "include": [
     "next-env.d.ts",
-    "@calcom/types",
+    "@coachos/types",
     "../types/*.d.ts",
     "../types/next-auth.d.ts",
     "**/*.ts",

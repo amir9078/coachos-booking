@@ -1,4 +1,4 @@
-import logger from "@calcom/lib/logger";
+import logger from "@coachos/lib/logger";
 
 import { LARK_HOST } from "../common";
 import { getAppAccessToken } from "./AppAccessToken";
@@ -18,7 +18,7 @@ const msg = {
       [
         {
           tag: "text",
-          text: 'It allows users to send a unique "cal.com" URL that allows anyone to create bookings on their calendars',
+          text: 'It allows users to send a unique "amir9078.github.io" URL that allows anyone to create bookings on their calendars',
         },
       ],
       [
@@ -36,7 +36,7 @@ const msg = {
       [
         {
           tag: "text",
-          text: "1. Visit https://cal.com and sign up for an account.",
+          text: "1. Visit https://amir9078.github.io and sign up for an account.",
         },
       ],
       [

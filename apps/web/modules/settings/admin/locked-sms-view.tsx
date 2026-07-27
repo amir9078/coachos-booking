@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 
-import { trpc } from "@calcom/trpc/react";
-import { TextField } from "@calcom/ui/components/form";
-import { Button } from "@calcom/ui/components/button";
-import { showToast } from "@calcom/ui/components/toast";
+import { trpc } from "@coachos/trpc/react";
+import { TextField } from "@coachos/ui/components/form";
+import { Button } from "@coachos/ui/components/button";
+import { showToast } from "@coachos/ui/components/toast";
 
 import UsersTable from "./components/UsersTable";
 

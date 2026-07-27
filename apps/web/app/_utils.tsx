@@ -1,14 +1,14 @@
 import { type TFunction } from "i18next";
 import { cookies, headers } from "next/headers";
 
-import { getLocale } from "@calcom/features/auth/lib/getLocale";
-import type { AppImageProps, MeetingImageProps } from "@calcom/lib/OgImages";
-import { constructAppImage, constructGenericImage, constructMeetingImage } from "@calcom/lib/OgImages";
-import { IS_CALCOM, WEBAPP_URL, APP_NAME, SEO_IMG_OGIMG, CAL_URL } from "@calcom/lib/constants";
-import { getCalcomUrl } from "@calcom/lib/getCalcomUrl";
-import { buildCanonical } from "@calcom/lib/next-seo.config";
-import { getTranslation } from "@calcom/i18n/server";
-import { truncateOnWord } from "@calcom/lib/text";
+import { getLocale } from "@coachos/features/auth/lib/getLocale";
+import type { AppImageProps, MeetingImageProps } from "@coachos/lib/OgImages";
+import { constructAppImage, constructGenericImage, constructMeetingImage } from "@coachos/lib/OgImages";
+import { IS_CALCOM, WEBAPP_URL, APP_NAME, SEO_IMG_OGIMG, coachos_URL } from "@coachos/lib/constants";
+import { getCalcomUrl } from "@coachos/lib/getCalcomUrl";
+import { buildCanonical } from "@coachos/lib/next-seo.config";
+import { getTranslation } from "@coachos/i18n/server";
+import { truncateOnWord } from "@coachos/lib/text";
 
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 
@@ -26,7 +26,7 @@ const _generateMetadataWithoutImage = async (
   pathname?: string
 ) => {
   const _pathname = pathname ?? "";
-  const canonical = buildCanonical({ path: _pathname, origin: origin ?? CAL_URL });
+  const canonical = buildCanonical({ path: _pathname, origin: origin ?? coachos_URL });
   const t = await getTranslate();
 
   const title = getTitle(t);
@@ -88,7 +88,7 @@ export const _generateMetadataForStaticPage = async (
   pathname?: string
 ) => {
   const _pathname = pathname ?? "";
-  const canonical = buildCanonical({ path: _pathname, origin: origin ?? CAL_URL });
+  const canonical = buildCanonical({ path: _pathname, origin: origin ?? coachos_URL });
   const titleSuffix = `| ${APP_NAME}`;
   const displayedTitle = title.includes(titleSuffix) || hideBranding ? title : `${title} ${titleSuffix}`;
   const metadataBase = new URL(IS_CALCOM ? getCalcomUrl() : WEBAPP_URL);

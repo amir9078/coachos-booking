@@ -1,6 +1,6 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
-vi.mock("@calcom/lib/logger", () => ({
+vi.mock("@coachos/lib/logger", () => ({
   default: {
     getSubLogger: () => ({
       debug: vi.fn(),
@@ -11,7 +11,7 @@ vi.mock("@calcom/lib/logger", () => ({
 }));
 
 const mockCreateMany = vi.fn();
-vi.mock("@calcom/features/auth/lib/dub", () => ({
+vi.mock("@coachos/features/auth/lib/dub", () => ({
   dub: {
     links: {
       createMany: (...args: unknown[]) => mockCreateMany(...args),
@@ -42,13 +42,13 @@ describe("DubShortener", () => {
   describe("shortenMany", () => {
     it("returns shortened links", async () => {
       mockCreateMany.mockResolvedValue([
-        { url: "https://example.com", shortLink: "https://sms.cal.com/abc" },
+        { url: "https://example.com", shortLink: "https://sms.amir9078.github.io/abc" },
       ]);
       const shortener = new DubShortener();
 
       const result = await shortener.shortenMany(["https://example.com"]);
 
-      expect(result).toEqual([{ shortLink: "https://sms.cal.com/abc" }]);
+      expect(result).toEqual([{ shortLink: "https://sms.amir9078.github.io/abc" }]);
     });
 
     it("passes domain and folderId options", async () => {
@@ -71,22 +71,22 @@ describe("DubShortener", () => {
 
     it("handles multiple URLs", async () => {
       mockCreateMany.mockResolvedValue([
-        { url: "https://example1.com", shortLink: "https://sms.cal.com/abc" },
-        { url: "https://example2.com", shortLink: "https://sms.cal.com/def" },
+        { url: "https://example1.com", shortLink: "https://sms.amir9078.github.io/abc" },
+        { url: "https://example2.com", shortLink: "https://sms.amir9078.github.io/def" },
       ]);
       const shortener = new DubShortener();
 
       const result = await shortener.shortenMany(["https://example1.com", "https://example2.com"]);
 
       expect(result).toEqual([
-        { shortLink: "https://sms.cal.com/abc" },
-        { shortLink: "https://sms.cal.com/def" },
+        { shortLink: "https://sms.amir9078.github.io/abc" },
+        { shortLink: "https://sms.amir9078.github.io/def" },
       ]);
     });
 
     it("filters empty URLs before sending to Dub", async () => {
       mockCreateMany.mockResolvedValue([
-        { url: "https://example.com", shortLink: "https://sms.cal.com/abc" },
+        { url: "https://example.com", shortLink: "https://sms.amir9078.github.io/abc" },
       ]);
       const shortener = new DubShortener();
 
@@ -103,9 +103,9 @@ describe("DubShortener", () => {
 
     it("returns original URL when Dub returns error result", async () => {
       mockCreateMany.mockResolvedValue([
-        { url: "https://example1.com", shortLink: "https://sms.cal.com/abc" },
+        { url: "https://example1.com", shortLink: "https://sms.amir9078.github.io/abc" },
         { error: "rate_limit_exceeded" },
-        { url: "https://example3.com", shortLink: "https://sms.cal.com/def" },
+        { url: "https://example3.com", shortLink: "https://sms.amir9078.github.io/def" },
       ]);
       const shortener = new DubShortener();
 
@@ -116,9 +116,9 @@ describe("DubShortener", () => {
       ]);
 
       expect(result).toEqual([
-        { shortLink: "https://sms.cal.com/abc" },
+        { shortLink: "https://sms.amir9078.github.io/abc" },
         { shortLink: "https://example2.com" },
-        { shortLink: "https://sms.cal.com/def" },
+        { shortLink: "https://sms.amir9078.github.io/def" },
       ]);
     });
 
@@ -133,7 +133,7 @@ describe("DubShortener", () => {
 
     it("handles mixed empty and valid URLs correctly", async () => {
       mockCreateMany.mockResolvedValue([
-        { url: "https://example.com", shortLink: "https://sms.cal.com/abc" },
+        { url: "https://example.com", shortLink: "https://sms.amir9078.github.io/abc" },
       ]);
       const shortener = new DubShortener();
 
@@ -141,7 +141,7 @@ describe("DubShortener", () => {
 
       expect(result).toEqual([
         { shortLink: "" },
-        { shortLink: "https://sms.cal.com/abc" },
+        { shortLink: "https://sms.amir9078.github.io/abc" },
         { shortLink: "" },
       ]);
     });

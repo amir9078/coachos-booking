@@ -1,8 +1,8 @@
-import { appKeysSchemas } from "@calcom/app-store/apps.keys-schemas.generated";
-import { getLocalAppMetadata } from "@calcom/app-store/utils";
-import type { PrismaClient } from "@calcom/prisma";
-import type { Prisma } from "@calcom/prisma/client";
-import { AppCategories } from "@calcom/prisma/enums";
+import { appKeysSchemas } from "@coachos/app-store/apps.keys-schemas.generated";
+import { getLocalAppMetadata } from "@coachos/app-store/utils";
+import type { PrismaClient } from "@coachos/prisma";
+import type { Prisma } from "@coachos/prisma/client";
+import { AppCategories } from "@coachos/prisma/enums";
 
 import type { TrpcSessionUser } from "../../../types";
 import type { TListLocalInputSchema } from "./listLocal.schema";

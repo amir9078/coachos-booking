@@ -2,12 +2,12 @@
 
 import { useRouter } from "next/navigation";
 
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { showToast } from "@calcom/ui/components/toast";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { showToast } from "@coachos/ui/components/toast";
 
 import Shell from "~/shell/Shell";
 
@@ -47,7 +47,7 @@ export default function UpgradePage() {
             headline={t("you_are_all_set")}
             description={t("you_are_all_set_description")}
             Icon="circle-check"
-            buttonRaw={<Button href="mailto:support@cal.com">{t("contact_support")}</Button>}
+            buttonRaw={<Button href="mailto:shaikhamirhussain2000@gmail.com">{t("contact_support")}</Button>}
           />
         )}
       </div>

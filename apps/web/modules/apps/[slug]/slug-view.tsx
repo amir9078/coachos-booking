@@ -2,10 +2,10 @@
 
 import Link from "next/link";
 
-import { IS_PRODUCTION } from "@calcom/lib/constants";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { markdownToSafeHTML } from "@calcom/lib/markdownToSafeHTML";
-import { showToast } from "@calcom/ui/components/toast";
+import { IS_PRODUCTION } from "@coachos/lib/constants";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { markdownToSafeHTML } from "@coachos/lib/markdownToSafeHTML";
+import { showToast } from "@coachos/ui/components/toast";
 
 import type { AppDataProps } from "@lib/apps/[slug]/getStaticProps";
 import useRouterQuery from "@lib/hooks/useRouterQuery";

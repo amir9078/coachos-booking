@@ -1,5 +1,5 @@
 {
-  "name": "@calcom/prisma",
+  "name": "@coachos/prisma",
   "version": "0.0.0",
   "private": true,
   "bin": {

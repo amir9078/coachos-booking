@@ -1,27 +1,27 @@
 "use client";
 
-import dayjs from "@calcom/dayjs";
-import { useBookingLocation } from "@calcom/features/bookings/hooks";
-import { shouldShowFieldInCustomResponses } from "@calcom/lib/bookings/SystemField";
-import { formatPrice } from "@calcom/lib/currencyConversions";
-import { formatToLocalizedTimezone } from "@calcom/lib/dayjs";
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { getEveryFreqFor } from "@calcom/lib/recurringStrings";
-import { BookingStatus } from "@calcom/prisma/enums";
+import dayjs from "@coachos/dayjs";
+import { useBookingLocation } from "@coachos/features/bookings/hooks";
+import { shouldShowFieldInCustomResponses } from "@coachos/lib/bookings/SystemField";
+import { formatPrice } from "@coachos/lib/currencyConversions";
+import { formatToLocalizedTimezone } from "@coachos/lib/dayjs";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { getEveryFreqFor } from "@coachos/lib/recurringStrings";
+import { BookingStatus } from "@coachos/prisma/enums";
 import {
   bookingMetadataSchema,
   EventTypeMetaDataSchema,
   eventTypeBookingFields,
-} from "@calcom/prisma/zod-utils";
-import { trpc } from "@calcom/trpc/react";
-import type { RecurringEvent } from "@calcom/types/Calendar";
-import classNames from "@calcom/ui/classNames";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Button } from "@calcom/ui/components/button";
-import { SegmentedControl } from "@calcom/ui/components/segmented-control";
+} from "@coachos/prisma/zod-utils";
+import { trpc } from "@coachos/trpc/react";
+import type { RecurringEvent } from "@coachos/types/Calendar";
+import classNames from "@coachos/ui/classNames";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Button } from "@coachos/ui/components/button";
+import { SegmentedControl } from "@coachos/ui/components/segmented-control";
 import {
   Sheet,
   SheetBody,
@@ -29,8 +29,8 @@ import {
   SheetFooter,
   SheetHeader,
   SheetTitle,
-} from "@calcom/ui/components/sheet";
-import { Tooltip } from "@calcom/ui/components/tooltip";
+} from "@coachos/ui/components/sheet";
+import { Tooltip } from "@coachos/ui/components/tooltip";
 import { ExternalLinkIcon, RepeatIcon } from "@coss/ui/icons";
 import assignmentReasonBadgeTitleMap from "@lib/booking/assignmentReasonBadgeTitleMap";
 import Link from "next/link";

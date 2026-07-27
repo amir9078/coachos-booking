@@ -4,8 +4,8 @@ import { SessionProvider } from "next-auth/react";
 import React from "react";
 import CacheProvider from "react-inlinesvg/provider";
 
-import { WebPushProvider } from "@calcom/web/modules/notifications/components/WebPushContext";
-import { trpc } from "@calcom/trpc/react";
+import { WebPushProvider } from "@coachos/web/modules/notifications/components/WebPushContext";
+import { trpc } from "@coachos/trpc/react";
 
 import type { AppProps } from "@lib/app-providers";
 
@@ -38,7 +38,7 @@ MyApp.getInitialProps = async ({ ctx }: { ctx: NextPageContext }) => {
   let newLocale = "en";
 
   if (req) {
-    const { getLocale } = await import("@calcom/features/auth/lib/getLocale");
+    const { getLocale } = await import("@coachos/features/auth/lib/getLocale");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     newLocale = await getLocale(req as IncomingMessage & { cookies: Record<string, any> });
   } else if (typeof window !== "undefined" && window.calNewLocale) {

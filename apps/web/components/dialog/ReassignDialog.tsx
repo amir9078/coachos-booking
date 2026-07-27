@@ -5,23 +5,23 @@ import { useMemo, useState } from "react";
 import { useForm } from "react-hook-form";
 import { z } from "zod";
 
-import { Dialog } from "@calcom/features/components/controlled-dialog";
-import { ErrorCode } from "@calcom/lib/errorCodes";
-import { useDebounce } from "@calcom/lib/hooks/useDebounce";
-import { useInViewObserver } from "@calcom/lib/hooks/useInViewObserver";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import classNames from "@calcom/ui/classNames";
-import { Button } from "@calcom/ui/components/button";
+import { Dialog } from "@coachos/features/components/controlled-dialog";
+import { ErrorCode } from "@coachos/lib/errorCodes";
+import { useDebounce } from "@coachos/lib/hooks/useDebounce";
+import { useInViewObserver } from "@coachos/lib/hooks/useInViewObserver";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import classNames from "@coachos/ui/classNames";
+import { Button } from "@coachos/ui/components/button";
 import {
   DialogContent,
   DialogFooter,
   DialogClose,
   ConfirmationDialogContent,
-} from "@calcom/ui/components/dialog";
-import { TextAreaField, Form, Label, Input } from "@calcom/ui/components/form";
-import { RadioAreaGroup as RadioArea } from "@calcom/ui/components/radio";
-import { showToast } from "@calcom/ui/components/toast";
+} from "@coachos/ui/components/dialog";
+import { TextAreaField, Form, Label, Input } from "@coachos/ui/components/form";
+import { RadioAreaGroup as RadioArea } from "@coachos/ui/components/radio";
+import { showToast } from "@coachos/ui/components/toast";
 import { CheckIcon, LoaderIcon } from "@coss/ui/icons";
 
 enum ReassignType {

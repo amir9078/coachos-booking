@@ -1,7 +1,7 @@
-import { ERROR_STATUS, SUCCESS_STATUS } from "@calcom/platform-constants";
-import type { UpdateEventTypeReturn } from "@calcom/platform-libraries/event-types";
-import { listWithTeamHandler, PublicEventType } from "@calcom/platform-libraries/event-types";
-import { ApiResponse } from "@calcom/platform-types";
+import { ERROR_STATUS, SUCCESS_STATUS } from "@coachos/platform-constants";
+import type { UpdateEventTypeReturn } from "@coachos/platform-libraries/event-types";
+import { listWithTeamHandler, PublicEventType } from "@coachos/platform-libraries/event-types";
+import { ApiResponse } from "@coachos/platform-types";
 import {
   Body,
   Controller,

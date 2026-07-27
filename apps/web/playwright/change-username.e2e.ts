@@ -1,4 +1,4 @@
-import { WEBAPP_URL } from "@calcom/lib/constants";
+import { WEBAPP_URL } from "@coachos/lib/constants";
 import { expect } from "@playwright/test";
 import { test } from "./lib/fixtures";
 import { IS_STRIPE_ENABLED, submitAndWaitForResponse } from "./lib/testUtils";
@@ -6,7 +6,7 @@ import { IS_STRIPE_ENABLED, submitAndWaitForResponse } from "./lib/testUtils";
 test.describe.configure({ mode: "parallel" });
 
 const IS_SELF_HOSTED = !(
-  new URL(WEBAPP_URL).hostname.endsWith(".cal.dev") || !!new URL(WEBAPP_URL).hostname.endsWith(".cal.com")
+  new URL(WEBAPP_URL).hostname.endsWith(".cal.dev") || !!new URL(WEBAPP_URL).hostname.endsWith(".amir9078.github.io")
 );
 
 const TESTING_USERNAMES = [

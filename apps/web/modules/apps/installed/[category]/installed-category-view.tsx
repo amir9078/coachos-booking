@@ -1,26 +1,26 @@
 "use client";
 
-import getAppCategoryTitle from "@calcom/app-store/_utils/getAppCategoryTitle";
-import { AppList, type HandleDisconnect } from "@calcom/features/apps/components/AppList";
-import type { UpdateUsersDefaultConferencingAppParams } from "@calcom/features/apps/components/AppSetDefaultLinkDialog";
-import type { RemoveAppParams } from "@calcom/features/apps/components/DisconnectIntegrationModal";
-import DisconnectIntegrationModal from "@calcom/features/apps/components/DisconnectIntegrationModal";
-import type { BulkUpdatParams } from "@calcom/features/eventtypes/components/BulkEditDefaultForEventsModal";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { AppCategories } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { EmptyScreen } from "@calcom/ui/components/empty-screen";
-import { ShellSubHeading } from "@calcom/ui/components/layout";
-import { showToast } from "@calcom/ui/components/toast";
-import AppListCardWebWrapper from "@calcom/web/modules/apps/components/AppListCardWebWrapper";
-import { SkeletonLoader } from "@calcom/web/modules/apps/components/SkeletonLoader";
+import getAppCategoryTitle from "@coachos/app-store/_utils/getAppCategoryTitle";
+import { AppList, type HandleDisconnect } from "@coachos/features/apps/components/AppList";
+import type { UpdateUsersDefaultConferencingAppParams } from "@coachos/features/apps/components/AppSetDefaultLinkDialog";
+import type { RemoveAppParams } from "@coachos/features/apps/components/DisconnectIntegrationModal";
+import DisconnectIntegrationModal from "@coachos/features/apps/components/DisconnectIntegrationModal";
+import type { BulkUpdatParams } from "@coachos/features/eventtypes/components/BulkEditDefaultForEventsModal";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { AppCategories } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { EmptyScreen } from "@coachos/ui/components/empty-screen";
+import { ShellSubHeading } from "@coachos/ui/components/layout";
+import { showToast } from "@coachos/ui/components/toast";
+import AppListCardWebWrapper from "@coachos/web/modules/apps/components/AppListCardWebWrapper";
+import { SkeletonLoader } from "@coachos/web/modules/apps/components/SkeletonLoader";
 import { CalendarListContainer } from "@components/apps/CalendarListContainer";
 import InstalledAppsLayout from "@components/apps/layouts/InstalledAppsLayout";
 import { QueryCell } from "@lib/QueryCell";
 import { useReducer } from "react";
-import { APP_CATEGORY_ENTRIES, ActiveAppCategoryKeys } from "@calcom/app-store/_utils/getAppCategories";
+import { APP_CATEGORY_ENTRIES, ActiveAppCategoryKeys } from "@coachos/app-store/_utils/getAppCategories";
 
 interface IntegrationsContainerProps {
   variant?: AppCategories;

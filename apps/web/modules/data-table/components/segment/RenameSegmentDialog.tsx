@@ -1,10 +1,10 @@
-import type { FilterSegmentOutput } from "@calcom/features/data-table/lib/types";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { trpc } from "@calcom/trpc/react";
-import { Button } from "@calcom/ui/components/button";
-import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@calcom/ui/components/dialog";
-import { Form, TextField } from "@calcom/ui/components/form";
-import { showToast } from "@calcom/ui/components/toast";
+import type { FilterSegmentOutput } from "@coachos/features/data-table/lib/types";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { trpc } from "@coachos/trpc/react";
+import { Button } from "@coachos/ui/components/button";
+import { Dialog, DialogContent, DialogFooter, DialogHeader } from "@coachos/ui/components/dialog";
+import { Form, TextField } from "@coachos/ui/components/form";
+import { showToast } from "@coachos/ui/components/toast";
 import { useForm } from "react-hook-form";
 
 type FormValues = {

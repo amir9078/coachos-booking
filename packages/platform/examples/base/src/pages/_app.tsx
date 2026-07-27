@@ -7,8 +7,8 @@ import { useRouter } from "next/router";
 import { useEffect, useMemo, useState } from "react";
 import Select from "react-select";
 
-import { CalProvider, CalOAuthProvider, BookerEmbed, Router as CalRouter } from "@calcom/atoms";
-import "@calcom/atoms/globals.min.css";
+import { CalProvider, CalOAuthProvider, BookerEmbed, Router as CalRouter } from "@coachos/atoms";
+import "@coachos/atoms/globals.min.css";
 
 const poppins = Poppins({ subsets: ["latin"], weight: ["400", "800"] });
 type TUser = Data["users"][0];
@@ -133,7 +133,7 @@ export default function App({ Component, pageProps }: AppProps) {
           accessToken={accessToken}
           clientId={process.env.NEXT_PUBLIC_OAUTH2_CLIENT_ID}
           options={{
-            apiUrl: process.env.NEXT_PUBLIC_CALCOM_API_URL ?? "",
+            apiUrl: process.env.NEXT_PUBLIC_COACHOS_API_URL ?? "",
             refreshUrl: "/api/refresh",
           }}
         >
@@ -148,9 +148,9 @@ export default function App({ Component, pageProps }: AppProps) {
       ) : (
         <CalProvider
           accessToken={accessToken}
-          clientId={process.env.NEXT_PUBLIC_X_CAL_ID ?? ""}
+          clientId={process.env.NEXT_PUBLIC_X_coachos_ID ?? ""}
           options={{
-            apiUrl: process.env.NEXT_PUBLIC_CALCOM_API_URL ?? "",
+            apiUrl: process.env.NEXT_PUBLIC_COACHOS_API_URL ?? "",
             refreshUrl: "/api/refresh",
           }}
         >

@@ -1,8 +1,8 @@
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import type { AppFrontendPayload } from "@calcom/types/App";
-import type { ButtonProps } from "@calcom/ui/components/button";
-import { Button } from "@calcom/ui/components/button";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import type { AppFrontendPayload } from "@coachos/types/App";
+import type { ButtonProps } from "@coachos/ui/components/button";
+import { Button } from "@coachos/ui/components/button";
 
 export const InstallAppButtonChild = ({
   multiInstall,

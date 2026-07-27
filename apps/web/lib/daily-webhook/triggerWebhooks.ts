@@ -1,12 +1,12 @@
-import type { TGetTranscriptAccessLink } from "@calcom/app-store/dailyvideo/zod";
-import getWebhooks from "@calcom/features/webhooks/lib/getWebhooks";
-import sendPayload from "@calcom/features/webhooks/lib/sendOrSchedulePayload";
-import type { EventPayloadType } from "@calcom/features/webhooks/lib/sendPayload";
-import getOrgIdFromMemberOrTeamId from "@calcom/lib/getOrgIdFromMemberOrTeamId";
-import logger from "@calcom/lib/logger";
-import { safeStringify } from "@calcom/lib/safeStringify";
-import { WebhookTriggerEvents } from "@calcom/prisma/enums";
-import type { CalendarEvent } from "@calcom/types/Calendar";
+import type { TGetTranscriptAccessLink } from "@coachos/app-store/dailyvideo/zod";
+import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
+import sendPayload from "@coachos/features/webhooks/lib/sendOrSchedulePayload";
+import type { EventPayloadType } from "@coachos/features/webhooks/lib/sendPayload";
+import getOrgIdFromMemberOrTeamId from "@coachos/lib/getOrgIdFromMemberOrTeamId";
+import logger from "@coachos/lib/logger";
+import { safeStringify } from "@coachos/lib/safeStringify";
+import { WebhookTriggerEvents } from "@coachos/prisma/enums";
+import type { CalendarEvent } from "@coachos/types/Calendar";
 
 const log = logger.getSubLogger({ prefix: ["daily-video-webhook-handler:triggerRecordingReadyWebhook"] });
 

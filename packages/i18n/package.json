@@ -1,5 +1,5 @@
 {
-  "name": "@calcom/i18n",
+  "name": "@coachos/i18n",
   "sideEffects": false,
   "private": true,
   "version": "0.0.0",
@@ -15,7 +15,7 @@
     "i18next": "23.2.3"
   },
   "devDependencies": {
-    "@calcom/tsconfig": "workspace:*",
+    "@coachos/tsconfig": "workspace:*",
     "typescript": "5.9.3"
   }
 }

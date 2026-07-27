@@ -1,6 +1,6 @@
 import { randomBytes } from "node:crypto";
-import { OAUTH_ERROR_REASONS } from "@calcom/features/oauth/services/OAuthService";
-import type { PrismaClient } from "@calcom/prisma";
+import { OAUTH_ERROR_REASONS } from "@coachos/features/oauth/services/OAuthService";
+import type { PrismaClient } from "@coachos/prisma";
 import { expect } from "@playwright/test";
 import { test } from "../lib/fixtures";
 

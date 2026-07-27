@@ -5,7 +5,7 @@ import {
   PrivateLinkOutput,
   TimeBasedPrivateLinkOutput,
   UsageBasedPrivateLinkOutput,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 
 export type PrivateLinkData = {
   id: string;

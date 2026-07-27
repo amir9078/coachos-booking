@@ -1,9 +1,9 @@
 "use client";
 
-import type { Timezones } from "@calcom/lib/timezone";
-import { TimezoneSelectComponent } from "@calcom/features/timezone/components/TimezoneSelectComponent";
-import { CALCOM_VERSION } from "@calcom/lib/constants";
-import { trpc } from "@calcom/trpc/react";
+import type { Timezones } from "@coachos/lib/timezone";
+import { TimezoneSelectComponent } from "@coachos/features/timezone/components/TimezoneSelectComponent";
+import { COACHOS_VERSION } from "@coachos/lib/constants";
+import { trpc } from "@coachos/trpc/react";
 import { useMemo } from "react";
 import type { Props as SelectProps } from "react-timezone-select";
 
@@ -39,7 +39,7 @@ export type TimezoneSelectProps = SelectProps & {
 export function TimezoneSelect(props: TimezoneSelectProps) {
   const { data = [], isPending } = trpc.viewer.timezones.cityTimezones.useQuery(
     {
-      CalComVersion: CALCOM_VERSION,
+      CalComVersion: COACHOS_VERSION,
     },
     {
       trpc: { context: { skipBatch: true } },

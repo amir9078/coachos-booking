@@ -3,9 +3,9 @@ import {
   parseBookingLimit,
   parseRecurringEvent,
   userMetadata,
-} from "@calcom/platform-libraries";
-import { EventTypeMetaDataSchema, parseEventTypeColor } from "@calcom/platform-libraries/event-types";
-import { getBookerBaseUrlSync } from "@calcom/platform-libraries/organizations";
+} from "@coachos/platform-libraries";
+import { EventTypeMetaDataSchema, parseEventTypeColor } from "@coachos/platform-libraries/event-types";
+import { getBookerBaseUrlSync } from "@coachos/platform-libraries/organizations";
 import type {
   BookerLayoutsTransformedSchema,
   EventTypeOutput_2024_06_14,
@@ -14,7 +14,7 @@ import type {
   OutputUnknownBookingField_2024_06_14,
   OutputUnknownLocation_2024_06_14,
   TransformFutureBookingsLimitSchema_2024_06_14,
-} from "@calcom/platform-types";
+} from "@coachos/platform-types";
 import type {
   CalVideoSettings,
   DestinationCalendar,
@@ -22,7 +22,7 @@ import type {
   Prisma,
   Schedule,
   Team,
-} from "@calcom/prisma/client";
+} from "@coachos/prisma/client";
 import { Injectable } from "@nestjs/common";
 import { ConfigService } from "@nestjs/config";
 import {
@@ -460,7 +460,7 @@ export class OutputEventTypesService_2024_06_14 {
 
     // Don't use org subdomain for platform organizations - they don't have public-facing subdomains
     const orgSlug = !isPlatformOrg && org?.slug ? org.slug : null;
-    // getBookerBaseUrlSync(null) returns WEBSITE_URL (https://cal.com)
+    // getBookerBaseUrlSync(null) returns WEBSITE_URL (https://amir9078.github.io)
     const baseUrl = getBookerBaseUrlSync(orgSlug);
     const normalizedBaseUrl = baseUrl.replace(/\/$/, "");
 

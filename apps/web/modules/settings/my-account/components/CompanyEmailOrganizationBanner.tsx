@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 import posthog from "posthog-js";
 
-import { useFlagMap } from "@calcom/features/flags/context/provider";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { Button } from "@calcom/ui/components/button";
+import { useFlagMap } from "@coachos/features/flags/context/provider";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { Button } from "@coachos/ui/components/button";
 
 import { MailIcon } from "./MailIcon";
 

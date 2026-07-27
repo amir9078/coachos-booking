@@ -1,25 +1,25 @@
 "use client";
 
-import { checkAdminOrOwner } from "@calcom/features/auth/lib/checkAdminOrOwner";
-import { ColumnFilterType, convertFacetedValuesToMap, type FacetedValue } from "@calcom/features/data-table";
-import { WEBAPP_URL } from "@calcom/lib/constants";
-import { downloadAsCsv } from "@calcom/lib/csvUtils";
-import { getUserAvatarUrl } from "@calcom/lib/getAvatarUrl";
-import { useLocale } from "@calcom/lib/hooks/useLocale";
-import { MembershipRole } from "@calcom/prisma/enums";
-import type { RouterOutputs } from "@calcom/trpc/react";
-import { trpc } from "@calcom/trpc/react";
-import type { FilterType } from "@calcom/types/data-table";
-import classNames from "@calcom/ui/classNames";
-import { Avatar } from "@calcom/ui/components/avatar";
-import { Badge } from "@calcom/ui/components/badge";
-import { Checkbox } from "@calcom/ui/components/form";
-import { showToast } from "@calcom/ui/components/toast";
-import { LimitedBadges } from "@calcom/web/components/ui/LimitedBadges";
+import { checkAdminOrOwner } from "@coachos/features/auth/lib/checkAdminOrOwner";
+import { ColumnFilterType, convertFacetedValuesToMap, type FacetedValue } from "@coachos/features/data-table";
+import { WEBAPP_URL } from "@coachos/lib/constants";
+import { downloadAsCsv } from "@coachos/lib/csvUtils";
+import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
+import { useLocale } from "@coachos/lib/hooks/useLocale";
+import { MembershipRole } from "@coachos/prisma/enums";
+import type { RouterOutputs } from "@coachos/trpc/react";
+import { trpc } from "@coachos/trpc/react";
+import type { FilterType } from "@coachos/types/data-table";
+import classNames from "@coachos/ui/classNames";
+import { Avatar } from "@coachos/ui/components/avatar";
+import { Badge } from "@coachos/ui/components/badge";
+import { Checkbox } from "@coachos/ui/components/form";
+import { showToast } from "@coachos/ui/components/toast";
+import { LimitedBadges } from "@coachos/web/components/ui/LimitedBadges";
 import {
   generateCsvRawForMembersTable,
   generateHeaderFromReactTable,
-} from "@calcom/web/modules/users/lib/UserListTableUtils";
+} from "@coachos/web/modules/users/lib/UserListTableUtils";
 import { keepPreviousData } from "@tanstack/react-query";
 import {
   type CellContext,
@@ -199,7 +199,7 @@ function UserListTableContent({
   const isPending = false;
 
   const adminOrOwner = checkAdminOrOwner(
-    org?.user?.role as import("@calcom/prisma/enums").MembershipRole | undefined
+    org?.user?.role as import("@coachos/prisma/enums").MembershipRole | undefined
   );
 
   //we must flatten the array of arrays from the useInfiniteQuery hook

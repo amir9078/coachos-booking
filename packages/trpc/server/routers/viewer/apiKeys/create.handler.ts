@@ -1,8 +1,8 @@
 import { v4 } from "uuid";
 
-import { generateUniqueAPIKey } from "@calcom/features/api-keys-legacy/api-keys/lib/apiKeys";
-import prisma from "@calcom/prisma";
-import { MembershipRole } from "@calcom/prisma/enums";
+import { generateUniqueAPIKey } from "@coachos/features/api-keys-legacy/api-keys/lib/apiKeys";
+import prisma from "@coachos/prisma";
+import { MembershipRole } from "@coachos/prisma/enums";
 
 import type { TrpcSessionUser } from "../../../types";
 import { checkPermissions } from "./_auth-middleware";
@@ -37,7 +37,7 @@ export const createHandler = async ({ ctx, input }: CreateHandlerOptions) => {
     },
   });
 
-  const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "cal_";
+  const apiKeyPrefix = process.env.API_KEY_PREFIX ?? "coachos_";
 
   const prefixedApiKey = `${apiKeyPrefix}${apiKey}`;
 

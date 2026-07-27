@@ -1,19 +1,19 @@
 import type { GetServerSidePropsContext, GetServerSidePropsResult } from "next";
 import { z } from "zod";
 
-import { createDefaultInstallation } from "@calcom/app-store/_utils/installation";
-import { filterEventTypesWhereLocationUpdateIsAllowed } from "@calcom/app-store/_utils/getBulkEventTypes";
-import { appStoreMetadata } from "@calcom/app-store/appStoreMetaData";
-import type { LocationObject } from "@calcom/app-store/locations";
-import { isConferencing as isConferencingApp } from "@calcom/app-store/utils";
-import { getServerSession } from "@calcom/features/auth/lib/getServerSession";
-import { UserRepository } from "@calcom/features/users/repositories/UserRepository";
-import { AppOnboardingSteps } from "@calcom/lib/apps/appOnboardingSteps";
-import { CAL_URL } from "@calcom/lib/constants";
-import { getPlaceholderAvatar } from "@calcom/lib/defaultAvatarImage";
-import prisma from "@calcom/prisma";
-import { Prisma } from "@calcom/prisma/client";
-import { eventTypeBookingFields } from "@calcom/prisma/zod-utils";
+import { createDefaultInstallation } from "@coachos/app-store/_utils/installation";
+import { filterEventTypesWhereLocationUpdateIsAllowed } from "@coachos/app-store/_utils/getBulkEventTypes";
+import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
+import type { LocationObject } from "@coachos/app-store/locations";
+import { isConferencing as isConferencingApp } from "@coachos/app-store/utils";
+import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
+import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
+import { AppOnboardingSteps } from "@coachos/lib/apps/appOnboardingSteps";
+import { coachos_URL } from "@coachos/lib/constants";
+import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
+import prisma from "@coachos/prisma";
+import { Prisma } from "@coachos/prisma/client";
+import { eventTypeBookingFields } from "@coachos/prisma/zod-utils";
 
 import { STEPS } from "../../../../modules/apps/installation/[[...step]]/constants";
 import type {
@@ -80,7 +80,7 @@ const mapEventType = (item: EventTypeFromDb): TEventType => {
 
   return {
     ...item,
-    URL: `${CAL_URL}/${urlPart}/${item.slug}`,
+    URL: `${coachos_URL}/${urlPart}/${item.slug}`,
     selected: false,
     locations: item.locations as unknown as LocationObject[],
     bookingFields: eventTypeBookingFields.parse(item.bookingFields || []),
@@ -293,7 +293,7 @@ const getAppInstallsBySlug = async (
 
 const handleAutoInstall = async (
   user: MinimalUser,
-  appMetadata: import("@calcom/types/App").AppMeta,
+  appMetadata: import("@coachos/types/App").AppMeta,
   parsedAppSlug: string
 ): Promise<number | null> => {
   try {
@@ -384,7 +384,7 @@ const getAppAndMetadata = async (
   parsedAppSlug: string
 ): Promise<{
   app: { slug: string; keys: Prisma.JsonValue; enabled: boolean; dirName: string } | null;
-  appMetadata: import("@calcom/types/App").AppMeta | null;
+  appMetadata: import("@coachos/types/App").AppMeta | null;
   redirect?: RedirectResult;
 }> => {
   const app = await getAppBySlug(parsedAppSlug);
@@ -442,7 +442,7 @@ const getCredential = async (
   appInstalls: Prisma.CredentialGetPayload<Record<string, never>>[],
   user: MinimalUser & { teams: MinimalTeam[] },
   initialStep: string,
-  appMetadata: import("@calcom/types/App").AppMeta,
+  appMetadata: import("@coachos/types/App").AppMeta,
   parsedAppSlug: string
 ): Promise<{ credentialId: number | null; redirect?: RedirectResult }> => {
   let credentialId = getCredentialId(parsedTeamIdParam, appInstalls, user.id);

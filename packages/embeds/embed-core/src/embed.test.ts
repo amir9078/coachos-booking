@@ -137,7 +137,7 @@ describe("Cal", () => {
   }
 
   beforeAll(async () => {
-    vi.stubEnv("EMBED_PUBLIC_WEBAPP_URL", "https://app.cal.com");
+    vi.stubEnv("EMBED_PUBLIC_WEBAPP_URL", "https://app.amir9078.github.io");
     // Mock window.Cal
     const mockWindowCal = {
       q: [],
@@ -153,7 +153,7 @@ describe("Cal", () => {
   });
 
   beforeEach(() => {
-    vi.stubEnv("WEBAPP_URL", "https://app.cal.com");
+    vi.stubEnv("WEBAPP_URL", "https://app.amir9078.github.io");
 
     calInstance = new CalClass("test-namespace", []);
     // Reset the document body before each test
@@ -170,7 +170,7 @@ describe("Cal", () => {
         calInstance = new CalClass("test-namespace", []);
         window.Cal.config = { forwardQueryParams: true };
         // Mock the getConfig method
-        calInstance.getConfig = vi.fn().mockReturnValue({ calOrigin: "https://app.cal.com" });
+        calInstance.getConfig = vi.fn().mockReturnValue({ calOrigin: "https://app.amir9078.github.io" });
       });
 
       it("should merge query parameters from URL and explicit params", () => {
@@ -821,7 +821,7 @@ describe("Cal", () => {
       modal: {
         uid: "test-uid",
         element: document.querySelector("cal-modal-box") as HTMLElement,
-        calOrigin: "https://app.cal.com",
+        calOrigin: "https://app.amir9078.github.io",
       },
       stateData: {
         embedConfig: { theme: "light" },
@@ -835,14 +835,14 @@ describe("Cal", () => {
     beforeEach(() => {
       calInstance = new CalClass("test-namespace", []);
       calInstance.iframe = {
-        src: "https://app.cal.com/john-doe/meeting",
+        src: "https://app.amir9078.github.io/john-doe/meeting",
         dataset: {
           calLink: "john-doe/meeting",
         },
       };
       // Initialize config
       calInstance.__config = {
-        calOrigin: "https://app.cal.com",
+        calOrigin: "https://app.amir9078.github.io",
       };
       // Reset document.querySelector mock before each test
       vi.restoreAllMocks();
@@ -942,7 +942,7 @@ describe("Cal", () => {
     });
 
     it("should return connect when query params are different", () => {
-      calInstance.iframe.src = "https://app.cal.com/john-doe/meeting?param2=value2";
+      calInstance.iframe.src = "https://app.amir9078.github.io/john-doe/meeting?param2=value2";
       const result = calInstance.getNextActionForModal({
         ...baseArgs,
         pathWithQueryToLoad: "john-doe/meeting?param1=value1",

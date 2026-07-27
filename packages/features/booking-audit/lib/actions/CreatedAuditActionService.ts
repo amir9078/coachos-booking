@@ -1,5 +1,5 @@
 import { z } from "zod";
-import { BookingStatus } from "@calcom/prisma/enums";
+import { BookingStatus } from "@coachos/prisma/enums";
 
 import { AuditActionServiceHelper } from "./AuditActionServiceHelper";
 import type {
