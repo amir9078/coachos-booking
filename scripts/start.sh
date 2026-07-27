@@ -5,7 +5,9 @@ set -x
 # NOTE: if these values are the same, this will be skipped.
 scripts/replace-placeholder.sh "$BUILT_NEXT_PUBLIC_WEBAPP_URL" "$NEXT_PUBLIC_WEBAPP_URL"
 
+set +x
 DB_HOSTPORT=$(printf '%s' "$DATABASE_URL" | sed -E 's#^[a-zA-Z]+://[^@]*@([^/]+)/.*#\1#')
+set -x
 scripts/wait-for-it.sh "$DB_HOSTPORT" -- echo "database is up"
 npx prisma migrate deploy --schema /calcom/packages/prisma/schema.prisma
 npx ts-node --transpile-only /calcom/scripts/seed-app-store.ts
