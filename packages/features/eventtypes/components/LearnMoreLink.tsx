@@ -2,7 +2,7 @@ import type { TFunction } from "i18next";
 import Link from "next/link";
 
 import ServerTrans from "@coachos/lib/components/ServerTrans";
-import { IS_CALCOM } from "@coachos/lib/constants";
+import { IS_COACHOS } from "@coachos/lib/constants";
 
 type LearnMoreLinkProps = {
   t: TFunction;
@@ -11,7 +11,7 @@ type LearnMoreLinkProps = {
 };
 
 export const LearnMoreLink = ({ t, i18nKey, href }: LearnMoreLinkProps) => {
-  if (!IS_CALCOM) {
+  if (!IS_COACHOS) {
     const text = t(i18nKey)
       .replace(/<0>[\s\S]*?<\/0>/g, "")
       .trim();

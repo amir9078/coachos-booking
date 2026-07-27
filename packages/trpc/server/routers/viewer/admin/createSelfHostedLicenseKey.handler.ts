@@ -52,7 +52,7 @@ const fetchWithSignature = async (
 
 const createSelfHostedInstance = async ({ input, ctx }: GetOptions) => {
   const privateApiUrl = COACHOS_PRIVATE_API_ROUTE;
-  const signatureToken = process.env.coachos_SIGNATURE_TOKEN;
+  const signatureToken = process.env.COACHOS_SIGNATURE_TOKEN;
 
   if (!privateApiUrl || !signatureToken) {
     throw new Error("Private Api route does not exist in .env");

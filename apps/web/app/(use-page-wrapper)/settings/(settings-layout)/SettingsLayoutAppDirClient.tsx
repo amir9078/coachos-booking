@@ -2,7 +2,7 @@
 
 import { HAS_ORG_OPT_IN_FEATURES } from "@coachos/features/feature-opt-in/config";
 import type { TeamFeatures } from "@coachos/features/flags/config";
-import { IS_CALCOM, WEBAPP_URL } from "@coachos/lib/constants";
+import { IS_COACHOS, WEBAPP_URL } from "@coachos/lib/constants";
 import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
 import { getUserAvatarUrl } from "@coachos/lib/getAvatarUrl";
 import { useIsStandalone } from "@coachos/lib/hooks/useIsStandalone";
@@ -232,7 +232,7 @@ const getTabs = (
   ];
 
   for (const tab of tabs) {
-    if (tab.name === "admin" && IS_CALCOM) {
+    if (tab.name === "admin" && IS_COACHOS) {
       tab.children?.push({
         name: "create_org",
         href: "/settings/organizations/new",

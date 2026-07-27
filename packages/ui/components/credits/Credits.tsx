@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 
-import { COACHOS_VERSION, COMPANY_NAME, IS_CALCOM, IS_SELF_HOSTED } from "@coachos/lib/constants";
+import { COACHOS_VERSION, COMPANY_NAME, IS_COACHOS, IS_SELF_HOSTED } from "@coachos/lib/constants";
 
 // eslint-disable-next-line turbo/no-undeclared-env-vars
 const vercelCommitHash = process.env.NEXT_PUBLIC_VERCEL_GIT_COMMIT_SHA;
@@ -28,7 +28,7 @@ export default function Credits() {
           <Link href="https://go.amir9078.github.io/releases" target="_blank" className="hover:underline">
             {CalComVersion}
           </Link>
-          {vercelCommitHash && IS_CALCOM ? (
+          {vercelCommitHash && IS_COACHOS ? (
             <Link
               href={`https://github.com/amir9078/coachos-booking/commit/${vercelCommitHash}`}
               target="_blank"

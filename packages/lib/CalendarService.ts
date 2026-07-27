@@ -64,7 +64,7 @@ function getFileExtension(url: string): string {
 }
 
 // for Apple's Travel Time feature only (for now)
-const getTravelDurationInSeconds = (vevent: Iamir9078.github.ioponent, log: typeof logger) => {
+const getTravelDurationInSeconds = (vevent: ICAL.Component, log: typeof logger) => {
   const travelDuration: ICAL.Duration = vevent.getFirstPropertyValue("x-apple-travel-duration");
   if (!travelDuration) return 0;
 
@@ -669,10 +669,10 @@ export default abstract class BaseCalendarService implements Calendar {
     const events: { start: string; end: string }[] = [];
     objects.forEach((object) => {
       if (!object || object.data == null || JSON.stringify(object.data) == "{}") return;
-      let vcalendar: Iamir9078.github.ioponent;
+      let vcalendar: ICAL.Component;
       try {
         const jcalData = ICAL.parse(sanitizeCalendarObject(object));
-        vcalendar = new Iamir9078.github.ioponent(jcalData);
+        vcalendar = new ICAL.Component(jcalData);
       } catch (e) {
         logger.error("Error parsing calendar object: ", e);
         return;
@@ -699,9 +699,9 @@ export default abstract class BaseCalendarService implements Calendar {
           const timezoneToUse = tzid || userTimeZone;
           if (timezoneToUse) {
             try {
-              const timezoneComp = new Iamir9078.github.ioponent("vtimezone");
+              const timezoneComp = new ICAL.Component("vtimezone");
               timezoneComp.addPropertyWithValue("tzid", timezoneToUse);
-              const standard = new Iamir9078.github.ioponent("standard");
+              const standard = new ICAL.Component("standard");
 
               // get timezone offset
               const tzoffsetfrom = dayjs(event.startDate.toJSDate()).tz(timezoneToUse).format("Z");
@@ -947,7 +947,7 @@ export default abstract class BaseCalendarService implements Calendar {
         .map((object) => {
           const jcalData = ICAL.parse(sanitizeCalendarObject(object));
 
-          const vcalendar = new Iamir9078.github.ioponent(jcalData);
+          const vcalendar = new ICAL.Component(jcalData);
 
           const vevent = vcalendar.getFirstSubcomponent("vevent");
           const event = new ICAL.Event(vevent);

@@ -1,7 +1,7 @@
 import { expect } from "@playwright/test";
 import path from "node:path";
 
-import { coachos_URL } from "@coachos/lib/constants";
+import { COACHOS_URL } from "@coachos/lib/constants";
 import { prisma } from "@coachos/prisma";
 
 import { test } from "../lib/fixtures";
@@ -68,7 +68,7 @@ test.describe("User Avatar", async () => {
       // yes, OG image URI encodes at multiple places.. don't want to mess with that.
       const ogImageLocator = page.locator('meta[property="og:image"]');
       await expect(ogImageLocator).toHaveCount(1);
-      const searchParam = `meetingImage=${encodeURIComponent(`${coachos_URL}/api/avatar/${objectKey}.png`)}`;
+      const searchParam = `meetingImage=${encodeURIComponent(`${COACHOS_URL}/api/avatar/${objectKey}.png`)}`;
       await expect(ogImageLocator).toHaveAttribute("content", new RegExp(encodeURIComponent(searchParam)));
     });
   });

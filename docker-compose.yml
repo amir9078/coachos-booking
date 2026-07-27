@@ -34,7 +34,7 @@ services:
     ports:
       - "${REDIS_PORT:-6379}:6379"
 
-  calcom:
+  coachos-web:
     image: calcom.docker.scarf.sh/calcom/cal.com
     build:
       context: .

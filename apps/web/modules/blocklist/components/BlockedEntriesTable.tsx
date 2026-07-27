@@ -6,7 +6,7 @@ import type { ReactNode } from "react";
 import { useMemo, useState } from "react";
 
 import { DataTableSelectionBar, DataTableWrapper } from "@coachos/web/modules/data-table/components";
-import { IS_CALCOM } from "@coachos/lib/constants";
+import { IS_COACHOS } from "@coachos/lib/constants";
 import { useLocale } from "@coachos/lib/hooks/useLocale";
 import { Button } from "@coachos/ui/components/button";
 import { ConfirmationDialogContent, Dialog } from "@coachos/ui/components/dialog";
@@ -163,7 +163,7 @@ export function BlockedEntriesTable<T extends BlocklistEntry>({
                   disabled={!isSystem && !permissions?.canCreate}>
                   {t("add")}
                 </Button>
-                {IS_CALCOM && (
+                {IS_COACHOS && (
                   <Button
                     StartIcon="book"
                     color="secondary"

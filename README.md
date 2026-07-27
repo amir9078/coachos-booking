@@ -155,8 +155,8 @@ Then bring up the stack:
 
 ```bash
 docker compose up -d              # full stack: db + app + Prisma Studio
-docker compose up -d calcom studio  # app + studio against a remote DB
-docker compose up -d calcom         # app only
+docker compose up -d coachos-web studio  # app + studio against a remote DB
+docker compose up -d coachos-web         # app only
 ```
 
 Open the app at your configured `NEXT_PUBLIC_WEBAPP_URL`. On first run, the setup wizard creates the first admin user. The "Connect your Calendar" step during setup can be skipped by navigating directly to `<NEXT_PUBLIC_WEBAPP_URL>/event-types` — calendar integrations can be added later under Settings > Integrations.
@@ -165,7 +165,7 @@ Open the app at your configured `NEXT_PUBLIC_WEBAPP_URL`. On first run, the setu
 
 ```bash
 docker compose up -d database
-DOCKER_BUILDKIT=0 docker compose build calcom
+DOCKER_BUILDKIT=0 docker compose build coachos-web
 docker compose up -d
 ```
 

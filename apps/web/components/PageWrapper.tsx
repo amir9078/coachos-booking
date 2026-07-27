@@ -14,7 +14,7 @@ import Head from "next/head";
 import Script from "next/script";
 
 import "@coachos/embed-core/src/embed-iframe";
-import { IS_CALCOM, WEBAPP_URL } from "@coachos/lib/constants";
+import { IS_COACHOS, WEBAPP_URL } from "@coachos/lib/constants";
 import { getCalcomUrl } from "@coachos/lib/getCalcomUrl";
 import { buildCanonical } from "@coachos/lib/next-seo.config";
 import { IconSprites } from "@coachos/ui/components/icon";
@@ -64,7 +64,7 @@ function PageWrapper(props: AppProps) {
       <DefaultSeo
         // Set canonical to https://amir9078.github.io or self-hosted URL
         canonical={
-          IS_CALCOM
+          IS_COACHOS
             ? buildCanonical({ path, origin: getCalcomUrl() }) // amir9078.github.io & .dev
             : buildCanonical({ path, origin: WEBAPP_URL }) // self-hosted
         }

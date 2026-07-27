@@ -47,11 +47,11 @@ export const EMAIL_FROM_NAME = process.env.EMAIL_FROM_NAME || APP_NAME;
 // As website isn't setup for preview environments, use the webapp url instead
 // If it's a .vercel.app domain, keep it.
 // Else use the website url if defined and finally fallback to the webapp url
-export const coachos_URL = new URL(WEBAPP_URL).hostname.endsWith(".vercel.app")
+export const COACHOS_URL = new URL(WEBAPP_URL).hostname.endsWith(".vercel.app")
   ? WEBAPP_URL
   : ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || WEBAPP_URL;
 
-export const IS_CALCOM =
+export const IS_COACHOS =
   WEBAPP_URL &&
   (new URL(WEBAPP_URL).hostname.endsWith("amir9078.github.io") ||
     new URL(WEBAPP_URL).hostname.endsWith("cal.dev") ||
@@ -66,9 +66,9 @@ export const CONSOLE_URL =
   process.env.NODE_ENV !== "production"
     ? `https://console.cal.dev`
     : `https://console.amir9078.github.io`;
-const coachos_DOMAINS = [".amir9078.github.io", ".cal.dev", ".cal.eu", ".cal.qa"];
+const COACHOS_DOMAINS = [".amir9078.github.io", ".cal.dev", ".cal.eu", ".cal.qa"];
 const WEBAPP_HOSTNAME = new URL(WEBAPP_URL).hostname;
-export const IS_SELF_HOSTED = !coachos_DOMAINS.some((domain) => WEBAPP_HOSTNAME.endsWith(domain));
+export const IS_SELF_HOSTED = !COACHOS_DOMAINS.some((domain) => WEBAPP_HOSTNAME.endsWith(domain));
 export const EMBED_LIB_URL = process.env.NEXT_PUBLIC_EMBED_LIB_URL || `${WEBAPP_URL}/embed/embed.js`;
 export const TRIAL_LIMIT_DAYS = 14;
 export const MAX_SEATS_PER_TIME_SLOT = 1000;
@@ -114,13 +114,13 @@ export const JOIN_COMMUNITY = "https://github.com/amir9078/coachos-booking/discu
 export const POWERED_BY_URL = "https://go.amir9078.github.io/booking";
 export const DOCS_URL = "https://amir9078.github.io/docs";
 export const DEVELOPER_DOCS = "https://developer.amir9078.github.io";
-export const SEO_IMG_DEFAULT = `${coachos_URL}/og-image.png`;
+export const SEO_IMG_DEFAULT = `${COACHOS_URL}/og-image.png`;
 // The Dynamic OG Image is passed through Next's Image API to further optimize it.
 // This results in a 80% smaller image 🤯. It is however important that for the query
 // parameters you pass to the /api/social/og/image endpoint, you wrap them in encodeURIComponent
 // as well, otherwise the URL won't be valid.
-export const SEO_IMG_OGIMG = `${coachos_URL}/_next/image?w=1200&q=100&url=`;
-export const SEO_IMG_OGIMG_VIDEO = `${coachos_URL}/video-og-image.png`;
+export const SEO_IMG_OGIMG = `${COACHOS_URL}/_next/image?w=1200&q=100&url=`;
+export const SEO_IMG_OGIMG_VIDEO = `${COACHOS_URL}/video-og-image.png`;
 export const IS_STRIPE_ENABLED = !!(
   process.env.STRIPE_CLIENT_ID &&
   process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY &&
@@ -165,7 +165,7 @@ export const DEFAULT_DARK_BRAND_COLOR = "#fafafa";
 export const TOP_BANNER_HEIGHT = 40;
 
 export const IS_PREMIUM_USERNAME_ENABLED =
-  (IS_CALCOM || (process.env.NEXT_PUBLIC_IS_E2E && IS_STRIPE_ENABLED)) &&
+  (IS_COACHOS || (process.env.NEXT_PUBLIC_IS_E2E && IS_STRIPE_ENABLED)) &&
   process.env.NEXT_PUBLIC_STRIPE_PREMIUM_PLAN_PRICE_MONTHLY;
 
 // Max number of invites to join a team/org that can be sent at once
@@ -234,7 +234,7 @@ export const IS_DUB_REFERRALS_ENABLED =
 export const DUB_SMS_DOMAIN = process.env.DUB_SMS_DOMAIN;
 export const DUB_SMS_FOLDER_ID = process.env.DUB_SMS_FOLDER_ID;
 
-export const coachos_VIDEO_MEETING_LINK_FOR_TESTING = process.env.coachos_VIDEO_MEETING_LINK_FOR_TESTING;
+export const COACHOS_VIDEO_MEETING_LINK_FOR_TESTING = process.env.COACHOS_VIDEO_MEETING_LINK_FOR_TESTING;
 
 export const IS_SMS_CREDITS_ENABLED =
   !!process.env.NEXT_PUBLIC_STRIPE_CREDITS_PRICE_ID || !!process.env.NEXT_PUBLIC_IS_E2E;

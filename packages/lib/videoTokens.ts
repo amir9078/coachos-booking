@@ -2,7 +2,7 @@ import { createHmac } from "node:crypto";
 
 // 262992 minutes is 6 months
 export function generateVideoToken(recordingId: string, expiresInMinutes = 262992) {
-  const secret = process.env.coachos_VIDEO_RECORDING_TOKEN_SECRET || "default-secret-change-me";
+  const secret = process.env.COACHOS_VIDEO_RECORDING_TOKEN_SECRET || "default-secret-change-me";
   const expires = Date.now() + expiresInMinutes * 60 * 1000;
 
   const payload = `${recordingId}:${expires}`;
@@ -17,7 +17,7 @@ export function verifyVideoToken(token: string): {
 } {
   try {
     const [recordingId, expires, receivedHmac] = token.split(":");
-    const secret = process.env.coachos_VIDEO_RECORDING_TOKEN_SECRET || "default-secret-change-me";
+    const secret = process.env.COACHOS_VIDEO_RECORDING_TOKEN_SECRET || "default-secret-change-me";
 
     if (Date.now() > parseInt(expires, 10)) {
       return { valid: false };

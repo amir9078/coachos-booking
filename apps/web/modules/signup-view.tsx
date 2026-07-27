@@ -13,7 +13,7 @@ import ServerTrans from "@coachos/lib/components/ServerTrans";
 import {
   APP_NAME,
   CLOUDFLARE_SITE_ID,
-  IS_CALCOM,
+  IS_COACHOS,
   URL_PROTOCOL_REGEX,
   WEBAPP_URL,
   WEBSITE_PRIVACY_POLICY_URL,
@@ -334,7 +334,7 @@ export default function Signup({
   return (
     <>
       {/* CoachOS: removed amir9078.github.io's GTM + Dub analytics block outright (was
-          gated behind IS_CALCOM, which only true on a *.amir9078.github.io/.cal.dev/.cal.eu
+          gated behind IS_COACHOS, which only true on a *.amir9078.github.io/.cal.dev/.cal.eu
           hostname — already inert here, but removed rather than left to rely
           on that coincidence). See also the removed /_proxy/dub rewrite in
           next.config.ts. */}
@@ -381,9 +381,9 @@ export default function Signup({
                 )}
                 <div className="flex flex-col gap-2">
                   <h1 className="font-cal text-[28px] leading-none">
-                    {IS_CALCOM ? t("create_your_COACHOS_account") : t("create_your_account")}
+                    {IS_COACHOS ? t("create_your_COACHOS_account") : t("create_your_account")}
                   </h1>
-                  {IS_CALCOM ? (
+                  {IS_COACHOS ? (
                     <p className="font-medium text-base text-subtle leading-5">
                       {t("coachos_signup_description")}
                     </p>
@@ -394,7 +394,7 @@ export default function Signup({
                       })}
                     </p>
                   )}
-                  {IS_CALCOM && (
+                  {IS_COACHOS && (
                     <div className="mt-12">
                       <SelectField
                         label={t("data_region")}
@@ -736,7 +736,7 @@ export default function Signup({
             )}
           </div>
           <div className="mx-auto mt-24 w-full max-w-2xl flex-col justify-between rounded-l-2xl border-subtle pl-4 lg:mt-0 lg:flex lg:max-w-full lg:border lg:bg-subtle lg:py-12 lg:pl-12 dark:bg-none">
-            {IS_CALCOM && (
+            {IS_COACHOS && (
               <>
                 <div className="-mt-4 mr-12 mb-6 grid w-full grid-cols-3 gap-5 pr-4 sm:gap-3 lg:grid-cols-4">
                   <div>

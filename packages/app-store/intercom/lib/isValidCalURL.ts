@@ -1,4 +1,4 @@
-import { coachos_URL } from "@coachos/lib/constants";
+import { COACHOS_URL } from "@coachos/lib/constants";
 
 import type { TextComponent } from "../lib";
 
@@ -9,13 +9,13 @@ import type { TextComponent } from "../lib";
  */
 export async function isValidCalURL(url: string) {
   const regex = new RegExp(
-    `^https://(?:[a-zA-Z0-9-]+\\.)?${coachos_URL.replace("https://", "")}/`,
+    `^https://(?:[a-zA-Z0-9-]+\\.)?${COACHOS_URL.replace("https://", "")}/`,
     "i"
   );
 
   const error: TextComponent = {
     type: "text",
-    text: `This is not a valid ${coachos_URL.replace("https://", "")} link`,
+    text: `This is not a valid ${COACHOS_URL.replace("https://", "")} link`,
     style: "error",
     align: "left",
   };

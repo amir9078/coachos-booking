@@ -8,7 +8,7 @@ import { BookingRepository } from "@coachos/features/bookings/repositories/Booki
 import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
 import { getCalVideoReference } from "@coachos/features/get-cal-video-reference";
 import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
-import { coachos_VIDEO_MEETING_LINK_FOR_TESTING } from "@coachos/lib/constants";
+import { COACHOS_VIDEO_MEETING_LINK_FOR_TESTING } from "@coachos/lib/constants";
 import { isENVDev } from "@coachos/lib/env";
 import prisma from "@coachos/prisma";
 import MarkdownIt from "markdown-it";
@@ -128,9 +128,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   // Below if block is for local testing purposes only
   // STARTS------------------------------------------------------------------------------
-  if (booking?.references[0] && isENVDev && coachos_VIDEO_MEETING_LINK_FOR_TESTING) {
+  if (booking?.references[0] && isENVDev && COACHOS_VIDEO_MEETING_LINK_FOR_TESTING) {
     // meetingUrl is `null` in dev env, so setting a dummy meetingUrl (it's a past but real meeting link in production env)
-    booking.references[0].meetingUrl = coachos_VIDEO_MEETING_LINK_FOR_TESTING;
+    booking.references[0].meetingUrl = COACHOS_VIDEO_MEETING_LINK_FOR_TESTING;
   }
   // ENDS--------------------------------------------------------------------------------
 
@@ -177,7 +177,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   //find out if the meeting is in the past
   const isPast = booking?.endTime <= exitDate;
-  const testingUid = coachos_VIDEO_MEETING_LINK_FOR_TESTING?.split("/").pop();
+  const testingUid = COACHOS_VIDEO_MEETING_LINK_FOR_TESTING?.split("/").pop();
   const isTestingLink = booking?.uid === testingUid;
 
   if (isPast && !isTestingLink) {

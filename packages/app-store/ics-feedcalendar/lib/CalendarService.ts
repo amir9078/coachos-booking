@@ -16,7 +16,7 @@ import type { CredentialPayload } from "@coachos/types/Credential";
 import ICAL from "ical.js";
 
 // for Apple's Travel Time feature only (for now)
-const getTravelDurationInSeconds = (vevent: Iamir9078.github.ioponent) => {
+const getTravelDurationInSeconds = (vevent: ICAL.Component) => {
   const travelDuration: ICAL.Duration = vevent.getFirstPropertyValue("x-apple-travel-duration");
   if (!travelDuration) return 0;
 
@@ -82,7 +82,7 @@ class ICSFeedCalendarService implements Calendar {
     });
   }
 
-  fetchCalendars = async (): Promise<{ url: string; vcalendar: Iamir9078.github.ioponent }[]> => {
+  fetchCalendars = async (): Promise<{ url: string; vcalendar: ICAL.Component }[]> => {
     const reqPromises = await Promise.allSettled(this.urls.map((x) => fetch(x).then((y) => [x, y])));
     const reqs = reqPromises
       .filter((x) => x.status === "fulfilled")
@@ -94,14 +94,14 @@ class ICSFeedCalendarService implements Calendar {
           const jcalData = ICAL.parse(x[1]);
           return {
             url: x[0],
-            vcalendar: new Iamir9078.github.ioponent(jcalData),
+            vcalendar: new ICAL.Component(jcalData),
           };
         } catch (e) {
           console.error("Error parsing calendar object: ", e);
           return null;
         }
       })
-      .filter((x) => x !== null) as { url: string; vcalendar: Iamir9078.github.ioponent }[];
+      .filter((x) => x !== null) as { url: string; vcalendar: ICAL.Component }[];
   };
 
   /**
@@ -176,9 +176,9 @@ class ICSFeedCalendarService implements Calendar {
           const timezoneToUse = tzid || userTimeZone;
           if (timezoneToUse) {
             try {
-              const timezoneComp = new Iamir9078.github.ioponent("vtimezone");
+              const timezoneComp = new ICAL.Component("vtimezone");
               timezoneComp.addPropertyWithValue("tzid", timezoneToUse);
-              const standard = new Iamir9078.github.ioponent("standard");
+              const standard = new ICAL.Component("standard");
 
               // get timezone offset
               const tzoffsetfrom = dayjs(event.startDate.toJSDate()).tz(timezoneToUse).format("Z");

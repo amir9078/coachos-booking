@@ -5,7 +5,7 @@ import { Controller, useForm } from "react-hook-form";
 import dayjs from "@coachos/dayjs";
 import type { TApiKeys } from "~/api-keys/api-keys/components/ApiKeyListItem";
 import { API_NAME_LENGTH_MAX_LIMIT } from "@coachos/lib/constants";
-import { IS_CALCOM } from "@coachos/lib/constants";
+import { IS_COACHOS } from "@coachos/lib/constants";
 import { useLocale } from "@coachos/lib/hooks/useLocale";
 import { trpc } from "@coachos/trpc/react";
 import { Button } from "@coachos/ui/components/button";
@@ -155,7 +155,7 @@ export default function ApiKeyDialogForm({
             <h2 className="font-semi-bold font-cal text-emphasis text-xl tracking-wide">
               {defaultValues ? t("edit_api_key") : t("create_api_key")}
             </h2>
-            {IS_CALCOM ? (
+            {IS_COACHOS ? (
               <div className="mt-4 flex flex-col gap-2 sm:flex-row">
                 <div className="border-emphasis relative flex w-full items-start rounded-[10px] border p-4 text-sm">
                   {t("api_key_modal_subtitle")}

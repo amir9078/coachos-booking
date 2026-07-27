@@ -1,6 +1,6 @@
 import type React from "react";
 
-import { coachos_URL, LOGO, LOGO_DARK, WEBAPP_URL } from "./constants";
+import { COACHOS_URL, LOGO, LOGO_DARK, WEBAPP_URL } from "./constants";
 
 // Ensures tw prop is typed.
 declare module "react" {
@@ -47,7 +47,7 @@ const joinMultipleNames = (names: string[] = []) => {
   return `${names.length > 0 ? `${names.join(", ")} & ${lastName}` : lastName}`;
 };
 
-const makeAbsoluteUrl = (url: string) => (/^https?:\/\//.test(url) ? url : `${coachos_URL}${url}`);
+const makeAbsoluteUrl = (url: string) => (/^https?:\/\//.test(url) ? url : `${COACHOS_URL}${url}`);
 
 const OG_ASSETS = {
   meeting: {

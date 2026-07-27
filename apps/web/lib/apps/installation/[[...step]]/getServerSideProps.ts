@@ -9,7 +9,7 @@ import { isConferencing as isConferencingApp } from "@coachos/app-store/utils";
 import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
 import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
 import { AppOnboardingSteps } from "@coachos/lib/apps/appOnboardingSteps";
-import { coachos_URL } from "@coachos/lib/constants";
+import { COACHOS_URL } from "@coachos/lib/constants";
 import { getPlaceholderAvatar } from "@coachos/lib/defaultAvatarImage";
 import prisma from "@coachos/prisma";
 import { Prisma } from "@coachos/prisma/client";
@@ -80,7 +80,7 @@ const mapEventType = (item: EventTypeFromDb): TEventType => {
 
   return {
     ...item,
-    URL: `${coachos_URL}/${urlPart}/${item.slug}`,
+    URL: `${COACHOS_URL}/${urlPart}/${item.slug}`,
     selected: false,
     locations: item.locations as unknown as LocationObject[],
     bookingFields: eventTypeBookingFields.parse(item.bookingFields || []),

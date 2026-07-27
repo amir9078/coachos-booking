@@ -1,6 +1,6 @@
 "use client";
 
-import { IS_CALCOM, WEBSITE_URL } from "@coachos/lib/constants";
+import { IS_COACHOS, WEBSITE_URL } from "@coachos/lib/constants";
 import { useLocale } from "@coachos/lib/hooks/useLocale";
 import { Icon } from "@coachos/ui/components/icon";
 import Link from "next/link";
@@ -53,7 +53,7 @@ export function NotFound({ host }: { host: string }) {
           </h1>
           {isSubpage ? (
             <span className="mt-2 inline-block text-lg">{t("check_spelling_mistakes_or_go_back")}</span>
-          ) : IS_CALCOM ? (
+          ) : IS_COACHOS ? (
             <a target="_blank" href={url} className="mt-2 inline-block text-lg" rel="noreferrer">
               {t(`404_the_${pageType.toLowerCase()}`)}{" "}
               {username ? (
@@ -77,7 +77,7 @@ export function NotFound({ host }: { host: string }) {
           )}
         </div>
         <div className="mt-12">
-          {!isSubpage && IS_CALCOM && (
+          {!isSubpage && IS_COACHOS && (
             <ul role="list" className="my-4">
               <li className="border-2 border-green-500 px-4 py-2">
                 <a

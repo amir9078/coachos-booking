@@ -52,7 +52,7 @@ const fetchWithSignature = async (
 
 const createCoupon = async ({ input, ctx }: CreateCouponOptions) => {
   const privateApiUrl = COACHOS_PRIVATE_API_ROUTE;
-  const signatureToken = process.env.coachos_SIGNATURE_TOKEN;
+  const signatureToken = process.env.COACHOS_SIGNATURE_TOKEN;
 
   if (!privateApiUrl || !signatureToken) {
     throw new TRPCError({ code: "INTERNAL_SERVER_ERROR", message: "Private API route is not configured" });

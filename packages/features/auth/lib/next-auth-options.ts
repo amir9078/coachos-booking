@@ -19,7 +19,7 @@ import {
   GOOGLE_CALENDAR_SCOPES,
   GOOGLE_OAUTH_SCOPES,
   HOSTED_COACHOS_FEATURES,
-  IS_CALCOM,
+  IS_COACHOS,
   IS_TEAM_BILLING_ENABLED,
   MICROSOFT_CALENDAR_SCOPES,
   WEBAPP_URL,
@@ -1185,7 +1185,7 @@ export const getOptions = ({
       // this is a workaround – in the future once we move to use the Account model in the DB
       // we should use NextAuth's isNewUser flag instead: https://next-auth.js.org/configuration/events#signin
       const isNewUser = new Date(user.createdDate) > new Date(Date.now() - 10 * 60 * 1000);
-      if ((isENVDev || IS_CALCOM) && isNewUser) {
+      if ((isENVDev || IS_COACHOS) && isNewUser) {
         if (process.env.DUB_API_KEY) {
           const clickId = getDubId();
           // check if there's a clickId (dub_id) cookie set by @dub/analytics

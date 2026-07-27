@@ -4,7 +4,7 @@ import { cookies, headers } from "next/headers";
 import { getLocale } from "@coachos/features/auth/lib/getLocale";
 import type { AppImageProps, MeetingImageProps } from "@coachos/lib/OgImages";
 import { constructAppImage, constructGenericImage, constructMeetingImage } from "@coachos/lib/OgImages";
-import { IS_CALCOM, WEBAPP_URL, APP_NAME, SEO_IMG_OGIMG, coachos_URL } from "@coachos/lib/constants";
+import { IS_COACHOS, WEBAPP_URL, APP_NAME, SEO_IMG_OGIMG, COACHOS_URL } from "@coachos/lib/constants";
 import { getCalcomUrl } from "@coachos/lib/getCalcomUrl";
 import { buildCanonical } from "@coachos/lib/next-seo.config";
 import { getTranslation } from "@coachos/i18n/server";
@@ -26,14 +26,14 @@ const _generateMetadataWithoutImage = async (
   pathname?: string
 ) => {
   const _pathname = pathname ?? "";
-  const canonical = buildCanonical({ path: _pathname, origin: origin ?? coachos_URL });
+  const canonical = buildCanonical({ path: _pathname, origin: origin ?? COACHOS_URL });
   const t = await getTranslate();
 
   const title = getTitle(t);
   const description = getDescription(t);
   const titleSuffix = `| ${APP_NAME}`;
   const displayedTitle = title.includes(titleSuffix) || hideBranding ? title : `${title} ${titleSuffix}`;
-  const metadataBase = new URL(IS_CALCOM ? getCalcomUrl() : WEBAPP_URL);
+  const metadataBase = new URL(IS_COACHOS ? getCalcomUrl() : WEBAPP_URL);
 
   return {
     title: title.length === 0 ? APP_NAME : displayedTitle,
@@ -88,10 +88,10 @@ export const _generateMetadataForStaticPage = async (
   pathname?: string
 ) => {
   const _pathname = pathname ?? "";
-  const canonical = buildCanonical({ path: _pathname, origin: origin ?? coachos_URL });
+  const canonical = buildCanonical({ path: _pathname, origin: origin ?? COACHOS_URL });
   const titleSuffix = `| ${APP_NAME}`;
   const displayedTitle = title.includes(titleSuffix) || hideBranding ? title : `${title} ${titleSuffix}`;
-  const metadataBase = new URL(IS_CALCOM ? getCalcomUrl() : WEBAPP_URL);
+  const metadataBase = new URL(IS_COACHOS ? getCalcomUrl() : WEBAPP_URL);
 
   const metadata = {
     title: title.length === 0 ? APP_NAME : displayedTitle,
