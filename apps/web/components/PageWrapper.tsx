@@ -10,8 +10,6 @@
 "use client";
 
 import { DefaultSeo } from "next-seo";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import Head from "next/head";
 import Script from "next/script";
 
@@ -32,14 +30,8 @@ export interface CalPageWrapper {
   PageWrapper?: AppProps["Component"]["PageWrapper"];
 }
 
-const interFont = Inter({ subsets: ["latin"], variable: "--font-sans", preload: true, display: "swap" });
-const calFont = localFont({
-  src: "../fonts/CalSans-SemiBold.woff2",
-  variable: "--font-cal",
-  preload: true,
-  display: "swap",
-  weight: "600",
-});
+const FONT_SANS = `Seravek, "Gill Sans Nova", "Segoe UI", Calibri, "Trebuchet MS", sans-serif`;
+const FONT_CAL = `"Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif`;
 
 function PageWrapper(props: AppProps) {
   const { Component, pageProps, err, router } = props;
@@ -89,8 +81,8 @@ function PageWrapper(props: AppProps) {
 
       <style jsx global>{`
         :root {
-          --font-sans: ${interFont.style.fontFamily}, system-ui;
-          --font-cal: ${calFont.style.fontFamily};
+          --font-sans: ${FONT_SANS};
+          --font-cal: ${FONT_CAL};
         }
       `}</style>
       <IconSprites />

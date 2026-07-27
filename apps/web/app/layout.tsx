@@ -3,8 +3,6 @@ import { loadTranslations } from "@coachos/i18n/server";
 import { IconSprites } from "@coachos/ui/components/icon";
 import { buildLegacyRequest } from "@lib/buildLegacyCtx";
 import { dir } from "i18next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
 import { cookies, headers } from "next/headers";
 import Script from "next/script";
 import type React from "react";
@@ -14,14 +12,8 @@ import { AppRouterI18nProvider } from "./AppRouterI18nProvider";
 import { Providers } from "./providers";
 import { SpeculationRules } from "./SpeculationRules";
 
-const interFont = Inter({ subsets: ["latin"], variable: "--font-sans", preload: true, display: "swap" });
-const calFont = localFont({
-  src: "../fonts/CalSans-SemiBold.woff2",
-  variable: "--font-cal",
-  preload: true,
-  display: "block",
-  weight: "600",
-});
+const FONT_SANS = `Seravek, "Gill Sans Nova", "Segoe UI", Calibri, "Trebuchet MS", sans-serif`;
+const FONT_CAL = `"Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif`;
 
 export const viewport = {
   width: "device-width",
@@ -116,8 +108,8 @@ export default async function RootLayout({ children }: { children: React.ReactNo
       <head nonce={nonce}>
         <style>{`
           :root {
-            --font-sans: ${interFont.style.fontFamily.replace(/\'/g, "")}, system-ui;
-            --font-cal: ${calFont.style.fontFamily.replace(/\'/g, "")};
+            --font-sans: ${FONT_SANS};
+            --font-cal: ${FONT_CAL};
           }
         `}</style>
         {process.env.NODE_ENV === "development" && (

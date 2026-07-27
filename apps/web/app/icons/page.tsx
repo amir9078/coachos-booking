@@ -1,7 +1,6 @@
 import { _generateMetadataForStaticPage } from "app/_utils";
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
-import localFont from "next/font/local";
+import type { CSSProperties } from "react";
 
 import { IconSprites } from "@coachos/ui/components/icon";
 import type { IconName } from "@coachos/ui/components/icon";
@@ -15,20 +14,14 @@ export async function generateMetadata(): Promise<Metadata> {
   return await _generateMetadataForStaticPage("Icons Showcase", "", undefined, undefined, "/icons");
 }
 
-const interFont = Inter({ subsets: ["latin"], variable: "--font-sans", preload: true, display: "swap" });
-const calFont = localFont({
-  src: "../../fonts/CalSans-SemiBold.woff2",
-  variable: "--font-cal",
-  preload: true,
-  display: "swap",
-  weight: "600",
-});
+const FONT_SANS = `Seravek, "Gill Sans Nova", "Segoe UI", Calibri, "Trebuchet MS", sans-serif`;
+const FONT_CAL = `"Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif`;
 
 export default function IconsPage() {
   const icons = Array.from(lucideIconList).sort() as IconName[];
 
   return (
-    <div className={`${interFont.variable} ${calFont.variable}`}>
+    <div style={{ "--font-sans": FONT_SANS, "--font-cal": FONT_CAL } as CSSProperties}>
       <div className="bg-subtle flex h-screen">
         <IconSprites />
         <div className="bg-default m-auto min-w-full rounded-md p-10 text-right ltr:text-left">

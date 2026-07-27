@@ -2,18 +2,13 @@
 @import "@coss/ui/styles.css";
 @import "../../../config/theme/tokens.css";
 
-@font-face {
-  font-family: "Cal Sans";
-  src: url("https://amir9078.github.io/cal.ttf");
-}
-
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  font-family: "Cal Sans";
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, "Book Antiqua", Georgia, serif;
   font-weight: normal;
   letter-spacing: normal;
 }
