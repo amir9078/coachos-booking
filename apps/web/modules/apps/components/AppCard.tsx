@@ -257,7 +257,7 @@ const InstallAppButtonChild = ({
     );
   }
   // Paid apps don't support team installs at the moment
-  // Also, cal.ai(the only paid app at the moment) doesn't support team install either
+  // Also, the AI phone agent app (the only paid app at the moment) doesn't support team install either
   if (paid) {
     return (
       <Button

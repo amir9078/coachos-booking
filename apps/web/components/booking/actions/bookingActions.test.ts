@@ -242,7 +242,7 @@ describe("Booking Actions", () => {
       expect(actions[1].disabled).toBe(true);
     });
 
-    it("should disable video actions for non-Cal video locations", () => {
+    it("should disable video actions for non-CoachOS Meet locations", () => {
       const context = createMockContext({
         isBookingInPast: true,
         isConfirmed: true,

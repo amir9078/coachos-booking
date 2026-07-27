@@ -2696,9 +2696,9 @@ describe("Event types Endpoints", () => {
           });
       });
 
-      it("should create event type with cal video settings", async () => {
+      it("should create event type with CoachOS Meet settings", async () => {
         const body: CreateEventTypeInput_2024_06_14 = {
-          title: "event type with cal video settings",
+          title: "event type with CoachOS Meet settings",
           slug: "event-type-with-cal-video-settings",
           lengthInMinutes: 60,
           calVideoSettings: {

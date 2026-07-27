@@ -81,7 +81,7 @@ describe("EditLocationDialog", () => {
               },
               {
                 value: "integrations:daily",
-                label: "Cal Video (Default)",
+                label: "CoachOS Meet (Default)",
                 disabled: false,
                 icon: "/app-store/dailyvideo/icon.svg",
                 slug: "daily-video",

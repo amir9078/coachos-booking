@@ -54,7 +54,7 @@ export class PlatformOAuthClientDto {
   @ApiProperty({
     example: true,
     description:
-      "If enabled, when creating a managed user the managed user will have 4 default event types: 30 and 60 minutes without Cal video, 30 and 60 minutes with Cal video. Leave this disabled if you want to create a managed user and then manually create event types for the user.",
+      "If enabled, when creating a managed user the managed user will have 4 default event types: 30 and 60 minutes without CoachOS Meet, 30 and 60 minutes with CoachOS Meet. Leave this disabled if you want to create a managed user and then manually create event types for the user.",
   })
   areDefaultEventTypesEnabled!: boolean;
 

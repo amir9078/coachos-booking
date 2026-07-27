@@ -5,7 +5,7 @@ import { IsArray, IsEnum, IsOptional, IsBoolean, IsString } from "class-validato
 import { PERMISSION_MAP } from "@coachos/platform-constants";
 
 export const ARE_DEFAULT_EVENT_TYPES_ENABLED_DOCS =
-  "If true, when creating a managed user the managed user will have 4 default event types: 30 and 60 minutes without Cal video, 30 and 60 minutes with Cal video. Set this as false if you want to create a managed user and then manually create event types for the user.";
+  "If true, when creating a managed user the managed user will have 4 default event types: 30 and 60 minutes without CoachOS Meet, 30 and 60 minutes with CoachOS Meet. Set this as false if you want to create a managed user and then manually create event types for the user.";
 
 export const ARE_CALENDAR_EVENTS_ENABLED_DOCS =
   "If true and if managed user has calendar connected, calendar events will be created. Disable it if you manually create calendar events. Default to true.";

@@ -2,8 +2,8 @@ import { describe, expect, it } from "vitest";
 
 import { getCalVideoReference } from "./get-cal-video-reference";
 
-describe("Cal Video", () => {
-  it("should load latest cal video reference", () => {
+describe("CoachOS Meet", () => {
+  it("should load latest CoachOS Meet reference", () => {
     expect(
       getCalVideoReference([
         {

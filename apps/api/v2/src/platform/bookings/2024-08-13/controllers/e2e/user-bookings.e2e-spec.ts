@@ -2095,7 +2095,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         eventTypeWithAllLocationsId = createdEventType.id;
       });
 
-      it("can book with cal video location", async () => {
+      it("can book with CoachOS Meet location", async () => {
         const bookingBody: CreateBookingInput_2024_08_13 = {
           start: new Date(Date.UTC(2040, 0, 9, 13, 0, 0)).toISOString(),
           eventTypeId: eventTypeWithAllLocationsId,
@@ -2932,7 +2932,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
     }
 
     describe("Meeting sessions", () => {
-      it("should get cal video sessions for a booking", async () => {
+      it("should get CoachOS Meet sessions for a booking", async () => {
         const mockSessions = [
           {
             id: "session-123",

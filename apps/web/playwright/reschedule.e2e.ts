@@ -232,7 +232,7 @@ test.describe("Reschedule Tests", async () => {
     await confirmReschedule(page);
     await expect(page).toHaveURL(/.*booking/);
   });
-  test("Should load Valid Cal video url after rescheduling Opt in events", async ({
+  test("Should load Valid CoachOS Meet url after rescheduling Opt in events", async ({
     page,
     users,
     browser,

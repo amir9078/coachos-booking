@@ -37,7 +37,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
 
   if (isDryRun || !isCalVideoLocation) return;
 
-  // Add task for automatic no show in cal video
+  // Add task for automatic no show in CoachOS Meet
   const noShowPromises: Promise<any>[] = [];
 
   const subscribersHostsNoShowStarted = await getWebhooks({

@@ -60,7 +60,7 @@ describe("handleNewBooking", () => {
   describe("Reschedule", () => {
     describe("User event-type", () => {
       test(
-        `should rechedule an existing booking successfully with Cal Video(Daily Video)
+        `should rechedule an existing booking successfully with CoachOS Meet(Daily Video)
           1. Should cancel the existing booking
           2. Should create a new booking in the database
           3. Should send emails to the booker as well as organizer
@@ -2144,7 +2144,7 @@ describe("handleNewBooking", () => {
       });
 
       test(
-        `should reschedule a booking successfully with a different location option (change to Cal Video)
+        `should reschedule a booking successfully with a different location option (change to CoachOS Meet)
           1. Should cancel the existing booking
           2. Should create a new booking with the new location
           3. Should send appropriate notifications
@@ -2224,12 +2224,12 @@ describe("handleNewBooking", () => {
             })
           );
 
-          // Mock video meeting creation for Cal Video
+          // Mock video meeting creation for CoachOS Meet
           const videoMock = mockSuccessfulVideoMeetingCreation({
             metadataLookupKey: "dailyvideo",
           });
 
-          // Request data for rescheduling - with Cal Video as the new location
+          // Request data for rescheduling - with CoachOS Meet as the new location
           const mockBookingData = getMockRequestDataForBooking({
             data: {
               eventTypeId: 1,

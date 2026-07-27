@@ -115,7 +115,7 @@ export class BookingLocationIntegrationService_2024_08_13 {
     );
 
     if (!hasGoogleCalendar) {
-      this.logger.log(`Google Meet requested but no Google Calendar found. Falling back to Cal Video.`);
+      this.logger.log(`Google Meet requested but no Google Calendar found. Falling back to CoachOS Meet.`);
       return this.handleCalVideoLocation({
         ...ctx,
         integrationSlug: "cal-video",
@@ -152,11 +152,11 @@ export class BookingLocationIntegrationService_2024_08_13 {
 
     if (!meetingResult.createdEvent) {
       this.logger.error(
-        `Failed to create Cal Video meeting`,
+        `Failed to create CoachOS Meet meeting`,
         JSON.stringify({ success: meetingResult.success, type: meetingResult.type })
       );
       throw new BadRequestException(
-        `Failed to create Cal Video meeting. Please ensure DAILY_API_KEY is set and the daily-video app is enabled.`
+        `Failed to create CoachOS Meet meeting. Please ensure DAILY_API_KEY is set and the daily-video app is enabled.`
       );
     }
 

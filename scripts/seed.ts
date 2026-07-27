@@ -627,7 +627,7 @@ async function seedPerHostLocationsInAcmeOrg() {
 
   console.log(
     `Seeded per-host locations in Acme Org for event "${eventType.slug}" (id=${eventType.id}): ` +
-      `owner1->Cal Video, member0->Link, member2->Phone`
+      `owner1->CoachOS Meet, member0->Link, member2->Phone`
   );
 }
 

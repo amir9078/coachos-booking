@@ -477,7 +477,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         await credentialsRepositoryFixture.delete(googleCredential.id);
       });
 
-      it("should fall back to Cal Video when google-meet is requested but no Google Calendar credential exists", async () => {
+      it("should fall back to CoachOS Meet when google-meet is requested but no Google Calendar credential exists", async () => {
         const bookingWithoutGoogleCal = await bookingsRepositoryFixture.create({
           uid: `no-gcal-booking-${randomString(10)}`,
           title: "no google cal booking",
@@ -514,7 +514,7 @@ describe("Bookings Endpoints 2024-08-13 update booking location", () => {
         }
         const updatedBooking = updatedBookingResponseBody.data as BookingOutput_2024_08_13;
         expect(updatedBooking).toHaveProperty("id");
-        // No Google Calendar credential → fell back to Cal Video, not Google Meet
+        // No Google Calendar credential → fell back to CoachOS Meet, not Google Meet
         expect(updatedBooking.location).not.toContain("meet.google.com");
         expect(["integrations:daily", "https://mock-daily.example.com/mock-meeting"]).toContain(
           updatedBooking.location

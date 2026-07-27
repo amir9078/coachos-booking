@@ -445,7 +445,7 @@ export function BookingActionsDropdown({
           paymentCurrency={booking.payment[0].currency}
         />
       )}
-      {/* Cal video recording dialogs removed (enterprise) */}
+      {/* CoachOS Meet recording dialogs removed (enterprise) */}
       {isNoShowDialogOpen && (
         <NoShowAttendeesDialog
           bookingUid={booking.uid}

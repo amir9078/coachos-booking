@@ -126,7 +126,7 @@ POST /v2/event-types
 
 ## Location Types
 
-### Cal Video (Built-in)
+### CoachOS Meet (Built-in)
 
 ```json
 {

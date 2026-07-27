@@ -446,7 +446,7 @@ class BaseEventTypeOutput_2024_06_14 {
   @ValidateNested()
   @Type(() => CalVideoSettings)
   @ApiPropertyOptional({
-    description: "Cal video settings for the event type",
+    description: "CoachOS Meet settings for the event type",
     type: CalVideoSettings,
   })
   calVideoSettings?: CalVideoSettings | null;
