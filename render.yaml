@@ -8,6 +8,8 @@ services:
     dockerContext: ./
     healthCheckPath: /
     envVars:
+      - key: PORT
+        value: "3000"
       - key: DATABASE_URL
         sync: false
       - key: DATABASE_DIRECT_URL
