@@ -1,16 +1,16 @@
 vi.mock("@coachos/lib/next-seo.config", () => ({
   default: {
     headSeo: {
-      siteName: "Cal.diy",
+      siteName: "CoachOS Booking",
     },
     defaultNextSeo: {
-      title: "Cal.diy",
+      title: "CoachOS Booking",
       description: "Scheduling infrastructure for everyone.",
     },
   },
   seoConfig: {
     headSeo: {
-      siteName: "Cal.diy",
+      siteName: "CoachOS Booking",
     },
   },
   buildSeoMeta: vi.fn().mockReturnValue({}),

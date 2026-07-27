@@ -11,7 +11,7 @@ tags: prisma, database, migrations, schema
 
 ## After Schema Changes
 
-After making changes to the Prisma schema in Cal.diy and creating migrations, you need to run:
+After making changes to the Prisma schema in CoachOS Booking and creating migrations, you need to run:
 
 ```bash
 yarn prisma generate

@@ -6,7 +6,7 @@
   "license": "SEE LICENSE IN LICENSE",
   "repository": {
     "type": "git",
-    "url": "https://github.com/calcom/cal.diy",
+    "url": "https://github.com/calcom/CoachOS Booking",
     "directory": "packages/embeds/embed-react"
   },
   "scripts": {

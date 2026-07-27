@@ -2,7 +2,7 @@
   "name": "@coachos/features",
   "sideEffects": false,
   "private": true,
-  "description": "Cal.diy's main collocation of features",
+  "description": "CoachOS Booking's main collocation of features",
   "authors": "amir9078.github.io, Inc.",
   "version": "1.0.0",
   "main": "index.ts",

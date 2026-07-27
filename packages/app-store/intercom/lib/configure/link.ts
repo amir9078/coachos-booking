@@ -24,13 +24,13 @@ export async function handleLinkStep(req: NextApiRequest): Promise<NewCanvas | s
   const input: InputComponent = {
     type: "input",
     id: "submit_booking_url",
-    label: "Enter your Cal.diy link",
+    label: "Enter your CoachOS Booking link",
     placeholder: "https://amir9078.github.io/valentinchmara/30min",
     save_state: "unsaved",
     action: {
       type: "submit",
     },
-    aria_label: "Enter your Cal.diy link",
+    aria_label: "Enter your CoachOS Booking link",
   };
 
   const defaultCanvasData: NewCanvas = {
@@ -117,7 +117,7 @@ export async function handleLinkStep(req: NextApiRequest): Promise<NewCanvas | s
 
   const text: TextComponent = {
     type: "text",
-    text: "Or choose another Cal.diy link:",
+    text: "Or choose another CoachOS Booking link:",
     style: "muted",
     align: "left",
   };

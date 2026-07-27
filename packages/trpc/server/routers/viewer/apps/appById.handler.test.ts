@@ -74,7 +74,7 @@ describe("appByIdHandler", () => {
       slug: "daily-video",
       categories: ["conferencing"],
       logo: "icon.svg",
-      publisher: "Cal.diy",
+      publisher: "CoachOS Booking",
       url: "https://daily.co",
       email: "shaikhamirhussain2000@gmail.com",
       isGlobal: true,

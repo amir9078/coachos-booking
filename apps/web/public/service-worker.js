@@ -13,7 +13,7 @@ self.addEventListener("push", async (event) => {
     return;
   }
 
-  const title = notificationData.title || "New Cal.diy Notification";
+  const title = notificationData.title || "New CoachOS Booking Notification";
   const image = notificationData.icon || "https://amir9078.github.io/api/logo?type=icon";
 
    event.waitUntil(

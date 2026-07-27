@@ -32,4 +32,4 @@ import { UserService } from "./services/UserService";
 import { Button } from "@coachos/ui/components/button";
 ```
 
-Reference: [Cal.diy Engineering Standards](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Standards](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

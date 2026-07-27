@@ -11,7 +11,7 @@ export const metadata = {
   categories: ["calendar"],
   category: "calendar",
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   slug: "apple-calendar",
   url: "https://amir9078.github.io/",
   email: "shaikhamirhussain2000@gmail.com",

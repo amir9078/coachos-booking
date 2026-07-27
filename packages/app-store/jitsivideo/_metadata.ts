@@ -9,7 +9,7 @@ export const metadata = {
   variant: "conferencing",
   categories: ["conferencing"],
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   url: "https://jitsi.org/",
   slug: "jitsi",
   title: "Jitsi Meet",

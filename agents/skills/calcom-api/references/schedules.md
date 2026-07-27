@@ -1,6 +1,6 @@
 # Schedules API Reference
 
-Detailed documentation for schedule management endpoints in the Cal.diy API v2.
+Detailed documentation for schedule management endpoints in the CoachOS Booking API v2.
 
 ## Endpoints Overview
 

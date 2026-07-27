@@ -39,4 +39,4 @@ Domain boundaries are enforced automatically through linting. If `packages/featu
 - Easier testing: Test the entire feature as a unit with all pieces in one place
 - Clearer dependencies: When you see `import { getAvailability } from '@coachos/features/availability'`, you know exactly which feature you're depending on
 
-Reference: [Cal.diy Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

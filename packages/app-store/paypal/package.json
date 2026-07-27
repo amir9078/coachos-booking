@@ -10,5 +10,5 @@
   "devDependencies": {
     "@coachos/types": "workspace:*"
   },
-  "description": "Paypal payment app by Cal.diy"
+  "description": "Paypal payment app by CoachOS Booking"
 }

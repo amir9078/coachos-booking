@@ -1,7 +1,7 @@
 {
   "name": "@coachos/api-v2",
   "version": "0.0.1",
-  "description": "Platform API for Cal.diy",
+  "description": "Platform API for CoachOS Booking",
   "author": "amir9078.github.io, Inc.",
   "license": "UNLICENSED",
   "private": true,

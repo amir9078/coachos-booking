@@ -93,4 +93,4 @@ import { BookingStatus } from "@coachos/prisma/client";
 
 Yes, this requires more code. Yes, it's worth it. Explicit boundaries prevent the architectural erosion that creates long-term maintenance nightmares.
 
-Reference: [Cal.diy Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

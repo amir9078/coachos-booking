@@ -71,7 +71,7 @@ export { nextJsOrgRewriteConfig };
 function getRegExpMatchingAllReservedRoutes(suffix: string): string {
   // Following routes don't exist but they work by doing rewrite. Thus they need to be excluded from matching the orgRewrite patterns
   // Make sure to keep it upto date as more nonExistingRouteRewrites are added.
-  // "app" is reserved for the Cal.diy Companion landing page served by Framer at amir9078.github.io/app.
+  // "app" is reserved for the CoachOS Booking Companion landing page served by Framer at amir9078.github.io/app.
   // The browser extension redirects users to amir9078.github.io/app when clicked on restricted pages (like chrome://newtab).
   // Without this reservation, /app would be treated as a username lookup and show "username available" error.
   const otherNonExistingRoutePrefixes = ["forms", "router", "success", "cancel", "app"];

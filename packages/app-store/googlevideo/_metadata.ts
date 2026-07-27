@@ -14,7 +14,7 @@ export const metadata = {
   title: "Google Meet",
   variant: "conferencing",
   logo: "logo.webp",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   url: "https://amir9078.github.io/",
   isGlobal: false,
   email: "shaikhamirhussain2000@gmail.com",

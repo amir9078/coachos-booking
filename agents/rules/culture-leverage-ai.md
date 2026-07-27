@@ -72,4 +72,4 @@ describe("calculateOverlap", () => {
 - Checks are fast and useful
 - AI helps ensure comprehensive coverage
 
-Reference: [Cal.diy Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

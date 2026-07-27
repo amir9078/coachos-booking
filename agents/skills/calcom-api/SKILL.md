@@ -1,9 +1,9 @@
 ---
 name: coachos-api
-description: Interact with the Cal.diy API v2 to manage scheduling, bookings, event types, availability, and calendars. Use this skill when building integrations that need to create or manage bookings, check availability, configure event types, or sync calendars with Cal.diy's scheduling infrastructure.
+description: Interact with the CoachOS Booking API v2 to manage scheduling, bookings, event types, availability, and calendars. Use this skill when building integrations that need to create or manage bookings, check availability, configure event types, or sync calendars with CoachOS Booking's scheduling infrastructure.
 env:
   coachos_API_KEY:
-    description: "Cal.diy API key (prefixed with coachos_live_ or coachos_test_). Required for all API requests."
+    description: "CoachOS Booking API key (prefixed with coachos_live_ or coachos_test_). Required for all API requests."
     required: true
   coachos_CLIENT_ID:
     description: "OAuth client ID for platform integrations managing users on behalf of others. Sent as x-coachos-client-id header."
@@ -16,9 +16,9 @@ env:
     required: false
 ---
 
-# Cal.diy API v2
+# CoachOS Booking API v2
 
-This skill provides guidance for AI agents to interact with the Cal.diy API v2, enabling scheduling automation, booking management, and calendar integrations.
+This skill provides guidance for AI agents to interact with the CoachOS Booking API v2, enabling scheduling automation, booking management, and calendar integrations.
 
 ## Base URL
 
@@ -31,7 +31,7 @@ https://api.amir9078.github.io/v2
 
 | Environment Variable | Required | Description |
 |---------------------|----------|-------------|
-| `coachos_API_KEY` | Yes | Cal.diy API key (prefixed with `coachos_live_` or `coachos_test_`). Used as Bearer token for all API requests. Generate from Settings > Developer > API Keys. |
+| `coachos_API_KEY` | Yes | CoachOS Booking API key (prefixed with `coachos_live_` or `coachos_test_`). Used as Bearer token for all API requests. Generate from Settings > Developer > API Keys. |
 | `coachos_CLIENT_ID` | No | OAuth client ID for platform integrations that manage users on behalf of others. Sent as `x-coachos-client-id` header. |
 | `coachos_SECRET_KEY` | No | OAuth client secret for platform integrations. Sent as `x-coachos-secret-key` header. |
 | `coachos_WEBHOOK_SECRET` | No | Secret for verifying webhook payload signatures via the `x-coachos-Signature-256` header. |

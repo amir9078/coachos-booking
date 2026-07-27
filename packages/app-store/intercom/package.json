@@ -10,5 +10,5 @@
   "devDependencies": {
     "@coachos/types": "workspace:*"
   },
-  "description": "Enhance your scheduling and appointment management experience with the Intercom Integration for Cal.diy."
+  "description": "Enhance your scheduling and appointment management experience with the Intercom Integration for CoachOS Booking."
 }

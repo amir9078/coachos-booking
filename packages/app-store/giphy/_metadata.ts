@@ -7,7 +7,7 @@ export const metadata = {
   installed: true,
   categories: ["other"],
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   slug: "giphy",
   title: "Giphy",
   type: "giphy_other",

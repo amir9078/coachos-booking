@@ -1,6 +1,6 @@
 # Webhooks API Reference
 
-Detailed documentation for webhook management endpoints in the Cal.diy API v2.
+Detailed documentation for webhook management endpoints in the CoachOS Booking API v2.
 
 ## Endpoints Overview
 

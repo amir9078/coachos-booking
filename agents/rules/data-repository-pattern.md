@@ -62,4 +62,4 @@ If we ever switch from Prisma to Drizzle or another ORM, the only changes requir
 - DI container wiring for new repositories
 - Nothing else in the codebase should care or change
 
-Reference: [Cal.diy Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

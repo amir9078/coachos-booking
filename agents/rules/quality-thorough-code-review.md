@@ -37,4 +37,4 @@ Every nitpick matters. Every pattern violation matters. Address them before merg
 - If someone wants to commit untested code, push back
 - If someone suggests copying and pasting instead of creating a proper abstraction, call it out respectfully
 
-Reference: [Cal.diy Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Blog](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

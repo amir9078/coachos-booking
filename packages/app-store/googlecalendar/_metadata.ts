@@ -13,7 +13,7 @@ export const metadata = {
   category: "calendar",
   categories: ["calendar"],
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   slug: "google-calendar",
   url: "https://amir9078.github.io/",
   email: "shaikhamirhussain2000@gmail.com",

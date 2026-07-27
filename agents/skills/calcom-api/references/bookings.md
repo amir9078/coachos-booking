@@ -1,6 +1,6 @@
 # Bookings API Reference
 
-Detailed documentation for booking-related endpoints in the Cal.diy API v2.
+Detailed documentation for booking-related endpoints in the CoachOS Booking API v2.
 
 ## Endpoints Overview
 

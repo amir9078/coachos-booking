@@ -10,7 +10,7 @@ export const metadata = {
   category: "calendar",
   categories: ["calendar"],
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   slug: "office365-calendar",
   dirName: "office365calendar",
   url: "https://amir9078.github.io/",

@@ -1,6 +1,6 @@
-# Cal.diy Embed Lifecycle Events
+# CoachOS Booking Embed Lifecycle Events
 
-This document details the lifecycle events and states of Cal.diy embeds, showing the interaction flow between the parent page and the iframe.
+This document details the lifecycle events and states of CoachOS Booking embeds, showing the interaction flow between the parent page and the iframe.
 
 ## Embed Handshake (Core Communication)
 
@@ -19,7 +19,7 @@ See [embed-message-protocol.mermaid](./embed-message-protocol.mermaid) for the m
 
 ### Message Format
 
-All messages use the `originator: "CAL"` identifier to distinguish Cal.diy embed messages:
+All messages use the `originator: "CAL"` identifier to distinguish CoachOS Booking embed messages:
 
 ```javascript
 // Parent → Iframe (Commands)

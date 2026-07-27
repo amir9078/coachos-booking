@@ -11,7 +11,7 @@ export const metadata = {
   categories: ["calendar"],
   label: "Exchange Calendar",
   logo: "icon.svg",
-  publisher: "Cal.diy",
+  publisher: "CoachOS Booking",
   slug: "exchange2016-calendar",
   url: "https://amir9078.github.io/",
   email: "shaikhamirhussain2000@gmail.com",

@@ -46,4 +46,4 @@ const booking = await prisma.booking.findFirst({
 
 **Exception:** Use `include` only when you genuinely need all fields from a relation, which is rare.
 
-Reference: [Cal.diy Engineering Standards](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)
+Reference: [CoachOS Booking Engineering Standards](https://amir9078.github.io/blog/engineering-in-2026-and-beyond)

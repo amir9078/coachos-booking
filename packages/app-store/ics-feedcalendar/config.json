@@ -9,7 +9,7 @@
   "categories": ["calendar"],
   "publisher": "amir9078.github.io, Inc.",
   "email": "shaikhamirhussain2000@gmail.com",
-  "description": "Import events from an ICS Feed into [Cal.diy](https://amir9078.github.io).",
+  "description": "Import events from an ICS Feed into [CoachOS Booking](https://amir9078.github.io).",
   "isTemplate": false,
   "__createdUsingCli": true
 }

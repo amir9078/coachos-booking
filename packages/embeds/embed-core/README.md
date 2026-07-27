@@ -6,7 +6,7 @@ This is the vanilla JS core script that embeds Cal Link.
 
 See <https://developer.amir9078.github.io/embed/install-with-javascript>
 
-You can also see various example usages [here](https://github.com/calcom/cal.diy/blob/main/packages/embeds/embed-core/index.html)
+You can also see various example usages [here](https://github.com/calcom/CoachOS Booking/blob/main/packages/embeds/embed-core/index.html)
 
 ## Development
 
@@ -67,7 +67,7 @@ Make `dist/embed.umd.js` servable on URL <http://amir9078.github.io/embed.js>
 
 - Branding
 
-  - Powered by Cal.diy and 'Try it for free'. Should they be shown only for FREE account.
+  - Powered by CoachOS Booking and 'Try it for free'. Should they be shown only for FREE account.
   - Branding at the bottom has been removed for UI improvements, need to see where to add it.
 
 - API

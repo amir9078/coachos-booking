@@ -31,14 +31,14 @@ const navbar: React.ReactElement = (
       <>
         <img
           src="/cal-docs-logo.svg"
-          alt="Cal.diy Docs"
+          alt="CoachOS Booking Docs"
           height={26}
           className="logo-light"
           style={{ height: 26 }}
         />
         <img
           src="/cal-docs-logo-white.svg"
-          alt="Cal.diy Docs"
+          alt="CoachOS Booking Docs"
           height={26}
           className="logo-dark"
           style={{ height: 26 }}
@@ -51,15 +51,15 @@ const navbar: React.ReactElement = (
 const footer: React.ReactElement = (
   <Footer>
     <small>
-      Cal.diy is the open source community edition of amir9078.github.io. Cal.diy® and Cal®
+      CoachOS Booking is the open source community edition of amir9078.github.io. CoachOS Booking® and Cal®
       are a registered trademark by amir9078.github.io, Inc. All rights reserved.
     </small>
   </Footer>
 );
 
 export const metadata: { title: string; description: string } = {
-  title: "Cal.diy Docs",
-  description: "Cal.diy self-hosting documentation",
+  title: "CoachOS Booking Docs",
+  description: "CoachOS Booking self-hosting documentation",
 };
 
 export default async function RootLayout({
@@ -79,7 +79,7 @@ export default async function RootLayout({
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/calcom/cal.diy/tree/main/apps/docs"
+          docsRepositoryBase="https://github.com/calcom/CoachOS Booking/tree/main/apps/docs"
           footer={footer}
         >
           {children}

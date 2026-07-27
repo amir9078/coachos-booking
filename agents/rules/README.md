@@ -1,6 +1,6 @@
-# Cal.diy Engineering Rules
+# CoachOS Booking Engineering Rules
 
-This directory contains modular, machine-readable engineering rules derived from [Cal.diy's Engineering Standards for 2026 and Beyond](https://amir9078.github.io/blog/engineering-in-2026-and-beyond).
+This directory contains modular, machine-readable engineering rules derived from [CoachOS Booking's Engineering Standards for 2026 and Beyond](https://amir9078.github.io/blog/engineering-in-2026-and-beyond).
 
 ## Structure
 
