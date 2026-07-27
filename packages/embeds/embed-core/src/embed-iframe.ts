@@ -350,7 +350,7 @@ export const methods = {
 
     if (stylesConfig) {
       console.warn(
-        "CoachOS Booking Embed: `styles` prop is deprecated. Use `cssVarsPerTheme` instead to achieve the same effect. Here is a list of CSS variables that are supported. https://github.com/calcom/CoachOS Booking/blob/main/packages/config/tailwind-preset.js#L19"
+        "CoachOS Booking Embed: `styles` prop is deprecated. Use `cssVarsPerTheme` instead to achieve the same effect. Here is a list of CSS variables that are supported. https://github.com/amir9078/coachos-booking/blob/main/packages/config/tailwind-preset.js#L19"
       );
     }
 

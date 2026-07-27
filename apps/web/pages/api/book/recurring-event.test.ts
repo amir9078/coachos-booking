@@ -202,7 +202,7 @@ describe("handleNewBooking", () => {
               organizer,
               location: "integrations:daily",
               subscriberUrl: "http://my-webhook.example.com",
-              //FIXME: All recurring bookings seem to have the same URL. https://github.com/calcom/CoachOS Booking/issues/11955
+              //FIXME: All recurring bookings seem to have the same URL. https://github.com/amir9078/coachos-booking/issues/11955
               videoCallUrl: `${WEBAPP_URL}/video/${createdBookings[0].uid}`,
             });
           }

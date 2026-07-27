@@ -30,7 +30,7 @@ export default function Credits() {
           </Link>
           {vercelCommitHash && IS_CALCOM ? (
             <Link
-              href={`https://github.com/calcom/CoachOS Booking/commit/${vercelCommitHash}`}
+              href={`https://github.com/amir9078/coachos-booking/commit/${vercelCommitHash}`}
               target="_blank"
               className="hover:underline">
               {commitHash}

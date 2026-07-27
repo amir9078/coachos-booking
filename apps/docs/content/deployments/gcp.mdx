@@ -4,7 +4,7 @@ Deploying CoachOS Booking on Google Cloud Platform (GCP). In this guide, we will
 
 ## One Click Deployment
 
-[![Run on Google Cloud](https://storage.googleapis.com/gweb-cloudblog-publish/images/run_on_google_cloud.max-300x300.png)](https://deploy.cloud.run/?git_repo=https://github.com/calcom/CoachOS Booking)
+[![Run on Google Cloud](https://storage.googleapis.com/gweb-cloudblog-publish/images/run_on_google_cloud.max-300x300.png)](https://deploy.cloud.run/?git_repo=https://github.com/amir9078/coachos-booking)
 
 ## Manual Deployment
 
@@ -82,7 +82,7 @@ Now that Docker is installed and running, you can deploy CoachOS Booking on your
 Use the following command to pull the CoachOS Booking Docker image from Docker Hub:
 
 ```bash
-docker pull calcom/CoachOS Booking
+docker pull calcom/cal.com
 ```
 
 #### Run the Docker Container
@@ -90,7 +90,7 @@ docker pull calcom/CoachOS Booking
 Run the Docker container using the following command:
 
 ```bash
-docker run -d -p 80:80 calcom/CoachOS Booking
+docker run -d -p 80:80 calcom/cal.com
 ```
 
 This command maps port 80 on your local machine to port 80 inside the container, so you can access CoachOS Booking from outside the container.

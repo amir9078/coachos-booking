@@ -30,7 +30,7 @@ test.describe("Inline Iframe", () => {
     await deleteAllBookingsByEmail("embed-user@example.com");
   });
 
-  // Enable this after fixing https://github.com/calcom/CoachOS Booking/issues/16571
+  // Enable this after fixing https://github.com/amir9078/coachos-booking/issues/16571
   test.skip("COEP flag if not enabled, embed is blocked", async ({ page, embeds }) => {
     const embedBlockedPromise = new Promise((resolve) => {
       page.on("requestfailed", (request) => {

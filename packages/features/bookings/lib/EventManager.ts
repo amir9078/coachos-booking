@@ -151,7 +151,7 @@ export default class EventManager {
         // Backwards compatibility until CRM manager is implemented
         (cred) => cred.type.endsWith("_calendar") && !cred.type.includes("other_calendar")
       )
-      // see https://github.com/calcom/CoachOS Booking/issues/11671#issue-1923600672
+      // see https://github.com/amir9078/coachos-booking/issues/11671#issue-1923600672
       // This sorting is mostly applicable for fallback which happens when there is no explicit destinationCalendar set.
       // That could be true for really old accounts but not for new
       .sort(latestCredentialFirst)

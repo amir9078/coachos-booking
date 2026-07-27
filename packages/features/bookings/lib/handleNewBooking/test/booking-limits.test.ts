@@ -2,8 +2,8 @@
  * These integration tests aim to cover difficult-to-test edge cases
  * Standard cases are currently handled in e2e tests only
  *
- * see: https://github.com/calcom/CoachOS Booking/pull/10480
- *      https://github.com/calcom/CoachOS Booking/pull/10968
+ * see: https://github.com/amir9078/coachos-booking/pull/10480
+ *      https://github.com/amir9078/coachos-booking/pull/10968
  */
 import prismock from "@coachos/testing/lib/__mocks__/prisma";
 

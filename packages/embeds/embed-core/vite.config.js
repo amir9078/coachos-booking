@@ -24,7 +24,7 @@ module.exports = defineConfig((configEnv) => {
     server: {
       // Helps us to test that embed works with these headers
       headers: {
-        // TODO: https://github.com/calcom/CoachOS Booking/issues/16571
+        // TODO: https://github.com/amir9078/coachos-booking/issues/16571
         // "Cross-Origin-Embedder-Policy": "require-corp",
       },
     },

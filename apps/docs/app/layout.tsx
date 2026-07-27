@@ -79,7 +79,7 @@ export default async function RootLayout({
         <Layout
           navbar={navbar}
           pageMap={await getPageMap()}
-          docsRepositoryBase="https://github.com/calcom/CoachOS Booking/tree/main/apps/docs"
+          docsRepositoryBase="https://github.com/amir9078/coachos-booking/tree/main/apps/docs"
           footer={footer}
         >
           {children}

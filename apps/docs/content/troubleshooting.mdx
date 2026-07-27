@@ -29,7 +29,7 @@ NEXT_PUBLIC_STRIPE_PUBLIC_KEY=pk_test_...
 
 > **Note:** Replace these with your actual Stripe API keys from the [Stripe Dashboard](https://dashboard.stripe.com/apikeys). If you don't need payment features, you can safely leave these empty — the app will function without them, but Stripe-related features will be disabled.
 
-Related issue: [#25993](https://github.com/calcom/CoachOS Booking/issues/25993)
+Related issue: [#25993](https://github.com/amir9078/coachos-booking/issues/25993)
 
 ---
 
@@ -55,7 +55,7 @@ NEXTAUTH_URL=https://cal.yourdomain.com
 - For Docker deployments, these must be set **before** building the image, as `NEXT_PUBLIC_WEBAPP_URL` is a build-time variable (it is inlined by Next.js during the build). Rebuild the image after changing it.
 - For Vercel deployments, you do **not** need to set `NEXTAUTH_URL` — Vercel automatically infers it from the deployment URL via the `VERCEL_URL` environment variable.
 
-Related issue: [#21921](https://github.com/calcom/CoachOS Booking/issues/21921)
+Related issue: [#21921](https://github.com/amir9078/coachos-booking/issues/21921)
 
 ---
 
@@ -213,6 +213,6 @@ yarn workspace @coachos/prisma db-deploy
 
 If your issue is not listed here:
 
-1. Search the [CoachOS Booking GitHub Issues](https://github.com/calcom/CoachOS Booking/issues) — many common problems have documented solutions in issue threads.
+1. Search the [CoachOS Booking GitHub Issues](https://github.com/amir9078/coachos-booking/issues) — many common problems have documented solutions in issue threads.
 2. Check the [amir9078.github.io Community](https://community.amir9078.github.io) forum.
 3. Review the [Docker configuration](./docker) and [Installation guide](./installation) for any steps you may have missed.

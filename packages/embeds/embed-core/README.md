@@ -6,7 +6,7 @@ This is the vanilla JS core script that embeds Cal Link.
 
 See <https://developer.amir9078.github.io/embed/install-with-javascript>
 
-You can also see various example usages [here](https://github.com/calcom/CoachOS Booking/blob/main/packages/embeds/embed-core/index.html)
+You can also see various example usages [here](https://github.com/amir9078/coachos-booking/blob/main/packages/embeds/embed-core/index.html)
 
 ## Development
 

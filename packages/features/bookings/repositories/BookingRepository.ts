@@ -883,7 +883,7 @@ export class BookingRepository implements IBookingRepository {
             phoneNumber: true,
           },
           // Ascending order ensures that the first attendee in the list is the booker and others are guests
-          // See why it is important https://github.com/calcom/CoachOS Booking/pull/20935
+          // See why it is important https://github.com/amir9078/coachos-booking/pull/20935
           // TODO: Ideally we should return `booker` property directly from the booking
           orderBy: {
             id: "asc",
