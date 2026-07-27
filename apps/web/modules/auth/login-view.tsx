@@ -1,7 +1,7 @@
 "use client";
 
 import { ErrorCode } from "@coachos/features/auth/lib/ErrorCode";
-import { APP_NAME, HOSTED_coachos_FEATURES, WEBAPP_URL, WEBSITE_URL } from "@coachos/lib/constants";
+import { APP_NAME, HOSTED_COACHOS_FEATURES, WEBAPP_URL, WEBSITE_URL } from "@coachos/lib/constants";
 import { emailRegex } from "@coachos/lib/emailSchema";
 import { getSafeRedirectUrl } from "@coachos/lib/getSafeRedirectUrl";
 import { useCompatSearchParams } from "@coachos/lib/hooks/useCompatSearchParams";

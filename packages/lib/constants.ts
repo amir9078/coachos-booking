@@ -79,7 +79,7 @@ export const MAX_EVENT_DURATION_MINUTES = 1440;
 /** Minimum duration allowed for an event in minutes */
 export const MIN_EVENT_DURATION_MINUTES = 1;
 
-export const HOSTED_coachos_FEATURES = process.env.NEXT_PUBLIC_HOSTED_coachos_FEATURES || !IS_SELF_HOSTED;
+export const HOSTED_COACHOS_FEATURES = process.env.NEXT_PUBLIC_HOSTED_COACHOS_FEATURES || !IS_SELF_HOSTED;
 
 export const PUBLIC_QUERY_RESERVATION_INTERVAL_SECONDS =
   parseInt(process.env.NEXT_PUBLIC_QUERY_RESERVATION_INTERVAL_SECONDS ?? "", 10) || 30;
@@ -127,10 +127,10 @@ export const IS_STRIPE_ENABLED = !!(
   process.env.STRIPE_PRIVATE_KEY
 );
 /** This has correct value only server side. When you want to use client side, go for IS_TEAM_BILLING_ENABLED_CLIENT. I think we should use the _CLIENT one only everywhere so that it works reliably everywhere on client as well as server  */
-export const IS_TEAM_BILLING_ENABLED = !!(IS_STRIPE_ENABLED && HOSTED_coachos_FEATURES);
+export const IS_TEAM_BILLING_ENABLED = !!(IS_STRIPE_ENABLED && HOSTED_COACHOS_FEATURES);
 
 export const IS_TEAM_BILLING_ENABLED_CLIENT =
-  !!process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY && HOSTED_coachos_FEATURES;
+  !!process.env.NEXT_PUBLIC_STRIPE_PUBLIC_KEY && HOSTED_COACHOS_FEATURES;
 
 export const FULL_NAME_LENGTH_MAX_LIMIT = 50;
 export const API_NAME_LENGTH_MAX_LIMIT = 80;
