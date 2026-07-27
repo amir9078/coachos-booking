@@ -3,7 +3,7 @@
 This document maps existing role-based permission checks to the new PBAC (Permission-Based Access Control) system's permission strings in the format `resource.action`.
 
 ## Permissions by Resource
-
+ 
 ### Team Permissions
 
 | Permission String | Description | File Path | Line |
