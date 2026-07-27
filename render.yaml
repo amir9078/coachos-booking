@@ -8,7 +8,7 @@ services:
     dockerContext: ./
     healthCheckPath: /
     envVars:
-      - key: PORT
+      - key: PORT_UNUSED
         value: "3000"
       - key: DATABASE_URL
         sync: false
