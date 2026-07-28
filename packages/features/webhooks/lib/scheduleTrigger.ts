@@ -1,6 +1,6 @@
 import { v4 } from "uuid";
 
-import { DailyLocationType, getHumanReadableLocationValue } from "@coachos/app-store/locations";
+import { CoachosMeetLocationType, getHumanReadableLocationValue } from "@coachos/app-store/locations";
 import { selectOOOEntries } from "@coachos/app-store/zapier/api/subscriptions/listOOOEntries";
 import dayjs from "@coachos/dayjs";
 import { getCalEventResponses } from "@coachos/features/bookings/lib/getCalEventResponses";
@@ -641,8 +641,8 @@ export async function scheduleNoShowTaskForBooking(
 ) {
   if (!webhook.time || !webhook.timeUnit || !booking.startTime || !booking.location) return;
 
-  const isCalVideoLocation = booking.location === DailyLocationType || booking.location?.trim() === "";
-  if (!isCalVideoLocation) return;
+  const isCoachosMeetLocation = booking.location === CoachosMeetLocationType || booking.location?.trim() === "";
+  if (!isCoachosMeetLocation) return;
 
   if (
     triggerEvent !== WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW &&

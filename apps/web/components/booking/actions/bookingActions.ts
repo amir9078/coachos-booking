@@ -19,7 +19,7 @@ export interface BookingActionContext {
   isTabUnconfirmed: boolean;
   isDisabledCancelling: boolean;
   isDisabledRescheduling: boolean;
-  isCalVideoLocation: boolean;
+  isCoachosMeetLocation: boolean;
   showPendingPayment: boolean;
   isAttendee: boolean;
   cardCharged: boolean;
@@ -76,20 +76,20 @@ export function getCancelEventAction(context: BookingActionContext): ActionType 
 }
 
 export function getVideoOptionsActions(context: BookingActionContext): ActionType[] {
-  const { booking, isBookingInPast, isConfirmed, isCalVideoLocation, t } = context;
+  const { booking, isBookingInPast, isConfirmed, isCoachosMeetLocation, t } = context;
 
   return [
     {
       id: "view_recordings",
       label: t("view_recordings"),
       icon: "video",
-      disabled: !(isBookingInPast && isConfirmed && isCalVideoLocation && booking.isRecorded),
+      disabled: !(isBookingInPast && isConfirmed && isCoachosMeetLocation && booking.isRecorded),
     },
     {
       id: "meeting_session_details",
       label: t("view_session_details"),
       icon: "info",
-      disabled: !(isBookingInPast && isConfirmed && isCalVideoLocation),
+      disabled: !(isBookingInPast && isConfirmed && isCoachosMeetLocation),
     },
   ];
 }
@@ -263,9 +263,9 @@ export function isActionDisabled(actionId: string, context: BookingActionContext
     case "cancel":
       return isDisabledCancelling || isBookingInPast || isCancelled || isRejected;
     case "view_recordings":
-      return !(isBookingInPast && booking.status === BookingStatus.ACCEPTED && context.isCalVideoLocation);
+      return !(isBookingInPast && booking.status === BookingStatus.ACCEPTED && context.isCoachosMeetLocation);
     case "meeting_session_details":
-      return !(isBookingInPast && booking.status === BookingStatus.ACCEPTED && context.isCalVideoLocation);
+      return !(isBookingInPast && booking.status === BookingStatus.ACCEPTED && context.isCoachosMeetLocation);
     case "charge_card":
       return context.cardCharged;
     case "reassign":

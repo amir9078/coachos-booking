@@ -21,10 +21,10 @@ export class BookingReferenceRepository implements IBookingReferenceRepository {
     this.prismaClient = deps.prismaClient;
   }
 
-  static async findDailyVideoReferenceByRoomName({ roomName }: { roomName: string }) {
+  static async findCoachosMeetReferenceByRoomName({ roomName }: { roomName: string }) {
     return prisma.bookingReference.findFirst({
       where: {
-        type: "daily_video",
+        type: "coachos_meet_video",
         uid: roomName,
         meetingId: roomName,
         bookingId: { not: null },

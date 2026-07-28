@@ -56,7 +56,7 @@ import { ReassignBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13
 import { RescheduleBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13/outputs/reschedule-booking.output";
 import { BookingReferencesService_2024_08_13 } from "@/platform/bookings/2024-08-13/services/booking-references.service";
 import { BookingsService_2024_08_13 } from "@/platform/bookings/2024-08-13/services/bookings.service";
-import { CalVideoService } from "@/platform/bookings/2024-08-13/services/cal-video.service";
+import { CoachosMeetService } from "@/platform/bookings/2024-08-13/services/coachos-meet.service";
 import { VERSION_2024_08_13, VERSION_2024_08_13_VALUE } from "@/lib/api-versions";
 import {
   API_KEY_OR_ACCESS_TOKEN_HEADER,
@@ -99,7 +99,7 @@ export class BookingsController_2024_08_13 {
     private readonly bookingsService: BookingsService_2024_08_13,
     private readonly usersService: UsersService,
     private readonly bookingReferencesService: BookingReferencesService_2024_08_13,
-    private readonly calVideoService: CalVideoService
+    private readonly coachosMeetService: CoachosMeetService
   ) {}
 
   @Post("/")
@@ -233,7 +233,7 @@ export class BookingsController_2024_08_13 {
     `,
   })
   async getBookingRecordings(@Param("bookingUid") bookingUid: string): Promise<GetBookingRecordingsOutput> {
-    const recordings = await this.calVideoService.getRecordings(bookingUid);
+    const recordings = await this.coachosMeetService.getRecordings(bookingUid);
 
     return {
       status: SUCCESS_STATUS,
@@ -258,7 +258,7 @@ export class BookingsController_2024_08_13 {
     `,
   })
   async getBookingTranscripts(@Param("bookingUid") bookingUid: string): Promise<GetBookingTranscriptsOutput> {
-    const transcripts = await this.calVideoService.getTranscripts(bookingUid);
+    const transcripts = await this.coachosMeetService.getTranscripts(bookingUid);
 
     return {
       status: SUCCESS_STATUS,
@@ -576,7 +576,7 @@ export class BookingsController_2024_08_13 {
     <Note>cal-api-version: \`2024-08-13\` is required in the request header.</Note>`,
   })
   async getVideoSessions(@Param("bookingUid") bookingUid: string): Promise<GetBookingVideoSessionsOutput> {
-    const sessions = await this.calVideoService.getVideoSessions(bookingUid);
+    const sessions = await this.coachosMeetService.getVideoSessions(bookingUid);
 
     return {
       status: SUCCESS_STATUS,

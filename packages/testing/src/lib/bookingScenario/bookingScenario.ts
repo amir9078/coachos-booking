@@ -1386,8 +1386,8 @@ export const TestData = {
         redirect_uris: ["http://localhost:3000/auth/callback"],
       },
     },
-    "daily-video": {
-      ...appStoreMetadata.dailyvideo,
+    "coachos-meet": {
+      ...appStoreMetadata.coachosmeet,
       keys: {
         expiry_date: Infinity,
         api_key: "",
@@ -1604,7 +1604,7 @@ export function mockNoTranslations() {
 }
 
 export enum BookingLocations {
-  CalVideo = "integrations:daily",
+  CoachosMeet = "integrations:coachos_meet",
   ZoomVideo = "integrations:zoom",
   GoogleMeet = "integrations:google:meet",
 }
@@ -2171,10 +2171,10 @@ export function getMockBookingReference(
   bookingReference: Partial<BookingReference> & Pick<BookingReference, "type" | "uid" | "credentialId">
 ) {
   let credentialId = bookingReference.credentialId;
-  if (bookingReference.type === appStoreMetadata.dailyvideo.type) {
-    // Right now we seems to be storing credentialId for `dailyvideo` in BookingReference as null. Another possible value is 0 in there.
+  if (bookingReference.type === appStoreMetadata.coachosmeet.type) {
+    // Right now we seems to be storing credentialId for `coachosmeet` in BookingReference as null. Another possible value is 0 in there.
     credentialId = null;
-    log.debug("Ensuring null credentialId for dailyvideo");
+    log.debug("Ensuring null credentialId for coachosmeet");
   }
   return {
     ...bookingReference,

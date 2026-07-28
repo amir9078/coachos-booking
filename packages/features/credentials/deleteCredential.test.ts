@@ -61,7 +61,7 @@ describe("deleteCredential", () => {
       // Ensure that the event type with the deleted app was converted back to daily
       const changedEventType = eventTypeQuery.find((eventType) => eventType.id === 1)?.locations;
       expect(changedEventType).toBeDefined();
-      expect(changedEventType![0]).toEqual({ type: "integrations:daily" });
+      expect(changedEventType![0]).toEqual({ type: "integrations:coachos_meet" });
 
       const nonChangedEventType = eventTypeQuery.find((eventType) => eventType.id === 2)?.locations;
       expect(nonChangedEventType).toBeDefined();

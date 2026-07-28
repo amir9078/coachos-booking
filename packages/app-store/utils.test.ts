@@ -10,12 +10,12 @@ describe("sanitizeAppForViewer", () => {
   it("should remove key, credential, and credentials properties", () => {
     const mockCredential: CredentialDataWithTeamName = {
       id: 1,
-      type: "daily_video",
+      type: "coachos_meet_video",
       key: { api_key: "secret-api-key" },
       userId: 1,
       user: { email: "test@example.com" },
       teamId: null,
-      appId: "daily-video",
+      appId: "coachos-meet",
       invalid: false,
       delegatedTo: null,
       delegatedToId: null,
@@ -29,11 +29,11 @@ describe("sanitizeAppForViewer", () => {
       credentials: CredentialDataWithTeamName[];
       locationOption: LocationOption | null;
     } = {
-      type: "daily_video",
+      type: "coachos_meet_video",
       name: "Daily Video",
       description: "Video conferencing",
       variant: "conferencing",
-      slug: "daily-video",
+      slug: "coachos-meet",
       categories: ["conferencing"],
       logo: "/logo.png",
       publisher: "Daily",
@@ -43,7 +43,7 @@ describe("sanitizeAppForViewer", () => {
       credential: mockCredential,
       credentials: [mockCredential],
       locationOption: {
-        value: "integrations:daily_video",
+        value: "integrations:coachos_meet_video",
         label: "Daily Video",
       },
     };
@@ -56,12 +56,12 @@ describe("sanitizeAppForViewer", () => {
     expect(sanitized).not.toHaveProperty("credentials");
 
     // Should have all other properties
-    expect(sanitized).toHaveProperty("type", "daily_video");
+    expect(sanitized).toHaveProperty("type", "coachos_meet_video");
     expect(sanitized).toHaveProperty("name", "Daily Video");
-    expect(sanitized).toHaveProperty("slug", "daily-video");
+    expect(sanitized).toHaveProperty("slug", "coachos-meet");
     expect(sanitized).toHaveProperty("locationOption");
     expect(sanitized.locationOption).toEqual({
-      value: "integrations:daily_video",
+      value: "integrations:coachos_meet_video",
       label: "Daily Video",
     });
   });

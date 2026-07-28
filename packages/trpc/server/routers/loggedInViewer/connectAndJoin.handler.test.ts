@@ -76,7 +76,7 @@ function mockPrismaForSuccessfulJoin({ oldStatus = BookingStatus.AWAITING_HOST }
     customInputs: {},
     startTime: new Date("2026-04-04T10:00:00Z"),
     endTime: new Date("2026-04-04T10:45:00Z"),
-    location: "integrations:daily",
+    location: "integrations:coachos_meet",
     userId: 1,
     status: BookingStatus.ACCEPTED,
     responses: {},
@@ -91,7 +91,7 @@ function mockPrismaForSuccessfulJoin({ oldStatus = BookingStatus.AWAITING_HOST }
     ],
     references: [
       {
-        type: "daily_video",
+        type: "coachos_meet_video",
         meetingId: "MOCK_ID",
         meetingPassword: "MOCK_PASS",
         meetingUrl: "https://daily.co/mock-meeting",

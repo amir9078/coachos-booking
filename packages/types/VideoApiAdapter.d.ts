@@ -3,7 +3,7 @@ import type {
   batchProcessorBody,
   TGetTranscriptAccessLink,
   TGetMeetingInformationResponsesSchema,
-} from "@coachos/app-store/dailyvideo/zod";
+} from "@coachos/app-store/coachosmeet/zod";
 import type { GetRecordingsResponseSchema, GetAccessLinkResponseSchema } from "@coachos/prisma/zod-utils";
 
 import type { EventBusyDate } from "./Calendar";
@@ -31,7 +31,7 @@ export type VideoApiAdapter =
 
       getRecordingDownloadLink?(recordingId: string): Promise<GetAccessLinkResponseSchema>;
 
-      createInstantCalVideoRoom?(endTime: string): Promise<VideoCallData>;
+      createInstantCoachosMeetRoom?(endTime: string): Promise<VideoCallData>;
 
       getAllTranscriptsAccessLinkFromRoomName?(roomName: string): Promise<Array<string>>;
 

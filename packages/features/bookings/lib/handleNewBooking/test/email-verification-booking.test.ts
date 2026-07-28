@@ -80,7 +80,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
           },
         });
@@ -144,7 +144,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
             verificationCode: "invalid-code",
           },
@@ -209,7 +209,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
             verificationCode: "valid-code",
           },
@@ -274,7 +274,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
             verificationCode: "some-code",
           },
@@ -337,7 +337,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
           },
         });
@@ -415,7 +415,7 @@ describe("handleNewBooking - Email Verification", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: "integrations:daily" },
+              location: { optionValue: "", value: "integrations:coachos_meet" },
             },
           },
         });

@@ -39,7 +39,7 @@ import { CancelBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13/o
 import { CreateBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13/outputs/create-booking.output";
 import { MarkAbsentBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13/outputs/mark-absent.output";
 import { RescheduleBookingOutput_2024_08_13 } from "@/platform/bookings/2024-08-13/outputs/reschedule-booking.output";
-import { CalVideoService } from "@/platform/bookings/2024-08-13/services/cal-video.service";
+import { CoachosMeetService } from "@/platform/bookings/2024-08-13/services/coachos-meet.service";
 import { CreateEventTypeOutput_2024_06_14 } from "@/platform/event-types/event-types_2024_06_14/outputs/create-event-type.output";
 import { CreateScheduleInput_2024_04_15 } from "@/platform/schedules/schedules_2024_04_15/inputs/create-schedule.input";
 import { SchedulesModule_2024_04_15 } from "@/platform/schedules/schedules_2024_04_15/schedules.module";
@@ -169,7 +169,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
             id: eventTypeId,
           },
         },
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         customInputs: {},
         metadata: {},
         responses: {
@@ -621,7 +621,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
               id: eventTypeId,
             },
           },
-          location: "integrations:daily",
+          location: "integrations:coachos_meet",
           customInputs: {},
           metadata: {},
           responses: {
@@ -1297,7 +1297,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
                 id: eventTypeId,
               },
             },
-            location: "integrations:daily",
+            location: "integrations:coachos_meet",
             customInputs: {},
             metadata: {},
             responses: {
@@ -1349,7 +1349,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
                 id: eventTypeId,
               },
             },
-            location: "integrations:daily",
+            location: "integrations:coachos_meet",
             customInputs: {},
             metadata: {},
             responses: {
@@ -1383,7 +1383,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
                 id: eventTypeId,
               },
             },
-            location: "integrations:daily",
+            location: "integrations:coachos_meet",
             customInputs: {},
             metadata: {},
             responses: {
@@ -2053,7 +2053,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           locations: [
             {
               type: "integration",
-              integration: "cal-video",
+              integration: "coachos-meet",
             },
             {
               type: "address",
@@ -2107,7 +2107,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           },
           location: {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
         };
 
@@ -2123,7 +2123,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
         if (responseDataIsBooking(createdBooking)) {
           expect(
-            createdBooking.location?.startsWith("http") || createdBooking.location === "integrations:daily"
+            createdBooking.location?.startsWith("http") || createdBooking.location === "integrations:coachos_meet"
           ).toEqual(true);
           await bookingsRepositoryFixture.deleteById(createdBooking.id);
         } else {
@@ -2402,7 +2402,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
               id: eventTypeId,
             },
           },
-          location: "integrations:daily",
+          location: "integrations:coachos_meet",
           customInputs: {},
           metadata: {},
           responses: {
@@ -2972,7 +2972,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
           references: {
             create: [
               {
-                type: "daily_video",
+                type: "coachos_meet_video",
                 uid: `daily-room-123-${randomString()}`,
                 meetingId: "daily-room-123",
                 meetingPassword: "test-password",
@@ -2982,8 +2982,8 @@ describe("Bookings Endpoints 2024-08-13", () => {
           },
         });
 
-        const calVideoService = app.get(CalVideoService);
-        jest.spyOn(calVideoService, "getVideoSessions").mockResolvedValue([
+        const coachosMeetService = app.get(CoachosMeetService);
+        jest.spyOn(coachosMeetService, "getVideoSessions").mockResolvedValue([
           {
             id: mockSessions[0].id,
             room: mockSessions[0].room,

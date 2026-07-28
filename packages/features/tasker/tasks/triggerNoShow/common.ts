@@ -189,10 +189,10 @@ export const prepareNoShowTrigger= async (
     return;
   }
 
-  const dailyVideoReference =
-    booking.references?.filter((reference) => reference.type === "daily_video")?.pop() ?? null;
+  const coachosMeetReference =
+    booking.references?.filter((reference) => reference.type === "coachos_meet_video")?.pop() ?? null;
 
-  if (!dailyVideoReference) {
+  if (!coachosMeetReference) {
     log.error(
       "Daily video reference not found",
       safeStringify({
@@ -202,7 +202,7 @@ export const prepareNoShowTrigger= async (
     );
     throw new Error(`Daily video reference not found in triggerHostNoShow with bookingId ${bookingId}`);
   }
-  const meetingDetails = await getMeetingSessionsFromRoomName(dailyVideoReference.uid);
+  const meetingDetails = await getMeetingSessionsFromRoomName(coachosMeetReference.uid);
 
   const { hosts, guests } = getHostsAndGuests(booking);
   const allParticipants = meetingDetails.data.flatMap((meeting) => meeting.participants);

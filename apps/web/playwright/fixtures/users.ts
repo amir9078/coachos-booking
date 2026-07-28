@@ -116,7 +116,7 @@ export const createTeamEventType = async (
       slug: scenario?.teamEventSlug ?? `${teamEventSlug}-team-id-${team.id}`,
       length: scenario?.teamEventLength ?? 30,
       seatsPerTimeSlot: scenario?.seatsPerTimeSlot,
-      locations: [{ type: "integrations:daily" }],
+      locations: [{ type: "integrations:coachos_meet" }],
       metadata:
         scenario?.schedulingType === SchedulingType.MANAGED
           ? {

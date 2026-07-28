@@ -750,7 +750,7 @@ describe("handleNewBooking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+        apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
       });
 
       mockCalendarToHaveNoBusySlots("googlecalendar", {});
@@ -829,7 +829,7 @@ describe("handleNewBooking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -841,11 +841,11 @@ describe("handleNewBooking", () => {
         });
 
         mockSuccessfulVideoMeetingCreation({
-          metadataLookupKey: "dailyvideo",
+          metadataLookupKey: "coachosmeet",
           videoMeetingData: {
             id: "MOCK_ID",
             password: "MOCK_PASS",
-            url: `http://mock-dailyvideo.example.com/meeting-1`,
+            url: `http://mock-coachosmeet.example.com/meeting-1`,
           },
         });
 

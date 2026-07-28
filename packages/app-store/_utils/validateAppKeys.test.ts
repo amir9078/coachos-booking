@@ -23,40 +23,40 @@ describe("shouldEnableApp", () => {
 
   describe("Apps with key schemas", () => {
     it("should return false when keys are null", () => {
-      // dailyvideo requires api_key and has scale_plan with default
-      const result = shouldEnableApp("dailyvideo", null);
+      // coachosmeet requires api_key and has scale_plan with default
+      const result = shouldEnableApp("coachosmeet", null);
       expect(result).toBe(false);
     });
 
     it("should return false when keys are undefined", () => {
-      const result = shouldEnableApp("dailyvideo", undefined);
+      const result = shouldEnableApp("coachosmeet", undefined);
       expect(result).toBe(false);
     });
 
     it("should return false when keys is an empty object", () => {
       // Empty object doesn't have required api_key field
-      const result = shouldEnableApp("dailyvideo", {});
+      const result = shouldEnableApp("coachosmeet", {});
       expect(result).toBe(false);
     });
 
     it("should return false when keys is an array", () => {
-      const result = shouldEnableApp("dailyvideo", [] as any);
+      const result = shouldEnableApp("coachosmeet", [] as any);
       expect(result).toBe(false);
     });
 
     it("should return false when keys is a string", () => {
-      const result = shouldEnableApp("dailyvideo", "invalid" as any);
+      const result = shouldEnableApp("coachosmeet", "invalid" as any);
       expect(result).toBe(false);
     });
 
     it("should return false when keys is a number", () => {
-      const result = shouldEnableApp("dailyvideo", 123 as any);
+      const result = shouldEnableApp("coachosmeet", 123 as any);
       expect(result).toBe(false);
     });
 
     it("should return false when required keys are missing", () => {
       // Missing required api_key field
-      const result = shouldEnableApp("dailyvideo", {
+      const result = shouldEnableApp("coachosmeet", {
         scale_plan: "true",
       });
       expect(result).toBe(false);
@@ -64,7 +64,7 @@ describe("shouldEnableApp", () => {
 
     it("should return false when required keys are empty strings", () => {
       // api_key is empty string, which violates .min(1)
-      const result = shouldEnableApp("dailyvideo", {
+      const result = shouldEnableApp("coachosmeet", {
         api_key: "",
         scale_plan: "false",
       });
@@ -72,7 +72,7 @@ describe("shouldEnableApp", () => {
     });
 
     it("should return true when all required keys are present and valid", () => {
-      const result = shouldEnableApp("dailyvideo", {
+      const result = shouldEnableApp("coachosmeet", {
         api_key: "valid-api-key",
         scale_plan: "false",
       });
@@ -81,7 +81,7 @@ describe("shouldEnableApp", () => {
 
     it("should return true when required keys are present and optional fields use defaults", () => {
       // scale_plan has a default, so we can omit it
-      const result = shouldEnableApp("dailyvideo", {
+      const result = shouldEnableApp("coachosmeet", {
         api_key: "valid-api-key",
       });
       expect(result).toBe(true);
@@ -89,7 +89,7 @@ describe("shouldEnableApp", () => {
 
     it("should return false when keys have wrong types", () => {
       // api_key should be string, not number
-      const result = shouldEnableApp("dailyvideo", {
+      const result = shouldEnableApp("coachosmeet", {
         api_key: 123 as any,
         scale_plan: "false",
       });

@@ -955,7 +955,7 @@ export class BookingRepository implements IBookingRepository {
             meetingPassword: true,
           },
           where: {
-            type: "daily_video",
+            type: "coachos_meet_video",
             deleted: null,
           },
           orderBy: {

@@ -24,7 +24,7 @@ try {
     async function () {
       await Promise.allSettled([
         fetchCron("/cron/calendar-subscriptions"),
-        // fetchCron("/cron/calVideoNoShowWebhookTriggers"),
+        // fetchCron("/cron/coachosMeetNoShowWebhookTriggers"),
         fetchCron("/tasks/cron"),
       ]);
     },

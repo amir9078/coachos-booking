@@ -81,7 +81,7 @@ function createMockContext(overrides: Partial<BookingActionContext> = {}): Booki
         currency: "usd",
         metadata: {},
       },
-      location: "integrations:daily",
+      location: "integrations:coachos_meet",
       payment: [],
       seatsReferences: [],
       assignmentReasonSortedByCreatedAt: [],
@@ -109,7 +109,7 @@ function createMockContext(overrides: Partial<BookingActionContext> = {}): Booki
     isTabUnconfirmed: false,
     isDisabledCancelling: false,
     isDisabledRescheduling: false,
-    isCalVideoLocation: true,
+    isCoachosMeetLocation: true,
     showPendingPayment: false,
     cardCharged: false,
     attendeeList: [
@@ -219,7 +219,7 @@ describe("Booking Actions", () => {
       const context = createMockContext({
         isBookingInPast: true,
         isConfirmed: true,
-        isCalVideoLocation: true,
+        isCoachosMeetLocation: true,
         booking: {
           ...createMockContext().booking,
           isRecorded: true,
@@ -246,7 +246,7 @@ describe("Booking Actions", () => {
       const context = createMockContext({
         isBookingInPast: true,
         isConfirmed: true,
-        isCalVideoLocation: false,
+        isCoachosMeetLocation: false,
       });
       const actions = getVideoOptionsActions(context);
 

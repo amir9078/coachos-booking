@@ -1,4 +1,4 @@
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
 import slugify from "@coachos/lib/slugify";
 import type { Prisma, SelectedCalendar } from "@coachos/prisma/client";
@@ -70,7 +70,7 @@ const commons = {
   periodDays: null,
   slotInterval: null,
   offsetStart: 0,
-  locations: [{ type: DailyLocationType }],
+  locations: [{ type: CoachosMeetLocationType }],
   customInputs,
   disableGuests: true,
   minimumBookingNotice: 120,

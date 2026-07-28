@@ -88,26 +88,26 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
             endTime: `${plus1DateString}T05:15:00.000Z`,
             metadata: {
-              videoCallUrl: "https://existing-daily-video-call-url.example.com",
+              videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
             },
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-1`,
+        url: `http://mock-coachosmeet.example.com/meeting-1`,
       },
     });
 
@@ -129,7 +129,7 @@ describe("Cancel Booking", () => {
     expectBookingCancelledWebhookToHaveBeenFired({
       booker,
       organizer,
-      location: BookingLocations.CalVideo,
+      location: BookingLocations.CoachosMeet,
       subscriberUrl: "http://my-webhook.example.com",
       payload: {
         cancelledBy: organizer.email,
@@ -187,13 +187,13 @@ describe("Cancel Booking", () => {
       responses: {
         email: booker.email,
         name: booker.name,
-        location: { optionValue: "", value: BookingLocations.CalVideo },
+        location: { optionValue: "", value: BookingLocations.CoachosMeet },
       },
       status: BookingStatus.ACCEPTED,
       startTime: `${plus1DateString}T05:00:00.000Z`,
       endTime: `${plus1DateString}T05:15:00.000Z`,
       metadata: {
-        videoCallUrl: "https://existing-daily-video-call-url.example.com",
+        videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
       },
       attendees: [
         {
@@ -242,15 +242,15 @@ describe("Cancel Booking", () => {
         ],
         bookings: [booking],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-1`,
+        url: `http://mock-coachosmeet.example.com/meeting-1`,
       },
     });
 
@@ -272,7 +272,7 @@ describe("Cancel Booking", () => {
     expectBookingCancelledWebhookToHaveBeenFired({
       booker,
       organizer,
-      location: BookingLocations.CalVideo,
+      location: BookingLocations.CoachosMeet,
       subscriberUrl: "http://my-webhook.example.com",
       payload: {
         cancelledBy: organizer.email,
@@ -317,13 +317,13 @@ describe("Cancel Booking", () => {
       responses: {
         email: booker.email,
         name: booker.name,
-        location: { optionValue: "", value: BookingLocations.CalVideo },
+        location: { optionValue: "", value: BookingLocations.CoachosMeet },
       },
       status: BookingStatus.ACCEPTED,
       startTime: `${plus1DateString}T05:00:00.000Z`,
       endTime: `${plus1DateString}T05:15:00.000Z`,
       metadata: {
-        videoCallUrl: "https://existing-daily-video-call-url.example.com",
+        videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
       },
       attendees: [{ timeZone: "Asia/Kolkata", email: booker.email }],
     };
@@ -366,12 +366,12 @@ describe("Cancel Booking", () => {
         ],
         bookings: [booking],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
-      videoMeetingData: { id: "MOCK_ID", password: "MOCK_PASS", url: `http://mock-dailyvideo.example.com/meeting-1` },
+      metadataLookupKey: "coachosmeet",
+      videoMeetingData: { id: "MOCK_ID", password: "MOCK_PASS", url: `http://mock-coachosmeet.example.com/meeting-1` },
     });
     mockCalendarToHaveNoBusySlots("googlecalendar", {
       create: { id: "MOCKED_GOOGLE_CALENDAR_EVENT_ID" },
@@ -438,7 +438,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${minus1DateString}T05:00:00.000Z`,
@@ -446,7 +446,7 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
@@ -507,7 +507,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -515,7 +515,7 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
@@ -584,7 +584,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -612,16 +612,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-cancellation`,
+        url: `http://mock-coachosmeet.example.com/meeting-cancellation`,
       },
     });
 
@@ -710,7 +710,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -738,16 +738,16 @@ describe("Cancel Booking", () => {
           },
         ],
         users: [organizer, teamMember],
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-team-cancellation`,
+        url: `http://mock-coachosmeet.example.com/meeting-team-cancellation`,
       },
     });
 
@@ -825,7 +825,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: startTime.toISOString(),
@@ -854,16 +854,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-attendee-cancellation`,
+        url: `http://mock-coachosmeet.example.com/meeting-attendee-cancellation`,
       },
     });
 
@@ -947,18 +947,18 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
               endTime: `${plus1DateString}T05:15:00.000Z`,
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         },
         {
           id: 1,
@@ -968,11 +968,11 @@ describe("Cancel Booking", () => {
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-org`,
+        url: `http://mock-coachosmeet.example.com/meeting-org`,
       },
     });
 
@@ -994,7 +994,7 @@ describe("Cancel Booking", () => {
     expectBookingCancelledWebhookToHaveBeenFired({
       booker,
       organizer,
-      location: BookingLocations.CalVideo,
+      location: BookingLocations.CoachosMeet,
       subscriberUrl: "http://my-webhook.example.com",
       payload: {
         cancelledBy: organizer.email,
@@ -1073,7 +1073,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1081,16 +1081,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-seated`,
+        url: `http://mock-coachosmeet.example.com/meeting-seated`,
       },
     });
 
@@ -1172,7 +1172,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1193,7 +1193,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus2DateString}T05:00:00.000Z`,
@@ -1201,16 +1201,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-recurring`,
+        url: `http://mock-coachosmeet.example.com/meeting-recurring`,
       },
     });
 
@@ -1293,7 +1293,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1314,7 +1314,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus2DateString}T05:00:00.000Z`,
@@ -1322,16 +1322,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-subsequent`,
+        url: `http://mock-coachosmeet.example.com/meeting-subsequent`,
       },
     });
 
@@ -1406,7 +1406,7 @@ describe("Cancel Booking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
             status: BookingStatus.ACCEPTED,
             startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1414,7 +1414,7 @@ describe("Cancel Booking", () => {
             references: [
               {
                 id: 1,
-                type: "daily_video",
+                type: "coachos_meet_video",
                 uid: "daily-meeting-ref",
                 meetingId: "daily123",
                 meetingUrl: "https://daily.co/meeting123",
@@ -1436,16 +1436,16 @@ describe("Cancel Booking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"], TestData.apps["google-calendar"]],
+        apps: [TestData.apps["coachos-meet"], TestData.apps["google-calendar"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
       videoMeetingData: {
         id: "MOCK_ID",
         password: "MOCK_PASS",
-        url: `http://mock-dailyvideo.example.com/meeting-references`,
+        url: `http://mock-coachosmeet.example.com/meeting-references`,
       },
     });
 
@@ -1512,7 +1512,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1520,7 +1520,7 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
@@ -1576,7 +1576,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1584,7 +1584,7 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
@@ -1640,7 +1640,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1648,7 +1648,7 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
@@ -1705,7 +1705,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1713,16 +1713,16 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
           id: "MOCK_ID",
           password: "MOCK_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-attendee-only`,
+          url: `http://mock-coachosmeet.example.com/meeting-attendee-only`,
         },
       });
 
@@ -1785,7 +1785,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1793,16 +1793,16 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
           id: "MOCK_ID",
           password: "MOCK_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-optional-host`,
+          url: `http://mock-coachosmeet.example.com/meeting-optional-host`,
         },
       });
 
@@ -1865,7 +1865,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1873,16 +1873,16 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
           id: "MOCK_ID",
           password: "MOCK_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-optional-attendee`,
+          url: `http://mock-coachosmeet.example.com/meeting-optional-attendee`,
         },
       });
 
@@ -1945,7 +1945,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -1953,16 +1953,16 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
           id: "MOCK_ID",
           password: "MOCK_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-host-only-attendee`,
+          url: `http://mock-coachosmeet.example.com/meeting-host-only-attendee`,
         },
       });
 
@@ -2023,7 +2023,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -2031,7 +2031,7 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
@@ -2087,7 +2087,7 @@ describe("Cancel Booking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
               status: BookingStatus.ACCEPTED,
               startTime: `${plus1DateString}T05:00:00.000Z`,
@@ -2095,16 +2095,16 @@ describe("Cancel Booking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["daily-video"]],
+          apps: [TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
           id: "MOCK_ID",
           password: "MOCK_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-null-default`,
+          url: `http://mock-coachosmeet.example.com/meeting-null-default`,
         },
       });
 

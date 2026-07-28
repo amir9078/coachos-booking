@@ -24,7 +24,7 @@
     "lint:report": "biome lint --reporter json . > ../../lint-results/app-store.json"
   },
   "dependencies": {
-    "@coachos/dailyvideo": "workspace:*",
+    "@coachos/coachosmeet": "workspace:*",
     "@coachos/dayjs": "workspace:*",
     "@coachos/features": "workspace:*",
     "@coachos/i18n": "workspace:*",

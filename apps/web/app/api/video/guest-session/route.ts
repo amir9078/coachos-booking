@@ -6,10 +6,10 @@ import { z } from "zod";
 import {
   generateGuestMeetingTokenFromOwnerMeetingToken,
   updateMeetingTokenIfExpired,
-} from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+} from "@coachos/app-store/coachosmeet/lib/VideoApiAdapter";
 import { getHostsAndGuests } from "@coachos/features/bookings/lib/getHostsAndGuests";
 import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
-import { getCalVideoReference } from "@coachos/features/get-cal-video-reference";
+import { getCoachosMeetReference } from "@coachos/features/get-coachos-meet-reference";
 import { VideoCallGuestRepository } from "@coachos/features/video-call-guest/repositories/VideoCallGuestRepository";
 import prisma from "@coachos/prisma";
 import { validateCsrfToken } from "@coachos/web/lib/validateCsrfToken";
@@ -62,7 +62,7 @@ async function handler(req: NextRequest) {
     name: guestData.name,
   });
 
-  const videoReference = getCalVideoReference(booking.references);
+  const videoReference = getCoachosMeetReference(booking.references);
 
   if (!videoReference) {
     return NextResponse.json({ error: "Video reference not found" }, { status: 404 });

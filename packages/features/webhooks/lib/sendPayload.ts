@@ -1,7 +1,7 @@
 import { createHmac } from "node:crypto";
 import { compile } from "handlebars";
 
-import type { TGetTranscriptAccessLink } from "@coachos/app-store/dailyvideo/zod";
+import type { TGetTranscriptAccessLink } from "@coachos/app-store/coachosmeet/zod";
 import { getHumanReadableLocationValue } from "@coachos/app-store/locations";
 import type { WebhookSubscriber, PaymentData } from "@coachos/features/webhooks/lib/dto/types";
 import { getUTCOffsetByTimezone } from "@coachos/lib/dayjs";

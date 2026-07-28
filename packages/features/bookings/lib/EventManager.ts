@@ -3,8 +3,8 @@ import { v5 as uuidv5 } from "uuid";
 import type { z } from "zod";
 
 import { getCalendar } from "@coachos/app-store/_utils/getCalendar";
-import { FAKE_DAILY_CREDENTIAL } from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
-import { appKeysSchema as calVideoKeysSchema } from "@coachos/app-store/dailyvideo/zod";
+import { FAKE_COACHOS_MEET_CREDENTIAL } from "@coachos/app-store/coachosmeet/lib/VideoApiAdapter";
+import { appKeysSchema as coachosMeetKeysSchema } from "@coachos/app-store/coachosmeet/zod";
 import { getLocationFromApp, MeetLocationType, MSTeamsLocationType } from "@coachos/app-store/locations";
 import getApps from "@coachos/app-store/utils";
 import { createEvent, updateEvent, deleteEvent } from "@coachos/features/calendars/lib/CalendarManager";
@@ -295,9 +295,9 @@ export default class EventManager {
     // Fallback to CoachOS Meet if no location is set
     if (!evt.location) {
       // See if CoachOS Meet is enabled & has keys
-      const calVideo = await prisma.app.findUnique({
+      const coachosMeet = await prisma.app.findUnique({
         where: {
-          slug: "daily-video",
+          slug: "coachos-meet",
         },
         select: {
           keys: true,
@@ -305,9 +305,9 @@ export default class EventManager {
         },
       });
 
-      const calVideoKeys = calVideoKeysSchema.safeParse(calVideo?.keys);
+      const coachosMeetKeys = coachosMeetKeysSchema.safeParse(coachosMeet?.keys);
 
-      if (calVideo?.enabled && calVideoKeys.success) evt["location"] = "integrations:daily";
+      if (coachosMeet?.enabled && coachosMeetKeys.success) evt["location"] = "integrations:coachos_meet";
       log.warn("Falling back to CoachOS Meet as no location is set");
     }
 
@@ -325,7 +325,7 @@ export default class EventManager {
         log.warn(
           "Falling back to CoachOS Meet integration for Regular Credential as Google Calendar is not set as destination calendar"
         );
-        evt["location"] = "integrations:daily";
+        evt["location"] = "integrations:coachos_meet";
         evt["conferenceCredentialId"] = undefined;
       }
     }
@@ -557,7 +557,7 @@ export default class EventManager {
     const foundCredential =
       typeof credentialId === "number" && credentialId > 0
         ? await CredentialRepository.findCredentialForCalendarServiceById({ id: credentialId })
-        : // Fallback for zero or nullish credentialId which could be the case of Global App e.g. dailyVideo
+        : // Fallback for zero or nullish credentialId which could be the case of Global App e.g. coachosMeet
           this.videoCredentials.find((cred) => cred.type === type) || null;
 
     if (!foundCredential) {
@@ -674,17 +674,17 @@ export default class EventManager {
     const updatedBookingReferences: Array<PartialReference> = [];
     const isLocationChanged = !!evt.location && !!booking.location && evt.location !== booking.location;
 
-    let isDailyVideoRoomExpired = false;
+    let isCoachosMeetRoomExpired = false;
 
-    if (evt.location === "integrations:daily") {
+    if (evt.location === "integrations:coachos_meet") {
       const originalBookingEndTime = new Date(booking.endTime);
       const roomExpiryTime = new Date(originalBookingEndTime.getTime() + 14 * 24 * 60 * 60 * 1000);
       const now = new Date();
-      isDailyVideoRoomExpired = now > roomExpiryTime;
+      isCoachosMeetRoomExpired = now > roomExpiryTime;
     }
 
     const shouldUpdateBookingReferences =
-      !!changedOrganizer || isLocationChanged || !!isBookingRequestedReschedule || isDailyVideoRoomExpired;
+      !!changedOrganizer || isLocationChanged || !!isBookingRequestedReschedule || isCoachosMeetRoomExpired;
 
     if (evt.requiresConfirmation) {
       if (!skipDeleteEventsAndMeetings) {
@@ -718,7 +718,7 @@ export default class EventManager {
         updatedBookingReferences.push(...createdEvent.referencesToCreate);
       } else {
         // If the reschedule doesn't require confirmation, we can "update" the events and meetings to new time.
-        if (isLocationChanged || isBookingRequestedReschedule || isDailyVideoRoomExpired) {
+        if (isLocationChanged || isBookingRequestedReschedule || isCoachosMeetRoomExpired) {
           const updatedLocation = await this.updateLocation(evt, booking);
           results.push(...updatedLocation.results);
           updatedBookingReferences.push(...updatedLocation.referencesToCreate);
@@ -1062,7 +1062,7 @@ export default class EventManager {
       log.warn(
         `Falling back to "daily" video integration for event with location: ${event.location} because credential is missing for the app`
       );
-      videoCredential = { ...FAKE_DAILY_CREDENTIAL };
+      videoCredential = { ...FAKE_COACHOS_MEET_CREDENTIAL };
     }
 
     return videoCredential;

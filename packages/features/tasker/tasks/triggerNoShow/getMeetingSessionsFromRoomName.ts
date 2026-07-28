@@ -1,4 +1,4 @@
-import { fetcher } from "@coachos/app-store/dailyvideo/lib/dailyApiFetcher";
+import { fetcher } from "@coachos/app-store/coachosmeet/lib/dailyApiFetcher";
 
 import { triggerNoShowPayloadSchema } from "./schema";
 

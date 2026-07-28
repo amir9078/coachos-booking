@@ -11,7 +11,7 @@ import {
   defaultLocations,
   getAppSlugFromLocationType,
   getLocationByType,
-  isCalVideoLocation,
+  isCoachosMeetLocation,
   isStaticLocationType,
 } from "@coachos/app-store/locations";
 import { getAppFromSlug } from "@coachos/app-store/utils";
@@ -173,7 +173,7 @@ const LocationInputDialog = ({
 
 const checkAppInstalledForHost = (locationValue: string, hostData?: HostWithLocationOptions): boolean => {
   if (isStaticLocationType(locationValue)) return true;
-  if (isCalVideoLocation(locationValue)) return true;
+  if (isCoachosMeetLocation(locationValue)) return true;
   if (!hostData) return true;
 
   const appSlug = getAppSlugFromLocationType(locationValue);
@@ -250,7 +250,7 @@ const getSelectedOption = (
     }
   }
 
-  return getLocationFromOptions("integrations:daily", options);
+  return getLocationFromOptions("integrations:coachos_meet", options);
 };
 
 const HostLocationRow = ({

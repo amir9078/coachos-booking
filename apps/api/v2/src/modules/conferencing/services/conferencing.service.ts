@@ -113,7 +113,7 @@ export class ConferencingService {
   }
 
   async setDefaultConferencingApp(user: UserWithProfile, app: string) {
-    // cal-video is global, so we can skip this check
+    // coachos-meet is global, so we can skip this check
     if (app !== coachos_VIDEO) {
       await this.checkAppIsValidAndConnected(user, app);
     }

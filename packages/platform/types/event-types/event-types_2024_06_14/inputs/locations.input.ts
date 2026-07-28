@@ -55,7 +55,7 @@ export class InputLinkLocation_2024_06_14 {
 }
 
 export const eventTypeSupportedIntegrations = [
-  "cal-video",
+  "coachos-meet",
   "google-meet",
   "zoom",
   "whereby-video",

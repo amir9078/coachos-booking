@@ -344,7 +344,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
         ],
         bookingFields: [
@@ -377,7 +377,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
         ],
         bookingFields: [
@@ -440,7 +440,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
         ],
         interfaceLanguage: "invalid-locale-xyz",
@@ -471,7 +471,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
           {
             type: "attendeePhone",
@@ -658,7 +658,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
         ],
         hidden: true,
@@ -977,7 +977,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
           {
             type: "phone",
@@ -1010,7 +1010,7 @@ describe("Event types Endpoints", () => {
         locations: [
           {
             type: "integration",
-            integration: "cal-video",
+            integration: "coachos-meet",
           },
           {
             type: "phone",
@@ -1164,7 +1164,7 @@ describe("Event types Endpoints", () => {
           locations: [
             {
               type: "integration",
-              integration: "cal-video",
+              integration: "coachos-meet",
             },
             {
               type: "phone",
@@ -2228,7 +2228,7 @@ describe("Event types Endpoints", () => {
         slug: "coding-class",
         description: "Let's learn how to code like a pro.",
         length: 60,
-        locations: [{ type: "integrations:daily" }],
+        locations: [{ type: "integrations:coachos_meet" }],
       };
 
       return request(app.getHttpServer())
@@ -2699,7 +2699,7 @@ describe("Event types Endpoints", () => {
       it("should create event type with CoachOS Meet settings", async () => {
         const body: CreateEventTypeInput_2024_06_14 = {
           title: "event type with CoachOS Meet settings",
-          slug: "event-type-with-cal-video-settings",
+          slug: "event-type-with-coachos-meet-settings",
           lengthInMinutes: 60,
           calVideoSettings: {
             disableRecordingForGuests: true,
@@ -2709,7 +2709,7 @@ describe("Event types Endpoints", () => {
           locations: [
             {
               type: "integration",
-              integration: "cal-video",
+              integration: "coachos-meet",
             },
           ],
         };

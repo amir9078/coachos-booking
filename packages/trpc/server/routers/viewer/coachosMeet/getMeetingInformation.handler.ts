@@ -1,0 +1,43 @@
+import { VideoApiAdapterMap } from "@coachos/app-store/video.adapters.generated";
+import type { TrpcSessionUser } from "@coachos/trpc/server/types";
+
+import { TRPCError } from "@trpc/server";
+
+import type { TGetMeetingInformationInputSchema } from "./getMeetingInformation.schema";
+
+type GetMeetingInformationOptions = {
+  ctx: {
+    user: NonNullable<TrpcSessionUser>;
+  };
+  input: TGetMeetingInformationInputSchema;
+};
+
+export const getMeetingInformationHandler = async ({ ctx: _ctx, input }: GetMeetingInformationOptions) => {
+  const { roomName } = input;
+
+  try {
+    const coachosMeetAdapterImport = VideoApiAdapterMap.coachosmeet;
+    if (!coachosMeetAdapterImport) {
+      throw new TRPCError({
+        code: "BAD_REQUEST",
+        message: "Daily video adapter not available",
+      });
+    }
+
+    const coachosMeetAdapterModule = await coachosMeetAdapterImport;
+    const videoApiAdapter = coachosMeetAdapterModule.default();
+
+    if (!videoApiAdapter || !videoApiAdapter.getMeetingInformation) {
+      throw new TRPCError({
+        code: "BAD_REQUEST",
+        message: "Meeting information feature not available",
+      });
+    }
+    const res = await videoApiAdapter.getMeetingInformation(roomName);
+    return res;
+  } catch (err) {
+    throw new TRPCError({
+      code: "BAD_REQUEST",
+    });
+  }
+};

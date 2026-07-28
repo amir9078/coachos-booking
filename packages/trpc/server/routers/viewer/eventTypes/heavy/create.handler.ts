@@ -1,5 +1,5 @@
 import { getDefaultLocations } from "@coachos/app-store/_utils/getDefaultLocations";
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
 import type { PrismaClient } from "@coachos/prisma";
 import { Prisma } from "@coachos/prisma/client";
@@ -73,7 +73,7 @@ export const createHandler = async ({ ctx, input }: CreateOptions) => {
   const locations: EventTypeLocation[] =
     inputLocations && inputLocations.length !== 0 ? inputLocations : await getDefaultLocations(ctx.user);
 
-  const isCalVideoLocationActive = locations.some((location) => location.type === DailyLocationType);
+  const isCoachosMeetLocationActive = locations.some((location) => location.type === CoachosMeetLocationType);
 
   const data: Prisma.EventTypeCreateInput = {
     ...rest,
@@ -85,7 +85,7 @@ export const createHandler = async ({ ctx, input }: CreateOptions) => {
     schedule: scheduleId ? { connect: { id: scheduleId } } : undefined,
   };
 
-  if (isCalVideoLocationActive && calVideoSettings) {
+  if (isCoachosMeetLocationActive && calVideoSettings) {
     data.calVideoSettings = {
       create: {
         disableRecordingForGuests: calVideoSettings.disableRecordingForGuests ?? false,

@@ -123,11 +123,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {});
 
         const mockBookingData = getMockRequestDataForBooking({
@@ -136,7 +136,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -204,11 +204,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {});
 
         const mockBookingData = getMockRequestDataForBooking({
@@ -217,7 +217,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -293,11 +293,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {});
 
         const mockBookingData = getMockRequestDataForBooking({
@@ -306,7 +306,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -373,11 +373,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {});
 
         const mockBookingData = getMockRequestDataForBooking({
@@ -388,7 +388,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -468,11 +468,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
                 endTime: `${plus1DateString}T05:15:00.000Z`,
                 references: [
                   getMockBookingReference({
-                    type: appStoreMetadata.dailyvideo.type,
+                    type: appStoreMetadata.coachosmeet.type,
                     uid: "MOCK_ID",
                     meetingId: "MOCK_ID",
                     meetingPassword: "MOCK_PASS",
-                    meetingUrl: "http://mock-dailyvideo.example.com",
+                    meetingUrl: "http://mock-coachosmeet.example.com",
                     credentialId: 0,
                   }),
                   getMockBookingReference({
@@ -488,11 +488,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {
           create: { uid: "MOCK_ID" },
           update: { uid: "UPDATED_MOCK_ID", iCalUID: "MOCKED_GOOGLE_CALENDAR_ICS_ID" },
@@ -507,7 +507,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -521,7 +521,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             uid: createdBooking.uid!,
             eventTypeId: mockBookingData.eventTypeId,
             status: BookingStatus.PENDING,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             responses: expect.objectContaining({
               email: booker.email,
               name: booker.name,
@@ -598,11 +598,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
                 endTime: `${plus1DateString}T05:15:00.000Z`,
                 references: [
                   getMockBookingReference({
-                    type: appStoreMetadata.dailyvideo.type,
+                    type: appStoreMetadata.coachosmeet.type,
                     uid: "MOCK_ID",
                     meetingId: "MOCK_ID",
                     meetingPassword: "MOCK_PASS",
-                    meetingUrl: "http://mock-dailyvideo.example.com",
+                    meetingUrl: "http://mock-coachosmeet.example.com",
                     credentialId: 0,
                   }),
                   getMockBookingReference({
@@ -618,11 +618,11 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
-        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "dailyvideo" });
+        mockSuccessfulVideoMeetingCreation({ metadataLookupKey: "coachosmeet" });
         mockCalendarToHaveNoBusySlots("googlecalendar", {
           create: { uid: "MOCK_ID" },
           update: { uid: "UPDATED_MOCK_ID", iCalUID: "MOCKED_GOOGLE_CALENDAR_ICS_ID" },
@@ -637,7 +637,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -742,16 +742,16 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             ],
             organizer,
             usersApartFromOrganizer: otherTeamMembers,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           })
         );
 
         mockSuccessfulVideoMeetingCreation({
-          metadataLookupKey: appStoreMetadata.dailyvideo.dirName,
+          metadataLookupKey: appStoreMetadata.coachosmeet.dirName,
           videoMeetingData: {
             id: "MOCK_ID",
             password: "MOCK_PASS",
-            url: `http://mock-dailyvideo.example.com/meeting-1`,
+            url: `http://mock-coachosmeet.example.com/meeting-1`,
           },
         });
 
@@ -770,7 +770,7 @@ describe("Webhook Producer – BOOKING_REQUESTED", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });

@@ -238,7 +238,7 @@ test.describe("Reschedule Tests", async () => {
     browser,
   }) => {
     // eslint-disable-next-line playwright/no-skipped-test
-    test.skip(!process.env.DAILY_API_KEY, "DAILY_API_KEY is needed for this test");
+    test.skip(!process.env.COACHOS_MEET_API_KEY, "COACHOS_MEET_API_KEY is needed for this test");
     const user = await users.create();
 
     const eventType = user.eventTypes.find((e) => e.slug === "opt-in")!;

@@ -2,7 +2,7 @@
  * Common shape for app metadata properties that may exist on any app.
  *
  * The generated appDataSchemas union includes {} (empty object) variants from apps
- * with no custom schema (e.g. dailyvideo). This means when iterating over parsed app
+ * with no custom schema (e.g. coachosmeet). This means when iterating over parsed app
  * metadata, TypeScript cannot guarantee that common properties like `enabled`, `price`,
  * or `currency` exist on all variants of the union.
  *

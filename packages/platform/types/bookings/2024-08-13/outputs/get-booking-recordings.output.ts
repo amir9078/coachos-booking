@@ -9,7 +9,7 @@ export class RecordingItem {
   @IsString()
   id!: string;
 
-  @ApiProperty({ example: "daily-video-room-123" })
+  @ApiProperty({ example: "coachos-meet-room-123" })
   @IsString()
   roomName!: string;
 
@@ -34,7 +34,7 @@ export class RecordingItem {
   @IsString()
   shareToken!: string;
 
-  @ApiProperty({ example: "https://cal-video-recordings.s3.us-east-2.amazonaws.com/meetco/123s" })
+  @ApiProperty({ example: "https://coachos-meet-recordings.s3.us-east-2.amazonaws.com/meetco/123s" })
   @IsUrl()
   @IsOptional()
   downloadLink?: string | null;

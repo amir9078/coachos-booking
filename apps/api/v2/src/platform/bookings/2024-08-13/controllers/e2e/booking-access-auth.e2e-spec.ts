@@ -14,7 +14,7 @@ import { UserRepositoryFixture } from "test/fixtures/repository/users.repository
 import { randomString } from "test/utils/randomString";
 import { AppModule } from "@/app.module";
 import { bootstrap } from "@/bootstrap";
-import { CalVideoService } from "@/platform/bookings/2024-08-13/services/cal-video.service";
+import { CoachosMeetService } from "@/platform/bookings/2024-08-13/services/coachos-meet.service";
 import { CreateScheduleInput_2024_04_15 } from "@/platform/schedules/schedules_2024_04_15/inputs/create-schedule.input";
 import { SchedulesModule_2024_04_15 } from "@/platform/schedules/schedules_2024_04_15/schedules.module";
 import { SchedulesService_2024_04_15 } from "@/platform/schedules/schedules_2024_04_15/services/schedules.service";
@@ -133,7 +133,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
         references: {
           create: [
             {
-              type: "daily_video",
+              type: "coachos_meet_video",
               uid: `daily-room-${randomString()}`,
               meetingId: `daily-room-${randomString()}`,
               meetingPassword: "test-password",
@@ -164,8 +164,8 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
     describe("GET /v2/bookings/:bookingUid/conferencing-sessions - Authorization", () => {
       it("should allow booking organizer to access conferencing sessions", async () => {
-        const calVideoService = app.get(CalVideoService);
-        jest.spyOn(calVideoService, "getVideoSessions").mockResolvedValue([]);
+        const coachosMeetService = app.get(CoachosMeetService);
+        jest.spyOn(coachosMeetService, "getVideoSessions").mockResolvedValue([]);
 
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/conferencing-sessions`)
@@ -187,8 +187,8 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
     describe("GET /v2/bookings/:bookingUid/recordings - Authorization", () => {
       it("should allow booking organizer to access recordings", async () => {
-        const calVideoService = app.get(CalVideoService);
-        jest.spyOn(calVideoService, "getRecordings").mockResolvedValue([]);
+        const coachosMeetService = app.get(CoachosMeetService);
+        jest.spyOn(coachosMeetService, "getRecordings").mockResolvedValue([]);
 
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/recordings`)
@@ -210,8 +210,8 @@ describe("Bookings Endpoints 2024-08-13", () => {
 
     describe("GET /v2/bookings/:bookingUid/transcripts - Authorization", () => {
       it("should allow booking organizer to access transcripts", async () => {
-        const calVideoService = app.get(CalVideoService);
-        jest.spyOn(calVideoService, "getTranscripts").mockResolvedValue([]);
+        const coachosMeetService = app.get(CoachosMeetService);
+        jest.spyOn(coachosMeetService, "getTranscripts").mockResolvedValue([]);
 
         const response = await request(app.getHttpServer())
           .get(`/v2/bookings/${testBooking.uid}/transcripts`)

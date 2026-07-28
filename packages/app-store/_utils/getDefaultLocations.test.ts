@@ -4,7 +4,7 @@ import { getGoogleMeetCredential, TestData } from "@coachos/testing/lib/bookingS
 
 import { describe, expect, it } from "vitest";
 
-import { DailyLocationType, MeetLocationType } from "../locations";
+import { CoachosMeetLocationType, MeetLocationType } from "../locations";
 import { getDefaultLocations } from "./getDefaultLocations";
 
 type User = {
@@ -50,24 +50,24 @@ describe("getDefaultLocation ", async () => {
       type: MeetLocationType,
     });
   });
-  it("should return calvideo when default conferencing app is not set", async () => {
+  it("should return coachosmeet when default conferencing app is not set", async () => {
     const user: User = {
       id: 101,
       email: "test@example.com",
       metadata: {},
     };
     await mockUser(user);
-    await addAppsToDb([TestData.apps["daily-video"]]);
+    await addAppsToDb([TestData.apps["coachos-meet"]]);
     await prismaMock.app.create({
       data: {
-        ...TestData.apps["daily-video"],
+        ...TestData.apps["coachos-meet"],
         enabled: true,
       },
     });
     const res = await getDefaultLocations(user);
     expect(res[0]).toEqual(
       expect.objectContaining({
-        type: DailyLocationType,
+        type: CoachosMeetLocationType,
       })
     );
   });

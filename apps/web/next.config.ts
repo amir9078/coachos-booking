@@ -638,8 +638,8 @@ const nextConfig = (phase: string): NextConfig => {
       if (process.env.NEXT_PUBLIC_WEBAPP_URL === "https://app.amir9078.github.io") {
         redirects.push(
           {
-            source: "/apps/dailyvideo",
-            destination: "/apps/daily-video",
+            source: "/apps/coachosmeet",
+            destination: "/apps/coachos-meet",
             permanent: true,
           },
           {

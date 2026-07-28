@@ -14,7 +14,7 @@ vi.mock("@coachos/prisma", () => ({
 
 vi.mock("../utils", () => ({
   getAppFromLocationValue: vi.fn((locationType: string) => {
-    if (locationType === "integrations:daily") {
+    if (locationType === "integrations:coachos_meet") {
       return { logo: "/daily-logo.svg" };
     }
     if (locationType === "integrations:google:meet") {
@@ -190,7 +190,7 @@ describe("filterEventTypesWhereLocationUpdateIsAllowed", () => {
         parentId: null,
         metadata: {},
         title: "Test Event",
-        locations: [{ type: "integrations:daily" }],
+        locations: [{ type: "integrations:coachos_meet" }],
       },
     ];
 
@@ -212,7 +212,7 @@ describe("getBulkUserEventTypes", () => {
       {
         id: 1,
         title: "Regular Event",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {} as Prisma.JsonValue,
         parentId: null,
       },
@@ -232,7 +232,7 @@ describe("getBulkUserEventTypes", () => {
       {
         id: 3,
         title: "Child Event - Locked",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {
           managedEventConfig: {
             unlockedFields: {
@@ -281,14 +281,14 @@ describe("getBulkUserEventTypes", () => {
       {
         id: 10,
         title: "Event 1",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {} as Prisma.JsonValue,
         parentId: null,
       },
       {
         id: 11,
         title: "Event 2",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {} as Prisma.JsonValue,
         parentId: null,
       },
@@ -310,7 +310,7 @@ describe("getBulkUserEventTypes", () => {
       {
         id: 20,
         title: "Locked Event 1",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {
           managedEventConfig: {
             unlockedFields: {},
@@ -321,7 +321,7 @@ describe("getBulkUserEventTypes", () => {
       {
         id: 21,
         title: "Locked Event 2",
-        locations: [{ type: "integrations:daily" }] as Prisma.JsonValue,
+        locations: [{ type: "integrations:coachos_meet" }] as Prisma.JsonValue,
         metadata: {
           managedEventConfig: {
             unlockedFields: {

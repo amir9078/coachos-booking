@@ -1,11 +1,11 @@
 import { z } from "zod";
 
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 
 import { commonBookingSchema } from "./types";
 
 export const ZEditLocationInputSchema = commonBookingSchema.extend({
-  newLocation: z.string().transform((val) => val || DailyLocationType),
+  newLocation: z.string().transform((val) => val || CoachosMeetLocationType),
   credentialId: z.number().nullable(),
 });
 

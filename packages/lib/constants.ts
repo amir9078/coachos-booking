@@ -268,8 +268,8 @@ export const ENV_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS =
   process.env._coachos_INTERNAL_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS;
 
 // CoachOS Meet (Daily) app identifiers
-export const coachos_VIDEO = "daily-video";
-export const coachos_VIDEO_TYPE = "daily_video";
+export const coachos_VIDEO = "coachos-meet";
+export const coachos_VIDEO_TYPE = "coachos_meet_video";
 
 export const ORG_TRIAL_DAYS = process.env.STRIPE_ORG_TRIAL_DAYS
   ? Math.max(0, parseInt(process.env.STRIPE_ORG_TRIAL_DAYS, 10))

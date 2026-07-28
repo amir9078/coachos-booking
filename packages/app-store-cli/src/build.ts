@@ -323,7 +323,7 @@ function generateFiles() {
   );
 
   // TODO: Make a component map creator that accepts ComponentName and does the rest.
-  // TODO: dailyvideo has a slug of daily-video, so that mapping needs to be taken care of. But it is an old app, so it doesn't need AppSettings
+  // TODO: coachosmeet has a slug of coachos-meet, so that mapping needs to be taken care of. But it is an old app, so it doesn't need AppSettings
   browserOutput.push(
     ...getExportedObject("AppSettingsComponentsMap", {
       importConfig: {

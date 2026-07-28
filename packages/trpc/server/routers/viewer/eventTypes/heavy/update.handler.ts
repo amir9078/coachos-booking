@@ -1,5 +1,5 @@
 import type { appDataSchemas } from "@coachos/app-store/apps.schemas.generated";
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import { eventTypeAppMetadataOptionalSchema } from "@coachos/app-store/zod-utils";
 import { CalVideoSettingsRepository } from "@coachos/features/calVideoSettings/repositories/CalVideoSettingsRepository";
 import { HashedLinkRepository } from "@coachos/features/hashedLink/lib/repository/HashedLinkRepository";
@@ -656,12 +656,12 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
 
   const parsedEventTypeLocations = eventTypeLocations.safeParse(eventType.locations ?? []);
 
-  const isCalVideoLocationActive = locations
-    ? locations.some((location) => location.type === DailyLocationType)
+  const isCoachosMeetLocationActive = locations
+    ? locations.some((location) => location.type === CoachosMeetLocationType)
     : parsedEventTypeLocations.success &&
-      parsedEventTypeLocations.data?.some((location) => location.type === DailyLocationType);
+      parsedEventTypeLocations.data?.some((location) => location.type === CoachosMeetLocationType);
 
-  if (eventType.calVideoSettings && !isCalVideoLocationActive) {
+  if (eventType.calVideoSettings && !isCoachosMeetLocationActive) {
     await CalVideoSettingsRepository.deleteCalVideoSettings(id);
   }
 
@@ -736,7 +736,7 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
   let calVideoSettingsForChildren: typeof calVideoSettings | null | undefined;
   if (calVideoSettings !== undefined) {
     calVideoSettingsForChildren = calVideoSettings;
-  } else if (eventType.calVideoSettings && !isCalVideoLocationActive) {
+  } else if (eventType.calVideoSettings && !isCoachosMeetLocationActive) {
     calVideoSettingsForChildren = null;
   }
 

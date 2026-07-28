@@ -104,15 +104,15 @@ describe("Trigger Guest No Show:", () => {
                 },
               ],
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -129,7 +129,7 @@ describe("Trigger Guest No Show:", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -267,15 +267,15 @@ describe("Trigger Guest No Show:", () => {
                 },
               ],
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -292,7 +292,7 @@ describe("Trigger Guest No Show:", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -455,15 +455,15 @@ describe("Trigger Guest No Show:", () => {
               endTime: `${plus1DateString}T05:15:00.000Z`,
               user: { id: organizer.id },
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -497,15 +497,15 @@ describe("Trigger Guest No Show:", () => {
                 },
               ],
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -522,7 +522,7 @@ describe("Trigger Guest No Show:", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -678,15 +678,15 @@ describe("Trigger Guest No Show:", () => {
               endTime: `${plus1DateString}T05:15:00.000Z`,
               user: { id: organizer.id },
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -703,7 +703,7 @@ describe("Trigger Guest No Show:", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -840,15 +840,15 @@ describe("Trigger Guest No Show:", () => {
                 },
               ],
               metadata: {
-                videoCallUrl: "https://existing-daily-video-call-url.example.com",
+                videoCallUrl: "https://existing-coachos-meet-call-url.example.com",
               },
               references: [
                 {
-                  type: appStoreMetadata.dailyvideo.type,
+                  type: appStoreMetadata.coachosmeet.type,
                   uid: "MOCK_ID",
                   meetingId: "MOCK_ID",
                   meetingPassword: "MOCK_PASS",
-                  meetingUrl: "http://mock-dailyvideo.example.com",
+                  meetingUrl: "http://mock-coachosmeet.example.com",
                   credentialId: null,
                 },
                 {
@@ -865,7 +865,7 @@ describe("Trigger Guest No Show:", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 

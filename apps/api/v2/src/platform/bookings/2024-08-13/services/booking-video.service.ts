@@ -1,6 +1,6 @@
 import type { CredentialForCalendarService } from "@coachos/platform-libraries";
 import { CredentialRepository } from "@coachos/platform-libraries";
-import { deleteMeeting, FAKE_DAILY_CREDENTIAL } from "@coachos/platform-libraries/conferencing";
+import { deleteMeeting, FAKE_COACHOS_MEET_CREDENTIAL } from "@coachos/platform-libraries/conferencing";
 import { Injectable, Logger } from "@nestjs/common";
 import { BookingsRepository_2024_08_13 } from "@/platform/bookings/2024-08-13/repositories/bookings.repository";
 
@@ -86,8 +86,8 @@ export class BookingVideoService_2024_08_13 {
       delegationCredentialId: string | null;
     }>
   ): Promise<CredentialForCalendarService | null> {
-    if (integrationSlug === "cal-video") {
-      return { ...FAKE_DAILY_CREDENTIAL };
+    if (integrationSlug === "coachos-meet") {
+      return { ...FAKE_COACHOS_MEET_CREDENTIAL };
     }
 
     const integrationToCredentialTypeMap = {

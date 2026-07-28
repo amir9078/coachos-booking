@@ -229,7 +229,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
     it("should persist soft-deleted records in database", async () => {
       const reference = await prisma.bookingReference.create({
         data: {
-          type: "daily_video",
+          type: "coachos_meet_video",
           uid: "daily-ref",
           meetingId: "daily-meeting",
           credentialId: testCredential.id,
@@ -240,7 +240,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
 
       const newReferences = [
         {
-          type: "daily_video",
+          type: "coachos_meet_video",
           uid: "new-daily-ref",
           meetingId: "new-daily-meeting",
           credentialId: testCredential.id,
@@ -271,12 +271,12 @@ describe("BookingReferenceRepository Integration Tests", () => {
     });
   });
 
-  describe("findDailyVideoReferenceByRoomName", () => {
+  describe("findCoachosMeetReferenceByRoomName", () => {
     it("should find active daily video references", async () => {
       const roomName = "test-daily-room-123";
       const dailyRef = await prisma.bookingReference.create({
         data: {
-          type: "daily_video",
+          type: "coachos_meet_video",
           uid: roomName,
           meetingId: roomName,
           credentialId: testCredential.id,
@@ -285,7 +285,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
       });
       createdBookingReferenceIds.push(dailyRef.id);
 
-      const result = await BookingReferenceRepository.findDailyVideoReferenceByRoomName({
+      const result = await BookingReferenceRepository.findCoachosMeetReferenceByRoomName({
         roomName,
       });
 
@@ -299,7 +299,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
       const roomName = "test-daily-room-deleted-456";
       const dailyRef = await prisma.bookingReference.create({
         data: {
-          type: "daily_video",
+          type: "coachos_meet_video",
           uid: roomName,
           meetingId: roomName,
           credentialId: testCredential.id,
@@ -309,7 +309,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
       });
       createdBookingReferenceIds.push(dailyRef.id);
 
-      const result = await BookingReferenceRepository.findDailyVideoReferenceByRoomName({
+      const result = await BookingReferenceRepository.findCoachosMeetReferenceByRoomName({
         roomName,
       });
 
@@ -317,7 +317,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
     });
 
     it("should return null when room name does not exist", async () => {
-      const result = await BookingReferenceRepository.findDailyVideoReferenceByRoomName({
+      const result = await BookingReferenceRepository.findCoachosMeetReferenceByRoomName({
         roomName: "non-existent-room",
       });
 
@@ -328,7 +328,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
       const roomName = "test-daily-room-no-booking";
       const dailyRef = await prisma.bookingReference.create({
         data: {
-          type: "daily_video",
+          type: "coachos_meet_video",
           uid: roomName,
           meetingId: roomName,
           credentialId: testCredential.id,
@@ -337,7 +337,7 @@ describe("BookingReferenceRepository Integration Tests", () => {
       });
       createdBookingReferenceIds.push(dailyRef.id);
 
-      const result = await BookingReferenceRepository.findDailyVideoReferenceByRoomName({
+      const result = await BookingReferenceRepository.findCoachosMeetReferenceByRoomName({
         roomName,
       });
 

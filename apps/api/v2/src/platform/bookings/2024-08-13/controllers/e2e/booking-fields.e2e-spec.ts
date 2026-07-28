@@ -654,7 +654,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
             id: eventTypeId,
           },
         },
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         customInputs: {},
         metadata: {},
         responses: {
@@ -686,7 +686,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
             id: seatedEvent.id,
           },
         },
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         customInputs: {},
         metadata: {},
         responses: {

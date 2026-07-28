@@ -81,11 +81,11 @@ describe("transformLocationsApiToInternal", () => {
     const input: InputLocation_2024_06_14[] = [
       {
         type: "integration",
-        integration: "cal-video",
+        integration: "coachos-meet",
       },
     ];
 
-    const expectedOutput = [{ type: "integrations:daily" }];
+    const expectedOutput = [{ type: "integrations:coachos_meet" }];
 
     const result = transformLocationsApiToInternal(input);
 

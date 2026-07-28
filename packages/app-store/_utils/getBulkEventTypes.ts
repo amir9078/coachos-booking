@@ -18,7 +18,7 @@ const processEventTypes = (eventTypes: { id: number; title: string; locations: u
     const app = getAppFromLocationValue(
       locationParsed.success && locationParsed.data?.[0]?.type
         ? locationParsed.data[0].type
-        : "integrations:daily"
+        : "integrations:coachos_meet"
     );
     return {
       ...eventType,

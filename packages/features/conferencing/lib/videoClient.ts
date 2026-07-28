@@ -1,8 +1,8 @@
 import short from "short-uuid";
 import { v5 as uuidv5 } from "uuid";
 
-import { DailyLocationType } from "@coachos/app-store/constants";
-import { getDailyAppKeys } from "@coachos/app-store/dailyvideo/lib/getDailyAppKeys";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
+import { getCoachosMeetAppKeys } from "@coachos/app-store/coachosmeet/lib/getCoachosMeetAppKeys";
 import { getVideoAdapters } from "@coachos/app-store/getVideoAdapters";
 import { sendBrokenIntegrationEmail } from "@coachos/emails/integration-email-service";
 import { getUid } from "@coachos/lib/CalEventParser";
@@ -90,10 +90,10 @@ const createMeeting = async (
       safeStringify(err),
       safeStringify({ calEvent: getPiiFreeCalendarEvent(calEvent) })
     );
-    // Default to calVideo
-    const defaultMeeting = await createMeetingWithCalVideo(calEvent);
+    // Default to coachosMeet
+    const defaultMeeting = await createMeetingWithCoachosMeet(calEvent);
     if (defaultMeeting) {
-      calEvent.location = DailyLocationType;
+      calEvent.location = CoachosMeetLocationType;
     }
 
     returnObject = { ...returnObject, originalEvent: calEvent, createdEvent: defaultMeeting };
@@ -164,10 +164,10 @@ const deleteMeeting = async (
 };
 
 // @TODO: This is a temporary solution to create a meeting with amir9078.github.io video as fallback url
-const createMeetingWithCalVideo = async (calEvent: CalendarEvent) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+const createMeetingWithCoachosMeet = async (calEvent: CalendarEvent) => {
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     return;
   }
@@ -179,7 +179,7 @@ const createMeetingWithCalVideo = async (calEvent: CalendarEvent) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -188,10 +188,10 @@ const createMeetingWithCalVideo = async (calEvent: CalendarEvent) => {
   return videoAdapter?.createMeeting(calEvent);
 };
 
-export const createInstantMeetingWithCalVideo = async (endTime: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+export const createInstantMeetingWithCoachosMeet = async (endTime: string) => {
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     return;
   }
@@ -203,21 +203,21 @@ export const createInstantMeetingWithCalVideo = async (endTime: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
     },
   ]);
-  return videoAdapter?.createInstantCalVideoRoom?.(endTime);
+  return videoAdapter?.createInstantCoachosMeetRoom?.(endTime);
 };
 
-const getRecordingsOfCalVideoByRoomName = async (
+const getRecordingsOfCoachosMeetByRoomName = async (
   roomName: string
 ): Promise<GetRecordingsResponseSchema | undefined> => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -230,7 +230,7 @@ const getRecordingsOfCalVideoByRoomName = async (
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -239,12 +239,12 @@ const getRecordingsOfCalVideoByRoomName = async (
   return videoAdapter?.getRecordings?.(roomName);
 };
 
-const getDownloadLinkOfCalVideoByRecordingId = async (
+const getDownloadLinkOfCoachosMeetByRecordingId = async (
   recordingId: string
 ): Promise<GetAccessLinkResponseSchema | undefined> => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -257,7 +257,7 @@ const getDownloadLinkOfCalVideoByRecordingId = async (
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -267,9 +267,9 @@ const getDownloadLinkOfCalVideoByRecordingId = async (
 };
 
 const getAllTranscriptsAccessLinkFromRoomName = async (roomName: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -282,7 +282,7 @@ const getAllTranscriptsAccessLinkFromRoomName = async (roomName: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -292,9 +292,9 @@ const getAllTranscriptsAccessLinkFromRoomName = async (roomName: string) => {
 };
 
 const getAllTranscriptsAccessLinkFromMeetingId = async (meetingId: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -307,7 +307,7 @@ const getAllTranscriptsAccessLinkFromMeetingId = async (meetingId: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -317,9 +317,9 @@ const getAllTranscriptsAccessLinkFromMeetingId = async (meetingId: string) => {
 };
 
 const submitBatchProcessorTranscriptionJob = async (recordingId: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -332,7 +332,7 @@ const submitBatchProcessorTranscriptionJob = async (recordingId: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -354,9 +354,9 @@ const submitBatchProcessorTranscriptionJob = async (recordingId: string) => {
 };
 
 const getTranscriptsAccessLinkFromRecordingId = async (recordingId: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -369,7 +369,7 @@ const getTranscriptsAccessLinkFromRecordingId = async (recordingId: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -380,9 +380,9 @@ const getTranscriptsAccessLinkFromRecordingId = async (recordingId: string) => {
 };
 
 const checkIfRoomNameMatchesInRecording = async (roomName: string, recordingId: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch {
     console.error("Error: CoachOS Meet provider is not installed.");
     return;
@@ -395,7 +395,7 @@ const checkIfRoomNameMatchesInRecording = async (roomName: string, recordingId: 
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -405,10 +405,10 @@ const checkIfRoomNameMatchesInRecording = async (roomName: string, recordingId: 
   return videoAdapter?.checkIfRoomNameMatchesInRecording?.(roomName, recordingId);
 };
 
-const getCalVideoMeetingSessionsByRoomName = async (roomName: string) => {
-  let dailyAppKeys: Awaited<ReturnType<typeof getDailyAppKeys>>;
+const getCoachosMeetMeetingSessionsByRoomName = async (roomName: string) => {
+  let coachosMeetAppKeys: Awaited<ReturnType<typeof getCoachosMeetAppKeys>>;
   try {
-    dailyAppKeys = await getDailyAppKeys();
+    coachosMeetAppKeys = await getCoachosMeetAppKeys();
   } catch (e) {
     console.error("Error: CoachOS Meet provider is not installed.");
     return { data: [] };
@@ -421,7 +421,7 @@ const getCalVideoMeetingSessionsByRoomName = async (roomName: string) => {
       userId: null,
       user: { email: "" },
       teamId: null,
-      key: dailyAppKeys,
+      key: coachosMeetAppKeys,
       encryptedKey: null,
       invalid: false,
       delegationCredentialId: null,
@@ -436,12 +436,12 @@ export {
   createMeeting,
   updateMeeting,
   deleteMeeting,
-  getRecordingsOfCalVideoByRoomName,
-  getDownloadLinkOfCalVideoByRecordingId,
+  getRecordingsOfCoachosMeetByRoomName,
+  getDownloadLinkOfCoachosMeetByRecordingId,
   getAllTranscriptsAccessLinkFromRoomName,
   getAllTranscriptsAccessLinkFromMeetingId,
   submitBatchProcessorTranscriptionJob,
   getTranscriptsAccessLinkFromRecordingId,
   checkIfRoomNameMatchesInRecording,
-  getCalVideoMeetingSessionsByRoomName,
+  getCoachosMeetMeetingSessionsByRoomName,
 };

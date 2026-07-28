@@ -4,7 +4,7 @@ import { getUsersCredentialsIncludeServiceAccountKey } from "@coachos/app-store/
 import type { Prisma } from "@coachos/prisma/client";
 import { userMetadata as userMetadataSchema, type eventTypeLocations } from "@coachos/prisma/zod-utils";
 
-import { DailyLocationType } from "../constants";
+import { CoachosMeetLocationType } from "../constants";
 import getApps from "../utils";
 import getAppKeysFromSlug from "./getAppKeysFromSlug";
 
@@ -19,21 +19,21 @@ type User = {
 export async function getDefaultLocations(user: User): Promise<EventTypeLocation[]> {
   const defaultConferencingData = userMetadataSchema.parse(user.metadata)?.defaultConferencingApp;
 
-  if (defaultConferencingData && defaultConferencingData.appSlug !== "daily-video") {
+  if (defaultConferencingData && defaultConferencingData.appSlug !== "coachos-meet") {
     // We are not returning the credential, so we are fine with the service account key
     const credentials = await getUsersCredentialsIncludeServiceAccountKey(user);
 
     const foundApp = getApps(credentials, true).filter(
       (app) => app.slug === defaultConferencingData.appSlug
     )[0]; // There is only one possible install here so index [0] is the one we are looking for ;
-    const locationType = foundApp?.locationOption?.value ?? DailyLocationType; // Default to Daily if no location type is found
+    const locationType = foundApp?.locationOption?.value ?? CoachosMeetLocationType; // Default to Daily if no location type is found
     return [{ type: locationType, link: defaultConferencingData.appLink }];
   }
 
-  const appKeys = await getAppKeysFromSlug("daily-video");
+  const appKeys = await getAppKeysFromSlug("coachos-meet");
 
   if (typeof appKeys.api_key === "string") {
-    return [{ type: DailyLocationType }];
+    return [{ type: CoachosMeetLocationType }];
   }
 
   return [];

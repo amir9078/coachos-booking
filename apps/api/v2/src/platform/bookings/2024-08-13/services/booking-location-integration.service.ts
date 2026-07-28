@@ -1,6 +1,6 @@
 import type { BookingWithUserAndEventDetails, CalendarEvent } from "@coachos/platform-libraries";
 import { BookingReferenceRepository, updateEvent } from "@coachos/platform-libraries";
-import { createMeeting, FAKE_DAILY_CREDENTIAL } from "@coachos/platform-libraries/conferencing";
+import { createMeeting, FAKE_COACHOS_MEET_CREDENTIAL } from "@coachos/platform-libraries/conferencing";
 import type { Integration_2024_08_13 } from "@coachos/platform-types";
 import type {
   BookingOutput_2024_08_13,
@@ -101,8 +101,8 @@ export class BookingLocationIntegrationService_2024_08_13 {
         return this.handleGoogleMeetLocation(ctx);
       case "office365-video":
         return this.handleMSTeamsLocation(ctx);
-      case "cal-video":
-        return this.handleCalVideoLocation(ctx);
+      case "coachos-meet":
+        return this.handleCoachosMeetLocation(ctx);
       default:
         // all other integrations (Zoom, Webex, etc.) use VideoApiAdapter
         return this.handleVideoApiIntegration(ctx);
@@ -116,10 +116,10 @@ export class BookingLocationIntegrationService_2024_08_13 {
 
     if (!hasGoogleCalendar) {
       this.logger.log(`Google Meet requested but no Google Calendar found. Falling back to CoachOS Meet.`);
-      return this.handleCalVideoLocation({
+      return this.handleCoachosMeetLocation({
         ...ctx,
-        integrationSlug: "cal-video",
-        internalLocation: "integrations:daily",
+        integrationSlug: "coachos-meet",
+        internalLocation: "integrations:coachos_meet",
       });
     }
 
@@ -138,8 +138,8 @@ export class BookingLocationIntegrationService_2024_08_13 {
     return this.handleVideoApiIntegration(ctx);
   }
 
-  private async handleCalVideoLocation(ctx: IntegrationHandlerContext): Promise<BookingLocationResponse> {
-    const credential = { ...FAKE_DAILY_CREDENTIAL };
+  private async handleCoachosMeetLocation(ctx: IntegrationHandlerContext): Promise<BookingLocationResponse> {
+    const credential = { ...FAKE_COACHOS_MEET_CREDENTIAL };
 
     await this.bookingVideoService.deleteOldVideoMeetingIfNeeded(ctx.existingBooking.id);
 
@@ -156,7 +156,7 @@ export class BookingLocationIntegrationService_2024_08_13 {
         JSON.stringify({ success: meetingResult.success, type: meetingResult.type })
       );
       throw new BadRequestException(
-        `Failed to create CoachOS Meet meeting. Please ensure DAILY_API_KEY is set and the daily-video app is enabled.`
+        `Failed to create CoachOS Meet meeting. Please ensure COACHOS_MEET_API_KEY is set and the coachos-meet app is enabled.`
       );
     }
 
@@ -164,7 +164,7 @@ export class BookingLocationIntegrationService_2024_08_13 {
     const videoCallUrl = createdEvent.url;
     const bookingLocation = videoCallUrl || ctx.internalLocation;
 
-    // FAKE_DAILY_CREDENTIAL has id: 0, so we don't include credentialId
+    // FAKE_COACHOS_MEET_CREDENTIAL has id: 0, so we don't include credentialId
     const newReference = {
       type: credential.type,
       uid: createdEvent.id?.toString() || "",

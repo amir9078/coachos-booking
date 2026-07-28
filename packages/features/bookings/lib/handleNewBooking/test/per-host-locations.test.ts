@@ -75,7 +75,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"], TestData.apps["zoomvideo"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"], TestData.apps["zoomvideo"]],
         })
       );
 
@@ -102,7 +102,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -113,15 +113,15 @@ describe("Per-Host Locations - handleNewBooking", () => {
 
       expect(createdBooking).toBeDefined();
       // Per-host location resolution was removed during EE cleanup, so the system falls back to CoachOS Meet
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
 
-    test("should use CoachOS Meet when host location is integrations:daily", async () => {
+    test("should use CoachOS Meet when host location is integrations:coachos_meet", async () => {
       const handleNewBooking = getNewBookingHandler();
       const booker = getBooker({
         email: "booker@example.com",
@@ -157,7 +157,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
                   userId: organizer.id,
                   isFixed: false,
                   location: {
-                    type: "integrations:daily",
+                    type: "integrations:coachos_meet",
                   },
                 },
               ],
@@ -168,16 +168,16 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
-          id: "MOCK_DAILY_ID",
-          password: "MOCK_DAILY_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-1`,
+          id: "MOCK_COACHOS_MEET_ID",
+          password: "MOCK_COACHOS_MEET_PASS",
+          url: `http://mock-coachosmeet.example.com/meeting-1`,
         },
       });
       mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -195,7 +195,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -205,11 +205,11 @@ describe("Per-Host Locations - handleNewBooking", () => {
       });
 
       expect(createdBooking).toBeDefined();
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
 
@@ -263,7 +263,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -351,7 +351,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -437,7 +437,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"], TestData.apps["zoomvideo"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"], TestData.apps["zoomvideo"]],
         })
       );
 
@@ -464,7 +464,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -475,11 +475,11 @@ describe("Per-Host Locations - handleNewBooking", () => {
 
       expect(createdBooking).toBeDefined();
       // Per-host location resolution was removed during EE cleanup, so the system falls back to CoachOS Meet
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
 
@@ -531,16 +531,16 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
-          id: "MOCK_DAILY_ID",
-          password: "MOCK_DAILY_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-1`,
+          id: "MOCK_COACHOS_MEET_ID",
+          password: "MOCK_COACHOS_MEET_PASS",
+          url: `http://mock-coachosmeet.example.com/meeting-1`,
         },
       });
       mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -558,7 +558,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -568,11 +568,11 @@ describe("Per-Host Locations - handleNewBooking", () => {
       });
 
       expect(createdBooking).toBeDefined();
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
   });
@@ -626,16 +626,16 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"], TestData.apps["zoomvideo"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"], TestData.apps["zoomvideo"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
-          id: "MOCK_DAILY_ID",
-          password: "MOCK_DAILY_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-1`,
+          id: "MOCK_COACHOS_MEET_ID",
+          password: "MOCK_COACHOS_MEET_PASS",
+          url: `http://mock-coachosmeet.example.com/meeting-1`,
         },
       });
       mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -653,7 +653,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -663,11 +663,11 @@ describe("Per-Host Locations - handleNewBooking", () => {
       });
 
       expect(createdBooking).toBeDefined();
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
 
@@ -719,16 +719,16 @@ describe("Per-Host Locations - handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"], TestData.apps["zoomvideo"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"], TestData.apps["zoomvideo"]],
         })
       );
 
       mockSuccessfulVideoMeetingCreation({
-        metadataLookupKey: "dailyvideo",
+        metadataLookupKey: "coachosmeet",
         videoMeetingData: {
-          id: "MOCK_DAILY_ID",
-          password: "MOCK_DAILY_PASS",
-          url: `http://mock-dailyvideo.example.com/meeting-1`,
+          id: "MOCK_COACHOS_MEET_ID",
+          password: "MOCK_COACHOS_MEET_PASS",
+          url: `http://mock-coachosmeet.example.com/meeting-1`,
         },
       });
       mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -746,7 +746,7 @@ describe("Per-Host Locations - handleNewBooking", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: BookingLocations.CalVideo },
+            location: { optionValue: "", value: BookingLocations.CoachosMeet },
           },
         },
       });
@@ -756,11 +756,11 @@ describe("Per-Host Locations - handleNewBooking", () => {
       });
 
       expect(createdBooking).toBeDefined();
-      expect(createdBooking.location).toBe("integrations:daily");
+      expect(createdBooking.location).toBe("integrations:coachos_meet");
 
       await expectBookingToBeInDatabase({
         uid: createdBooking.uid,
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
       });
     });
   });

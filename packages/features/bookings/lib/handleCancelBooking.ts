@@ -1,5 +1,5 @@
-import { DailyLocationType } from "@coachos/app-store/constants";
-import { FAKE_DAILY_CREDENTIAL } from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
+import { FAKE_COACHOS_MEET_CREDENTIAL } from "@coachos/app-store/coachosmeet/lib/VideoApiAdapter";
 import { eventTypeMetaDataSchemaWithTypedApps } from "@coachos/app-store/zod-utils";
 import dayjs from "@coachos/dayjs";
 import { sendCancelledEmailsAndSMS } from "@coachos/emails/email-manager";
@@ -428,9 +428,9 @@ async function handler(input: CancelBookingInput, dependencies?: Dependencies) {
   }
 
   /** TODO: Remove this without breaking functionality */
-  if (bookingToDelete.location === DailyLocationType) {
+  if (bookingToDelete.location === CoachosMeetLocationType) {
     bookingToDelete.user.credentials.push({
-      ...FAKE_DAILY_CREDENTIAL,
+      ...FAKE_COACHOS_MEET_CREDENTIAL,
       teamId: null,
     });
   }

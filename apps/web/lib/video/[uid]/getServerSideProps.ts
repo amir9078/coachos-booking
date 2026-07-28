@@ -2,11 +2,11 @@ import {
   generateGuestMeetingTokenFromOwnerMeetingToken,
   setEnableRecordingUIAndUserIdForOrganizer,
   updateMeetingTokenIfExpired,
-} from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+} from "@coachos/app-store/coachosmeet/lib/VideoApiAdapter";
 import { getServerSession } from "@coachos/features/auth/lib/getServerSession";
 import { BookingRepository } from "@coachos/features/bookings/repositories/BookingRepository";
 import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
-import { getCalVideoReference } from "@coachos/features/get-cal-video-reference";
+import { getCoachosMeetReference } from "@coachos/features/get-coachos-meet-reference";
 import { UserRepository } from "@coachos/features/users/repositories/UserRepository";
 import { COACHOS_VIDEO_MEETING_LINK_FOR_TESTING } from "@coachos/lib/constants";
 import { isENVDev } from "@coachos/lib/env";
@@ -196,7 +196,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const session = await getServerSession({ req });
 
-  const oldVideoReference = getCalVideoReference(bookingObj.references);
+  const oldVideoReference = getCoachosMeetReference(bookingObj.references);
 
   const endTime = new Date(booking.endTime);
   const fourteenDaysAfter = new Date(endTime.getTime() + 14 * 24 * 60 * 60 * 1000);
@@ -252,7 +252,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
     }
   }
 
-  const videoReference = getCalVideoReference(bookingObj.references);
+  const videoReference = getCoachosMeetReference(bookingObj.references);
 
   const showRecordingButton = shouldEnableRecordButton({
     hasTeamPlan: !!hasTeamPlan,

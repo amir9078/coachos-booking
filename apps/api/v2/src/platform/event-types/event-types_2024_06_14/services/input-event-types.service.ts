@@ -572,8 +572,8 @@ export class InputEventTypesService_2024_06_14 {
     await Promise.all(
       inputLocations?.map(async (location) => {
         if (location.type === "integration") {
-          // cal-video is global, so we can skip this check
-          if (location.integration !== "cal-video") {
+          // coachos-meet is global, so we can skip this check
+          if (location.integration !== "coachos-meet") {
             await this.checkAppIsValidAndConnected(user, location.integration);
           }
         }

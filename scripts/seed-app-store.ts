@@ -145,9 +145,9 @@ export default async function main() {
     });
   }
   // Video apps
-  if (process.env.DAILY_API_KEY) {
-    await createApp("daily-video", "dailyvideo", ["conferencing"], "daily_video", {
-      api_key: process.env.DAILY_API_KEY,
+  if (process.env.COACHOS_MEET_API_KEY) {
+    await createApp("coachos-meet", "coachosmeet", ["conferencing"], "coachos_meet_video", {
+      api_key: process.env.COACHOS_MEET_API_KEY,
       scale_plan: process.env.DAILY_SCALE_PLAN,
     });
   }

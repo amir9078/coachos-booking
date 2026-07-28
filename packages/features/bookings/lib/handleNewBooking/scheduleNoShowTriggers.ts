@@ -1,4 +1,4 @@
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import dayjs from "@coachos/dayjs";
 import tasker from "@coachos/features/tasker";
 import getWebhooks from "@coachos/features/webhooks/lib/getWebhooks";
@@ -33,9 +33,9 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
     isDryRun = false,
   } = args;
 
-  const isCalVideoLocation = booking.location === DailyLocationType || booking.location?.trim() === "";
+  const isCoachosMeetLocation = booking.location === CoachosMeetLocationType || booking.location?.trim() === "";
 
-  if (isDryRun || !isCalVideoLocation) return;
+  if (isDryRun || !isCoachosMeetLocation) return;
 
   // Add task for automatic no show in CoachOS Meet
   const noShowPromises: Promise<any>[] = [];

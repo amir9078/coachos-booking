@@ -1,0 +1,14 @@
+{
+  "private": true,
+  "name": "@coachos/coachosmeet",
+  "version": "0.0.0",
+  "main": "./index.ts",
+  "description": "CoachOS Meet is the in-house web-based video conferencing platform powered by Daily.co, which is minimalistic and lightweight, but has most of the features you need.",
+  "dependencies": {
+    "@coachos/lib": "workspace:*",
+    "@coachos/prisma": "workspace:*"
+  },
+  "devDependencies": {
+    "@coachos/types": "workspace:*"
+  }
+}

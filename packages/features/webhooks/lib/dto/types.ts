@@ -1,4 +1,4 @@
-import type { TGetTranscriptAccessLink } from "@coachos/app-store/dailyvideo/zod";
+import type { TGetTranscriptAccessLink } from "@coachos/app-store/coachosmeet/zod";
 import type { TimeUnit, WebhookTriggerEvents } from "@coachos/prisma/enums";
 import type { CalendarEvent, ConferenceData, Person } from "@coachos/types/Calendar";
 import type { WebhookVersion } from "../interface/IWebhookRepository";

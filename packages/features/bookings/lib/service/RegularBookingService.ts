@@ -1194,13 +1194,13 @@ async function handler(
       const mainHostCalendar = eventType.destinationCalendar || organizerUser.destinationCalendar;
 
       if (locationBodyString === MeetLocationType && mainHostCalendar?.integration !== "google_calendar") {
-        locationBodyString = "integrations:daily";
+        locationBodyString = "integrations:coachos_meet";
         organizerOrFirstDynamicGroupMemberDefaultLocationUrl = undefined;
       } else if (isManagedEventType || isTeamEventType) {
         organizerOrFirstDynamicGroupMemberDefaultLocationUrl = defaultApp?.appLink;
       }
     } else {
-      locationBodyString = "integrations:daily";
+      locationBodyString = "integrations:coachos_meet";
     }
   }
 

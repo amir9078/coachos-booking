@@ -1,13 +1,13 @@
 export {
-  getRecordingsOfCalVideoByRoomName,
-  getDownloadLinkOfCalVideoByRecordingId,
+  getRecordingsOfCoachosMeetByRoomName,
+  getDownloadLinkOfCoachosMeetByRecordingId,
   getAllTranscriptsAccessLinkFromRoomName,
-  getCalVideoMeetingSessionsByRoomName,
+  getCoachosMeetMeetingSessionsByRoomName,
   createMeeting,
   updateMeeting,
   deleteMeeting,
 } from "@coachos/features/conferencing/lib/videoClient";
 
-export { FAKE_DAILY_CREDENTIAL } from "@coachos/app-store/dailyvideo/lib/VideoApiAdapter";
+export { FAKE_COACHOS_MEET_CREDENTIAL } from "@coachos/app-store/coachosmeet/lib/VideoApiAdapter";
 
-export type { CalMeetingParticipant, CalMeetingSession } from "@coachos/app-store/dailyvideo/zod";
+export type { CalMeetingParticipant, CalMeetingSession } from "@coachos/app-store/coachosmeet/zod";

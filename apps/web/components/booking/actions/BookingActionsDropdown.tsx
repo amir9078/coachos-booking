@@ -186,9 +186,9 @@ export function BookingActionsDropdown({
   // Check if the logged-in user is the host/owner of the booking
   const isHost = booking.loggedInUser.userId === booking.user?.id;
 
-  const isCalVideoLocation =
+  const isCoachosMeetLocation =
     !booking.location ||
-    booking.location === "integrations:daily" ||
+    booking.location === "integrations:coachos_meet" ||
     (typeof booking.location === "string" && booking.location.trim() === "");
 
   const isDisabledCancelling = booking.eventType.disableCancelling;
@@ -235,7 +235,7 @@ export function BookingActionsDropdown({
     isTabUnconfirmed,
     isDisabledCancelling,
     isDisabledRescheduling,
-    isCalVideoLocation,
+    isCoachosMeetLocation,
     showPendingPayment,
     isAttendee,
     cardCharged,

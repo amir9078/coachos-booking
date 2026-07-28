@@ -47,12 +47,12 @@ describe("appByIdHandler", () => {
     const secretApiKey = "secret-daily-api-key-12345";
     const mockCredential: CredentialDataWithTeamName = {
       id: 0,
-      type: "daily_video",
+      type: "coachos_meet_video",
       key: { apikey: secretApiKey },
       userId: 0,
       user: { email: "" },
       teamId: null,
-      appId: "daily-video",
+      appId: "coachos-meet",
       invalid: false,
       delegatedTo: null,
       delegatedToId: null,
@@ -67,11 +67,11 @@ describe("appByIdHandler", () => {
       credentials: CredentialDataWithTeamName[];
       locationOption: LocationOption | null;
     } = {
-      type: "daily_video",
+      type: "coachos_meet_video",
       name: "CoachOS Meet",
       description: "Video conferencing",
       variant: "conferencing",
-      slug: "daily-video",
+      slug: "coachos-meet",
       categories: ["conferencing"],
       logo: "icon.svg",
       publisher: "CoachOS Booking",
@@ -83,13 +83,13 @@ describe("appByIdHandler", () => {
       credential: mockCredential,
       credentials: [mockCredential],
       locationOption: {
-        value: "integrations:daily",
+        value: "integrations:coachos_meet",
         label: "CoachOS Meet",
       },
       appData: {
         location: {
           linkType: "dynamic",
-          type: "integrations:daily",
+          type: "integrations:coachos_meet",
           label: "CoachOS Meet",
         },
       },
@@ -100,7 +100,7 @@ describe("appByIdHandler", () => {
 
     const result = await appByIdHandler({
       ctx: { user: mockUser },
-      input: { appId: "daily-video" } as TAppByIdInputSchema,
+      input: { appId: "coachos-meet" } as TAppByIdInputSchema,
     });
 
     // Verify that key is NOT in the response
@@ -109,7 +109,7 @@ describe("appByIdHandler", () => {
     expect(result).not.toHaveProperty("credentials");
 
     // Verify that other properties are preserved
-    expect(result).toHaveProperty("slug", "daily-video");
+    expect(result).toHaveProperty("slug", "coachos-meet");
     expect(result).toHaveProperty("name", "CoachOS Meet");
     expect(result).toHaveProperty("isGlobal", true);
     expect(result).toHaveProperty("locationOption");

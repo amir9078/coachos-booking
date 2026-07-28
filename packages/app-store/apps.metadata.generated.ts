@@ -17,8 +17,8 @@ import caretta_config_json from "./caretta/config.json";
 import chatbase_config_json from "./chatbase/config.json";
 import clic_config_json from "./clic/config.json";
 import closecom_config_json from "./closecom/config.json";
+import { metadata as coachosmeet__metadata_ts } from "./coachosmeet/_metadata";
 import cron_config_json from "./cron/config.json";
-import { metadata as dailyvideo__metadata_ts } from "./dailyvideo/_metadata";
 import databuddy_config_json from "./databuddy/config.json";
 import deel_config_json from "./deel/config.json";
 import demodesk_config_json from "./demodesk/config.json";
@@ -129,8 +129,8 @@ export const appStoreMetadata = {
   chatbase: chatbase_config_json,
   clic: clic_config_json,
   closecom: closecom_config_json,
+  coachosmeet: coachosmeet__metadata_ts,
   cron: cron_config_json,
-  dailyvideo: dailyvideo__metadata_ts,
   databuddy: databuddy_config_json,
   deel: deel_config_json,
   demodesk: demodesk_config_json,

@@ -68,7 +68,7 @@ describe("handleNewBooking - Booking Flags", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -84,7 +84,7 @@ describe("handleNewBooking - Booking Flags", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: "integrations:daily" },
+            location: { optionValue: "", value: "integrations:coachos_meet" },
           },
           start: `${plus1DateString}T05:00:00.000Z`,
           end: `${plus1DateString}T05:45:00.000Z`,
@@ -107,7 +107,7 @@ describe("handleNewBooking - Booking Flags", () => {
 
       await expectBookingToBeInDatabase({
         description: "",
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         responses: expect.objectContaining({
           email: booker.email,
           name: booker.name,
@@ -156,7 +156,7 @@ describe("handleNewBooking - Booking Flags", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -172,7 +172,7 @@ describe("handleNewBooking - Booking Flags", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: "integrations:daily" },
+            location: { optionValue: "", value: "integrations:coachos_meet" },
           },
           start: `${plus1DateString}T05:00:00.000Z`,
           end: `${plus1DateString}T05:45:00.000Z`,
@@ -195,7 +195,7 @@ describe("handleNewBooking - Booking Flags", () => {
 
       await expectBookingToBeInDatabase({
         description: "",
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         responses: expect.objectContaining({
           email: booker.email,
           name: booker.name,
@@ -241,7 +241,7 @@ describe("handleNewBooking - Booking Flags", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -257,7 +257,7 @@ describe("handleNewBooking - Booking Flags", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: "integrations:daily" },
+            location: { optionValue: "", value: "integrations:coachos_meet" },
           },
           start: `${plus1DateString}T05:00:00.000Z`,
           end: `${plus1DateString}T05:45:00.000Z`,
@@ -280,7 +280,7 @@ describe("handleNewBooking - Booking Flags", () => {
 
       await expectBookingToBeInDatabase({
         description: "",
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         responses: expect.objectContaining({
           email: booker.email,
           name: booker.name,
@@ -335,7 +335,7 @@ describe("handleNewBooking - Booking Flags", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         })
       );
 
@@ -351,7 +351,7 @@ describe("handleNewBooking - Booking Flags", () => {
           responses: {
             email: booker.email,
             name: booker.name,
-            location: { optionValue: "", value: "integrations:daily" },
+            location: { optionValue: "", value: "integrations:coachos_meet" },
           },
           start: `${plus1DateString}T05:00:00.000Z`,
           end: `${plus1DateString}T05:45:00.000Z`,
@@ -376,7 +376,7 @@ describe("handleNewBooking - Booking Flags", () => {
 
       await expectBookingToBeInDatabase({
         description: "",
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         responses: expect.objectContaining({
           email: booker.email,
           name: booker.name,

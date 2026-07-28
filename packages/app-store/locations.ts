@@ -12,14 +12,14 @@ import { z } from "zod";
 
 import type { EventLocationTypeFromAppMeta } from "../types/App";
 import {
-  DailyLocationType as importedDailyLocationType,
+  CoachosMeetLocationType as importedCoachosMeetLocationType,
   MeetLocationType as importedMeetLocationType,
   MSTeamsLocationType as importedMSTeamsLocationType,
 } from "./constants";
 
 export const MeetLocationType = importedMeetLocationType;
 export const MSTeamsLocationType = importedMSTeamsLocationType;
-export const DailyLocationType = importedDailyLocationType;
+export const CoachosMeetLocationType = importedCoachosMeetLocationType;
 
 export type DefaultEventLocationType = {
   default: true;
@@ -71,8 +71,6 @@ export type EventLocationTypeFromApp = Ensure<
 > & { supportsCustomLabel?: boolean; organizerInputLabel?: string };
 
 export type EventLocationType = DefaultEventLocationType | EventLocationTypeFromApp;
-
-export const CalVideoLocationType = DailyLocationType;
 
 /**
  * This isn't an actual location app type. It is a special value that informs to use the Organizer's default conferencing app during booking
@@ -304,8 +302,8 @@ export const isStaticLocationType = (locationType: string): boolean => {
   return Object.values(DefaultEventLocationTypeEnum).includes(locationType as DefaultEventLocationTypeEnum);
 };
 
-export const isCalVideoLocation = (locationType: string): boolean => {
-  return locationType === DailyLocationType;
+export const isCoachosMeetLocation = (locationType: string): boolean => {
+  return locationType === CoachosMeetLocationType;
 };
 
 export const getAppSlugFromLocationType = (locationType: string): string | null => {
@@ -433,7 +431,7 @@ export const getLocationValueForDB = (
   });
 
   if (bookingLocation.trim().length === 0) {
-    bookingLocation = DailyLocationType;
+    bookingLocation = CoachosMeetLocationType;
   }
 
   return { bookingLocation, conferenceCredentialId };

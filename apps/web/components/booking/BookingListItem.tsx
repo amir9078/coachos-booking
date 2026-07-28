@@ -216,9 +216,9 @@ function BookingListItem(booking: BookingItemProps) {
     isTabUnconfirmed,
     isDisabledCancelling,
     isDisabledRescheduling,
-    isCalVideoLocation:
+    isCoachosMeetLocation:
       !booking.location ||
-      booking.location === "integrations:daily" ||
+      booking.location === "integrations:coachos_meet" ||
       (typeof booking.location === "string" && booking.location.trim() === ""),
     showPendingPayment: paymentAppData.enabled && booking.payment.length && !booking.paid,
     isAttendee,

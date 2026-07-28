@@ -44,7 +44,7 @@ vi.mock("@coachos/app-store/BookingPageTagManager", () => ({
 }));
 
 vi.mock("@coachos/app-store/locations", () => ({
-  DailyLocationType: "daily",
+  CoachosMeetLocationType: "daily",
   guessEventLocationType: vi.fn(),
   getSuccessPageLocationMessage: vi.fn(),
 }));

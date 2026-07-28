@@ -23,7 +23,7 @@ describe("getLocation", () => {
   it("should return a meetingUrl for video call meetings", () => {
     const calEvent = buildCalendarEvent({
       videoCallData: buildVideoCallData({
-        type: "daily_video",
+        type: "coachos_meet_video",
       }),
     });
 
@@ -52,7 +52,7 @@ describe("getVideoCallUrl", () => {
   it("should return an app public url instead of meeting url for daily call meetings", () => {
     const calEvent = buildCalendarEvent({
       videoCallData: buildVideoCallData({
-        type: "daily_video",
+        type: "coachos_meet_video",
       }),
     });
 
@@ -64,7 +64,7 @@ describe("getVideoCallPassword", () => {
   it("should return an empty password for daily call meetings", () => {
     const calEvent = buildCalendarEvent({
       videoCallData: buildVideoCallData({
-        type: "daily_video",
+        type: "coachos_meet_video",
       }),
     });
 
@@ -73,7 +73,7 @@ describe("getVideoCallPassword", () => {
   it("should return original password for other video call meetings", () => {
     const calEvent = buildCalendarEvent();
 
-    expect(calEvent?.videoCallData?.type).not.toBe("daily_video");
+    expect(calEvent?.videoCallData?.type).not.toBe("coachos_meet_video");
     expect(getVideoCallPassword(calEvent.videoCallData)).toEqual(calEvent?.videoCallData?.password);
   });
 });

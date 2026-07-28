@@ -164,7 +164,7 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             },
             org?.organization
               ? {
@@ -183,11 +183,11 @@ describe("handleNewBooking", () => {
         const orgProfile = orgProfiles[0];
 
         mockSuccessfulVideoMeetingCreation({
-          metadataLookupKey: "dailyvideo",
+          metadataLookupKey: "coachosmeet",
           videoMeetingData: {
             id: "MOCK_ID",
             password: "MOCK_PASS",
-            url: `http://mock-dailyvideo.example.com/meeting-1`,
+            url: `http://mock-coachosmeet.example.com/meeting-1`,
           },
         });
 
@@ -204,7 +204,7 @@ describe("handleNewBooking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -222,7 +222,7 @@ describe("handleNewBooking", () => {
 
         expect(createdBooking).toEqual(
           expect.objectContaining({
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
           })
         );
 
@@ -233,11 +233,11 @@ describe("handleNewBooking", () => {
           status: BookingStatus.ACCEPTED,
           references: [
             {
-              type: appStoreMetadata.dailyvideo.type,
+              type: appStoreMetadata.coachosmeet.type,
               uid: "MOCK_ID",
               meetingId: "MOCK_ID",
               meetingPassword: "MOCK_PASS",
-              meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+              meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
             },
             {
               type: appStoreMetadata.googlecalendar.type,
@@ -251,7 +251,7 @@ describe("handleNewBooking", () => {
 
         expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
           calendarId: "event-type-1@google-calendar.com",
-          videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+          videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
         });
 
         const iCalUID = expectICalUIDAsString(createdBooking.iCalUID);
@@ -274,7 +274,7 @@ describe("handleNewBooking", () => {
             ...organizer,
             ...(orgProfile?.username ? { usernameInOrg: orgProfile?.username } : null),
           },
-          location: BookingLocations.CalVideo,
+          location: BookingLocations.CoachosMeet,
           subscriberUrl: "http://my-webhook.example.com",
           videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
         });
@@ -332,16 +332,16 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -359,7 +359,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -376,7 +376,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -388,11 +388,11 @@ describe("handleNewBooking", () => {
             status: BookingStatus.ACCEPTED,
             references: [
               {
-                type: appStoreMetadata.dailyvideo.type,
+                type: appStoreMetadata.coachosmeet.type,
                 uid: "MOCK_ID",
                 meetingId: "MOCK_ID",
                 meetingPassword: "MOCK_PASS",
-                meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+                meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
               },
               {
                 type: appStoreMetadata.googlecalendar.type,
@@ -405,7 +405,7 @@ describe("handleNewBooking", () => {
           });
 
           expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
-            videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+            videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
             // We won't be sending evt.destinationCalendar in this case.
             // Google Calendar in this case fallbacks to the "primary" calendar - https://github.com/amir9078/coachos-booking/blob/7d5dad7fea78ff24dddbe44f1da5d7e08e1ff568/packages/app-store/googlecalendar/lib/CalendarService.ts#L217
             // Not sure if it's the correct behaviour. Right now, it isn't possible to have an organizer with connected calendar but no destination calendar - As soon as the Google Calendar app is installed, a destination calendar is created.
@@ -426,7 +426,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -486,16 +486,16 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -512,7 +512,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -529,7 +529,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -541,11 +541,11 @@ describe("handleNewBooking", () => {
             status: BookingStatus.ACCEPTED,
             references: [
               {
-                type: appStoreMetadata.dailyvideo.type,
+                type: appStoreMetadata.coachosmeet.type,
                 uid: "MOCK_ID",
                 meetingId: "MOCK_ID",
                 meetingPassword: "MOCK_PASS",
-                meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+                meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
               },
               {
                 type: appStoreMetadata.googlecalendar.type,
@@ -559,7 +559,7 @@ describe("handleNewBooking", () => {
 
           expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
             calendarId: "organizer@google-calendar.com",
-            videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+            videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
           });
 
           const iCalUID = expectICalUIDAsString(createdBooking.iCalUID);
@@ -577,7 +577,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -632,7 +632,7 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
@@ -744,7 +744,7 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
@@ -757,11 +757,11 @@ describe("handleNewBooking", () => {
           //   },
           // });
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -778,7 +778,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -796,7 +796,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -808,11 +808,11 @@ describe("handleNewBooking", () => {
             status: BookingStatus.ACCEPTED,
             references: [
               {
-                type: appStoreMetadata.dailyvideo.type,
+                type: appStoreMetadata.coachosmeet.type,
                 uid: "MOCK_ID",
                 meetingId: "MOCK_ID",
                 meetingPassword: "MOCK_PASS",
-                meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+                meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
               },
               {
                 type: appStoreMetadata.googlecalendar.type,
@@ -827,7 +827,7 @@ describe("handleNewBooking", () => {
 
           expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
             calendarId: "organizer@google-calendar.com",
-            videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+            videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
           });
 
           const iCalUID = expectICalUIDAsString(createdBooking.iCalUID);
@@ -845,7 +845,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -901,16 +901,16 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -928,7 +928,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -946,7 +946,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -958,11 +958,11 @@ describe("handleNewBooking", () => {
             status: BookingStatus.ACCEPTED,
             references: [
               {
-                type: appStoreMetadata.dailyvideo.type,
+                type: appStoreMetadata.coachosmeet.type,
                 uid: "MOCK_ID",
                 meetingId: "MOCK_ID",
                 meetingPassword: "MOCK_PASS",
-                meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+                meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
               },
               {
                 type: appStoreMetadata.applecalendar.type,
@@ -975,7 +975,7 @@ describe("handleNewBooking", () => {
 
           expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
             calendarId: "organizer@google-calendar.com",
-            videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+            videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
           });
 
           expectSuccessfulBookingCreationEmails({
@@ -991,7 +991,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -1149,7 +1149,7 @@ describe("handleNewBooking", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["daily-video"]],
+            apps: [TestData.apps["coachos-meet"]],
           });
           await createBookingScenario(scenarioData);
           const createdBooking = await handleNewBooking({
@@ -1237,7 +1237,7 @@ describe("handleNewBooking", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps.zoomvideo, TestData.apps["daily-video"]],
+            apps: [TestData.apps.zoomvideo, TestData.apps["coachos-meet"]],
           });
           mockSuccessfulVideoMeetingCreation({
             metadataLookupKey: "zoomvideo",
@@ -1325,17 +1325,17 @@ describe("handleNewBooking", () => {
             organizer,
             apps: [
               TestData.apps["google-meet"],
-              TestData.apps["daily-video"],
+              TestData.apps["coachos-meet"],
               TestData.apps["office365-calendar"],
             ],
           });
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: "http://mock-dailyvideo.example.com/meeting-1",
+              url: "http://mock-coachosmeet.example.com/meeting-1",
             },
           });
 
@@ -1358,7 +1358,7 @@ describe("handleNewBooking", () => {
           // Should fallback to CoachOS Meet instead of Google Meet
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
         },
@@ -1419,7 +1419,7 @@ describe("handleNewBooking", () => {
             apps: [
               TestData.apps["google-calendar"],
               TestData.apps["google-meet"],
-              TestData.apps["daily-video"],
+              TestData.apps["coachos-meet"],
             ],
           });
 
@@ -1557,7 +1557,7 @@ describe("handleNewBooking", () => {
       );
 
       test(
-        `Booking should still be created using calvideo, if error occurs with zoom`,
+        `Booking should still be created using coachosmeet, if error occurs with zoom`,
 
         async ({ emails }) => {
           const handleNewBooking = getNewBookingHandler();
@@ -1590,7 +1590,7 @@ describe("handleNewBooking", () => {
                   ],
                 },
               ],
-              apps: [TestData.apps.zoomvideo, TestData.apps["daily-video"]],
+              apps: [TestData.apps.zoomvideo, TestData.apps["coachos-meet"]],
               webhooks: [
                 {
                   userId: organizer.id,
@@ -1609,11 +1609,11 @@ describe("handleNewBooking", () => {
           });
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -1634,14 +1634,14 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
           expectBrokenIntegrationEmails({ organizer, emails });
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -2340,12 +2340,12 @@ describe("handleNewBooking", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           });
           await createBookingScenario(scenarioData);
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
 
           mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -2360,7 +2360,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -2378,7 +2378,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -2399,7 +2399,7 @@ describe("handleNewBooking", () => {
           expectBookingRequestedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             eventType: scenarioData.eventTypes[0],
           });
@@ -2458,12 +2458,12 @@ describe("handleNewBooking", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           });
           await createBookingScenario(scenarioData);
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
 
           mockCalendarToHaveNoBusySlots("googlecalendar", {
@@ -2478,7 +2478,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -2494,7 +2494,7 @@ describe("handleNewBooking", () => {
             uid: createdBooking.uid!,
             eventTypeId: mockBookingData.eventTypeId,
             status: BookingStatus.PENDING,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             responses: expect.objectContaining({
               email: booker.email,
               name: booker.name,
@@ -2510,7 +2510,7 @@ describe("handleNewBooking", () => {
           expectBookingRequestedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             eventType: scenarioData.eventTypes[0],
           });
@@ -2574,12 +2574,12 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
 
           mockCalendarToHaveNoBusySlots("googlecalendar", {});
@@ -2590,7 +2590,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -2607,7 +2607,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -2635,7 +2635,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
           });
@@ -2697,13 +2697,13 @@ describe("handleNewBooking", () => {
               },
             ],
             organizer,
-            apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+            apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
           });
 
           await createBookingScenario(scenarioData);
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
 
           mockCalendarToHaveNoBusySlots("googlecalendar", {});
@@ -2714,7 +2714,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -2731,7 +2731,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -2749,7 +2749,7 @@ describe("handleNewBooking", () => {
           expectBookingRequestedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             eventType: scenarioData.eventTypes[0],
           });
@@ -2791,11 +2791,11 @@ describe("handleNewBooking", () => {
               selectedCalendars: [TestData.selectedCalendars.google],
             },
           ],
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         });
 
         mockErrorOnVideoMeetingCreation({
-          metadataLookupKey: "dailyvideo",
+          metadataLookupKey: "coachosmeet",
         });
 
         mockCalendarToHaveNoBusySlots("googlecalendar");
@@ -2806,7 +2806,7 @@ describe("handleNewBooking", () => {
             responses: {
               email: booker.email,
               name: booker.name,
-              location: { optionValue: "", value: BookingLocations.CalVideo },
+              location: { optionValue: "", value: BookingLocations.CoachosMeet },
             },
           },
         });
@@ -2882,7 +2882,7 @@ describe("handleNewBooking", () => {
             },
           ],
           organizer,
-          apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+          apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
         });
 
         mockCalendarToHaveNoBusySlots("googlecalendar", {});
@@ -2995,13 +2995,13 @@ describe("handleNewBooking", () => {
             organizer,
             apps: [
               TestData.apps["google-calendar"],
-              TestData.apps["daily-video"],
+              TestData.apps["coachos-meet"],
               TestData.apps["stripe-payment"],
             ],
           });
           await createBookingScenario(scenarioData);
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
           const { paymentUid, externalId } = mockPaymentApp({
             metadataLookupKey: "stripe",
@@ -3014,7 +3014,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -3025,14 +3025,14 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
               paymentUid: paymentUid,
             })
           );
 
           await expectBookingToBeInDatabase({
             description: "",
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
 
             uid: createdBooking.uid!,
             eventTypeId: mockBookingData.eventTypeId,
@@ -3048,7 +3048,7 @@ describe("handleNewBooking", () => {
           expectBookingPaymentIntiatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
 
             paymentId: createdBooking.paymentId!,
@@ -3068,7 +3068,7 @@ describe("handleNewBooking", () => {
           expectBookingCreatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
             videoCallUrl: `${WEBAPP_URL}/video/${createdBooking.uid}`,
             paidEvent: true,
@@ -3138,13 +3138,13 @@ describe("handleNewBooking", () => {
             organizer,
             apps: [
               TestData.apps["google-calendar"],
-              TestData.apps["daily-video"],
+              TestData.apps["coachos-meet"],
               TestData.apps["stripe-payment"],
             ],
           });
           await createBookingScenario(scenarioData);
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
           const { paymentUid, externalId } = mockPaymentApp({
             metadataLookupKey: "stripe",
@@ -3158,7 +3158,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -3174,7 +3174,7 @@ describe("handleNewBooking", () => {
           );
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
               paymentUid: paymentUid,
             })
           );
@@ -3195,7 +3195,7 @@ describe("handleNewBooking", () => {
           expectBookingPaymentIntiatedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl: "http://my-webhook.example.com",
 
             paymentId: createdBooking.paymentId!,
@@ -3222,7 +3222,7 @@ describe("handleNewBooking", () => {
           expectBookingRequestedWebhookToHaveBeenFired({
             booker,
             organizer,
-            location: BookingLocations.CalVideo,
+            location: BookingLocations.CoachosMeet,
             subscriberUrl,
             paidEvent: true,
             eventType: scenarioData.eventTypes[0],
@@ -3278,16 +3278,16 @@ describe("handleNewBooking", () => {
                 },
               ],
               organizer,
-              apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+              apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
             })
           );
 
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
             videoMeetingData: {
               id: "MOCK_ID",
               password: "MOCK_PASS",
-              url: `http://mock-dailyvideo.example.com/meeting-1`,
+              url: `http://mock-coachosmeet.example.com/meeting-1`,
             },
           });
 
@@ -3304,7 +3304,7 @@ describe("handleNewBooking", () => {
               responses: {
                 email: booker.email,
                 name: booker.name,
-                location: { optionValue: "", value: BookingLocations.CalVideo },
+                location: { optionValue: "", value: BookingLocations.CoachosMeet },
               },
             },
           });
@@ -3322,7 +3322,7 @@ describe("handleNewBooking", () => {
 
           expect(createdBooking).toEqual(
             expect.objectContaining({
-              location: BookingLocations.CalVideo,
+              location: BookingLocations.CoachosMeet,
             })
           );
 
@@ -3334,11 +3334,11 @@ describe("handleNewBooking", () => {
             status: BookingStatus.ACCEPTED,
             references: [
               {
-                type: appStoreMetadata.dailyvideo.type,
+                type: appStoreMetadata.coachosmeet.type,
                 uid: "MOCK_ID",
                 meetingId: "MOCK_ID",
                 meetingPassword: "MOCK_PASS",
-                meetingUrl: "http://mock-dailyvideo.example.com/meeting-1",
+                meetingUrl: "http://mock-coachosmeet.example.com/meeting-1",
               },
               {
                 type: appStoreMetadata.googlecalendar.type,
@@ -3352,7 +3352,7 @@ describe("handleNewBooking", () => {
 
           expectSuccessfulCalendarEventCreationInCalendar(calendarMock, {
             calendarId: "event-type-1@google-calendar.com",
-            videoCallUrl: "http://mock-dailyvideo.example.com/meeting-1",
+            videoCallUrl: "http://mock-coachosmeet.example.com/meeting-1",
           });
 
           const iCalUID = expectICalUIDAsString(createdBooking.iCalUID);
@@ -3429,7 +3429,7 @@ describe("handleNewBooking", () => {
 
           await createBookingScenario(scenarioData);
           mockSuccessfulVideoMeetingCreation({
-            metadataLookupKey: "dailyvideo",
+            metadataLookupKey: "coachosmeet",
           });
           const { paymentUid: _paymentUid } = mockPaymentApp({
             metadataLookupKey: "stripe",
@@ -3542,7 +3542,7 @@ describe("handleNewBooking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+        apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
       });
 
       await createBookingScenario(scenarioData);
@@ -3601,7 +3601,7 @@ describe("handleNewBooking", () => {
           },
         ],
         organizer,
-        apps: [TestData.apps["google-calendar"], TestData.apps["daily-video"]],
+        apps: [TestData.apps["google-calendar"], TestData.apps["coachos-meet"]],
       });
 
       await createBookingScenario(scenarioData);

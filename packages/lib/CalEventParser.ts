@@ -616,8 +616,8 @@ export const getCancellationReason = (t: TFunction, cancellationReason?: string 
   return `${t("cancellation_reason")}:\n${sanitized}`;
 };
 
-export const isDailyVideoCall = (videoCallData?: VideoCallData): boolean => {
-  return videoCallData?.type === "daily_video";
+export const isCoachosMeetCall = (videoCallData?: VideoCallData): boolean => {
+  return videoCallData?.type === "coachos_meet_video";
 };
 
 export const getPublicVideoCallUrl = (uid?: string | null): string => {
@@ -631,7 +631,7 @@ export const getVideoCallUrlFromCalEvent = (calEvent: {
   uid?: string | null;
 }): string => {
   if (calEvent.videoCallData) {
-    if (calEvent.videoCallData.type === "daily_video") {
+    if (calEvent.videoCallData.type === "coachos_meet_video") {
       return getPublicVideoCallUrl(calEvent.uid);
     }
     return calEvent.videoCallData.url ?? "";
@@ -646,5 +646,5 @@ export const getVideoCallUrlFromCalEvent = (calEvent: {
 };
 
 export const getVideoCallPassword = (videoCallData?: VideoCallData): string => {
-  return isDailyVideoCall(videoCallData) ? "" : (videoCallData?.password ?? "");
+  return isCoachosMeetCall(videoCallData) ? "" : (videoCallData?.password ?? "");
 };

@@ -1,7 +1,7 @@
 import { z } from "zod";
 
 const integrationsApiAvailable = {
-  "cal-video": z.literal("integrations:daily"),
+  "coachos-meet": z.literal("integrations:coachos_meet"),
   "google-meet": z.literal("integrations:google:meet"),
   zoom: z.literal("integrations:zoom"),
   "office365-video": z.literal("integrations:office365_video"),
@@ -45,7 +45,7 @@ export const integrationsApiToInternalMappingSchema = {
 
 const OrganizerIntegrationSchema = z.object({
   type: z.union([
-    integrationsApiToInternalMappingSchema["cal-video"],
+    integrationsApiToInternalMappingSchema["coachos-meet"],
     integrationsApiToInternalMappingSchema["google-meet"],
     integrationsApiToInternalMappingSchema["zoom"],
     integrationsApiToInternalMappingSchema["whereby-video"],

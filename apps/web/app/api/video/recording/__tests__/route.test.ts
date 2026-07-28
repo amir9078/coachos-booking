@@ -1,11 +1,11 @@
-import { getDownloadLinkOfCalVideoByRecordingId } from "@coachos/features/conferencing/lib/videoClient";
+import { getDownloadLinkOfCoachosMeetByRecordingId } from "@coachos/features/conferencing/lib/videoClient";
 import { verifyVideoToken } from "@coachos/lib/videoTokens";
 import { NextResponse } from "next/server";
 import { afterEach, describe, expect, test, vi } from "vitest";
 import { GET } from "../route";
 
 vi.mock("@coachos/features/conferencing/lib/videoClient", () => ({
-  getDownloadLinkOfCalVideoByRecordingId: vi.fn(),
+  getDownloadLinkOfCoachosMeetByRecordingId: vi.fn(),
 }));
 
 vi.mock("@coachos/lib/videoTokens", () => ({
@@ -42,7 +42,7 @@ describe("GET /api/video/recording", () => {
 
   test("returns 404 when recording is not found", async () => {
     vi.mocked(verifyVideoToken).mockReturnValue({ valid: true, recordingId: "test_id" });
-    vi.mocked(getDownloadLinkOfCalVideoByRecordingId).mockResolvedValue(undefined);
+    vi.mocked(getDownloadLinkOfCoachosMeetByRecordingId).mockResolvedValue(undefined);
 
     const request = new Request("http://example.com/api/video/recording?token=valid_token");
     const response = await GET(request);
@@ -53,7 +53,7 @@ describe("GET /api/video/recording", () => {
 
   test("redirects to download link when recording exists", async () => {
     vi.mocked(verifyVideoToken).mockReturnValue({ valid: true, recordingId: "test_id" });
-    vi.mocked(getDownloadLinkOfCalVideoByRecordingId).mockResolvedValue({
+    vi.mocked(getDownloadLinkOfCoachosMeetByRecordingId).mockResolvedValue({
       download_link: "https://example.com/download",
     });
 
@@ -67,7 +67,7 @@ describe("GET /api/video/recording", () => {
 
   test("returns 500 when getting recording fails", async () => {
     vi.mocked(verifyVideoToken).mockReturnValue({ valid: true, recordingId: "test_id" });
-    vi.mocked(getDownloadLinkOfCalVideoByRecordingId).mockRejectedValue(new Error("Failed to get recording"));
+    vi.mocked(getDownloadLinkOfCoachosMeetByRecordingId).mockRejectedValue(new Error("Failed to get recording"));
 
     const request = new Request("http://example.com/api/video/recording?token=valid_token");
     const response = await GET(request);

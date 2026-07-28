@@ -80,19 +80,19 @@ describe.skip("confirmHandler", () => {
             endTime: `${plus1DateString}T05:15:00.000Z`,
             references: [],
             iCalUID,
-            location: "integrations:daily",
+            location: "integrations:coachos_meet",
             attendees: [attendeeUser],
             responses: { name: attendeeUser.name, email: attendeeUser.email, guests: [] },
             userPrimaryEmail: organizer.email,
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
     });
 
     const ctx = {
@@ -167,19 +167,19 @@ describe.skip("confirmHandler", () => {
             endTime: `${plus1DateString}T05:15:00.000Z`,
             references: [],
             iCalUID,
-            location: "integrations:daily",
+            location: "integrations:coachos_meet",
             attendees: [attendeeUser],
             responses: { name: attendeeUser.name, email: attendeeUser.email, guests: [] },
             userPrimaryEmail: organizer.email,
           },
         ],
         organizer,
-        apps: [TestData.apps["daily-video"]],
+        apps: [TestData.apps["coachos-meet"]],
       })
     );
 
     mockSuccessfulVideoMeetingCreation({
-      metadataLookupKey: "dailyvideo",
+      metadataLookupKey: "coachosmeet",
     });
 
     const ctx = {

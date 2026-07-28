@@ -122,7 +122,7 @@ describe("_getLocationValuesForDb", () => {
         username: "frank",
         metadata: {
           defaultConferencingApp: {
-            appSlug: "daily-video",
+            appSlug: "coachos-meet",
           },
         },
         credentials: [],

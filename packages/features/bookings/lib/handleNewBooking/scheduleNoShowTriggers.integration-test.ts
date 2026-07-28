@@ -1,6 +1,6 @@
 import { afterAll, beforeAll, describe, expect, test, vi } from "vitest";
 
-import { DailyLocationType } from "@coachos/app-store/constants";
+import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import { getMeetingSessionsFromRoomName } from "@coachos/features/tasker/tasks/triggerNoShow/getMeetingSessionsFromRoomName";
 import { triggerHostNoShow } from "@coachos/features/tasker/tasks/triggerNoShow/triggerHostNoShow";
 import { sendGenericWebhookPayload } from "@coachos/features/webhooks/lib/sendPayload";
@@ -99,7 +99,7 @@ describe("scheduleNoShowTriggers Integration", () => {
       id: testBookingIds[0],
       startTime: currentDate,
       endTime: new Date("2023-01-01T10:30:00.000Z"),
-      location: DailyLocationType,
+      location: CoachosMeetLocationType,
     };
 
     await scheduleNoShowTriggers({
@@ -130,7 +130,7 @@ describe("scheduleNoShowTriggers Integration", () => {
       id: testBookingIds[1],
       startTime: currentDate,
       endTime: new Date("2023-01-01T11:30:00.000Z"),
-      location: DailyLocationType,
+      location: CoachosMeetLocationType,
     };
 
     await scheduleNoShowTriggers({
@@ -219,11 +219,11 @@ describe("scheduleNoShowTriggers Integration", () => {
         status: "ACCEPTED",
         startTime: now,
         endTime: new Date(now.getTime() + 30 * 60 * 1000),
-        location: DailyLocationType,
+        location: CoachosMeetLocationType,
         userId: testUser.id,
         references: {
           create: {
-            type: "daily_video",
+            type: "coachos_meet_video",
             uid: "meeting-test-uid",
           },
         },

@@ -25,7 +25,7 @@ export class OutputAttendeePhoneLocation_2024_06_14 extends InputAttendeePhoneLo
 export class OutputAttendeeDefinedLocation_2024_06_14 extends InputAttendeeDefinedLocation_2024_06_14 {}
 
 const integrationsValues = [
-  "cal-video",
+  "coachos-meet",
   "google-meet",
   "zoom",
   "whereby-video",

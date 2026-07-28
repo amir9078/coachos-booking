@@ -510,7 +510,7 @@ export const EventAdvancedTab = ({
   const successRedirectUrlLocked = shouldLockDisableProps("successRedirectUrl");
   const seatsLocked = shouldLockDisableProps("seatsPerTimeSlotEnabled");
   const requiresBookerEmailVerificationProps = shouldLockDisableProps("requiresBookerEmailVerification");
-  const sendCalVideoTranscriptionEmailsProps = shouldLockDisableProps("canSendCalVideoTranscriptionEmails");
+  const sendCoachosMeetTranscriptionEmailsProps = shouldLockDisableProps("canSendCalVideoTranscriptionEmails");
   const hideCalendarNotesLocked = shouldLockDisableProps("hideCalendarNotes");
   const hideCalendarEventDetailsLocked = shouldLockDisableProps("hideCalendarEventDetails");
   const eventTypeColorLocked = shouldLockDisableProps("eventTypeColor");
@@ -764,8 +764,8 @@ export const EventAdvancedTab = ({
               customClassNames?.canSendCalVideoTranscriptionEmails?.container
             )}
             title={t("send_coachos_video_transcription_emails")}
-            data-testid="send-cal-video-transcription-emails"
-            {...sendCalVideoTranscriptionEmailsProps}
+            data-testid="send-coachos-meet-transcription-emails"
+            {...sendCoachosMeetTranscriptionEmailsProps}
             description={t("description_send_coachos_video_transcription_emails")}
             descriptionClassName={customClassNames?.canSendCalVideoTranscriptionEmails?.description}
             checked={value}

@@ -4,7 +4,7 @@ import { IsIn, IsOptional } from "class-validator";
 export const BookingReferences = [
   "google_calendar",
   "office365_calendar",
-  "daily_video",
+  "coachos_meet_video",
   "google_video",
   "office365_video",
   "zoom_video",

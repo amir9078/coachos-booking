@@ -172,7 +172,7 @@ const Locations: React.FC<LocationsProps> = ({
           const eventLocationType = getLocationByType(field.type);
           const defaultLocation = field;
 
-          const isCalVideo = field.type === "integrations:daily";
+          const isCoachosMeet = field.type === "integrations:coachos_meet";
 
           const option = getLocationFromType(field.type, locationOptions);
           return (
@@ -253,7 +253,7 @@ const Locations: React.FC<LocationsProps> = ({
                 )}
               </div>
 
-              {isCalVideo && !isPlatform && <CalVideoSettings />}
+              {isCoachosMeet && !isPlatform && <CalVideoSettings />}
 
               {eventLocationType?.supportsCustomLabel && eventLocationType?.type ? (
                 <DefaultLocationSettings

@@ -111,14 +111,14 @@ describe("transformLocationsInternalToApi", () => {
   it("should reverse transform integration location", () => {
     const transformedLocation = [
       {
-        type: "integrations:daily" as const,
+        type: "integrations:coachos_meet" as const,
       },
     ];
 
     const expectedOutput: OutputIntegrationLocation_2024_06_14[] = [
       {
         type: "integration",
-        integration: "cal-video",
+        integration: "coachos-meet",
       },
     ];
 

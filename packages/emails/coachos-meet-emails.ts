@@ -1,0 +1,49 @@
+// It's ensured that this file does not import any client-side code
+import type BaseEmail from "@coachos/emails/templates/_base-email";
+import { formatCalEvent } from "@coachos/lib/formatCalendarEvent";
+import type { CalendarEvent } from "@coachos/types/Calendar";
+
+import AttendeeCoachosMeetDownloadRecordingEmail from "./templates/attendee-coachos-meet-download-recording-email";
+import AttendeeCoachosMeetDownloadTranscriptEmail from "./templates/attendee-coachos-meet-download-transcript-email";
+import OrganizerCoachosMeetDownloadRecordingEmail from "./templates/organizer-coachos-meet-download-recording-email";
+import OrganizerCoachosMeetDownloadTranscriptEmail from "./templates/organizer-coachos-meet-download-transcript-email";
+
+const sendEmail = (prepare: () => BaseEmail) => {
+  return new Promise((resolve, reject) => {
+    try {
+      const email = prepare();
+      resolve(email.sendEmail());
+    } catch (e) {
+      reject(console.error(`${prepare.constructor.name}.sendEmail failed`, e));
+    }
+  });
+};
+
+export const sendCoachosMeetTranscriptEmails = async (calEvent: CalendarEvent, transcripts: string[]) => {
+  const emailsToSend: Promise<unknown>[] = [];
+
+  emailsToSend.push(sendEmail(() => new OrganizerCoachosMeetDownloadTranscriptEmail(calEvent, transcripts)));
+
+  for (const attendee of calEvent.attendees) {
+    emailsToSend.push(
+      sendEmail(() => new AttendeeCoachosMeetDownloadTranscriptEmail(calEvent, attendee, transcripts))
+    );
+  }
+  await Promise.all(emailsToSend);
+};
+
+export const sendCoachosMeetRecordingEmails = async (calEvent: CalendarEvent, downloadLink: string) => {
+  const calendarEvent = formatCalEvent(calEvent);
+  const emailsToSend: Promise<unknown>[] = [];
+
+  emailsToSend.push(
+    sendEmail(() => new OrganizerCoachosMeetDownloadRecordingEmail(calendarEvent, downloadLink))
+  );
+
+  for (const attendee of calendarEvent.attendees) {
+    emailsToSend.push(
+      sendEmail(() => new AttendeeCoachosMeetDownloadRecordingEmail(calendarEvent, attendee, downloadLink))
+    );
+  }
+  await Promise.all(emailsToSend);
+};

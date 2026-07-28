@@ -1,6 +1,6 @@
 import { NextResponse } from "next/server";
 
-import { getDownloadLinkOfCalVideoByRecordingId } from "@coachos/features/conferencing/lib/videoClient";
+import { getDownloadLinkOfCoachosMeetByRecordingId } from "@coachos/features/conferencing/lib/videoClient";
 import { verifyVideoToken } from "@coachos/lib/videoTokens";
 
 export async function GET(request: Request) {
@@ -17,7 +17,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const recordingLink = await getDownloadLinkOfCalVideoByRecordingId(verification.recordingId);
+    const recordingLink = await getDownloadLinkOfCoachosMeetByRecordingId(verification.recordingId);
     if (!recordingLink) {
       return new Response("Recording not found", { status: 404 });
     }

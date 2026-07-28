@@ -12,7 +12,7 @@ import type {
 } from "../internal/locations";
 
 export const apiToInternalintegrationsMapping = {
-  "cal-video": "integrations:daily",
+  "coachos-meet": "integrations:coachos_meet",
   "google-meet": "integrations:google:meet",
   "office365-video": "integrations:office365_video",
   zoom: "integrations:zoom",

@@ -27,7 +27,7 @@ export class CalMeetingSession {
   @IsString()
   id!: string;
 
-  @ApiProperty({ example: "daily-video-room-123" })
+  @ApiProperty({ example: "coachos-meet-room-123" })
   @IsString()
   room!: string;
 

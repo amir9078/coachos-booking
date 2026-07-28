@@ -23,7 +23,7 @@ import DailyIframe from "@daily-co/daily-js";
 import { DailyProvider, useDailyEvent } from "@daily-co/daily-react";
 import type { getServerSideProps } from "@lib/video/[uid]/getServerSideProps";
 import { useCallback, useEffect, useRef, useState } from "react";
-import { CalVideoPremiumFeatures } from "../cal-video-premium-features";
+import { CoachosMeetPremiumFeatures } from "../coachos-meet-premium-features";
 
 export type PageProps = inferSSRProps<typeof getServerSideProps>;
 
@@ -170,7 +170,7 @@ export default function JoinCall(props: PageProps) {
         <div
           className="mx-auto hidden sm:block"
           style={{ zIndex: 2, left: "30%", position: "absolute", bottom: 100, width: "auto" }}>
-          <CalVideoPremiumFeatures
+          <CoachosMeetPremiumFeatures
             showRecordingButton={showRecordingButton}
             enableAutomaticRecordingForOrganizer={enableAutomaticRecordingForOrganizer}
             enableAutomaticTranscription={enableAutomaticTranscription}

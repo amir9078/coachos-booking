@@ -372,7 +372,7 @@ export const createdEventSchema = z
   .passthrough();
 
 const schemaDefaultConferencingApp = z.object({
-  appSlug: z.string().default("daily-video").optional(),
+  appSlug: z.string().default("coachos-meet").optional(),
   appLink: z.string().optional(),
 });
 
@@ -658,7 +658,7 @@ export const getParserWithGeneric =
       [key in keyof Data]: Data[key] extends SimpleFormValues ? Data[key] : Output[key];
     };
   };
-export const sendDailyVideoRecordingEmailsSchema = z.object({
+export const sendCoachosMeetRecordingEmailsSchema = z.object({
   recordingId: z.string(),
   bookingUID: z.string(),
 });

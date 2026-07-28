@@ -2,7 +2,7 @@ import z from "zod";
 
 import { getCalendar } from "@coachos/app-store/_utils/getCalendar";
 import { appStoreMetadata } from "@coachos/app-store/appStoreMetaData";
-import { DailyLocationType } from "@coachos/app-store/locations";
+import { CoachosMeetLocationType } from "@coachos/app-store/locations";
 import {
   type EventTypeAppMetadataSchema,
   eventTypeAppMetadataOptionalSchema,
@@ -112,13 +112,13 @@ const handleDeleteCredential = async ({
       // To avoid type errors, need to stringify and parse JSON to use array methods
       const locations = locationsSchema.parse(eventType.locations);
 
-      const doesDailyVideoAlreadyExists = locations.some((location) =>
-        location.type.includes(DailyLocationType)
+      const doesCoachosMeetAlreadyExists = locations.some((location) =>
+        location.type.includes(CoachosMeetLocationType)
       );
 
       const updatedLocations: TlocationsSchema = locations.reduce((acc: TlocationsSchema, location) => {
         if (location.type.includes(integrationQuery)) {
-          if (!doesDailyVideoAlreadyExists) acc.push({ type: DailyLocationType });
+          if (!doesCoachosMeetAlreadyExists) acc.push({ type: CoachosMeetLocationType });
         } else {
           acc.push(location);
         }

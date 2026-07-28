@@ -101,7 +101,7 @@ describe("Bookings Endpoints 2024-08-13", () => {
             id: event.id,
           },
         },
-        location: "integrations:daily",
+        location: "integrations:coachos_meet",
         customInputs: {},
         metadata: {},
         attendees: {
