@@ -87,6 +87,7 @@ RUN apt-get update && apt-get install -y --no-install-recommends netcat-openbsd 
 RUN groupadd --system --gid 1001 coachos && useradd --system --uid 1001 --gid coachos coachos
 
 COPY --from=builder-two --chown=coachos:coachos /app ./
+RUN chown coachos:coachos /app
 ARG NEXT_PUBLIC_WEBAPP_URL=http://localhost:3000
 ENV NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL \
   BUILT_NEXT_PUBLIC_WEBAPP_URL=$NEXT_PUBLIC_WEBAPP_URL
