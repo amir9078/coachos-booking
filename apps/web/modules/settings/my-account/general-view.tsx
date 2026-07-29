@@ -69,8 +69,8 @@ const GeneralView = ({ user, travelSchedules }: GeneralViewProps) => {
       await update(res);
 
       if (res.locale) {
-        window.calNewLocale = res.locale;
-        document.cookie = `calNewLocale=${res.locale}; path=/`;
+        window.coachosLocale = res.locale;
+        document.cookie = `coachosLocale=${res.locale}; path=/`;
       }
     },
     onError: () => {

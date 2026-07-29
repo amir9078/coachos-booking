@@ -380,8 +380,8 @@ describe("CredentialsProvider authorize", () => {
     });
 
     it("sets reason to 'password' when password is invalid and 2FA is enabled", async () => {
-      const originalKey = process.env.CALENDSO_ENCRYPTION_KEY;
-      process.env.CALENDSO_ENCRYPTION_KEY = "test";
+      const originalKey = process.env.COACHOS_ENCRYPTION_KEY;
+      process.env.COACHOS_ENCRYPTION_KEY = "test";
 
       try {
         const { isPasswordValid } = await import("@coachos/lib/auth/isPasswordValid");
@@ -412,13 +412,13 @@ describe("CredentialsProvider authorize", () => {
         expect(result?.role).toBe("INACTIVE_ADMIN");
         expect(result?.inactiveAdminReason).toBe("password");
       } finally {
-        process.env.CALENDSO_ENCRYPTION_KEY = originalKey;
+        process.env.COACHOS_ENCRYPTION_KEY = originalKey;
       }
     });
 
     it("does not set inactiveAdminReason when admin requirements are met", async () => {
-      const originalKey = process.env.CALENDSO_ENCRYPTION_KEY;
-      process.env.CALENDSO_ENCRYPTION_KEY = "test";
+      const originalKey = process.env.COACHOS_ENCRYPTION_KEY;
+      process.env.COACHOS_ENCRYPTION_KEY = "test";
 
       try {
         const { isPasswordValid } = await import("@coachos/lib/auth/isPasswordValid");
@@ -449,7 +449,7 @@ describe("CredentialsProvider authorize", () => {
         expect(result?.role).toBe(UserPermissionRole.ADMIN);
         expect(result?.inactiveAdminReason).toBeUndefined();
       } finally {
-        process.env.CALENDSO_ENCRYPTION_KEY = originalKey;
+        process.env.COACHOS_ENCRYPTION_KEY = originalKey;
       }
     });
   });

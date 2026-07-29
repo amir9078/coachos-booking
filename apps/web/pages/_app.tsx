@@ -28,7 +28,8 @@ function MyApp(props: AppProps) {
 
 declare global {
   interface Window {
-    calNewLocale: string;
+    coachosLocale: string;
+    coachosIsDesktopApp?: boolean;
   }
 }
 
@@ -41,8 +42,8 @@ MyApp.getInitialProps = async ({ ctx }: { ctx: NextPageContext }) => {
     const { getLocale } = await import("@coachos/features/auth/lib/getLocale");
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
     newLocale = await getLocale(req as IncomingMessage & { cookies: Record<string, any> });
-  } else if (typeof window !== "undefined" && window.calNewLocale) {
-    newLocale = window.calNewLocale;
+  } else if (typeof window !== "undefined" && window.coachosLocale) {
+    newLocale = window.coachosLocale;
   }
 
   return {

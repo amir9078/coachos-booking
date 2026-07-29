@@ -18,7 +18,7 @@ const apiKeySchema = z.object({
   encrypted: z.string(),
 });
 
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 
 /**
  * Authentication
@@ -40,7 +40,7 @@ class SendgridCalendarService implements Calendar {
 
     let decrypted;
     if (parsedCredentialKey.success) {
-      decrypted = symmetricDecrypt(parsedCredentialKey.data.encrypted, CALENDSO_ENCRYPTION_KEY);
+      decrypted = symmetricDecrypt(parsedCredentialKey.data.encrypted, COACHOS_ENCRYPTION_KEY);
       const { api_key } = JSON.parse(decrypted);
       this.sendgrid = new Sendgrid(api_key);
     } else {

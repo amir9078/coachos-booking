@@ -34,9 +34,9 @@ export const WEBAPP_URL_FOR_OAUTH = IS_PRODUCTION || IS_DEV ? WEBAPP_URL : "http
 
 /** @deprecated use `WEBAPP_URL` */
 export const BASE_URL = WEBAPP_URL;
-export const WEBSITE_URL = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "https://amir9078.github.io/";
+export const WEBSITE_URL = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
 export const APP_NAME = process.env.NEXT_PUBLIC_APP_NAME || "CoachOS Booking";
-export const SUPPORT_MAIL_ADDRESS = process.env.NEXT_PUBLIC_SUPPORT_MAIL_ADDRESS || "shaikhamirhussain2000@gmail.com";
+export const SUPPORT_MAIL_ADDRESS = process.env.NEXT_PUBLIC_SUPPORT_MAIL_ADDRESS || "support@coachos.com";
 export const COMPANY_NAME = process.env.NEXT_PUBLIC_COMPANY_NAME || "CoachOS";
 export const SENDER_ID = process.env.NEXT_PUBLIC_SENDER_ID || "CoachOS";
 export const SENDER_NAME = process.env.NEXT_PUBLIC_SENDGRID_SENDER_NAME || "CoachOS Booking";
@@ -59,14 +59,8 @@ export const IS_COACHOS =
     new URL(WEBAPP_URL).hostname.endsWith("cal-staging.com") ||
     new URL(WEBAPP_URL).hostname.endsWith("cal.eu"));
 
-export const CONSOLE_URL =
-  new URL(WEBAPP_URL).hostname.endsWith(".cal.dev") ||
-  new URL(WEBAPP_URL).hostname.endsWith(".cal.qa") ||
-  new URL(WEBAPP_URL).hostname.endsWith(".cal-staging.com") ||
-  process.env.NODE_ENV !== "production"
-    ? `https://console.cal.dev`
-    : `https://console.amir9078.github.io`;
-const COACHOS_DOMAINS = [".amir9078.github.io", ".cal.dev", ".cal.eu", ".cal.qa"];
+export const CONSOLE_URL = process.env.NEXT_PUBLIC_CONSOLE_URL || "";
+const COACHOS_DOMAINS = [".coachos.com"]; // Replace with your actual domain
 const WEBAPP_HOSTNAME = new URL(WEBAPP_URL).hostname;
 export const IS_SELF_HOSTED = !COACHOS_DOMAINS.some((domain) => WEBAPP_HOSTNAME.endsWith(domain));
 export const EMBED_LIB_URL = process.env.NEXT_PUBLIC_EMBED_LIB_URL || `${WEBAPP_URL}/embed/embed.js`;
@@ -108,12 +102,12 @@ export const APPLE_TOUCH_ICON = "/apple-touch-icon.png";
 export const MSTILE_ICON = "/mstile-150x150.png";
 export const ANDROID_CHROME_ICON_192 = "/android-chrome-192x192.png";
 export const ANDROID_CHROME_ICON_256 = "/android-chrome-256x256.png";
-export const ROADMAP = "https://amir9078.github.io/roadmap";
-export const DESKTOP_APP_LINK = "https://amir9078.github.io/download";
+export const ROADMAP = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
+export const DESKTOP_APP_LINK = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
 export const JOIN_COMMUNITY = "https://github.com/amir9078/coachos-booking/discussions";
-export const POWERED_BY_URL = "https://go.amir9078.github.io/booking";
-export const DOCS_URL = "https://amir9078.github.io/docs";
-export const DEVELOPER_DOCS = "https://developer.amir9078.github.io";
+export const POWERED_BY_URL = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
+export const DOCS_URL = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
+export const DEVELOPER_DOCS = ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || "http://localhost:3000";
 export const SEO_IMG_DEFAULT = `${COACHOS_URL}/og-image.png`;
 // The Dynamic OG Image is passed through Next's Image API to further optimize it.
 // This results in a 80% smaller image 🤯. It is however important that for the query
@@ -186,7 +180,7 @@ export const ORG_SELF_SERVE_ENABLED = process.env.NEXT_PUBLIC_ORG_SELF_SERVE_ENA
 export const ORG_MINIMUM_PUBLISHED_TEAMS_SELF_SERVE = 0;
 export const ORG_MINIMUM_PUBLISHED_TEAMS_SELF_SERVE_HELPER_DIALOGUE = 1;
 
-export const COACHOS_PRIVATE_API_ROUTE = process.env.COACHOS_PRIVATE_API_ROUTE || "https://goblin.amir9078.github.io";
+export const COACHOS_PRIVATE_API_ROUTE = process.env.COACHOS_PRIVATE_API_ROUTE || "";
 export const WEBSITE_PRIVACY_POLICY_URL =
   process.env.NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL || "https://amir9078.github.io/privacy";
 export const WEBSITE_TERMS_URL = process.env.NEXT_PUBLIC_WEBSITE_TERMS_URL || "https://amir9078.github.io/terms";
@@ -198,21 +192,10 @@ export const LINGO_DOT_DEV_API_KEY = process.env.LINGO_DOT_DEV_API_KEY;
  */
 export const ROLLING_WINDOW_PERIOD_MAX_DAYS_TO_CHECK = 30 + 31;
 
-export const TRANSCRIPTION_STARTED_ICON = IS_PRODUCTION
-  ? `${WEBAPP_URL}/sparkles-red.svg`
-  : `https://app.amir9078.github.io/sparkles-red.svg`;
-
-export const TRANSCRIPTION_STOPPED_ICON = IS_PRODUCTION
-  ? `${WEBAPP_URL}/sparkles.svg`
-  : `https://app.amir9078.github.io/sparkles.svg`;
-
-export const RECORDING_DEFAULT_ICON = IS_PRODUCTION
-  ? `${WEBAPP_URL}/start-recording.svg`
-  : `https://app.amir9078.github.io/start-recording.svg`;
-
-export const RECORDING_IN_PROGRESS_ICON = IS_PRODUCTION
-  ? `${WEBAPP_URL}/stop-recording.svg`
-  : `https://app.amir9078.github.io/stop-recording.svg`;
+export const TRANSCRIPTION_STARTED_ICON = `${WEBAPP_URL}/sparkles-red.svg`;
+export const TRANSCRIPTION_STOPPED_ICON = `${WEBAPP_URL}/sparkles.svg`;
+export const RECORDING_DEFAULT_ICON = `${WEBAPP_URL}/start-recording.svg`;
+export const RECORDING_IN_PROGRESS_ICON = `${WEBAPP_URL}/stop-recording.svg`;
 
 export const SCOPE_USERINFO_PROFILE = "https://www.googleapis.com/auth/userinfo.profile";
 export const SCOPE_USERINFO_EMAIL = "https://www.googleapis.com/auth/userinfo.email";

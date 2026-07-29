@@ -72,7 +72,7 @@ test.describe("2FA Tests", async () => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         userWith2FaSecret!.twoFactorSecret!,
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        process.env.CALENDSO_ENCRYPTION_KEY!
+        process.env.COACHOS_ENCRYPTION_KEY!
       );
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       await fillOtp({ page: secondPage, secret: secret! });
@@ -147,7 +147,7 @@ test.describe("2FA Tests", async () => {
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
         userWith2FaSecret!.twoFactorSecret!,
         // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-        process.env.CALENDSO_ENCRYPTION_KEY!
+        process.env.COACHOS_ENCRYPTION_KEY!
       );
 
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion

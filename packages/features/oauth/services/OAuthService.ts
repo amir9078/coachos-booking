@@ -423,7 +423,7 @@ export class OAuthService {
     codeChallenge?: string | null;
     codeChallengeMethod?: string | null;
   }): OAuth2Tokens {
-    const secretKey = process.env.CALENDSO_ENCRYPTION_KEY;
+    const secretKey = process.env.COACHOS_ENCRYPTION_KEY;
     if (!secretKey) {
       throw new ErrorWithCode(ErrorCode.InternalServerError, "server_error", {
         reason: "encryption_key_missing",
@@ -469,7 +469,7 @@ export class OAuthService {
   }
 
   private verifyRefreshToken(refreshToken: string): DecodedRefreshToken | null {
-    const secretKey = process.env.CALENDSO_ENCRYPTION_KEY;
+    const secretKey = process.env.COACHOS_ENCRYPTION_KEY;
     if (!secretKey) {
       throw new ErrorWithCode(ErrorCode.InternalServerError, "server_error", {
         reason: "encryption_key_missing",
@@ -518,5 +518,5 @@ export const OAUTH_ERROR_REASONS: Record<OAuthErrorReason, string> = {
   pkce_verification_failed: "invalid_grant",
   invalid_refresh_token: "invalid_grant",
   client_id_mismatch: "invalid_grant",
-  encryption_key_missing: "CALENDSO_ENCRYPTION_KEY is not set",
+  encryption_key_missing: "COACHOS_ENCRYPTION_KEY is not set",
 };

@@ -1,7 +1,7 @@
 declare namespace NodeJS {
   interface ProcessEnv {
     readonly COACHOS_TELEMETRY_DISABLED: string | undefined;
-    readonly CALENDSO_ENCRYPTION_KEY: string | undefined;
+    readonly COACHOS_ENCRYPTION_KEY: string | undefined;
     readonly DATABASE_URL: string | undefined;
     readonly GOOGLE_API_CREDENTIALS: string | undefined;
     /** Google Calendar API key for fetching public holiday calendars */

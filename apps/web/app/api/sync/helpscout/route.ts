@@ -26,7 +26,7 @@ async function postHandler(request: NextRequest) {
   const hsSignature = request.headers.get("x-helpscout-signature");
   if (!hsSignature) return NextResponse.json({ message: "Missing signature" }, { status: 400 });
 
-  if (!process.env.CALENDSO_ENCRYPTION_KEY)
+  if (!process.env.COACHOS_ENCRYPTION_KEY)
     return NextResponse.json({ message: "Missing encryption key" }, { status: 500 });
 
   const legacyRequest = buildLegacyRequest(await headers(), await cookies());
@@ -39,7 +39,7 @@ async function postHandler(request: NextRequest) {
     if (!parsedBody.success) return NextResponse.json({ message: "Invalid request body" }, { status: 400 });
 
     // Verify the signature
-    const calculatedSig = createHmac("sha1", process.env.CALENDSO_ENCRYPTION_KEY)
+    const calculatedSig = createHmac("sha1", process.env.COACHOS_ENCRYPTION_KEY)
       .update(rawBody)
       .digest("base64");
 

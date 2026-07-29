@@ -45,12 +45,12 @@ async function postHandler(req: NextRequest) {
     return NextResponse.json({ error: ErrorCode.TwoFactorSetupRequired }, { status: 400 });
   }
 
-  if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+  if (!process.env.COACHOS_ENCRYPTION_KEY) {
     console.error("Missing encryption key; cannot proceed with two factor setup.");
     return NextResponse.json({ error: ErrorCode.InternalServerError }, { status: 500 });
   }
 
-  const secret = symmetricDecrypt(user.twoFactorSecret, process.env.CALENDSO_ENCRYPTION_KEY);
+  const secret = symmetricDecrypt(user.twoFactorSecret, process.env.COACHOS_ENCRYPTION_KEY);
   if (secret.length !== 32) {
     console.error(
       `Two factor secret decryption failed. Expected key with length 32 but got ${secret.length}`

@@ -30,9 +30,9 @@ export class TokensService {
   }
 
   getDecodedThirdPartyAccessToken(token: string): OAuthTokenPayload | null {
-    const encryptionKey = this.config.get<string>("CALENDSO_ENCRYPTION_KEY");
+    const encryptionKey = this.config.get<string>("COACHOS_ENCRYPTION_KEY");
     if (!encryptionKey) {
-      throw new InternalServerErrorException("CALENDSO_ENCRYPTION_KEY environment variable is not set.");
+      throw new InternalServerErrorException("COACHOS_ENCRYPTION_KEY environment variable is not set.");
     }
 
     let decodedToken: OAuthTokenPayload;

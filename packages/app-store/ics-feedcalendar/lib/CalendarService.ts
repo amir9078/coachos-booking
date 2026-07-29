@@ -38,14 +38,14 @@ const applyTravelDuration = (event: ICAL.Event, seconds: number) => {
   return event;
 };
 
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 
 class ICSFeedCalendarService implements Calendar {
   private urls: string[] = [];
   protected integrationName = "ics-feed_calendar";
 
   constructor(credential: CredentialPayload) {
-    const { urls } = JSON.parse(symmetricDecrypt(credential.key as string, CALENDSO_ENCRYPTION_KEY));
+    const { urls } = JSON.parse(symmetricDecrypt(credential.key as string, COACHOS_ENCRYPTION_KEY));
     this.urls = urls;
   }
 

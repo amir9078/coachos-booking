@@ -6,7 +6,7 @@ import type { OAuthTokenPayload } from "@coachos/types/oauth";
 export default async function isAuthorized(token: string, requiredScopes: string[] = []) {
   let decodedToken: OAuthTokenPayload;
   try {
-    decodedToken = jwt.verify(token, process.env.CALENDSO_ENCRYPTION_KEY || "") as OAuthTokenPayload;
+    decodedToken = jwt.verify(token, process.env.COACHOS_ENCRYPTION_KEY || "") as OAuthTokenPayload;
   } catch {
     return null;
   }

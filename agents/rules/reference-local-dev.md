@@ -25,7 +25,7 @@ Generate required secrets:
 # NEXTAUTH_SECRET
 openssl rand -base64 32
 
-# CALENDSO_ENCRYPTION_KEY (must be 32 characters for AES256)
+# COACHOS_ENCRYPTION_KEY (must be 32 characters for AES256)
 openssl rand -base64 24
 ```
 

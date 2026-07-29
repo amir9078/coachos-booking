@@ -50,7 +50,7 @@ class ExchangeCalendarService implements Calendar {
     this.integrationName = "exchange_calendar";
     this.log = logger.getSubLogger({ prefix: [`[[lib] ${this.integrationName}`] });
     this.payload = JSON.parse(
-      symmetricDecrypt(credential.key?.toString() || "", process.env.CALENDSO_ENCRYPTION_KEY || "")
+      symmetricDecrypt(credential.key?.toString() || "", process.env.COACHOS_ENCRYPTION_KEY || "")
     );
   }
 

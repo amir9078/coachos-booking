@@ -38,7 +38,7 @@ import logger from "./logger";
 const TIMEZONE_FORMAT = "YYYY-MM-DDTHH:mm:ss[Z]";
 const DEFAULT_CALENDAR_TYPE = "caldav";
 
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 
 type FetchObjectsWithOptionalExpandOptionsType = {
   selectedCalendars: IntegrationCalendar[];
@@ -400,7 +400,7 @@ export default abstract class BaseCalendarService implements Calendar {
       username,
       password,
       url: credentialURL,
-    } = JSON.parse(symmetricDecrypt(credential.key as string, CALENDSO_ENCRYPTION_KEY));
+    } = JSON.parse(symmetricDecrypt(credential.key as string, COACHOS_ENCRYPTION_KEY));
 
     this.url = url || credentialURL;
 

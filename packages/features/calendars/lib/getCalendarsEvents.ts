@@ -13,7 +13,7 @@ import { normalizeTimezone } from "./timezone-conversion";
 
 const log = logger.getSubLogger({ prefix: ["getCalendarsEvents"] });
 
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 
 // only for Google Calendar for now
 export const getCalendarsEventsWithTimezones = async (
@@ -241,7 +241,7 @@ function getServerUrlFromCredential(credential: CredentialForCalendarService): s
       return null;
     }
 
-    const decryptedData = JSON.parse(symmetricDecrypt(credential.key as string, CALENDSO_ENCRYPTION_KEY));
+    const decryptedData = JSON.parse(symmetricDecrypt(credential.key as string, COACHOS_ENCRYPTION_KEY));
 
     if (!decryptedData.url) {
       return null;

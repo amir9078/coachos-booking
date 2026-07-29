@@ -27,7 +27,7 @@ const credentialSchema = z
     }
   );
 
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 
 // CoachOS Booking Custom Activity Fields
 const calComCustomActivityFields: CloseComFieldOptions = [
@@ -77,7 +77,7 @@ class CloseComCRMService implements CRM {
     // Initialize CloseCom client based on credential type
     if (parsedKey.data.encrypted) {
       // API key authentication
-      const decrypted = symmetricDecrypt(parsedKey.data.encrypted, CALENDSO_ENCRYPTION_KEY);
+      const decrypted = symmetricDecrypt(parsedKey.data.encrypted, COACHOS_ENCRYPTION_KEY);
       const { api_key } = JSON.parse(decrypted);
       this.closeCom = new CloseCom(api_key);
     } else if (parsedKey.data.access_token) {

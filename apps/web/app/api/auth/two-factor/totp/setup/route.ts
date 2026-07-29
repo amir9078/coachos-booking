@@ -54,7 +54,7 @@ async function postHandler(req: NextRequest) {
     return NextResponse.json({ error: ErrorCode.TwoFactorAlreadyEnabled }, { status: 400 });
   }
 
-  if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+  if (!process.env.COACHOS_ENCRYPTION_KEY) {
     console.error("Missing encryption key; cannot proceed with two factor setup.");
     return NextResponse.json({ error: ErrorCode.InternalServerError }, { status: 500 });
   }
@@ -76,9 +76,9 @@ async function postHandler(req: NextRequest) {
       id: session.user.id,
     },
     data: {
-      backupCodes: symmetricEncrypt(JSON.stringify(backupCodes), process.env.CALENDSO_ENCRYPTION_KEY),
+      backupCodes: symmetricEncrypt(JSON.stringify(backupCodes), process.env.COACHOS_ENCRYPTION_KEY),
       twoFactorEnabled: false,
-      twoFactorSecret: symmetricEncrypt(secret, process.env.CALENDSO_ENCRYPTION_KEY),
+      twoFactorSecret: symmetricEncrypt(secret, process.env.COACHOS_ENCRYPTION_KEY),
     },
   });
 

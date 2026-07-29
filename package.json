@@ -21,7 +21,7 @@
     "app-store": "yarn app-store-cli cli",
     "create-app": "yarn app-store create",
     "edit-app": "yarn app-store edit",
-    "withEmbedPublishEnv": "NEXT_PUBLIC_EMBED_LIB_URL='https://app.amir9078.github.io/embed/embed.js' NEXT_PUBLIC_WEBAPP_URL='https://app.amir9078.github.io' yarn",
+    "withEmbedPublishEnv": "NEXT_PUBLIC_EMBED_LIB_URL='https://yourdomain.com/embed/embed.js' NEXT_PUBLIC_WEBAPP_URL='https://yourdomain.com' yarn",
     "publish-embed": "yarn withEmbedPublishEnv workspace @coachos/embed-core build && yarn withEmbedPublishEnv workspace @coachos/embed-snippet build && yarn workspaces foreach --from=\"@coachos/embed*\" npm publish --access=public",
     "delete-app": "yarn app-store delete",
     "create-app-template": "yarn app-store create-template",
@@ -228,7 +228,7 @@
   },
   "packageManager": "yarn@4.12.0",
   "syncpack": {
-    "filter": "^(?!@calcom).*",
+    "filter": "^(?!@coachos).*",
     "semverRange": ""
   }
 }

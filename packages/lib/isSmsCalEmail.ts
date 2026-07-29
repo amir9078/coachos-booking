@@ -1,3 +1,3 @@
 export default function isSmsCalEmail(email: string) {
-  return email.endsWith("@sms.amir9078.github.io");
+  return email.endsWith("@sms.coachos.internal");
 }

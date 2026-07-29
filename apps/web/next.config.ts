@@ -48,7 +48,7 @@ function adjustEnvVariables(): void {
 adjustEnvVariables();
 
 if (!process.env.NEXTAUTH_SECRET) throw new Error("Please set NEXTAUTH_SECRET");
-if (!process.env.CALENDSO_ENCRYPTION_KEY) throw new Error("Please set CALENDSO_ENCRYPTION_KEY");
+if (!process.env.COACHOS_ENCRYPTION_KEY) throw new Error("Please set COACHOS_ENCRYPTION_KEY");
 
 const isOrganizationsEnabled =
   process.env.ORGANIZATIONS_ENABLED === "1" || process.env.ORGANIZATIONS_ENABLED === "true";
@@ -222,6 +222,7 @@ const nextConfig = (phase: string): NextConfig => {
   }
 
   return {
+    poweredByHeader: false,
     output: process.env.BUILD_STANDALONE === "true" ? "standalone" : undefined,
     serverExternalPackages: [
       "deasync",
@@ -416,21 +417,25 @@ const nextConfig = (phase: string): NextConfig => {
           source: "/:path*/embed",
           headers: [CORP_CROSS_ORIGIN_HEADER],
         },
-        {
-          source: "/:path*",
-          has: [
-            {
-              type: "host" as const,
-              value: "amir9078.github.io",
-            },
-          ],
-          headers: [
-            {
-              key: "Referrer-Policy",
-              value: "no-referrer-when-downgrade",
-            },
-          ],
-        },
+        ...(process.env.NEXT_PUBLIC_WEBSITE_URL
+          ? [
+              {
+                source: "/:path*",
+                has: [
+                  {
+                    type: "host" as const,
+                    value: new URL(process.env.NEXT_PUBLIC_WEBSITE_URL).hostname,
+                  },
+                ],
+                headers: [
+                  {
+                    key: "Referrer-Policy",
+                    value: "no-referrer-when-downgrade",
+                  },
+                ],
+              },
+            ]
+          : []),
         {
           source: "/api/avatar/:path*",
           headers: [CORP_CROSS_ORIGIN_HEADER],

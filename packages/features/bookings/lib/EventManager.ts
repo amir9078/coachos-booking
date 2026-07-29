@@ -38,7 +38,7 @@ import type {
 } from "@coachos/types/EventManager";
 
 const log = logger.getSubLogger({ prefix: ["EventManager"] });
-const CALENDSO_ENCRYPTION_KEY = process.env.CALENDSO_ENCRYPTION_KEY || "";
+const COACHOS_ENCRYPTION_KEY = process.env.COACHOS_ENCRYPTION_KEY || "";
 const CALDAV_CALENDAR_TYPE = "caldav_calendar";
 export const isDedicatedIntegration = (location: string): boolean => {
   return location !== MeetLocationType && location.includes("integrations:");
@@ -178,7 +178,7 @@ export default class EventManager {
         return null;
       }
 
-      const decryptedData = JSON.parse(symmetricDecrypt(credential.key as string, CALENDSO_ENCRYPTION_KEY));
+      const decryptedData = JSON.parse(symmetricDecrypt(credential.key as string, COACHOS_ENCRYPTION_KEY));
 
       if (!decryptedData.url) {
         return null;

@@ -48,9 +48,9 @@ test.describe("OAuth - refresh tokens", () => {
   }
 
   function signRefreshToken(clientId: string, userId: number): string {
-    const secretKey = process.env.CALENDSO_ENCRYPTION_KEY;
+    const secretKey = process.env.COACHOS_ENCRYPTION_KEY;
     if (!secretKey) {
-      throw new Error("CALENDSO_ENCRYPTION_KEY is not set");
+      throw new Error("COACHOS_ENCRYPTION_KEY is not set");
     }
 
     return jwt.sign(

@@ -340,11 +340,7 @@ export class Cal {
 
     const searchParams = this.buildFilteredQueryParams(queryParamsFromConfig);
 
-    // amir9078.github.io has rewrite issues on Safari that sometimes cause 404 for assets.
-    const originToUse = (calOrigin || calConfig.calOrigin || "").replace(
-      "https://amir9078.github.io",
-      "https://app.amir9078.github.io"
-    );
+    const originToUse = calOrigin || calConfig.calOrigin || "";
 
     const urlInstance = new URL(`${originToUse}/${calLink}`);
     if (!urlInstance.pathname.endsWith("embed")) {

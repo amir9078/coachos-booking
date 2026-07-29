@@ -442,7 +442,7 @@ export async function createUserWithSeatedEventAndAttendees(
 
 export function generateTotpCode(email: string) {
   const secret = createHash("md5")
-    .update(email + process.env.CALENDSO_ENCRYPTION_KEY)
+    .update(email + process.env.COACHOS_ENCRYPTION_KEY)
     .digest("hex");
 
   totp.options = { step: 90 };

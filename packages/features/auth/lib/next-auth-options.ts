@@ -187,14 +187,14 @@ export async function authorizeCredentials(
   }
 
   if (user.twoFactorEnabled && credentials.backupCode) {
-    if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+    if (!process.env.COACHOS_ENCRYPTION_KEY) {
       console.error("Missing encryption key; cannot proceed with backup code login.");
       throw new Error(ErrorCode.InternalServerError);
     }
 
     if (!user.backupCodes) throw new Error(ErrorCode.MissingBackupCodes);
 
-    const backupCodes = JSON.parse(symmetricDecrypt(user.backupCodes, process.env.CALENDSO_ENCRYPTION_KEY));
+    const backupCodes = JSON.parse(symmetricDecrypt(user.backupCodes, process.env.COACHOS_ENCRYPTION_KEY));
 
     // check if user-supplied code matches one
     const index = backupCodes.indexOf(credentials.backupCode.replaceAll("-", ""));
@@ -207,7 +207,7 @@ export async function authorizeCredentials(
         id: user.id,
       },
       data: {
-        backupCodes: symmetricEncrypt(JSON.stringify(backupCodes), process.env.CALENDSO_ENCRYPTION_KEY),
+        backupCodes: symmetricEncrypt(JSON.stringify(backupCodes), process.env.COACHOS_ENCRYPTION_KEY),
       },
     });
   } else if (user.twoFactorEnabled) {
@@ -220,12 +220,12 @@ export async function authorizeCredentials(
       throw new Error(ErrorCode.InternalServerError);
     }
 
-    if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+    if (!process.env.COACHOS_ENCRYPTION_KEY) {
       console.error(`"Missing encryption key; cannot proceed with two factor login."`);
       throw new Error(ErrorCode.InternalServerError);
     }
 
-    const secret = symmetricDecrypt(user.twoFactorSecret, process.env.CALENDSO_ENCRYPTION_KEY);
+    const secret = symmetricDecrypt(user.twoFactorSecret, process.env.COACHOS_ENCRYPTION_KEY);
     if (secret.length !== 32) {
       console.error(
         `Two factor secret decryption failed. Expected key with length 32 but got ${secret.length}`

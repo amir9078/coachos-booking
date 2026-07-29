@@ -30,7 +30,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
 
     const credentialExistsWithUsername = user.credentials.find((credential) => {
       const decryptedCredential = JSON.parse(
-        symmetricDecrypt(credential.key?.toString() || "", process.env.CALENDSO_ENCRYPTION_KEY || "")
+        symmetricDecrypt(credential.key?.toString() || "", process.env.COACHOS_ENCRYPTION_KEY || "")
       );
 
       if (decryptedCredential.username === username) {
@@ -47,7 +47,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
       type: "apple_calendar",
       key: symmetricEncrypt(
         JSON.stringify({ username, password }),
-        process.env.CALENDSO_ENCRYPTION_KEY || ""
+        process.env.COACHOS_ENCRYPTION_KEY || ""
       ),
       userId: user.id,
       teamId: null,

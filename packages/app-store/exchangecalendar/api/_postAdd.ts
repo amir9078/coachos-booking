@@ -26,7 +26,7 @@ const formSchema = z
 export async function getHandler(req: NextApiRequest, res: NextApiResponse) {
   const session = checkSession(req);
   const body = formSchema.parse(req.body);
-  const encrypted = symmetricEncrypt(JSON.stringify(body), process.env.CALENDSO_ENCRYPTION_KEY || "");
+  const encrypted = symmetricEncrypt(JSON.stringify(body), process.env.COACHOS_ENCRYPTION_KEY || "");
   const data = {
     type: "exchange_calendar",
     key: encrypted,

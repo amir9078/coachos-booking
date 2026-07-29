@@ -109,7 +109,7 @@ const mockGenerateSecret = vi.mocked(generateSecret);
 const mockJwt = vi.mocked(jwt);
 
 // Set up environment
-vi.stubEnv("CALENDSO_ENCRYPTION_KEY", "test_encryption_key");
+vi.stubEnv("COACHOS_ENCRYPTION_KEY", "test_encryption_key");
 
 // Helper to create token exchange request
 function createTokenRequest(data: Record<string, string>) {

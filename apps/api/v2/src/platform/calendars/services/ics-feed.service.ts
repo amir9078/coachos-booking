@@ -33,7 +33,7 @@ export class IcsFeedService implements ICSFeedCalendarApp {
       ICS_CALENDAR,
       key: symmetricEncrypt(
         JSON.stringify({ urls, skipWriting: readonly }),
-        process.env.CALENDSO_ENCRYPTION_KEY || ""
+        process.env.COACHOS_ENCRYPTION_KEY || ""
       ),
       userId: userId,
       teamId: null,

@@ -47,7 +47,7 @@ class ExchangeCalendarService implements Calendar {
     this.log = logger.getSubLogger({ prefix: [`[[lib] ${this.integrationName}`] });
 
     const decryptedCredential = JSON.parse(
-      symmetricDecrypt(credential.key?.toString() || "", process.env.CALENDSO_ENCRYPTION_KEY || "")
+      symmetricDecrypt(credential.key?.toString() || "", process.env.COACHOS_ENCRYPTION_KEY || "")
     );
     const username = decryptedCredential.username;
     const url = decryptedCredential.url;

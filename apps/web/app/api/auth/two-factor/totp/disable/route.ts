@@ -57,7 +57,7 @@ async function handler(req: NextRequest) {
 
   // If user has 2FA and using backup code
   if (user.twoFactorEnabled && body.backupCode) {
-    if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+    if (!process.env.COACHOS_ENCRYPTION_KEY) {
       console.error("Missing encryption key; cannot proceed with backup code login.");
       throw new Error(ErrorCode.InternalServerError);
     }
@@ -66,7 +66,7 @@ async function handler(req: NextRequest) {
       return NextResponse.json({ error: ErrorCode.MissingBackupCodes }, { status: 400 });
     }
 
-    const backupCodes = JSON.parse(symmetricDecrypt(user.backupCodes, process.env.CALENDSO_ENCRYPTION_KEY));
+    const backupCodes = JSON.parse(symmetricDecrypt(user.backupCodes, process.env.COACHOS_ENCRYPTION_KEY));
 
     // check if user-supplied code matches one
     const index = backupCodes.indexOf(body.backupCode.replaceAll("-", ""));
@@ -87,12 +87,12 @@ async function handler(req: NextRequest) {
       throw new Error(ErrorCode.InternalServerError);
     }
 
-    if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+    if (!process.env.COACHOS_ENCRYPTION_KEY) {
       console.error("Missing encryption key; cannot proceed with two factor login.");
       throw new Error(ErrorCode.InternalServerError);
     }
 
-    const secret = symmetricDecrypt(user.twoFactorSecret, process.env.CALENDSO_ENCRYPTION_KEY);
+    const secret = symmetricDecrypt(user.twoFactorSecret, process.env.COACHOS_ENCRYPTION_KEY);
     if (secret.length !== 32) {
       console.error(
         `Two factor secret decryption failed. Expected key with length 32 but got ${secret.length}`

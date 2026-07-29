@@ -11,7 +11,7 @@ import { getHttpStatusCode } from "@coachos/lib/server/getServerErrorFromUnknown
 async function handler(req: NextRequest) {
   const { client_id, client_secret, grant_type, refresh_token } = await parseUrlFormData(req);
 
-  if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+  if (!process.env.COACHOS_ENCRYPTION_KEY) {
     return NextResponse.json({ message: OAUTH_ERROR_REASONS["encryption_key_missing"] }, { status: 500 });
   }
 

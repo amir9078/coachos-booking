@@ -12,7 +12,7 @@ async function handler(req: NextRequest) {
   const { code, client_id, client_secret, grant_type, redirect_uri, code_verifier } =
     await parseUrlFormData(req);
 
-  if (!process.env.CALENDSO_ENCRYPTION_KEY) {
+  if (!process.env.COACHOS_ENCRYPTION_KEY) {
     return NextResponse.json({ message: OAUTH_ERROR_REASONS["encryption_key_missing"] }, { status: 500 });
   }
 

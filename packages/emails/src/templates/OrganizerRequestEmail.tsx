@@ -13,7 +13,7 @@ export const OrganizerRequestEmail = (props: React.ComponentProps<typeof Organiz
     platformCancelUrl: props.calEvent.platformCancelUrl,
     platformBookingUrl: props.calEvent.platformBookingUrl,
   };
-  const token = symmetricEncrypt(JSON.stringify(seedData), process.env.CALENDSO_ENCRYPTION_KEY || "");
+  const token = symmetricEncrypt(JSON.stringify(seedData), process.env.COACHOS_ENCRYPTION_KEY || "");
   //TODO: We should switch to using org domain if available
   const actionHref = `${WEBAPP_URL}/api/link/?token=${encodeURIComponent(token)}`;
   return (

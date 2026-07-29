@@ -36,7 +36,7 @@ async function handler(request: NextRequest) {
   const { action, token, reason } = querySchema.parse(Object.fromEntries(searchParams.entries()));
 
   const decryptedData = JSON.parse(
-    symmetricDecrypt(decodeURIComponent(token), process.env.CALENDSO_ENCRYPTION_KEY || "")
+    symmetricDecrypt(decodeURIComponent(token), process.env.COACHOS_ENCRYPTION_KEY || "")
   );
 
   const {

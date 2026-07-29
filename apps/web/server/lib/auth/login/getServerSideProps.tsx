@@ -14,7 +14,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const session = await getServerSession({ req });
 
   const verifyJwt = (jwt: string) => {
-    const secret = new TextEncoder().encode(process.env.CALENDSO_ENCRYPTION_KEY);
+    const secret = new TextEncoder().encode(process.env.COACHOS_ENCRYPTION_KEY);
 
     return jwtVerify(jwt, secret, {
       issuer: WEBSITE_URL,

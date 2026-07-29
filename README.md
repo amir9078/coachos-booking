@@ -1,8 +1,18 @@
 # CoachOS Booking
 
-CoachOS Booking is the self-hosted scheduling engine built into CoachOS — booking pages, event types, availability, and calendar sync for coaches.
+**Copyright 2024 CoachOS. All rights reserved.**
 
-This is a private, internally-operated instance. There is no hosted/managed public version and no external support channel.
+CoachOS Booking is a proprietary scheduling and appointment management system developed by CoachOS.
+This software is the exclusive property of CoachOS and is protected by applicable intellectual property laws.
+Unauthorized modification, distribution, or use is strictly prohibited.
+
+---
+
+## About
+
+CoachOS Booking is a self-hosted scheduling engine built for coaches, consultants, and service professionals.
+Features include multi-tenant team management, calendar integrations, video conferencing, payment processing,
+and AI-powered voice agents.
 
 ### Built With
 
@@ -37,7 +47,8 @@ This is a private, internally-operated instance. There is no hosted/managed publ
 
    - Duplicate `.env.example` to `.env`
    - Use `openssl rand -base64 32` to generate a key and add it under `NEXTAUTH_SECRET`
-   - Use `openssl rand -base64 24` to generate a key and add it under `CALENDSO_ENCRYPTION_KEY`
+   - Use `openssl rand -base64 24` to generate a key and add it under `COACHOS_ENCRYPTION_KEY`
+   - Use `openssl rand -hex 32` to generate a key and add it under `CRON_API_KEY`
 
    > **Windows users:** the `packages/prisma/.env` symlink gets checked out as a literal text file (containing the string `../../.env`) instead of a real symlink, which breaks Prisma. Replace it with a real copy:
    >
@@ -140,7 +151,8 @@ Generate and set the required secrets before starting:
 
 ```bash
 openssl rand -base64 32   # NEXTAUTH_SECRET
-openssl rand -base64 24   # CALENDSO_ENCRYPTION_KEY
+openssl rand -base64 24   # COACHOS_ENCRYPTION_KEY
+openssl rand -hex 32      # CRON_API_KEY
 ```
 
 If you see `Error: No key set vapidDetails.publicKey`, generate VAPID keys for web push:
@@ -154,9 +166,8 @@ and set `NEXT_PUBLIC_VAPID_PUBLIC_KEY` / `VAPID_PRIVATE_KEY` in `.env`. Never co
 Then bring up the stack:
 
 ```bash
-docker compose up -d              # full stack: db + app + Prisma Studio
-docker compose up -d coachos-web studio  # app + studio against a remote DB
-docker compose up -d coachos-web         # app only
+docker compose up -d              # full stack: db + app
+docker compose up -d coachos-web         # app only, against a remote DB
 ```
 
 Open the app at your configured `NEXT_PUBLIC_WEBAPP_URL`. On first run, the setup wizard creates the first admin user. The "Connect your Calendar" step during setup can be skipped by navigating directly to `<NEXT_PUBLIC_WEBAPP_URL>/event-types` — calendar integrations can be added later under Settings > Integrations.
@@ -171,7 +182,7 @@ docker compose up -d
 
 #### Troubleshooting
 
-- **SSL edge termination**: behind a load balancer that terminates TLS, set `NODE_TLS_REJECT_UNAUTHORIZED=0` only if you trust the upstream proxy.
+- **SSL edge termination**: Ensure your load balancer presents a valid certificate chain. Never disable `NODE_TLS_REJECT_UNAUTHORIZED` in production.
 - **`Invalid 'prisma.user.create()'`**: use an empty JSON object `{}` for `metadata`, and leave `id` empty to autoincrement.
 - **`CLIENT_FETCH_ERROR`**: the container can't resolve its own configured host. Set `NEXTAUTH_URL` to a hostname the container can reach (often `http://localhost:PORT/api/auth` in local setups).
 
@@ -183,7 +194,8 @@ docker compose up -d
 | `NEXT_PUBLIC_WEBAPP_URL` | Base URL of the site. Changing this after build causes a short delay on container start while static files update | optional | `http://localhost:3000` |
 | `NEXTAUTH_URL` | Location of the auth server | optional | `{NEXT_PUBLIC_WEBAPP_URL}/api/auth` |
 | `NEXTAUTH_SECRET` | Cookie encryption key. Generate with `openssl rand -base64 32` | required | — |
-| `CALENDSO_ENCRYPTION_KEY` | Encryption key, 32 bytes for AES256. Generate with `openssl rand -base64 24` | required | — |
+| `COACHOS_ENCRYPTION_KEY` | Encryption key, 32 bytes for AES256. Generate with `openssl rand -base64 24` | required | — |
+| `CRON_API_KEY` | Authenticates internal cron job requests. Generate with `openssl rand -hex 32` | required | — |
 
 #### Build-time variables
 
@@ -192,7 +204,7 @@ docker compose up -d
 | `DATABASE_URL` | Same as above, required during build | required | — |
 | `MAX_OLD_SPACE_SIZE` | Node/npm build memory limit | required | 4096 |
 | `NEXTAUTH_SECRET` | Must match runtime value | required | — |
-| `CALENDSO_ENCRYPTION_KEY` | Must match runtime value | required | — |
+| `COACHOS_ENCRYPTION_KEY` | Must match runtime value | required | — |
 | `NEXT_PUBLIC_WEBAPP_URL` | Base URL injected into static files | optional | `http://localhost:3000` |
 | `NEXT_PUBLIC_WEBSITE_TERMS_URL` | Custom terms-of-service URL | optional | — |
 | `NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL` | Custom privacy-policy URL | optional | — |
@@ -228,10 +240,10 @@ Each integration below is off until you configure its credentials — no code pa
 3. OAuth redirect: `<your booking URL>/api/integrations/zoomvideo/callback` (add to allow-list, enable subdomain check).
 4. Scopes: `meeting:write:meeting`, `user:read:settings`.
 
-### Daily.co (video)
+### Daily.co (video, powers CoachOS Meet)
 
 1. Create an account at [Daily.co](https://daily.co/), copy your API key from the [developers dashboard](https://dashboard.daily.co/developers).
-2. Set `DAILY_API_KEY`. If on the Scale plan, set `DAILY_SCALE_PLAN=true` for recording support.
+2. Set `COACHOS_MEET_API_KEY`. If on the Scale plan, set `COACHOS_MEET_SCALE_PLAN=true` for recording support.
 
 ### Basecamp
 
