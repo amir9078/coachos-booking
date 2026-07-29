@@ -9,6 +9,6 @@ set +x
 DB_HOSTPORT=$(printf '%s' "$DATABASE_URL" | sed -E 's#^[a-zA-Z]+://[^@]*@([^/]+)/.*#\1#')
 set -x
 scripts/wait-for-it.sh "$DB_HOSTPORT" -- echo "database is up"
-npx prisma migrate deploy --schema /calcom/packages/prisma/schema.prisma
-npx ts-node --transpile-only /calcom/scripts/seed-app-store.ts
+npx prisma migrate deploy --schema /app/packages/prisma/schema.prisma
+npx ts-node --transpile-only /app/scripts/seed-app-store.ts
 yarn start
