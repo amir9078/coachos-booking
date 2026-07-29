@@ -24,8 +24,8 @@ test.describe("Google Calendar", async () => {
 
       test.skip(!!APP_CREDENTIAL_SHARING_ENABLED, "Credential sharing enabled");
 
-      if (process.env.E2E_TEST_COACHOS_Gcoachos_KEYS) {
-        const gCalKeys = JSON.parse(process.env.E2E_TEST_COACHOS_Gcoachos_KEYS);
+      if (process.env.E2E_TEST_COACHOS_GCAL_KEYS) {
+        const gCalKeys = JSON.parse(process.env.E2E_TEST_COACHOS_GCAL_KEYS);
         await prisma.app.update({
           where: {
             slug: "google-calendar",
@@ -35,7 +35,7 @@ test.describe("Google Calendar", async () => {
           },
         });
       } else {
-        test.skip(!process.env.E2E_TEST_COACHOS_Gcoachos_KEYS, "GCal keys not found");
+        test.skip(!process.env.E2E_TEST_COACHOS_GCAL_KEYS, "GCal keys not found");
       }
 
       test.skip(!process.env.E2E_TEST_COACHOS_QA_EMAIL, "QA email not found");

@@ -36,8 +36,8 @@ export const IS_STRIPE_ENABLED = !!(
 
 export const IS_GOOGLE_CALENDAR_ENABLED = !!(
   process.env.GOOGLE_API_CREDENTIALS &&
-  process.env.E2E_TEST_COACHOS_Gcoachos_KEYS &&
-  process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS
+  process.env.E2E_TEST_COACHOS_GCAL_KEYS &&
+  process.env.E2E_TEST_COACHOS_QA_GCAL_CREDENTIALS
 );
 
 export const IS_SENDGRID_ENABLED = !!process.env.SENDGRID_API_KEY;

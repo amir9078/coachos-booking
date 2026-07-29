@@ -9,4 +9,4 @@
 
 This directory contains API endpoints for CoachOS Booking.
 
-All code in this repository is licensed under the [MIT License](../../../../LICENSE).
+See [COPYRIGHT](../../../../COPYRIGHT) and [LEGAL](../../../../LEGAL) for license terms.

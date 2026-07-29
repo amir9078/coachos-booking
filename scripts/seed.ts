@@ -1043,10 +1043,10 @@ async function main() {
         },
       ],
       credentials: [
-        process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS
+        process.env.E2E_TEST_COACHOS_QA_GCAL_CREDENTIALS
           ? {
               type: "google_calendar",
-              key: JSON.parse(process.env.E2E_TEST_COACHOS_QA_Gcoachos_CREDENTIALS) as Prisma.JsonObject,
+              key: JSON.parse(process.env.E2E_TEST_COACHOS_QA_GCAL_CREDENTIALS) as Prisma.JsonObject,
               appId: "google-calendar",
             }
           : null,

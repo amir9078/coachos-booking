@@ -19,7 +19,7 @@ export const IS_PRODUCTION_BUILD = process.env.NODE_ENV === "production";
 export const ORGANIZER_EMAIL_EXEMPT_DOMAINS = process.env.ORGANIZER_EMAIL_EXEMPT_DOMAINS || "";
 const IS_DEV = COACHOS_ENV === "development";
 export const SINGLE_ORG_SLUG = process.env.NEXT_PUBLIC_SINGLE_ORG_SLUG;
-/** https://app.amir9078.github.io */
+/** e.g. https://app.yourdomain.com */
 export const WEBAPP_URL =
   ensureProtocol(process.env.NEXT_PUBLIC_WEBAPP_URL) ||
   VERCEL_URL ||
@@ -43,7 +43,7 @@ export const SENDER_NAME = process.env.NEXT_PUBLIC_SENDGRID_SENDER_NAME || "Coac
 export const EMAIL_FROM_NAME = process.env.EMAIL_FROM_NAME || APP_NAME;
 
 // This is the URL from which all Cal Links and their assets are served.
-// Use website URL to make links shorter(amir9078.github.io and not app.amir9078.github.io)
+// Use website URL to make links shorter(yourdomain.com and not app.yourdomain.com)
 // As website isn't setup for preview environments, use the webapp url instead
 // If it's a .vercel.app domain, keep it.
 // Else use the website url if defined and finally fallback to the webapp url
@@ -51,17 +51,12 @@ export const COACHOS_URL = new URL(WEBAPP_URL).hostname.endsWith(".vercel.app")
   ? WEBAPP_URL
   : ensureProtocol(process.env.NEXT_PUBLIC_WEBSITE_URL) || WEBAPP_URL;
 
-export const IS_COACHOS =
-  WEBAPP_URL &&
-  (new URL(WEBAPP_URL).hostname.endsWith("amir9078.github.io") ||
-    new URL(WEBAPP_URL).hostname.endsWith("cal.dev") ||
-    new URL(WEBAPP_URL).hostname.endsWith("cal.qa") ||
-    new URL(WEBAPP_URL).hostname.endsWith("cal-staging.com") ||
-    new URL(WEBAPP_URL).hostname.endsWith("cal.eu"));
-
-export const CONSOLE_URL = process.env.NEXT_PUBLIC_CONSOLE_URL || "";
 const COACHOS_DOMAINS = [".coachos.com"]; // Replace with your actual domain
 const WEBAPP_HOSTNAME = new URL(WEBAPP_URL).hostname;
+
+export const IS_COACHOS = Boolean(WEBAPP_URL) && COACHOS_DOMAINS.some((domain) => WEBAPP_HOSTNAME.endsWith(domain));
+
+export const CONSOLE_URL = process.env.NEXT_PUBLIC_CONSOLE_URL || "";
 export const IS_SELF_HOSTED = !COACHOS_DOMAINS.some((domain) => WEBAPP_HOSTNAME.endsWith(domain));
 export const EMBED_LIB_URL = process.env.NEXT_PUBLIC_EMBED_LIB_URL || `${WEBAPP_URL}/embed/embed.js`;
 export const TRIAL_LIMIT_DAYS = 14;
@@ -182,8 +177,8 @@ export const ORG_MINIMUM_PUBLISHED_TEAMS_SELF_SERVE_HELPER_DIALOGUE = 1;
 
 export const COACHOS_PRIVATE_API_ROUTE = process.env.COACHOS_PRIVATE_API_ROUTE || "";
 export const WEBSITE_PRIVACY_POLICY_URL =
-  process.env.NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL || "https://amir9078.github.io/privacy";
-export const WEBSITE_TERMS_URL = process.env.NEXT_PUBLIC_WEBSITE_TERMS_URL || "https://amir9078.github.io/terms";
+  process.env.NEXT_PUBLIC_WEBSITE_PRIVACY_POLICY_URL || `${WEBSITE_URL}/privacy`;
+export const WEBSITE_TERMS_URL = process.env.NEXT_PUBLIC_WEBSITE_TERMS_URL || `${WEBSITE_URL}/terms`;
 export const LINGO_DOT_DEV_API_KEY = process.env.LINGO_DOT_DEV_API_KEY;
 
 /**
@@ -248,7 +243,7 @@ export const RETELL_AI_TEST_EVENT_TYPE_MAP = (() => {
 // Environment variable for configuring past booking reschedule behavior per team. A comma separated list of team IDs(e.g. '1,2,3')
 /* This is an internal environment variable and is not meant to be used by the self-hosters. It is planned to be removed later by either having it as an option in Event Type or by some other customer configurable approaches*/
 export const ENV_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS =
-  process.env._coachos_INTERNAL_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS;
+  process.env._COACHOS_INTERNAL_PAST_BOOKING_RESCHEDULE_CHANGE_TEAM_IDS;
 
 // CoachOS Meet (Daily) app identifiers
 export const coachos_VIDEO = "coachos-meet";

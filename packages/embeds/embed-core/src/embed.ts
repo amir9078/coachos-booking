@@ -399,7 +399,7 @@ export class Cal {
       throw new Error("iframe doesn't exist. `createIframe` must be called before `doInIframe`");
     }
     if (this.iframe.contentWindow) {
-      // TODO: Ensure that targetOrigin is as defined by user(and not *). Generally it would be amir9078.github.io but in case of self hosting it can be anything.
+      // TODO: Ensure that targetOrigin is as defined by user(and not *). Generally it would be your production domain but in case of self hosting it can be anything.
       // Maybe we can derive targetOrigin from __config.origin
       this.iframe.contentWindow.postMessage(
         { originator: "CAL", method: doInIframeArg.method, arg: doInIframeArg.arg },
@@ -973,7 +973,7 @@ class CalApi {
 
   floatingButton({
     calLink,
-    buttonText = "Book my Cal",
+    buttonText = "Book with CoachOS",
     hideButtonIcon = false,
     attributes,
     buttonPosition = "bottom-right",
