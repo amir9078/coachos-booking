@@ -222,8 +222,8 @@ export const NEXTJS_CACHE_TTL = 3600; // 1 hour
 
 export const DEFAULT_GROUP_ID = "default_group_id";
 
-const _rawCalAiPrice = process.env.NEXT_PUBLIC_coachos_AI_PHONE_NUMBER_MONTHLY_PRICE;
-export const coachos_AI_PHONE_NUMBER_MONTHLY_PRICE = (() => {
+const _rawCalAiPrice = process.env.NEXT_PUBLIC_COACHOS_AI_PHONE_NUMBER_MONTHLY_PRICE;
+export const COACHOS_AI_PHONE_NUMBER_MONTHLY_PRICE = (() => {
   const parsed = _rawCalAiPrice && _rawCalAiPrice.trim() !== "" ? Number(_rawCalAiPrice) : NaN;
   return Number.isFinite(parsed) ? parsed : 5;
 })();
