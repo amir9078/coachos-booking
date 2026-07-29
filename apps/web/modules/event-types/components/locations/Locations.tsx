@@ -21,11 +21,11 @@ import { Button } from "@coachos/ui/components/button";
 import { CheckIcon, CornerDownRightIcon, XIcon } from "@coss/ui/icons";
 import { showToast } from "@coachos/ui/components/toast";
 
-import CalVideoSettings from "./CalVideoSettings";
+import CoachOSVideoSettings from "./CoachOSVideoSettings";
 import DefaultLocationSettings from "./DefaultLocationSettings";
 import LocationInput from "./LocationInput";
 
-export type TEventTypeLocation = Pick<EventTypeSetupProps["eventType"], "locations" | "calVideoSettings">;
+export type TEventTypeLocation = Pick<EventTypeSetupProps["eventType"], "locations" | "coachosVideoSettings">;
 export type TLocationOptions = Pick<EventTypeSetupProps, "locationOptions">["locationOptions"];
 export type TDestinationCalendar = { integration: string } | null;
 export type TPrefillLocation = { credentialId?: number; type: string };
@@ -253,7 +253,7 @@ const Locations: React.FC<LocationsProps> = ({
                 )}
               </div>
 
-              {isCoachosMeet && !isPlatform && <CalVideoSettings />}
+              {isCoachosMeet && !isPlatform && <CoachOSVideoSettings />}
 
               {eventLocationType?.supportsCustomLabel && eventLocationType?.type ? (
                 <DefaultLocationSettings

@@ -41,7 +41,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           id: "test-host-webhook-id",
           userId: testUser.id,
           subscriberUrl: "https://example.com/host-webhook",
-          eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
+          eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW],
           active: true,
           time: 5,
           timeUnit: TimeUnit.MINUTE,
@@ -52,7 +52,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           id: "test-guest-webhook-id",
           userId: testUser.id,
           subscriberUrl: "https://example.com/guest-webhook",
-          eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+          eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
           active: true,
           time: 10,
           timeUnit: TimeUnit.MINUTE,
@@ -161,12 +161,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     }
 
     expect(hostPayload).toEqual({
-      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
       bookingId: bookingData.id,
       webhook: expect.objectContaining({
         id: hostWebhook.id,
         subscriberUrl: "https://example.com/host-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW],
         time: 5,
         timeUnit: TimeUnit.MINUTE,
       }),
@@ -184,12 +184,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     }
 
     expect(guestPayload).toEqual({
-      triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
       bookingId: bookingData.id,
       webhook: expect.objectContaining({
         id: guestWebhook.id,
         subscriberUrl: "https://example.com/guest-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         time: 10,
         timeUnit: TimeUnit.MINUTE,
       }),
@@ -253,12 +253,12 @@ describe("scheduleNoShowTriggers Integration", () => {
     });
 
     const taskPayload = JSON.stringify({
-      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+      triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
       bookingId: testBookingId,
       webhook: {
         id: hostWebhook.id,
         subscriberUrl: "https://example.com/host-webhook",
-        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW],
         active: true,
         time: 5,
         timeUnit: TimeUnit.MINUTE,
@@ -277,7 +277,7 @@ describe("scheduleNoShowTriggers Integration", () => {
           subscriberUrl: "https://example.com/host-webhook",
           version: "2021-10-20",
         }),
-        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
         data: expect.objectContaining({
           bookingId: testBookingId,
           bookingUid: "test-uid-no-show",

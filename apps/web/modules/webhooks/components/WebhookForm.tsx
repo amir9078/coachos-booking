@@ -61,9 +61,9 @@ const WEBHOOK_TRIGGER_EVENTS_GROUPED_BY_APP_V2: Record<string, WebhookTriggerEve
       value: WebhookTriggerEvents.RECORDING_TRANSCRIPTION_GENERATED,
       label: "recording_transcription_generated",
     },
-    { value: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW, label: "after_hosts_coachos_video_no_show" },
+    { value: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW, label: "after_hosts_coachos_video_no_show" },
     {
-      value: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+      value: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
       label: "after_guests_coachos_video_no_show",
     },
     { value: WebhookTriggerEvents.WRONG_ASSIGNMENT_REPORT, label: "wrong_assignment_report" },
@@ -297,8 +297,8 @@ const WebhookForm = (props: {
   const isCreating = !props?.webhook?.id;
   const needsTime = triggers.some(
     (t) =>
-      t === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW ||
-      t === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+      t === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW ||
+      t === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
   );
   const hasTime = !!time && !!timeUnit;
   const hasUrl = !!subscriberUrl;
@@ -422,8 +422,8 @@ const WebhookForm = (props: {
                     onChange(event.map((selection) => selection.value));
                     const noShowWebhookTriggerExists = !!event.find(
                       (trigger) =>
-                        trigger.value === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW ||
-                        trigger.value === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+                        trigger.value === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW ||
+                        trigger.value === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
                     );
 
                     if (noShowWebhookTriggerExists) {

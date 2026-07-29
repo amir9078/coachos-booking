@@ -64,7 +64,7 @@ describe("Trigger Guest No Show:", () => {
             {
               id: "22",
               userId: organizer.id,
-              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
               subscriberUrl,
               active: true,
               eventTypeId: 1,
@@ -137,7 +137,7 @@ describe("Trigger Guest No Show:", () => {
 
       const TEST_WEBHOOK = {
         id: "22",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         subscriberUrl,
         active: true,
         eventTypeId: 1,
@@ -150,7 +150,7 @@ describe("Trigger Guest No Show:", () => {
       };
 
       const payload = JSON.stringify({
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingId: 222,
         webhook: TEST_WEBHOOK,
       } satisfies TSendNoShowWebhookPayloadSchema);
@@ -160,7 +160,7 @@ describe("Trigger Guest No Show:", () => {
       const maxStartTimeHumanReadable = dayjs.unix(maxStartTime).format("YYYY-MM-DD HH:mm:ss Z");
 
       await expectWebhookToHaveBeenCalledWith(subscriberUrl, {
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         payload: {
           title: "Test Booking Title",
           attendees: [
@@ -186,7 +186,7 @@ describe("Trigger Guest No Show:", () => {
             id: 1,
             teamId: null,
             parentId: null,
-            calVideoSettings: null,
+            coachosVideoSettings: null,
           },
           webhook: {
             ...TEST_WEBHOOK,
@@ -227,7 +227,7 @@ describe("Trigger Guest No Show:", () => {
             {
               id: "22",
               userId: organizer.id,
-              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
               subscriberUrl,
               active: true,
               eventTypeId: 1,
@@ -327,7 +327,7 @@ describe("Trigger Guest No Show:", () => {
 
       const TEST_WEBHOOK = {
         id: "22",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         subscriberUrl,
         active: true,
         eventTypeId: 1,
@@ -340,7 +340,7 @@ describe("Trigger Guest No Show:", () => {
       };
 
       const payload = JSON.stringify({
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingId: 222,
         webhook: TEST_WEBHOOK,
       } satisfies TSendNoShowWebhookPayloadSchema);
@@ -351,7 +351,7 @@ describe("Trigger Guest No Show:", () => {
       const maxStartTimeHumanReadable = dayjs.unix(maxStartTime).format("YYYY-MM-DD HH:mm:ss Z");
 
       await expectWebhookToHaveBeenCalledWith(subscriberUrl, {
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         payload: {
           title: "Test Booking Title",
           attendees: [
@@ -377,7 +377,7 @@ describe("Trigger Guest No Show:", () => {
             id: 1,
             teamId: null,
             parentId: null,
-            calVideoSettings: null,
+            coachosVideoSettings: null,
           },
           webhook: {
             ...TEST_WEBHOOK,
@@ -422,7 +422,7 @@ describe("Trigger Guest No Show:", () => {
             {
               id: "23",
               userId: organizer.id,
-              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
               subscriberUrl,
               active: true,
               eventTypeId: 1,
@@ -556,7 +556,7 @@ describe("Trigger Guest No Show:", () => {
 
       const TEST_WEBHOOK = {
         id: "23",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         subscriberUrl,
         active: true,
         eventTypeId: 1,
@@ -569,7 +569,7 @@ describe("Trigger Guest No Show:", () => {
       };
 
       const payload = JSON.stringify({
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingId: 224,
         webhook: TEST_WEBHOOK,
       } satisfies TSendNoShowWebhookPayloadSchema);
@@ -580,7 +580,7 @@ describe("Trigger Guest No Show:", () => {
       const maxStartTimeHumanReadable = dayjs.unix(maxStartTime).format("YYYY-MM-DD HH:mm:ss Z");
 
       await expectWebhookToHaveBeenCalledWith(subscriberUrl, {
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         payload: {
           title: "Test Booking Title",
           attendees: [
@@ -607,7 +607,7 @@ describe("Trigger Guest No Show:", () => {
             id: 1,
             teamId: null,
             parentId: null,
-            calVideoSettings: null,
+            coachosVideoSettings: null,
           },
           webhook: {
             ...TEST_WEBHOOK,
@@ -647,7 +647,7 @@ describe("Trigger Guest No Show:", () => {
             {
               id: "22",
               userId: organizer.id,
-              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
               subscriberUrl,
               active: true,
               eventTypeId: 1,
@@ -743,7 +743,7 @@ describe("Trigger Guest No Show:", () => {
 
       const TEST_WEBHOOK = {
         id: "22",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         subscriberUrl,
         active: true,
         eventTypeId: 1,
@@ -756,7 +756,7 @@ describe("Trigger Guest No Show:", () => {
       };
 
       const payload = JSON.stringify({
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingId: 222,
         webhook: TEST_WEBHOOK,
       } satisfies TSendNoShowWebhookPayloadSchema);
@@ -766,7 +766,7 @@ describe("Trigger Guest No Show:", () => {
       // This will throw an error if the webhook was called
       expect(() =>
         expectWebhookToHaveBeenCalledWith(subscriberUrl, {
-          triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+          triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
           payload: expect.any(Object),
         })
       ).toThrow();
@@ -800,7 +800,7 @@ describe("Trigger Guest No Show:", () => {
             {
               id: "22",
               userId: organizer.id,
-              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+              eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
               subscriberUrl,
               active: true,
               eventTypeId: 1,
@@ -899,7 +899,7 @@ describe("Trigger Guest No Show:", () => {
 
       const TEST_WEBHOOK = {
         id: "22",
-        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW],
+        eventTriggers: [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW],
         subscriberUrl,
         active: true,
         eventTypeId: 1,
@@ -912,7 +912,7 @@ describe("Trigger Guest No Show:", () => {
       };
 
       const payload = JSON.stringify({
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingId: 222,
         webhook: TEST_WEBHOOK,
       } satisfies TSendNoShowWebhookPayloadSchema);
@@ -923,7 +923,7 @@ describe("Trigger Guest No Show:", () => {
       const maxStartTimeHumanReadable = dayjs.unix(maxStartTime).format("YYYY-MM-DD HH:mm:ss Z");
 
       await expectWebhookToHaveBeenCalledWith(subscriberUrl, {
-        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         payload: {
           title: "Test Booking Title",
           attendees: [
@@ -949,7 +949,7 @@ describe("Trigger Guest No Show:", () => {
             id: 1,
             teamId: null,
             parentId: null,
-            calVideoSettings: null,
+            coachosVideoSettings: null,
           },
           webhook: {
             ...TEST_WEBHOOK,

@@ -43,7 +43,7 @@ export type TEventType = EventTypeAppSettingsComponentProps["eventType"] &
     | "requiresConfirmation"
     | "position"
     | "destinationCalendar"
-    | "calVideoSettings"
+    | "coachosVideoSettings"
   > & {
     selected: boolean;
     locations: LocationFormValues["locations"];

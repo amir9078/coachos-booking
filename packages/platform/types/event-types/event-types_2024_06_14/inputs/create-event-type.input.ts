@@ -136,7 +136,7 @@ export const CREATE_EVENT_SLUG_EXAMPLE = "learn-the-secrets-of-masterchief";
   DisableRescheduling_2024_06_14,
   DisableCancelling_2024_06_14
 )
-export class CalVideoSettings {
+export class CoachOSVideoSettings {
   @IsOptional()
   @IsBoolean()
   @DocsPropertyOptional({
@@ -507,13 +507,13 @@ export class BaseCreateEventTypeInput {
 
   @IsOptional()
   @ValidateNested()
-  @Type(() => CalVideoSettings)
+  @Type(() => CoachOSVideoSettings)
   @DocsPropertyOptional({
     description:
       "CoachOS Meet settings for the event type. Platform customers can't manage this property because currently we have no way of determining if managed user is a host or an attendee.",
-    type: CalVideoSettings,
+    type: CoachOSVideoSettings,
   })
-  calVideoSettings?: CalVideoSettings;
+  coachosVideoSettings?: CoachOSVideoSettings;
 
   @IsOptional()
   @IsBoolean()

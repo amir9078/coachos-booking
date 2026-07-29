@@ -16,7 +16,7 @@ import type {
   TransformFutureBookingsLimitSchema_2024_06_14,
 } from "@coachos/platform-types";
 import type {
-  CalVideoSettings,
+  CoachOSVideoSettings,
   DestinationCalendar,
   EventType,
   Prisma,
@@ -63,7 +63,7 @@ type EventTypeRelations = {
   users: EventTypeUser[];
   schedule: Schedule | null;
   destinationCalendar?: DestinationCalendar | null;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
 };
 export type DatabaseEventType = EventType & EventTypeRelations;
 
@@ -114,7 +114,7 @@ type Input = Pick<
   | "useEventTypeDestinationCalendarEmail"
   | "hideCalendarEventDetails"
   | "hideOrganizerEmail"
-  | "calVideoSettings"
+  | "coachosVideoSettings"
   | "hidden"
   | "bookingRequiresAuthentication"
   | "maxActiveBookingsPerBooker"
@@ -169,7 +169,7 @@ export class OutputEventTypesService_2024_06_14 {
       useEventTypeDestinationCalendarEmail,
       hideCalendarEventDetails,
       hideOrganizerEmail,
-      calVideoSettings,
+      coachosVideoSettings,
       hidden,
       bookingRequiresAuthentication,
       disableCancelling,
@@ -220,8 +220,8 @@ export class OutputEventTypesService_2024_06_14 {
       minimumRescheduleNotice
     );
     const disableCancellingOutput = this.transformDisableCancelling(disableCancelling);
-    const calVideoSettingsOutput = this.transformCalVideoSettings(
-      calVideoSettings,
+    const coachosVideoSettingsOutput = this.transformCoachOSVideoSettings(
+      coachosVideoSettings,
       canSendCalVideoTranscriptionEmails
     );
 
@@ -266,7 +266,7 @@ export class OutputEventTypesService_2024_06_14 {
       useDestinationCalendarEmail: useEventTypeDestinationCalendarEmail,
       hideCalendarEventDetails,
       hideOrganizerEmail,
-      calVideoSettings: calVideoSettingsOutput,
+      coachosVideoSettings: coachosVideoSettingsOutput,
       hidden,
       bookingRequiresAuthentication,
       bookerActiveBookingsLimit,
@@ -511,16 +511,16 @@ export class OutputEventTypesService_2024_06_14 {
     return { disabled: disableCancelling === true };
   }
 
-  transformCalVideoSettings(
-    calVideoSettings: CalVideoSettings | null | undefined,
+  transformCoachOSVideoSettings(
+    coachosVideoSettings: CoachOSVideoSettings | null | undefined,
     canSendCalVideoTranscriptionEmails: boolean | null | undefined
   ) {
-    if (!calVideoSettings && canSendCalVideoTranscriptionEmails === undefined) {
+    if (!coachosVideoSettings && canSendCalVideoTranscriptionEmails === undefined) {
       return undefined;
     }
 
     return {
-      ...calVideoSettings,
+      ...coachosVideoSettings,
       sendTranscriptionEmails: canSendCalVideoTranscriptionEmails ?? true,
     };
   }

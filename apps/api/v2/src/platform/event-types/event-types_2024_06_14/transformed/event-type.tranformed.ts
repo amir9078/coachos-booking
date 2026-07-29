@@ -31,7 +31,7 @@ export type InputEventTransformed_2024_06_14 = Omit<
   | "useDestinationCalendarEmail"
   | "disableRescheduling"
   | "disableCancelling"
-  | "calVideoSettings"
+  | "coachosVideoSettings"
   | "bookerActiveBookingsLimit"
 > & {
   length: number;
@@ -50,7 +50,7 @@ export type InputEventTransformed_2024_06_14 = Omit<
   disableCancelling?: boolean;
   minimumRescheduleNotice?: number | null;
   canSendCalVideoTranscriptionEmails?: boolean;
-  calVideoSettings?: {
+  coachosVideoSettings?: {
     disableRecordingForOrganizer?: boolean;
     disableRecordingForGuests?: boolean;
     redirectUrlOnExit?: string | null;

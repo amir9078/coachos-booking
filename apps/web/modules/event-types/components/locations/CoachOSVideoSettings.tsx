@@ -5,7 +5,7 @@ import { useFormContext, Controller } from "react-hook-form";
 
 import { useIsPlatform } from "@coachos/atoms/hooks/useIsPlatform";
 import type { FormValues } from "@coachos/features/eventtypes/lib/types";
-import type { CalVideoSettings as CalVideoSettingsType } from "@coachos/features/eventtypes/lib/types";
+import type { CoachOSVideoSettings as CoachOSVideoSettingsType } from "@coachos/features/eventtypes/lib/types";
 import { useLocale } from "@coachos/lib/hooks/useLocale";
 import classNames from "@coachos/ui/classNames";
 import { TextField } from "@coachos/ui/components/form";
@@ -15,7 +15,7 @@ import { Tooltip } from "@coachos/ui/components/tooltip";
 import LocationSettingsContainer from "@coachos/web/modules/event-types/components/locations/LocationSettingsContainer";
 import { InfoBadge } from "@coachos/ui/components/badge";
 
-const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSettingsType }) => {
+const CoachOSVideoSettings = ({ coachosVideoSettings }: { coachosVideoSettings?: CoachOSVideoSettingsType }) => {
   const { t } = useLocale();
   const formMethods = useFormContext<FormValues>();
   const isPlatform = useIsPlatform();
@@ -43,8 +43,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
         {isExpanded && (
           <LocationSettingsContainer>
             <Controller
-              name="calVideoSettings.disableRecordingForGuests"
-              defaultValue={!!calVideoSettings?.disableRecordingForGuests}
+              name="coachosVideoSettings.disableRecordingForGuests"
+              defaultValue={!!coachosVideoSettings?.disableRecordingForGuests}
               render={({ field: { onChange, value } }) => {
                 return (
                   <SettingsToggle
@@ -60,8 +60,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
             />
 
             <Controller
-              name="calVideoSettings.disableRecordingForOrganizer"
-              defaultValue={!!calVideoSettings?.disableRecordingForOrganizer}
+              name="coachosVideoSettings.disableRecordingForOrganizer"
+              defaultValue={!!coachosVideoSettings?.disableRecordingForOrganizer}
               render={({ field: { onChange, value } }) => {
                 return (
                   <SettingsToggle
@@ -78,8 +78,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
 
             {!isPlatform && (
               <Controller
-                name="calVideoSettings.enableAutomaticRecordingForOrganizer"
-                defaultValue={!!calVideoSettings?.enableAutomaticRecordingForOrganizer}
+                name="coachosVideoSettings.enableAutomaticRecordingForOrganizer"
+                defaultValue={!!coachosVideoSettings?.enableAutomaticRecordingForOrganizer}
                 render={({ field: { onChange, value } }) => {
                   return (
                     <SettingsToggle
@@ -96,8 +96,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
             )}
 
             <Controller
-              name="calVideoSettings.enableAutomaticTranscription"
-              defaultValue={!!calVideoSettings?.enableAutomaticTranscription}
+              name="coachosVideoSettings.enableAutomaticTranscription"
+              defaultValue={!!coachosVideoSettings?.enableAutomaticTranscription}
               render={({ field: { onChange, value } }) => {
                 return (
                   <SettingsToggle
@@ -114,8 +114,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
 
             {!isPlatform && (
               <Controller
-                name="calVideoSettings.disableTranscriptionForGuests"
-                defaultValue={!!calVideoSettings?.disableTranscriptionForGuests}
+                name="coachosVideoSettings.disableTranscriptionForGuests"
+                defaultValue={!!coachosVideoSettings?.disableTranscriptionForGuests}
                 render={({ field: { onChange, value } }) => {
                   return (
                     <SettingsToggle
@@ -132,8 +132,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
             )}
             {!isPlatform && (
               <Controller
-                name="calVideoSettings.disableTranscriptionForOrganizer"
-                defaultValue={!!calVideoSettings?.disableTranscriptionForOrganizer}
+                name="coachosVideoSettings.disableTranscriptionForOrganizer"
+                defaultValue={!!coachosVideoSettings?.disableTranscriptionForOrganizer}
                 render={({ field: { onChange, value } }) => {
                   return (
                     <SettingsToggle
@@ -150,8 +150,8 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
             )}
 
             <Controller
-              name="calVideoSettings.requireEmailForGuests"
-              defaultValue={!!calVideoSettings?.requireEmailForGuests}
+              name="coachosVideoSettings.requireEmailForGuests"
+              defaultValue={!!coachosVideoSettings?.requireEmailForGuests}
               render={({ field: { onChange, value } }) => {
                 return (
                   <SettingsToggle
@@ -174,20 +174,20 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
                   <InfoBadge content={t("enter_redirect_url_on_exit_description")} />
                 </div>
               }
-              defaultValue={calVideoSettings?.redirectUrlOnExit || ""}
-              data-testid="calVideoSettings.redirectUrlOnExit"
+              defaultValue={coachosVideoSettings?.redirectUrlOnExit || ""}
+              data-testid="coachosVideoSettings.redirectUrlOnExit"
               containerClassName="mt-4"
               className="leading-6"
-              {...formMethods.register("calVideoSettings.redirectUrlOnExit", {
+              {...formMethods.register("coachosVideoSettings.redirectUrlOnExit", {
                 setValueAs: (v) => (!v || v.trim() === "" ? null : v),
               })}
             />
             <ErrorMessage
-              errors={formMethods.formState.errors?.calVideoSettings}
+              errors={formMethods.formState.errors?.coachosVideoSettings}
               name="redirectUrlOnExit"
               className={classNames("text-error text-sm")}
               as="div"
-              id="calVideoSettings.redirectUrlOnExit-error"
+              id="coachosVideoSettings.redirectUrlOnExit-error"
             />
           </LocationSettingsContainer>
         )}
@@ -196,4 +196,4 @@ const CalVideoSettings = ({ calVideoSettings }: { calVideoSettings?: CalVideoSet
   );
 };
 
-export default CalVideoSettings;
+export default CoachOSVideoSettings;

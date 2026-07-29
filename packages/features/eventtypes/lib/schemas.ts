@@ -4,7 +4,7 @@ import { eventTypeLocations, eventTypeSlug } from "@coachos/lib/zod/eventType";
 import { SchedulingType } from "@coachos/prisma/enums";
 import { EventTypeMetaDataSchema } from "@coachos/prisma/zod-utils";
 
-type CalVideoSettings =
+type CoachOSVideoSettings =
   | {
       disableRecordingForGuests?: boolean | null;
       disableRecordingForOrganizer?: boolean | null;
@@ -18,7 +18,7 @@ type CalVideoSettings =
   | null
   | undefined;
 
-const calVideoSettingsSchema: z.ZodType<CalVideoSettings> = z
+const coachosVideoSettingsSchema: z.ZodType<CoachOSVideoSettings> = z
   .object({
     disableRecordingForGuests: z.boolean().nullish(),
     disableRecordingForOrganizer: z.boolean().nullish(),
@@ -81,7 +81,7 @@ export type TCreateEventTypeInput = {
   beforeEventBuffer?: number;
   afterEventBuffer?: number;
   scheduleId?: number;
-  calVideoSettings?: CalVideoSettings;
+  coachosVideoSettings?: CoachOSVideoSettings;
 };
 
 export const createEventTypeInput: z.ZodType<TCreateEventTypeInput> = z
@@ -101,7 +101,7 @@ export const createEventTypeInput: z.ZodType<TCreateEventTypeInput> = z
     beforeEventBuffer: z.number().int().min(0).optional(),
     afterEventBuffer: z.number().int().min(0).optional(),
     scheduleId: z.number().int().optional(),
-    calVideoSettings: calVideoSettingsSchema,
+    coachosVideoSettings: coachosVideoSettingsSchema,
   })
   .partial({ hidden: true, locations: true })
   .refine((data) => (data.teamId ? data.teamId && data.schedulingType : true), {

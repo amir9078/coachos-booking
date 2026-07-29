@@ -116,7 +116,7 @@ model HostLocation {
   @@index([eventTypeId])
 }
 
-model CalVideoSettings {
+model CoachOSVideoSettings {
   eventTypeId Int       @id
   eventType   EventType @relation(fields: [eventTypeId], references: [id], onDelete: Cascade)
 
@@ -268,7 +268,7 @@ model EventType {
   maxActiveBookingPerBookerOfferReschedule Boolean                @default(false)
   /// @zod.import(["import { emailSchema } from '../../zod-utils'"]).custom.use(emailSchema)
   customReplyToEmail                       String?
-  calVideoSettings                         CalVideoSettings?
+  coachosVideoSettings                     CoachOSVideoSettings?
 
   /// @zod.import(["import { eventTypeColor } from '../../zod-utils'"]).custom.use(eventTypeColor)
   eventTypeColor                   Json?
@@ -503,7 +503,7 @@ model User {
   filterSegments                 FilterSegment[]
   filterSegmentPreferences       UserFilterSegmentPreference[]
   creditBalance                  CreditBalance?
-  calAiPhoneNumbers              CalAiPhoneNumber[]
+  coachosAiPhoneNumbers          CoachOSAiPhoneNumber[]
   agents                         Agent[]
   oAuthClients                   OAuthClient[]
   holidaySettings                UserHolidaySettings?
@@ -615,7 +615,7 @@ model Team {
   // Available for Organization only
   delegationCredentials  DelegationCredential[]
   roles                  Role[] // Added for Role relation
-  calAiPhoneNumbers      CalAiPhoneNumber[]
+  coachosAiPhoneNumbers  CoachOSAiPhoneNumber[]
   agents                 Agent[]
   bookingReports         BookingReport[]
   wrongAssignmentReports WrongAssignmentReport[]
@@ -1132,8 +1132,8 @@ enum WebhookTriggerEvents {
   RECORDING_READY
   RECORDING_TRANSCRIPTION_GENERATED
   OOO_CREATED
-  AFTER_HOSTS_coachos_VIDEO_NO_SHOW
-  AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+  AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW
+  AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
   FORM_SUBMITTED_NO_EVENT
   DELEGATION_CREDENTIAL_ERROR
   WRONG_ASSIGNMENT_REPORT
@@ -2561,8 +2561,8 @@ model Agent {
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
 
-  inboundPhoneNumbers  CalAiPhoneNumber[] @relation("InboundAgent")
-  outboundPhoneNumbers CalAiPhoneNumber[] @relation("OutboundAgent")
+  inboundPhoneNumbers  CoachOSAiPhoneNumber[] @relation("InboundAgent")
+  outboundPhoneNumbers CoachOSAiPhoneNumber[] @relation("OutboundAgent")
 
   @@index([userId])
   @@index([teamId])
@@ -2570,7 +2570,7 @@ model Agent {
   @@index([outboundEventTypeId])
 }
 
-model CalAiPhoneNumber {
+model CoachOSAiPhoneNumber {
   id Int @id @default(autoincrement())
 
   // Either user-owned OR team-owned

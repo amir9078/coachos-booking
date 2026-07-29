@@ -6,8 +6,8 @@ const TIME_UNIT = ['MINUTE', 'HOUR', 'DAY'] as const;
 
 const commonSchema = z.object({
   triggerEvent: z.enum([
-    WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
-    WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+    WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
+    WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
   ]),
   bookingId: z.number(),
 });

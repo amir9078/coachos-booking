@@ -1,6 +1,6 @@
 import { EventTypeRepository } from "@coachos/features/eventtypes/repositories/eventTypeRepository";
 import { generateHashedLink } from "@coachos/lib/generateHashedLink";
-import { CalVideoSettingsRepository } from "@coachos/features/calVideoSettings/repositories/CalVideoSettingsRepository";
+import { CoachOSVideoSettingsRepository } from "@coachos/features/coachosVideoSettings/repositories/CoachOSVideoSettingsRepository";
 import { prisma } from "@coachos/prisma";
 import { Prisma } from "@coachos/prisma/client";
 
@@ -51,7 +51,7 @@ export const duplicateHandler = async ({ ctx, input }: DuplicateOptions) => {
         },
         hashedLink: true,
         destinationCalendar: true,
-        calVideoSettings: {
+        coachosVideoSettings: {
           select: {
             disableRecordingForOrganizer: true,
             disableRecordingForGuests: true,
@@ -112,7 +112,7 @@ export const duplicateHandler = async ({ ctx, input }: DuplicateOptions) => {
       secondaryEmailId,
       instantMeetingScheduleId: _instantMeetingScheduleId,
       restrictionScheduleId: _restrictionScheduleId,
-      calVideoSettings,
+      coachosVideoSettings,
       ...rest
     } = eventType;
 
@@ -201,10 +201,10 @@ export const duplicateHandler = async ({ ctx, input }: DuplicateOptions) => {
       });
     }
 
-    if (calVideoSettings) {
-      await CalVideoSettingsRepository.createCalVideoSettings({
+    if (coachosVideoSettings) {
+      await CoachOSVideoSettingsRepository.createCoachOSVideoSettings({
         eventTypeId: newEventType.id,
-        calVideoSettings,
+        coachosVideoSettings,
       });
     }
 

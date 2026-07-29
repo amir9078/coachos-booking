@@ -893,7 +893,7 @@ export class BookingRepository implements IBookingRepository {
     });
   }
 
-  async findBookingIncludeCalVideoSettingsAndReferences({ bookingUid }: { bookingUid: string }) {
+  async findBookingIncludeCoachOSVideoSettingsAndReferences({ bookingUid }: { bookingUid: string }) {
     return await this.prismaClient.booking.findUnique({
       where: {
         uid: bookingUid,
@@ -923,7 +923,7 @@ export class BookingRepository implements IBookingRepository {
                 email: true,
               },
             },
-            calVideoSettings: {
+            coachosVideoSettings: {
               select: {
                 disableRecordingForGuests: true,
                 disableRecordingForOrganizer: true,

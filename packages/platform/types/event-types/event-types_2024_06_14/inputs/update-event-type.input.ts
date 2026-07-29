@@ -63,7 +63,7 @@ import {
 import type { ConfirmationPolicy_2024_06_14 } from "./confirmation-policy.input";
 import { BaseConfirmationPolicy_2024_06_14, ValidateConfirmationPolicy } from "./confirmation-policy.input";
 import {
-  CalVideoSettings,
+  CoachOSVideoSettings,
   CREATE_EVENT_DESCRIPTION_EXAMPLE,
   CREATE_EVENT_LENGTH_EXAMPLE,
   CREATE_EVENT_SLUG_EXAMPLE,
@@ -447,12 +447,12 @@ class BaseUpdateEventTypeInput {
 
   @IsOptional()
   @ValidateNested()
-  @Type(() => CalVideoSettings)
+  @Type(() => CoachOSVideoSettings)
   @DocsPropertyOptional({
     description: "CoachOS Meet settings for the event type",
-    type: CalVideoSettings,
+    type: CoachOSVideoSettings,
   })
-  calVideoSettings?: CalVideoSettings;
+  coachosVideoSettings?: CoachOSVideoSettings;
 
   @IsOptional()
   @IsBoolean()

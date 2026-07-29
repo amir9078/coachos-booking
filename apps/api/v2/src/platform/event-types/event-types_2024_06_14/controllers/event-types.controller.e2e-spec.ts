@@ -556,7 +556,7 @@ describe("Event types Endpoints", () => {
         bookingRequiresAuthentication: true,
         disableCancelling: { disabled: true },
         disableRescheduling: { disabled: true },
-        calVideoSettings: { sendTranscriptionEmails: true },
+        coachosVideoSettings: { sendTranscriptionEmails: true },
         interfaceLanguage: "en",
         allowReschedulingPastBookings: true,
         allowReschedulingCancelledBookings: true,
@@ -638,7 +638,7 @@ describe("Event types Endpoints", () => {
           expect(createdEventType.bookingUrl).toContain(`/${user.username}/${body.slug}`);
           expect(createdEventType.disableCancelling).toEqual({ disabled: true });
           expect(createdEventType.disableRescheduling).toEqual({ disabled: true });
-          expect(createdEventType.calVideoSettings?.sendTranscriptionEmails).toEqual(true);
+          expect(createdEventType.coachosVideoSettings?.sendTranscriptionEmails).toEqual(true);
           expect(createdEventType.interfaceLanguage).toEqual(body.interfaceLanguage);
           expect(createdEventType.allowReschedulingPastBookings).toEqual(body.allowReschedulingPastBookings);
           expect(createdEventType.allowReschedulingCancelledBookings).toEqual(
@@ -735,8 +735,8 @@ describe("Event types Endpoints", () => {
       expect(fetchedEventType?.bookingUrl).toContain(`/${user.username}/${eventType.slug}`);
       expect(fetchedEventType?.disableCancelling).toEqual(eventType.disableCancelling);
       expect(fetchedEventType?.disableRescheduling).toEqual(eventType.disableRescheduling);
-      expect(fetchedEventType?.calVideoSettings?.sendTranscriptionEmails).toEqual(
-        eventType.calVideoSettings?.sendTranscriptionEmails
+      expect(fetchedEventType?.coachosVideoSettings?.sendTranscriptionEmails).toEqual(
+        eventType.coachosVideoSettings?.sendTranscriptionEmails
       );
       expect(fetchedEventType?.interfaceLanguage).toEqual(eventType.interfaceLanguage);
       expect(fetchedEventType?.allowReschedulingPastBookings).toEqual(
@@ -877,8 +877,8 @@ describe("Event types Endpoints", () => {
       expect(fetchedEventType?.hidden).toEqual(false);
       expect(fetchedEventType?.disableCancelling).toEqual(eventType.disableCancelling);
       expect(fetchedEventType?.disableRescheduling).toEqual(eventType.disableRescheduling);
-      expect(fetchedEventType?.calVideoSettings?.sendTranscriptionEmails).toEqual(
-        eventType.calVideoSettings?.sendTranscriptionEmails
+      expect(fetchedEventType?.coachosVideoSettings?.sendTranscriptionEmails).toEqual(
+        eventType.coachosVideoSettings?.sendTranscriptionEmails
       );
       expect(fetchedEventType?.interfaceLanguage).toEqual(eventType.interfaceLanguage);
       expect(fetchedEventType?.allowReschedulingPastBookings).toEqual(
@@ -1268,7 +1268,7 @@ describe("Event types Endpoints", () => {
         title: newTitle,
         scheduleId: secondSchedule.id,
         lengthInMinutesOptions: [15, 30],
-        calVideoSettings: {
+        coachosVideoSettings: {
           disableRecordingForGuests: true,
           disableRecordingForOrganizer: true,
           enableAutomaticRecordingForOrganizer: true,
@@ -1406,23 +1406,23 @@ describe("Event types Endpoints", () => {
             body.lockTimeZoneToggleOnBookingPage
           );
           expect(updatedEventType.color).toEqual(body.color);
-          expect(updatedEventType.calVideoSettings?.disableRecordingForGuests).toEqual(
-            body.calVideoSettings?.disableRecordingForGuests
+          expect(updatedEventType.coachosVideoSettings?.disableRecordingForGuests).toEqual(
+            body.coachosVideoSettings?.disableRecordingForGuests
           );
-          expect(updatedEventType.calVideoSettings?.disableRecordingForOrganizer).toEqual(
-            body.calVideoSettings?.disableRecordingForOrganizer
+          expect(updatedEventType.coachosVideoSettings?.disableRecordingForOrganizer).toEqual(
+            body.coachosVideoSettings?.disableRecordingForOrganizer
           );
-          expect(updatedEventType.calVideoSettings?.enableAutomaticRecordingForOrganizer).toEqual(
-            body.calVideoSettings?.enableAutomaticRecordingForOrganizer
+          expect(updatedEventType.coachosVideoSettings?.enableAutomaticRecordingForOrganizer).toEqual(
+            body.coachosVideoSettings?.enableAutomaticRecordingForOrganizer
           );
-          expect(updatedEventType.calVideoSettings?.enableAutomaticTranscription).toEqual(
-            body.calVideoSettings?.enableAutomaticTranscription
+          expect(updatedEventType.coachosVideoSettings?.enableAutomaticTranscription).toEqual(
+            body.coachosVideoSettings?.enableAutomaticTranscription
           );
-          expect(updatedEventType.calVideoSettings?.disableTranscriptionForGuests).toEqual(
-            body.calVideoSettings?.disableTranscriptionForGuests
+          expect(updatedEventType.coachosVideoSettings?.disableTranscriptionForGuests).toEqual(
+            body.coachosVideoSettings?.disableTranscriptionForGuests
           );
-          expect(updatedEventType.calVideoSettings?.disableTranscriptionForOrganizer).toEqual(
-            body.calVideoSettings?.disableTranscriptionForOrganizer
+          expect(updatedEventType.coachosVideoSettings?.disableTranscriptionForOrganizer).toEqual(
+            body.coachosVideoSettings?.disableTranscriptionForOrganizer
           );
 
           eventType.title = newTitle;
@@ -1444,12 +1444,12 @@ describe("Event types Endpoints", () => {
           eventType.lockTimeZoneToggleOnBookingPage = updatedEventType.lockTimeZoneToggleOnBookingPage;
           eventType.color = updatedEventType.color;
           eventType.bookingFields = updatedEventType.bookingFields;
-          eventType.calVideoSettings = updatedEventType.calVideoSettings;
+          eventType.coachosVideoSettings = updatedEventType.coachosVideoSettings;
 
           expect(updatedEventType.bookingRequiresAuthentication).toEqual(false);
           expect(updatedEventType.disableCancelling).toEqual({ disabled: false });
           expect(updatedEventType.disableRescheduling).toEqual({ disabled: false, minutesBefore: 60 });
-          expect(updatedEventType.calVideoSettings?.sendTranscriptionEmails).toEqual(false);
+          expect(updatedEventType.coachosVideoSettings?.sendTranscriptionEmails).toEqual(false);
           expect(updatedEventType.interfaceLanguage).toEqual(body.interfaceLanguage);
           expect(updatedEventType.allowReschedulingPastBookings).toEqual(body.allowReschedulingPastBookings);
           expect(updatedEventType.allowReschedulingCancelledBookings).toEqual(
@@ -1459,7 +1459,7 @@ describe("Event types Endpoints", () => {
 
           eventType.disableCancelling = updatedEventType.disableCancelling;
           eventType.disableRescheduling = updatedEventType.disableRescheduling;
-          eventType.calVideoSettings = updatedEventType.calVideoSettings;
+          eventType.coachosVideoSettings = updatedEventType.coachosVideoSettings;
           eventType.interfaceLanguage = updatedEventType.interfaceLanguage;
           eventType.allowReschedulingPastBookings = updatedEventType.allowReschedulingPastBookings;
           eventType.allowReschedulingCancelledBookings = updatedEventType.allowReschedulingCancelledBookings;
@@ -2701,7 +2701,7 @@ describe("Event types Endpoints", () => {
           title: "event type with CoachOS Meet settings",
           slug: "event-type-with-coachos-meet-settings",
           lengthInMinutes: 60,
-          calVideoSettings: {
+          coachosVideoSettings: {
             disableRecordingForGuests: true,
             disableRecordingForOrganizer: true,
             enableAutomaticRecordingForOrganizer: true,
@@ -2725,9 +2725,9 @@ describe("Event types Endpoints", () => {
             expect(createdEventType).toHaveProperty("id");
             expect(createdEventType.title).toEqual(body.title);
             expect(createdEventType.locations).toEqual(body.locations);
-            expect(createdEventType.calVideoSettings?.disableRecordingForGuests).toEqual(true);
-            expect(createdEventType.calVideoSettings?.disableRecordingForOrganizer).toEqual(true);
-            expect(createdEventType.calVideoSettings?.enableAutomaticRecordingForOrganizer).toEqual(true);
+            expect(createdEventType.coachosVideoSettings?.disableRecordingForGuests).toEqual(true);
+            expect(createdEventType.coachosVideoSettings?.disableRecordingForOrganizer).toEqual(true);
+            expect(createdEventType.coachosVideoSettings?.enableAutomaticRecordingForOrganizer).toEqual(true);
             firstCreatedEventType = responseBody.data;
           });
       });

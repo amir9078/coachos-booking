@@ -54,10 +54,10 @@ export function sendWebhookPayload(
       endTime: booking.endTime,
       participants,
       ...(hostEmail ? { hostEmail } : {}),
-      ...(triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
+      ...(triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW
         ? { noShowHost: booking.noShowHost }
         : {}),
-      ...(triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW && booking.guests
+      ...(triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW && booking.guests
         ? { guests: booking.guests }
         : {}),
       ...(originalRescheduledBooking ? { rescheduledBy: originalRescheduledBooking.rescheduledBy } : {}),
@@ -72,7 +72,7 @@ export function sendWebhookPayload(
         secret: undefined,
       },
       message:
-        triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+        triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
           ? `Guest didn't join the call or didn't join before ${maxStartTimeHumanReadable}`
           : `Host with email ${hostEmail} didn't join the call or didn't join before ${maxStartTimeHumanReadable}`,
     },
@@ -221,7 +221,7 @@ export const prepareNoShowTrigger= async (
 
   const numberOfHostsThatJoined = hosts.length - hostsThatDidntJoinTheCall.length;
 
-  const requireEmailForGuests = booking.eventType?.calVideoSettings?.requireEmailForGuests ?? false;
+  const requireEmailForGuests = booking.eventType?.coachosVideoSettings?.requireEmailForGuests ?? false;
 
   let didGuestJoinTheCall: boolean;
   const guestsThatJoinedTheCall: { email: string; name: string }[] = [];

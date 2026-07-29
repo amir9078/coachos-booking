@@ -133,7 +133,7 @@ export class InputEventTypesService_2024_06_14 {
       slug,
       disableRescheduling,
       disableCancelling,
-      calVideoSettings,
+      coachosVideoSettings,
       ...rest
     } = inputEventType;
     const confirmationPolicyTransformed = this.transformInputConfirmationPolicy(confirmationPolicy);
@@ -160,7 +160,7 @@ export class InputEventTypesService_2024_06_14 {
 
     const disableReschedulingTransformed = this.transformInputDisableRescheduling(disableRescheduling);
     const disableCancellingTransformed = this.transformInputDisableCancelling(disableCancelling);
-    const calVideoSettingsTransformed = this.transformInputCalVideoSettings(calVideoSettings);
+    const coachosVideoSettingsTransformed = this.transformInputCoachOSVideoSettings(coachosVideoSettings);
 
     const eventType = {
       ...rest,
@@ -185,7 +185,7 @@ export class InputEventTypesService_2024_06_14 {
       ...maxActiveBookingsPerBooker,
       ...disableReschedulingTransformed,
       ...disableCancellingTransformed,
-      ...calVideoSettingsTransformed,
+      ...coachosVideoSettingsTransformed,
     };
 
     return eventType;
@@ -227,7 +227,7 @@ export class InputEventTypesService_2024_06_14 {
       slug,
       disableRescheduling,
       disableCancelling,
-      calVideoSettings,
+      coachosVideoSettings,
       ...rest
     } = inputEventType;
     const eventTypeDb = await this.eventTypesRepository.getEventTypeWithMetaData(eventTypeId);
@@ -266,8 +266,8 @@ export class InputEventTypesService_2024_06_14 {
     const disableCancellingTransformed = disableCancelling
       ? this.transformInputDisableCancelling(disableCancelling)
       : {};
-    const calVideoSettingsTransformed = calVideoSettings
-      ? this.transformInputCalVideoSettings(calVideoSettings)
+    const coachosVideoSettingsTransformed = coachosVideoSettings
+      ? this.transformInputCoachOSVideoSettings(coachosVideoSettings)
       : {};
 
     const eventType = {
@@ -295,7 +295,7 @@ export class InputEventTypesService_2024_06_14 {
       ...maxActiveBookingsPerBooker,
       ...disableReschedulingTransformed,
       ...disableCancellingTransformed,
-      ...calVideoSettingsTransformed,
+      ...coachosVideoSettingsTransformed,
     };
 
     return eventType;
@@ -671,18 +671,18 @@ export class InputEventTypesService_2024_06_14 {
     };
   }
 
-  transformInputCalVideoSettings(calVideoSettings: CreateEventTypeInput_2024_06_14["calVideoSettings"]) {
-    if (!calVideoSettings) {
+  transformInputCoachOSVideoSettings(coachosVideoSettings: CreateEventTypeInput_2024_06_14["coachosVideoSettings"]) {
+    if (!coachosVideoSettings) {
       return {};
     }
 
-    // Extract sendTranscriptionEmails from calVideoSettings and map to canSendCalVideoTranscriptionEmails
-    const { sendTranscriptionEmails, ...restCalVideoSettings } = calVideoSettings;
+    // Extract sendTranscriptionEmails from coachosVideoSettings and map to canSendCalVideoTranscriptionEmails
+    const { sendTranscriptionEmails, ...restCoachOSVideoSettings } = coachosVideoSettings;
 
-    const hasOtherSettings = Object.keys(restCalVideoSettings).length > 0;
+    const hasOtherSettings = Object.keys(restCoachOSVideoSettings).length > 0;
 
     return {
-      ...(hasOtherSettings ? { calVideoSettings: restCalVideoSettings } : {}),
+      ...(hasOtherSettings ? { coachosVideoSettings: restCoachOSVideoSettings } : {}),
       ...(sendTranscriptionEmails !== undefined
         ? { canSendCalVideoTranscriptionEmails: sendTranscriptionEmails }
         : {}),

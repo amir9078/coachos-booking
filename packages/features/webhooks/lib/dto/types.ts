@@ -302,7 +302,7 @@ export interface MeetingEndedDTO extends BaseEventDTO {
 }
 
 export interface AfterHostsNoShowDTO extends BaseEventDTO {
-  triggerEvent: typeof WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW;
+  triggerEvent: typeof WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW;
   bookingId: number;
   webhook: {
     id: string;
@@ -313,7 +313,7 @@ export interface AfterHostsNoShowDTO extends BaseEventDTO {
 }
 
 export interface AfterGuestsNoShowDTO extends BaseEventDTO {
-  triggerEvent: typeof WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW;
+  triggerEvent: typeof WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW;
   bookingId: number;
   webhook: {
     id: string;

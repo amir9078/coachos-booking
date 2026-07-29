@@ -14,7 +14,7 @@ import { BaseMeetingPayloadBuilder } from "../../base/BaseMeetingPayloadBuilder"
  *
  * Handles:
  * - MEETING_STARTED / MEETING_ENDED: Full booking data in payload
- * - AFTER_HOSTS_coachos_VIDEO_NO_SHOW / AFTER_GUESTS_coachos_VIDEO_NO_SHOW: bookingId and webhook info
+ * - AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW / AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW: bookingId and webhook info
  */
 export class MeetingPayloadBuilder extends BaseMeetingPayloadBuilder {
   /**
@@ -25,8 +25,8 @@ export class MeetingPayloadBuilder extends BaseMeetingPayloadBuilder {
   ): WebhookPayload {
     // Handle no-show events (different payload structure)
     if (
-      dto.triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW ||
-      dto.triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+      dto.triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW ||
+      dto.triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
     ) {
       const noShowDto = dto as AfterHostsNoShowDTO | AfterGuestsNoShowDTO;
       return {

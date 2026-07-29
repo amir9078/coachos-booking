@@ -129,7 +129,7 @@ export const useEventTypeForm = ({
       includeNoShowInRRCalculation: eventType.includeNoShowInRRCalculation,
       useEventLevelSelectedCalendars: eventType.useEventLevelSelectedCalendars,
       customReplyToEmail: eventType.customReplyToEmail || null,
-      calVideoSettings: eventType.calVideoSettings,
+      coachosVideoSettings: eventType.coachosVideoSettings,
       maxActiveBookingsPerBooker: eventType.maxActiveBookingsPerBooker || null,
       maxActiveBookingPerBookerOfferReschedule: eventType.maxActiveBookingPerBookerOfferReschedule,
       showOptimizedSlots: eventType.showOptimizedSlots ?? false,
@@ -167,7 +167,7 @@ export const useEventTypeForm = ({
           offsetStart: z.union([z.string().transform((val) => +val), z.number()]).optional(),
           bookingFields: eventTypeBookingFieldsSchema,
           locations: locationsResolver(t),
-          calVideoSettings: z
+          coachosVideoSettings: z
             .object({
               redirectUrlOnExit: z.string().url().nullish(),
               disableRecordingForOrganizer: z.boolean().nullable(),

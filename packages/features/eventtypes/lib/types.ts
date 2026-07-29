@@ -182,7 +182,7 @@ export type FormValues = {
   restrictionScheduleId: number | null;
   useBookerTimezone: boolean;
   restrictionScheduleName: string | null;
-  calVideoSettings?: CalVideoSettings;
+  coachosVideoSettings?: CoachOSVideoSettings;
   maxActiveBookingPerBookerOfferReschedule: boolean;
   enablePerHostLocations: boolean;
   requiresCancellationReason?: CancellationReasonRequirement | null;
@@ -408,7 +408,7 @@ export type EventTypeUpdateInput = {
   updatedAt?: Date | null;
 
   // Extended fields (all optional due to .partial())
-  calVideoSettings?: CalVideoSettings;
+  coachosVideoSettings?: CoachOSVideoSettings;
   customInputs?: CustomInputSchema[];
   destinationCalendar?: DestinationCalendarInput;
   users?: number[];
@@ -482,7 +482,7 @@ export interface EventTypePlatformWrapperRef {
   handleFormSubmit: (callbacks?: { onSuccess?: () => void; onError?: (error: Error) => void }) => void;
 }
 
-export type CalVideoSettings = {
+export type CoachOSVideoSettings = {
   disableRecordingForGuests?: boolean | null;
   disableRecordingForOrganizer?: boolean | null;
   enableAutomaticTranscription?: boolean | null;

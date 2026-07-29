@@ -37,7 +37,7 @@ async function handler(req: NextRequest) {
   }
 
   const bookingRepo = new BookingRepository(prisma);
-  const booking = await bookingRepo.findBookingIncludeCalVideoSettingsAndReferences({
+  const booking = await bookingRepo.findBookingIncludeCoachOSVideoSettingsAndReferences({
     bookingUid: guestData.bookingUid,
   });
 

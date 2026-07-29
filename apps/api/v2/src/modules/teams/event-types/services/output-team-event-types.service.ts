@@ -2,7 +2,7 @@ import { SchedulingType } from "@coachos/platform-libraries";
 import { EventTypeMetadata } from "@coachos/platform-libraries/event-types";
 import type { HostPriority, TeamEventTypeResponseHost } from "@coachos/platform-types";
 import type {
-  CalVideoSettings,
+  CoachOSVideoSettings,
   DestinationCalendar,
   EventType,
   Host,
@@ -24,7 +24,7 @@ type EventTypeRelations = {
     Team,
     "bannerUrl" | "name" | "logoUrl" | "slug" | "weekStart" | "brandColor" | "darkBrandColor" | "theme"
   > | null;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
 };
 export type DatabaseTeamEventType = EventType & EventTypeRelations;
 
@@ -81,7 +81,7 @@ type Input = Pick<
   | "hideCalendarEventDetails"
   | "hideOrganizerEmail"
   | "team"
-  | "calVideoSettings"
+  | "coachosVideoSettings"
   | "hidden"
   | "bookingRequiresAuthentication"
   | "rescheduleWithSameRoundRobinHost"

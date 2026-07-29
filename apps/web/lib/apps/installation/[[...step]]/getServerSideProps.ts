@@ -43,7 +43,7 @@ const eventTypeSelect: Prisma.EventTypeSelect = {
   userId: true,
   destinationCalendar: true,
   bookingFields: true,
-  calVideoSettings: true,
+  coachosVideoSettings: true,
   parentId: true,
 };
 

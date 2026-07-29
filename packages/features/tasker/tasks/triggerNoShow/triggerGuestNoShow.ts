@@ -75,7 +75,7 @@ export async function triggerGuestNoShow(payload: string): Promise<void> {
 
   const maxStartTime = calculateMaxStartTime(booking.startTime, webhook.time, webhook.timeUnit);
 
-  const requireEmailForGuests = booking.eventType?.calVideoSettings?.requireEmailForGuests ?? false;
+  const requireEmailForGuests = booking.eventType?.coachosVideoSettings?.requireEmailForGuests ?? false;
 
   if (requireEmailForGuests) {
     if (guestsThatDidntJoinTheCall.length > 0) {
@@ -92,7 +92,7 @@ export async function triggerGuestNoShow(payload: string): Promise<void> {
 
       await sendWebhookPayload(
         webhook,
-        WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingWithUpdatedData,
         maxStartTime,
         participants,
@@ -114,7 +114,7 @@ export async function triggerGuestNoShow(payload: string): Promise<void> {
 
       await sendWebhookPayload(
         webhook,
-        WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+        WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
         bookingWithUpdatedData,
         maxStartTime,
         participants,

@@ -16,7 +16,7 @@ import type { GetServerSidePropsContext } from "next";
 
 const md = new MarkdownIt("default", { html: true, breaks: true, linkify: true });
 
-type CalVideoSettings = {
+type CoachOSVideoSettings = {
   disableRecordingForGuests: boolean;
   disableRecordingForOrganizer: boolean;
   enableAutomaticTranscription: boolean;
@@ -28,68 +28,68 @@ type CalVideoSettings = {
 
 const shouldEnableRecordButton = ({
   hasTeamPlan,
-  calVideoSettings,
+  coachosVideoSettings,
   isOrganizer,
 }: {
   hasTeamPlan: boolean;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
   isOrganizer: boolean;
 }) => {
   if (!hasTeamPlan) return false;
-  if (!calVideoSettings) return true;
+  if (!coachosVideoSettings) return true;
 
   if (isOrganizer) {
-    return !calVideoSettings.disableRecordingForOrganizer;
+    return !coachosVideoSettings.disableRecordingForOrganizer;
   }
 
-  return !calVideoSettings.disableRecordingForGuests;
+  return !coachosVideoSettings.disableRecordingForGuests;
 };
 
 const shouldEnableAutomaticTranscription = ({
   hasTeamPlan,
-  calVideoSettings,
+  coachosVideoSettings,
 }: {
   hasTeamPlan: boolean;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
 }) => {
   if (!hasTeamPlan) return false;
-  if (!calVideoSettings) return false;
+  if (!coachosVideoSettings) return false;
 
-  return !!calVideoSettings.enableAutomaticTranscription;
+  return !!coachosVideoSettings.enableAutomaticTranscription;
 };
 
 const shouldEnableAutomaticRecording = ({
   hasTeamPlan,
-  calVideoSettings,
+  coachosVideoSettings,
   isOrganizer,
 }: {
   hasTeamPlan: boolean;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
   isOrganizer: boolean;
 }) => {
   if (!hasTeamPlan || !isOrganizer) return false;
-  if (!calVideoSettings) return false;
+  if (!coachosVideoSettings) return false;
 
-  return !!calVideoSettings.enableAutomaticRecordingForOrganizer;
+  return !!coachosVideoSettings.enableAutomaticRecordingForOrganizer;
 };
 
 const shouldEnableTranscriptionButton = ({
   hasTeamPlan,
-  calVideoSettings,
+  coachosVideoSettings,
   isOrganizer,
 }: {
   hasTeamPlan: boolean;
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
   isOrganizer: boolean;
 }) => {
   if (!hasTeamPlan) return false;
-  if (!calVideoSettings) return true;
+  if (!coachosVideoSettings) return true;
 
   if (isOrganizer) {
-    return !calVideoSettings.disableTranscriptionForOrganizer;
+    return !coachosVideoSettings.disableTranscriptionForOrganizer;
   }
 
-  return !calVideoSettings.disableTranscriptionForGuests;
+  return !coachosVideoSettings.disableTranscriptionForGuests;
 };
 
 const checkIfUserIsHost = async ({
@@ -122,7 +122,7 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { req } = context;
 
   const bookingRepo = new BookingRepository(prisma);
-  const booking = await bookingRepo.findBookingIncludeCalVideoSettingsAndReferences({
+  const booking = await bookingRepo.findBookingIncludeCoachOSVideoSettingsAndReferences({
     bookingUid: context.query.uid as string,
   });
 
@@ -256,24 +256,24 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 
   const showRecordingButton = shouldEnableRecordButton({
     hasTeamPlan: !!hasTeamPlan,
-    calVideoSettings: bookingObj.eventType?.calVideoSettings,
+    coachosVideoSettings: bookingObj.eventType?.coachosVideoSettings,
     isOrganizer,
   });
 
   const enableAutomaticTranscription = shouldEnableAutomaticTranscription({
     hasTeamPlan: !!hasTeamPlan,
-    calVideoSettings: bookingObj.eventType?.calVideoSettings,
+    coachosVideoSettings: bookingObj.eventType?.coachosVideoSettings,
   });
 
   const enableAutomaticRecordingForOrganizer = shouldEnableAutomaticRecording({
     hasTeamPlan: !!hasTeamPlan,
-    calVideoSettings: bookingObj.eventType?.calVideoSettings,
+    coachosVideoSettings: bookingObj.eventType?.coachosVideoSettings,
     isOrganizer,
   });
 
   const showTranscriptionButton = shouldEnableTranscriptionButton({
     hasTeamPlan: !!hasTeamPlan,
-    calVideoSettings: bookingObj.eventType?.calVideoSettings,
+    coachosVideoSettings: bookingObj.eventType?.coachosVideoSettings,
     isOrganizer,
   });
 
@@ -302,9 +302,9 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
       showTranscriptionButton,
       rediectAttendeeToOnExit: isOrganizer
         ? undefined
-        : bookingObj.eventType?.calVideoSettings?.redirectUrlOnExit,
+        : bookingObj.eventType?.coachosVideoSettings?.redirectUrlOnExit,
       overrideName: Array.isArray(context.query.name) ? context.query.name[0] : context.query.name,
-      requireEmailForGuests: bookingObj.eventType?.calVideoSettings?.requireEmailForGuests ?? false,
+      requireEmailForGuests: bookingObj.eventType?.coachosVideoSettings?.requireEmailForGuests ?? false,
       isLoggedInUserPartOfMeeting: isAttendee || isOrganizer,
     },
   };

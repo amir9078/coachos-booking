@@ -43,7 +43,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
   const subscribersHostsNoShowStarted = await getWebhooks({
     userId: triggerForUser ? organizerUser.id : null,
     eventTypeId,
-    triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+    triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
     teamId,
     orgId,
     oAuthClientId,
@@ -58,7 +58,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
         return tasker.create(
           "triggerHostNoShowWebhook",
           {
-            triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
+            triggerEvent: WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
             bookingId: booking.id,
             // Prevents null values from being serialized
             webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit },
@@ -73,7 +73,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
   const subscribersGuestsNoShowStarted = await getWebhooks({
     userId: triggerForUser ? organizerUser.id : null,
     eventTypeId,
-    triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+    triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
     teamId,
     orgId,
     oAuthClientId,
@@ -89,7 +89,7 @@ const _scheduleNoShowTriggers = async (args: ScheduleNoShowTriggersArgs) => {
         return tasker.create(
           "triggerGuestNoShowWebhook",
           {
-            triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+            triggerEvent: WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
             bookingId: booking.id,
             // Prevents null values from being serialized
             webhook: { ...webhook, time: webhook.time, timeUnit: webhook.timeUnit },

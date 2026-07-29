@@ -83,8 +83,8 @@ const TRIGGER_TO_BUILDER_CATEGORY: Record<WebhookTriggerEvents, BuilderCategory>
   // Meeting events
   [WebhookTriggerEvents.MEETING_STARTED]: "meeting",
   [WebhookTriggerEvents.MEETING_ENDED]: "meeting",
-  [WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW]: "meeting",
-  [WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW]: "meeting",
+  [WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW]: "meeting",
+  [WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW]: "meeting",
 
   // Delegation events (enterprise feature removed, mapped to booking as fallback)
   [WebhookTriggerEvents.DELEGATION_CREDENTIAL_ERROR]: "booking",
@@ -116,8 +116,8 @@ export type RecordingTriggerEvents =
 export type MeetingTriggerEvents =
   | typeof WebhookTriggerEvents.MEETING_STARTED
   | typeof WebhookTriggerEvents.MEETING_ENDED
-  | typeof WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
-  | typeof WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW;
+  | typeof WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW
+  | typeof WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW;
 
 /**
  * Factory that routes to version-specific payload builders

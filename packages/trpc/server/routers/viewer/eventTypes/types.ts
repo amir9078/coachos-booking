@@ -1,5 +1,5 @@
 import type {
-  CalVideoSettings,
+  CoachOSVideoSettings,
   ChildInput,
   DestinationCalendarInput,
   EventTypeUpdateInput,
@@ -35,7 +35,7 @@ const hashedLinkInputSchema: z.ZodType<HashedLinkInput> = z
   })
   .strict();
 
-const calVideoSettingsSchema: z.ZodType<CalVideoSettings | undefined> = z
+const coachosVideoSettingsSchema: z.ZodType<CoachOSVideoSettings | undefined> = z
   .object({
     disableRecordingForGuests: z.boolean().nullish(),
     disableRecordingForOrganizer: z.boolean().nullish(),
@@ -194,7 +194,7 @@ const BaseEventTypeUpdateInput: z.ZodType<TUpdateInputSchema> = z
     updatedAt: z.coerce.date().nullable().optional(),
 
     // Extended fields
-    calVideoSettings: calVideoSettingsSchema,
+    coachosVideoSettings: coachosVideoSettingsSchema,
     customInputs: z.array(customInputSchema).optional(),
     destinationCalendar: destinationCalendarInputSchema.optional(),
     users: z.array(z.number()).optional(),

@@ -28,7 +28,7 @@ import {
   BusinessDaysWindow_2024_06_14,
   CalendarDaysWindow_2024_06_14,
   RangeWindow_2024_06_14,
-  CalVideoSettings,
+  CoachOSVideoSettings,
 } from "../inputs";
 import { Recurrence_2024_06_14 } from "../inputs";
 import { BookerLayouts_2024_06_14 } from "../inputs/booker-layouts.input";
@@ -444,12 +444,12 @@ class BaseEventTypeOutput_2024_06_14 {
 
   @IsOptional()
   @ValidateNested()
-  @Type(() => CalVideoSettings)
+  @Type(() => CoachOSVideoSettings)
   @ApiPropertyOptional({
     description: "CoachOS Meet settings for the event type",
-    type: CalVideoSettings,
+    type: CoachOSVideoSettings,
   })
-  calVideoSettings?: CalVideoSettings | null;
+  coachosVideoSettings?: CoachOSVideoSettings | null;
 
   @IsOptional()
   @IsBoolean()

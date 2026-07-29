@@ -16,7 +16,7 @@ export class EventTypesRepository_2024_06_14 {
     userId: number,
     body: Omit<InputEventTransformed_2024_06_14, "destinationCalendar">
   ) {
-    const { calVideoSettings, ...restBody } = body;
+    const { coachosVideoSettings, ...restBody } = body;
 
     return this.dbWrite.prisma.eventType.create({
       data: {
@@ -25,9 +25,9 @@ export class EventTypesRepository_2024_06_14 {
         locations: body.locations,
         bookingFields: body.bookingFields,
         users: { connect: { id: userId } },
-        ...(calVideoSettings && {
-          calVideoSettings: {
-            create: calVideoSettings,
+        ...(coachosVideoSettings && {
+          coachosVideoSettings: {
+            create: coachosVideoSettings,
           },
         }),
       },
@@ -144,7 +144,7 @@ export class EventTypesRepository_2024_06_14 {
         users: this.usersInclude,
         schedule: true,
         destinationCalendar: true,
-        calVideoSettings: true,
+        coachosVideoSettings: true,
       },
     });
   }
@@ -156,7 +156,7 @@ export class EventTypesRepository_2024_06_14 {
         users: this.usersInclude,
         schedule: true,
         destinationCalendar: true,
-        calVideoSettings: true,
+        coachosVideoSettings: true,
         hosts: true,
       },
     });

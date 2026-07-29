@@ -155,7 +155,7 @@ export class EventTypeRepository implements IEventTypesRepository {
     return await this.prismaClient.eventType.create({
       data: this.generateCreateEventTypeData(data),
       include: {
-        calVideoSettings: true,
+        coachosVideoSettings: true,
       },
     });
   }
@@ -776,7 +776,7 @@ export class EventTypeRepository implements IEventTypesRepository {
       maxLeadThreshold: true,
       includeNoShowInRRCalculation: true,
       useEventLevelSelectedCalendars: true,
-      calVideoSettings: {
+      coachosVideoSettings: {
         select: {
           disableRecordingForGuests: true,
           disableRecordingForOrganizer: true,
@@ -1056,7 +1056,7 @@ export class EventTypeRepository implements IEventTypesRepository {
       maxLeadThreshold: true,
       includeNoShowInRRCalculation: true,
       useEventLevelSelectedCalendars: true,
-      calVideoSettings: {
+      coachosVideoSettings: {
         select: {
           disableRecordingForGuests: true,
           disableRecordingForOrganizer: true,

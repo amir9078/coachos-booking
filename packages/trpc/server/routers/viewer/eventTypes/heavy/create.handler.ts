@@ -49,7 +49,7 @@ export const createHandler = async ({ ctx, input }: CreateOptions) => {
     metadata,
     locations: inputLocations,
     scheduleId,
-    calVideoSettings,
+    coachosVideoSettings,
     ...rest
   } = input;
 
@@ -85,17 +85,17 @@ export const createHandler = async ({ ctx, input }: CreateOptions) => {
     schedule: scheduleId ? { connect: { id: scheduleId } } : undefined,
   };
 
-  if (isCoachosMeetLocationActive && calVideoSettings) {
-    data.calVideoSettings = {
+  if (isCoachosMeetLocationActive && coachosVideoSettings) {
+    data.coachosVideoSettings = {
       create: {
-        disableRecordingForGuests: calVideoSettings.disableRecordingForGuests ?? false,
-        disableRecordingForOrganizer: calVideoSettings.disableRecordingForOrganizer ?? false,
-        enableAutomaticTranscription: calVideoSettings.enableAutomaticTranscription ?? false,
-        enableAutomaticRecordingForOrganizer: calVideoSettings.enableAutomaticRecordingForOrganizer ?? false,
-        disableTranscriptionForGuests: calVideoSettings.disableTranscriptionForGuests ?? false,
-        disableTranscriptionForOrganizer: calVideoSettings.disableTranscriptionForOrganizer ?? false,
-        redirectUrlOnExit: calVideoSettings.redirectUrlOnExit ?? null,
-        requireEmailForGuests: calVideoSettings.requireEmailForGuests ?? false,
+        disableRecordingForGuests: coachosVideoSettings.disableRecordingForGuests ?? false,
+        disableRecordingForOrganizer: coachosVideoSettings.disableRecordingForOrganizer ?? false,
+        enableAutomaticTranscription: coachosVideoSettings.enableAutomaticTranscription ?? false,
+        enableAutomaticRecordingForOrganizer: coachosVideoSettings.enableAutomaticRecordingForOrganizer ?? false,
+        disableTranscriptionForGuests: coachosVideoSettings.disableTranscriptionForGuests ?? false,
+        disableTranscriptionForOrganizer: coachosVideoSettings.disableTranscriptionForOrganizer ?? false,
+        redirectUrlOnExit: coachosVideoSettings.redirectUrlOnExit ?? null,
+        requireEmailForGuests: coachosVideoSettings.requireEmailForGuests ?? false,
       },
     };
   }

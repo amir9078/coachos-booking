@@ -21,8 +21,8 @@ const SCHEDULING_TRIGGER: WebhookTriggerEvents[] = [
 ];
 
 const NO_SHOW_TRIGGERS: WebhookTriggerEvents[] = [
-  WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW,
-  WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW,
+  WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW,
+  WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW,
 ];
 
 const log = logger.getSubLogger({ prefix: ["[node-scheduler]"] });
@@ -606,9 +606,9 @@ export async function cancelNoShowTasksForBooking({
   if (bookingUid) {
     if (triggerEvent && !NO_SHOW_TRIGGERS.includes(triggerEvent)) return;
 
-    if (triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW) {
+    if (triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW) {
       await tasker.cancelWithReference(bookingUid, "triggerHostNoShowWebhook");
-    } else if (triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW) {
+    } else if (triggerEvent === WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW) {
       await tasker.cancelWithReference(bookingUid, "triggerGuestNoShowWebhook");
     } else {
       await prisma.task.deleteMany({
@@ -645,8 +645,8 @@ export async function scheduleNoShowTaskForBooking(
   if (!isCoachosMeetLocation) return;
 
   if (
-    triggerEvent !== WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW &&
-    triggerEvent !== WebhookTriggerEvents.AFTER_GUESTS_coachos_VIDEO_NO_SHOW
+    triggerEvent !== WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW &&
+    triggerEvent !== WebhookTriggerEvents.AFTER_GUESTS_COACHOS_VIDEO_NO_SHOW
   )
     return;
 
@@ -655,7 +655,7 @@ export async function scheduleNoShowTaskForBooking(
     .toDate();
 
   const taskType =
-    triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_coachos_VIDEO_NO_SHOW
+    triggerEvent === WebhookTriggerEvents.AFTER_HOSTS_COACHOS_VIDEO_NO_SHOW
       ? "triggerHostNoShowWebhook"
       : "triggerGuestNoShowWebhook";
   const version = (webhook.version as WebhookVersion) ?? DEFAULT_WEBHOOK_VERSION;

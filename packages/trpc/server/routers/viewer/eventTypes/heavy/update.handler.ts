@@ -1,7 +1,7 @@
 import type { appDataSchemas } from "@coachos/app-store/apps.schemas.generated";
 import { CoachosMeetLocationType } from "@coachos/app-store/constants";
 import { eventTypeAppMetadataOptionalSchema } from "@coachos/app-store/zod-utils";
-import { CalVideoSettingsRepository } from "@coachos/features/calVideoSettings/repositories/CalVideoSettingsRepository";
+import { CoachOSVideoSettingsRepository } from "@coachos/features/coachosVideoSettings/repositories/CoachOSVideoSettingsRepository";
 import { HashedLinkRepository } from "@coachos/features/hashedLink/lib/repository/HashedLinkRepository";
 import { HashedLinkService } from "@coachos/features/hashedLink/lib/service/HashedLinkService";
 import { MembershipRepository } from "@coachos/features/membership/repositories/MembershipRepository";
@@ -89,7 +89,7 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
     title: newTitle,
     seatsPerTimeSlot,
     restrictionScheduleId,
-    calVideoSettings,
+    coachosVideoSettings,
     hostGroups,
     enablePerHostLocations,
     ...rest
@@ -118,7 +118,7 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
           isFixed: true,
         },
       },
-      calVideoSettings: {
+      coachosVideoSettings: {
         select: {
           disableRecordingForOrganizer: true,
           disableRecordingForGuests: true,
@@ -647,10 +647,10 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
     }
   }
 
-  if (calVideoSettings) {
-    await CalVideoSettingsRepository.createOrUpdateCalVideoSettings({
+  if (coachosVideoSettings) {
+    await CoachOSVideoSettingsRepository.createOrUpdateCoachOSVideoSettings({
       eventTypeId: id,
-      calVideoSettings,
+      coachosVideoSettings,
     });
   }
 
@@ -661,8 +661,8 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
     : parsedEventTypeLocations.success &&
       parsedEventTypeLocations.data?.some((location) => location.type === CoachosMeetLocationType);
 
-  if (eventType.calVideoSettings && !isCoachosMeetLocationActive) {
-    await CalVideoSettingsRepository.deleteCalVideoSettings(id);
+  if (eventType.coachosVideoSettings && !isCoachosMeetLocationActive) {
+    await CoachOSVideoSettingsRepository.deleteCoachOSVideoSettings(id);
   }
 
   // Logic for updating `fieldTranslations`
@@ -729,15 +729,15 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
     return acc;
   }, {});
 
-  // Determine calVideoSettings to pass to children:
-  // - If calVideoSettings provided in input, sync to children
+  // Determine coachosVideoSettings to pass to children:
+  // - If coachosVideoSettings provided in input, sync to children
   // - If CoachOS Meet location removed, delete from children (pass null)
   // - Otherwise, leave children's settings untouched (pass undefined)
-  let calVideoSettingsForChildren: typeof calVideoSettings | null | undefined;
-  if (calVideoSettings !== undefined) {
-    calVideoSettingsForChildren = calVideoSettings;
-  } else if (eventType.calVideoSettings && !isCoachosMeetLocationActive) {
-    calVideoSettingsForChildren = null;
+  let coachosVideoSettingsForChildren: typeof coachosVideoSettings | null | undefined;
+  if (coachosVideoSettings !== undefined) {
+    coachosVideoSettingsForChildren = coachosVideoSettings;
+  } else if (eventType.coachosVideoSettings && !isCoachosMeetLocationActive) {
+    coachosVideoSettingsForChildren = null;
   }
 
   // Handling updates to children event types (managed events types)
@@ -750,7 +750,7 @@ export const updateHandler = async ({ ctx, input }: UpdateOptions) => {
     profileId: ctx.user.profile.id,
     prisma: ctx.prisma,
     updatedValues,
-    calVideoSettings: calVideoSettingsForChildren,
+    coachosVideoSettings: coachosVideoSettingsForChildren,
   });
 
   // Clean up empty host groups
